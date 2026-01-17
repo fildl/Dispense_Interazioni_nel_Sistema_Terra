@@ -1,0 +1,2738 @@
+\documentclass[a4paper,12pt]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian, british]{babel}
+\usepackage[letterpaper,top=1.9cm,bottom=2cm,left=2.2cm,right=2.2cm,marginparwidth=1.7cm]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{soul}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{sidecap}
+\usepackage{siunitx}
+\usepackage{wrapfig}
+\usepackage{subfigure}
+%\usepackage{subfig}
+\usepackage{subcaption}
+\usepackage{ragged2e} 
+\usepackage[export]{adjustbox}
+\usepackage{multirow}
+\usepackage{wallpaper}
+\usepackage[table]{xcolor}
+\usepackage[font=scriptsize]{caption}
+\hypersetup{colorlinks=true, linkcolor=black}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[LE,RO]{\leftmark} % mostra il nome del capitolo in alto
+\fancyfoot[C]{\thepage} % numero di pagina in basso al centro
+
+%\setlength{\abovecaptionskip}{2pt}
+
+\definecolor{colore1}{RGB}{173,216,230}  % Azzurro chiaro  
+\definecolor{colore2}{RGB}{43,53,255}    % Blu intenso      
+\definecolor{colore3}{RGB}{0,213,213}    % Turchese        
+\definecolor{colore4}{RGB}{60,255,30}    % Verde brillante  
+\definecolor{colore5}{RGB}{244,244,0}    % Giallo brillante 
+\definecolor{colore6}{RGB}{255,128,64}   % Arancione        
+\definecolor{colore7}{RGB}{255,0,0}      % Rosso                    
+\definecolor{colore8}{RGB}{128,0,0}      % Bordeaux              
+\definecolor{colore9}{RGB}{255,0,255}    % Magenta               
+\definecolor{colore0}{RGB}{255,255,245}  % panna                      
+
+%\pagecolor{colore0} 
+
+\begin{document}
+
+\title{Riassunto Interazioni nel Sistema Terra}
+\author{Paolo Valzelli}
+\date{\today}
+\maketitle
+
+\tableofcontents
+\clearpage
+
+\chapter{Informazioni Generali sul Corso}
+
+\noindent------------------------------------------------------------------------------------------------------------------------------
+
+\section{Sito del Corso}
+
+\subsection{Contenuti}
+
+Nella prima parte del corso (\textcolor{colore2}{in seguito indicata in blu}) verranno presi in esame i dati e le osservazioni che mettono in luce le interazioni fra la Terra Solida e altre componenti del Sistema Terra, su varie scale di spazio e di tempo. 
+Saranno considerate evidenze geofisiche, legate ad esempio alla geodinamica globale, alle variazioni del volume degli oceani, alle deformazioni della crosta terrestre causate da variazioni di massa dei ghiacci continentali, all’evoluzione temporale della criosfera, ai fenomeni isostatici, etc.
+
+Nella seconda parte (\textcolor{colore7}{in seguito indicata in rosso}) saranno descritte le teorie e i modelli fisici utili alla descrizione quantitativa dei fenomeni che scaturiscono dalle interazioni evidenziate nella prima parte.
+Saranno toccati vari argomenti, fra i quali la forma della Terra, il campo di gravità e le sue variazioni, la reologia dei materiali geofisici, la risposta della Terra a redistribuzioni di massa alla sua superficie, la rotazione terrestre, l’Equazione del Livello Marino, etc.
+
+Nella terza parte del corso (\textcolor{colore4}{in seguito indicata in verde}) verranno infine proposte esercitazioni basate su codici numerici di calcolo open source, di facile utilizzo e ben documentati, che descrivono l’interazione fra Terra Solida, Oceani e Criosfera, sviluppati dal docente nel corso degli anni. 
+In questo modo gli studenti avranno la possibilità di confrontare direttamente le predizioni modellistiche con le osservazioni geofisiche e geodetiche a disposizione. 
+
+\subsection{Modalità di verifica e valutazione dell'apprendimento}
+
+La verifica consiste in un esame orale finale, fissato su appuntamento con il docente. 
+Allo studente sarà chiesto di discutere tre argomenti ampi (come, per esempio, la reologia) fra quelli trattati nel corso. 
+L'esame ha una durata di 30-40 minuti.
+Lo studente potrà preparare uno dei tre argomenti sotto forma di breve dissertazione scritta (per esempio, tramite una presentazione PowerPoint di 10 minuti e 10 slide, un file Word o altro) in cui si può partire da un argomento affrontato a lezione e finire per trattare tematiche relative ad altri corsi.
+
+\chapter{Lezioni}
+
+\section{\textcolor{colore2}{Introduzione}}
+
+Con \textbf{Earth System Science} (ESS) si fa riferimento ad un campo di studio interdisciplinare che studia interazioni e retroazioni (\textit{feedback}) tra varie sfere del sistema Terra, attraverso flussi di massa ed energia, cicli e processi.
+
+\noindent I cinque sistemi principali della Terra sono:
+
+\begin{itemize}
+    \item \textit{geosfera}, con cui si fa riferimento alle parti solide della Terra, mentre \textit{litosfera} indica solo gli strati più superficiali (crosta continentale e oceanica e la parte più superficiale del mantello);
+    \item \textit{biosfera};
+    \item \textit{idrosfera};
+    \item \textit{atmosfera};
+    \item \textit{criosfera}, che può essere vista come una parte dell'idrosfera.
+\end{itemize} 
+
+Nella fisica aristotelica la geosfera indicava le quattro sfere concentriche relative agli elementi.
+
+Alcuni esempi di interazioni nel sistema Terra:
+
+\begin{itemize}
+    \item Apertura del Passaggio di Drake;
+    \item Feedback albedo;
+    \item Aggiustamento glaciale isostatico;
+    \item Dinamica interna della Terra.
+\end{itemize}
+
+\subsection{\textcolor{colore2}{Apertura del Passaggio di Drake}}
+
+Il Passaggio di Drake si trova nella placca litosferica di Scotia, geodinamicamente molto attiva.
+Si è aperto circa 40 milioni di anni fa a causa della tettonica delle placche, alterando la circolazione oceanica a causa della formazione di una corrente di acqua fredda che ha isolato geograficamente l'Antartide, portando alla formazione della calotta polare, alterando così il bilancio radiativo globale e dunque il clima e le risposte degli habitat e delle forme di vita.
+
+\subsection{\textcolor{colore2}{Feedback albedo}}
+
+Si tratta di un feedback positivo che oggi è facilmente osservabile in Groenlandia, dove la diminuzione dell'albedo degli ultimi decenni incide sulla temperatura del pianeta.
+Ha un ruolo importante nei cambiamenti climatici, che porta all'aumento della frazione assorbita di radiazione solare.
+
+Un altro meccanismo di feedback positivo è il processo di inscurimento del ghiaccio, dovuto alla presenza di alghe sulla superficie, che aumenta insieme alla temperatura e porta ad un'ulteriore diminuzione dell'albedo.
+
+Oltre al ghiaccio terrestre, si osserva una notevole diminuzione anche in quello marino, che sta attualmente subendo un declino di circa il 13\% per decennio e che sta accelerando.
+
+La perdita di ghiaccio della Groenlandia si misura anche grazie alle variazioni gravitazionali (-286 $\pm$ 21 Gt all'anno, che corrispondono a circa 1 mm di livello marino equivalente) e risulta maggiore del doppio di quella sperimentata dall'Antartide.
+L'aumento di livello marino equivalente complessivo si attesta intorno a circa 3 mm all'anno ed è dovuto sia allo scioglimento dei ghiacci, sia alla dilatazione termica dell'acqua marina.
+
+\subsection{\textcolor{colore2}{Aggiustamento glaciale isostatico}}
+
+Durante l'\textit{Ultimo Massimo Glaciale}, circa 21'000 anni fa, la temperatura media era inferiore a quella attuale di circa 6 °C.
+Il livello marino è aumentato da allora di circa 130 metri, ma con grandi differenze tra diverse zone del pianeta, a causa dell'innalzamento del terreno dovuto al \textit{rimbalzo post-glaciale}, una manifestazione dell'assestamento isostatico.
+
+Negli anni Settanta, grazie all'osservazione di questo fenomeno, è stato possibile determinare delle proprietà meccaniche dell'interno della Terra.
+Grazie ai mareografi sono disponibili misure dell'andamento glaceoisostatico degli ultimi 150 anni in diverse regioni del mondo.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{sea_level_variability.png}
+    \caption{Interazioni fra scioglimento dei ghiacci e livello marino.}
+    \label{fig:sea_level_variability}
+\end{figure}
+
+Un \textit{modello di aggiustamento isostatico} si basa sulla conoscenza della storia dei carichi di ghiacci e oceani, un modello reologico della Terra e un'equazione del livello marino.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{post-glacial_rebound.png}
+    \caption{Rimbalzo post-glaciale.}
+    \label{fig:post-glacial_rebound}
+\end{figure}
+
+\subsection{\textcolor{colore2}{Dinamica interna della Terra}}
+
+Arthur Holmes fu il primo a ipotizzare, nel 1944, che all'interno del mantello terrestre l'energia fosse scambiata per convezione e che fosse possibile osservarne le conseguenze sulla superficie.
+
+\noindent \textbf{Equazioni della convezione nel mantello terrestre}
+
+\begin{itemize}
+    \item Continuità (per un fluido incomprimibile): $\nabla \cdot \vec{v} = 0 $;
+    \item Conservazione della quantità di moto (per un fluido Newtoniano): $- \nabla P + \eta \nabla^2 \vec{v} + \rho' \vec{g} = 0$, dove $\eta$ rappresenta la viscosità Newtoniana, $P$ la pressione e $\rho'$ la variazione nella densità del fluido;
+    \item Equazione di stato: $\rho' = - \rho_0 \alpha_v (T - T_0)$, dove $\rho_0$ è la densità alla temperatura $T_0$ e $\alpha_v$ il coefficiente di dilatazione termica;
+    \item Conservazione dell'energia: $\frac{\partial T}{\partial t} + (\vec{v} \cdot \nabla) T = \kappa \nabla^2 T$, dove $\kappa$ è la diffusività termica.
+\end{itemize}
+
+\noindent In un fluido stratificato in base alla temperatura, si ha convezione se la forza di galleggiamento supera quelle di attrito viscoso e di diffusione del calore.
+Il rapporto fra le forze è indicato dal \textit{numero di Rayleigh}:
+
+\begin{equation}
+    Ra = \frac{Galleggiamento}{Resistenza} = \frac{\alpha \Delta T g \rho d^3}{\eta \kappa}
+    \label{eq:Rayleigh}
+\end{equation}
+
+dove:
+\begin{itemize}
+    \item $\alpha$ rappresenta il coefficiente di espansione termica;
+    \item $d$ rappresenta lo spessore del volume in cui avviene la convezione;
+    \item $\eta$ rappresenta la viscosità del fluido;
+    \item $\kappa$ rappresenta la diffusività termica.
+\end{itemize}
+
+\noindent Le celle convettive si formano se il numero di Rayleigh del sistema supera il valore critico di circa 2000.
+All'interno del mantello si stima un valore compreso tra 20'000 e 30'000, per cui ci si aspetta che avvenga la convezione, alimentata dal gradiente termico e dal decadimento degli isotopi radioattivi.
+Le celle convettive interagiscono con le placche tettoniche e la litosfera modifica i pattern delle celle convettive.
+
+\noindent \textbf{Forze agenti sul moto delle placche}
+
+Nel 1994 Uyeda iniziò a modellare le forze agenti sul sistema, considerando la subduzione dovuta allo sprofondamento delle placche, ma si hanno ancora delle domande aperte:
+
+\begin{itemize}
+    \item La convezione avviene in tutto il mantello?
+    \item Sono presenti due o più strati separati in cui avviene la convezione?
+    Una possibile prova del fatto che esistano almeno due strati è data dal fatto che non sono mai stati osservati sismi originati a profondità maggiori di 700 km.
+    \item Prevalgono le celle convettive o i pennacchi (che attraversano il mantello in circa $10^8$ anni)?
+    \item La modalità di convezione nel mantello è cambiata nel corso della storia della Terra?
+    \item I moti delle placche sono consistenti con il moto del mantello?
+\end{itemize}
+
+\noindent Il flusso di calore attraverso la superficie della Terra è ovunque positivo, ma raggiunge i valori più elevati presso le dorsali oceaniche (fino a 450 $mW/m^2$).
+La distribuzione dei vulcani, lungo \textit{archi vulcanici} come quello in Indonesia o in Giappone, ricalca le zone di subduzione delle placche tettoniche.
+
+\section{\textcolor{colore7}{Richiami sulle funzioni armoniche}}
+
+Le funzioni armoniche permettono di studiare il campo di gravità della Terra e i fenomeni globali.
+
+\subsection{\textcolor{colore7}{Equazione di Laplace in coordinate sferiche}}
+
+Il \textit{Laplaciano} è un operatore differenziale del secondo ordine, definito come la divergenza del gradiente, $\nabla^2 f = \nabla \cdot (\nabla f)$, grazie al quale è possibile ricavare l'\textit{equazione di Laplace}:
+
+\begin{equation}
+    \nabla^2 f = 0
+    \label{eq:Laplace}
+\end{equation}
+
+\noindent Le soluzioni dell'equazione di Laplace sono dette \textbf{funzioni armoniche}.
+Un esempio è il potenziale gravitazionale all'esterno del pianeta.
+
+In coordinate sferiche, l'equazione di Laplace assume la forma:
+
+\begin{equation}
+    \frac{1}{r^2} \frac{\partial}{\partial r} \left(r^2 \frac{\partial f}{\partial r} \right) + \frac{1}{r^2 sin \theta} \frac{\partial}{\partial \theta} \left( sin \theta \frac{\partial f}{\partial \theta}\right) + \frac{1}{r^2 sin^2 \theta} \frac{\partial^2 f}{\partial \lambda^2} = 0
+    \label{eq:Laplace_sf}
+\end{equation}
+
+dove $f$ è una funzione del raggio $r$ (diretto verso l'esterno), della colatitudine $\theta$ (diretta verso sud) e della longitudine $\lambda$ (diretta verso est).
+
+\noindent Invece di separare le variabili, si può costruire la soluzione in maniera induttiva, partendo da funzioni semplici.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{coordinate_sferiche.png}
+    \caption{Legame tra coordinate cartesiane e sferiche.}
+    \label{fig:coordinate_sferiche}
+\end{figure}
+
+Si consideri un vettore nella forma sferica: $\boldsymbol{u} = u_r \hat{\boldsymbol{r}} + u_\theta \hat{\boldsymbol{\theta}} + u_\lambda \hat{\boldsymbol{\lambda}}$.
+Le componenti cartesiane sono date da una trasformazione ortogonale.
+
+%\begin{equation}
+%    \begin{bmatrix}
+%        u_x \\ u_y \\ u_z
+%    \end{bmatrix} = \begin{bmatrix}
+%        sin\theta cos\lambda & cos\theta cos\lambda & -sin\lambda \\ sin\theta sin\lambda & cos\theta sin\lambda & cos\lambda \\ cos\theta & -sin\theta & 0
+%    \end{bmatrix} \begin{bmatrix}
+%        u_r \\ u_\theta \\ u_\lambda
+%    \end{bmatrix}
+%    \label{eq:cartesiane_da_sferiche}
+%\end{equation}
+
+\subsection{\textcolor{colore7}{Polinomi di Legendre (LP)}}
+
+Si tratta di \textit{polinomi ortogonali classici}, su cui si fonda la soluzione dell'equazione di Laplace in coordinate sferiche.
+Sono funzioni armoniche unidimensionali e soluzioni dell'\textit{equazione di Legendre}:
+
+\begin{equation}
+    \frac{d}{dx} \left( (1 - x^2) \frac{dP_l(x)}{dx} \right) + l(l+1) P_l(x) = 0; -1 \le x \le 1 , l \in \mathbb{N}
+    \label{eq:Legendre}
+\end{equation}
+
+\noindent Sono polinomi di grado $l$ di parità definita da $l$, che all'aumentare del grado approssimano sempre di più delle funzioni trigonometriche, mostrando una \textit{lunghezza d'onda spaziale} $\lambda_l$ data dalla \textit{regola di Jeans}:
+
+\begin{equation}
+    \lambda_l \approx \frac{2 \pi a}{l + \frac{1}{2}} \xrightarrow{l \longrightarrow \infty} \frac{2 \pi a}{l}
+    \label{eq:Jeans}
+\end{equation}
+
+\textbf{Proprietà dei Polinomi di Legendre}
+
+\begin{enumerate}
+    \item Ortogonalità: nell'intervallo $0 \le \theta \le \pi$,
+    \begin{equation}
+        \int_0^\pi P_l(cos\theta) P_{l'} (cos\theta) sin\theta d\theta = \frac{2 \delta_{ll'}}{2l + 1}
+    \end{equation}
+    cioè gli LP sono mutualmente ortogonali;
+    \item Parità $P_l (1) = 1$ e $P_l (-1) = (-1)^l$;
+    \item Derivate traslate: $P_l (x) = \frac{P'_{l+1}(x) - P'_{l-1}(x)}{2l+1}, l \ge 1$;
+    \item Legame coi polinomi di Chebichev del secondo tipo;
+    \item Funzione generatrice degli LP;
+    \item Somma di Legendre: $\frac{1}{2 sin \left(\frac{\alpha}{2} \right)} \equiv \sum_{l=0}^\infty P_l (cos \alpha)$
+\end{enumerate}
+
+\noindent \textcolor{colore4}{\textbf{Distribuzione di massa sulla superficie di una sfera}}
+
+Si consideri una concentrazione di massa, \textbf{MASCON}, come un ghiacciaio, distribuita sulla superficie della sfera secondo la legge:
+
+\begin{equation}
+    h(\theta) = \begin{cases}
+        H & se \text{ } 0 \le \theta \le \alpha \\ 0 & altrimenti
+    \end{cases}}
+\end{equation}
+
+Si ha cioè un disco di spessore uniforme.
+
+\noindent Sfruttando le proprietà dei polinomi di Legendre, si possono trovare le costanti $h_l$ tali che $h(\theta) = \sum_{l=0}^\infty h_l P_l (cos \theta)$, cioè lo \textbf{sviluppo di $h(\theta)$ in serie di polinomi di Legendre}, in cui le costanti $h_l$ sono dette \textbf{coefficienti dello sviluppo}.
+Si tratta di un problema inverso.
+
+Il caso del cratere da impatto di Chicxulub è un esempio di applicazione di questo tipo di problemi.
+
+Integrando su tutta la sfera, si ottiene la seguente espressione analitica per i coefficienti dello sviluppo:
+
+\begin{equation}
+    h_l = \frac{2l + 1}{2} \int _0^\pi h(\theta) P_l (cos \theta) sin \theta d \theta
+\end{equation}
+
+La soluzione analitica ha la seguente forma:
+
+\begin{equation}
+    h_l = \frac{H}{2} \begin{cases}
+        1 - cos \alpha & \text{ se } l = 0 \\ P_{l-1} (cos \alpha) - P_{l+1} & \text{ se } l \ge 1
+    \end{cases}
+\end{equation}
+
+\noindent Si può inoltre modificare l'espressione di $h(\theta)$ in modo che la massa della Terra sia conservata.
+Questo caso può trovare un'applicazione nell'ambito dello scioglimento dei ghiacciai, che hanno una massa pari a quella che si ridistribuisce sulla superficie del pianeta.
+I dischi si usano anche per rappresentare la funzione Oceano.
+
+\noindent \textcolor{colore4}{\textbf{Mascon localizzato}}
+
+Si consideri una massa puntiforme localizzata sulla superficie della sfera tramite una funzione $\delta$ di Dirac:
+
+\begin{equation}
+    h(\theta) = H \delta (1 - cos \theta) = H \sum_{l=0}^\infty h_l P_l (cos \theta) = H \sum_{l=0}^\infty \frac{2l+1}{2} P_l (cos \theta)
+\end{equation}
+
+\noindent \textcolor{colore4}{\textbf{Valore medio dei polinomi di Legendre}}
+
+Si scopre che $P_0$ ha valore medio unitario, mentre tutti gli altri polinomi di Legendre hanno media nulla.
+
+\begin{equation}
+    \langle P_l (x) \rangle \equiv \frac{1}{2} \int _{-1} ^1 P_l (x) dx = \begin{cases}
+        1 & \text{ se } l = 0 \\ 0 & \text{ altrimenti}
+    \end{cases}
+\end{equation}
+
+\subsection{\textcolor{colore7}{Polinomi associati di Legendre}}
+
+Sono soluzioni dell'equazione di Laplace che permettono di scrivere una soluzione più generale dell'equazione di Legendre.
+Sono caratterizzati da un \textbf{grado} $l$ e da un \textbf{ordine} $m \le l$.
+Sono polinomi se $m$ è pari.
+Si costruiscono a partire dai polinomi di Legendre:
+
+\begin{equation}
+    P_{lm} (x) = (-1)^m (1 - x^2)^{m/2} \frac{d^m}{dx^m} P_l (x) \text{ , dove } x = cos \theta
+    \label{eq:polinomi_associati_legendre}
+\end{equation}
+
+dove il fattore $(-1)^m$ è detto \textbf{fase di Condon-Shortley} e in alcuni testi è omesso.
+Polinomi associati di Legendre diversi dello stesso ordine sono mutualmente ortogonali.
+
+\noindent \textcolor{colore7}{\textbf{Polinomi associati di Legendre normalizzati}}
+
+Sono spesso preferiti in geodesia e geofisica.
+Si ottengono riscalando i $P{lm}$ tramite la seguente relazione:
+
+\begin{equation}
+    \overline{P}_{lm} (x) = \sqrt{(2 - \delta _{0m}) (2l + 1) \frac{(l-m)!}{(l+m)!}} P_{lm} (x)
+\end{equation}
+ 
+\subsection{\textcolor{colore7}{Armoniche sferiche (di superficie) in forma complessa}}
+
+Note anche come "armoniche sferiche \textit{della meccanica quantistica}", sono state utilizzate poco in geodesia per via della grande potenza di calcolo richiesta, ma permettono una trattazione agevole dei calcoli teorici.
+Sono definite da:
+
+\begin{equation}
+    \mathcal{Y}_{lm} (\theta , \lambda) = \mu _{lm} P_{lm} (cos \theta) e^{im \lambda} \text{ , dove } m = -l, -l+1, ... , l-1, l \text{ e } \mu_{lm} \equiv \sqrt{(2l+1) \frac{(l-m)!}{(l+m)!}}
+    \label{eq:armoniche_sferiche_complesse}
+\end{equation}
+
+\noindent Per gli ordini negativi vale:
+
+\begin{equation}
+    \mathcal{Y}_{l-m} (\theta , \lambda) = (-1)^m \mathcal{Y}^*_{lm} (\theta , \lambda) 
+\end{equation}
+
+\noindent La scelta del coefficiente di normalizzazione fa sì che la condizione di ortonormalità sia data da:
+
+\begin{equation}
+    \int_\gamma \mathcal{Y}_{lm} (\gamma) \mathcal{Y}^*_{l'm'} (\gamma) d\gamma = 4 \pi \delta_{ll'} \delta_{mm'} 
+\end{equation}
+
+\noindent Mentre nel caso della meccanica quantistica, le armoniche sferiche sono normalizzate a 1.
+
+\noindent Con queste definizioni, si ottengono delle funzioni armoniche \textit{solide} di forma:
+
+\begin{equation}
+    f (r, \theta , \lambda) = r^l \mathcal{Y}_{lm} (\theta, \lambda) \text{ e } f (r, \theta , \lambda) = \frac{1}{r^{l+1}} \mathcal{Y}_{lm} (\theta, \lambda)
+    \label{eq:armoniche_solide}
+\end{equation}
+
+dove la prima è regolare in $r=0$, mentre la seconda diverge.
+
+\noindent Una soluzione generale dell'equazione di Laplace è data allora dalla combinazione lineare:
+
+\begin{equation}
+    F(r, \theta, \lambda) = \sum_{l=0}^\infty \sum_{m = -l}^l \left(a_{lm} r^l + \frac{b_{lm}}{r^{l+1}} \right) \mathcal{Y}_{lm} (\theta, \lambda)
+    \label{eq:soluzione_laplace}
+\end{equation}
+
+\noindent Questa espressione costituisce lo sviluppo in armoniche sferiche di $F$.
+Definendo $(a_{lm} r^l + b/ r^{l+1}) = f_{lm}$ si ottiene invece lo sviluppo in armoniche sferiche di superficie:
+
+\begin{equation}
+    F(\theta, \lambda) = \sum_{l=0}^\infty \sum_{m = -l}^l f_{lm} \mathcal{Y}_{lm} (\theta, \lambda)
+\end{equation}
+
+Si osserva un'importante analogia con lo spazio cartesiano: le armoniche sferiche sono la base ortonormale di uno spazio di dimensione infinita:
+
+\begin{equation}
+    \vec{v} = \sum_{i = 1}^3 v_i \hat{x}_i \longrightarrow f(\omega) = \sum_{lm} a_{lm} Y_{lm} (\omega)
+\end{equation}
+
+Le armoniche sferiche di grado 0 sono dette \textit{termini di monopolo}, quelle di grado 1 \textit{termini di dipolo} e quelle di grado 2 \textit{termini di quadrupolo}.
+
+Spesso si indicano le funzioni armoniche normalizzate a 1 con $Y_{lm}$ e quelle normalizzate a $4\pi$ con $\mathcal{Y}_{lm}$.
+
+\subsection{\textcolor{colore7}{Teorema di addizione}}
+
+Si consideri un osservatore sulla superficie della sfera, in posizione $P = (\theta, \lambda) = \gamma$, e una sorgente $S = (\theta', \lambda') = \gamma'$.
+Sia $\hat{\alpha}$ l'angolo tra $S$ e $P$.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{geometria_sferica.png}
+    \caption{Geometria utile all'enunciazione dei teoremi di addizione.}
+    \label{fig:geometria_sferica}
+\end{figure}
+
+\noindent Il \textbf{teorema di addizione} afferma che:
+
+\begin{equation}
+    P_l (cos \alpha) = \frac{1}{2l + 1} \sum_{m=-l}^l \mathcal{Y}^*_{lm} (\gamma') \mathcal{Y}_{lm} (\gamma)
+    \label{eq:addizione}
+\end{equation}
+
+Formule analoghe valgono anche per i gradienti.
+
+\subsection{\textcolor{colore7}{Armoniche sferiche in forma reale}}
+
+Sono una forma reale delle funzioni armoniche di superficie, che formano un sistema ortonormale completo di funzioni, di ampio utilizzo nelle applicazioni pratiche.
+La forma generica è:
+
+\begin{equation}
+    R_{lm} (\theta, \lambda) = (c_{lm} cos m \lambda + s_{lm} sin m \lambda ) P_{lm} (cos \theta)
+\end{equation}
+
+\noindent Si hanno tre tipi di armoniche sferiche:
+
+\begin{itemize}
+    \item Zonali (m=0), che si annullano su $l$ paralleli;
+    \item Tesserali (0 < m < l), che si annullano su $l-m$ paralleli e $2m$ meridiani;
+    \item Settoriali (m=l), che si annullano su $2m$ meridiani.
+\end{itemize}
+
+\noindent Le armoniche sferiche di grado 2 hanno un ruolo fondamentale nella descrizione delle maree.
+
+\subsection{\textcolor{colore7}{Sviluppo in serie di armoniche sferiche}}
+
+Le armoniche sferiche permettono di rappresentare ogni funzione che varia sulla superficie di una sfera tramite una combinazione lineare, in maniera analoga a come le serie di Fourier permettono di fare con le funzioni che variano nel tempo.
+
+%Il problema inverso costituito dal calcolo dei coefficienti $f_{lm}$ richiede di conoscere innanzitutto $f(\gamma)$ (spesso molto difficile in campo geofisico), poi di integrare $f(\gamma)$ sulla superficie della sfera, per ogni $(l,m)$.
+
+Si consideri la formula diretta:
+
+\begin{equation}
+    f(\gamma) = \sum _{lm} f_{lm} \mathcal{Y}_{lm} (\gamma)
+\end{equation}
+
+Si moltiplica per $\mathcal{Y}^*_{l'm'}(\gamma)$:
+
+\begin{equation}
+    f(\gamma) \mathcal{Y}^*_{l'm'}(\gamma) = \sum _{lm} f_{lm} \mathcal{Y}_{lm} (\gamma) \mathcal{Y}^*_{l'm'}(\gamma)
+\end{equation}
+
+Si integra sulla superficie della sfera:
+
+\begin{equation}
+    \int_\gamma f(\gamma) \mathcal{Y}^*_{l'm'}(\gamma) d \gamma = \sum _{lm} f_{lm} \int _\gamma \mathcal{Y}_{lm} (\gamma) \mathcal{Y}^*_{l'm'}(\gamma) d \gamma
+\end{equation}
+
+Si sfrutta la normalizzazione:
+
+\begin{equation}
+     \int_\gamma f(\gamma) \mathcal{Y}^*_{l'm'}(\gamma) d \gamma = 4 \pi \sum _{lm} f_{lm} \delta_{ll'} \delta_{mm'} = 4 \pi f_{l'm'}
+\end{equation}
+
+Si ricava così la formula inversa:
+
+\begin{equation}
+    f_{lm} = \frac{1}{4\pi} \int_\gamma f(\gamma) \mathcal{Y}^*_{lm} (\gamma) d\gamma
+\end{equation}
+
+Il problema inverso costituito dal calcolo dei coefficienti $f_{lm}$ richiede di conoscere la funzione $f(\gamma)$ su tutta la superficie della sfera, il che risulta spesso impossibile in campo geofisico. 
+Questo limita il calcolo di $f_{lm}$ e il valore di $l_{max}$ a un valore finito, che dipende dalla densità dei punti di griglia.
+Lo sviluppo complesso e quello reale sono equivalenti.
+
+\subsection{\textcolor{colore7}{Statistica sulla sfera}}
+
+Le oscillazioni spaziali delle armoniche sferiche non sono equispaziate, ma hanno una lunghezza caratteristica che si può stimare grazie alla \textit{Regola di Jeans} (vedi ~\ref{eq:Jeans}), dove $2\pi a \approx 40'000 km$.
+
+La media di una funzione $f(\gamma)$ sulla sfera unitaria è:
+
+\begin{equation}
+    \langle f (\gamma) \rangle \equiv \frac{1}{4 \pi} \int _\gamma f(\gamma) d\gamma \text{ , dove } d \gamma = sin \theta d \theta d \lambda 
+\end{equation}
+
+\noindent La formula deriva dalle proprietà dei polinomi di Legendre, per cui è possibile valutare immediatamente la media:
+
+\begin{equation}
+    \langle \mathcal{Y}_{lm} (\gamma) \rangle = \frac{1}{4 \pi} \int_\gamma \mathcal{Y}_{lm} (\gamma) d \gamma = \frac{1}{4 \pi} \int _\gamma \mathcal{Y}_{lm} (\gamma) \mathcal{Y}^*_{00} (\gamma) d \gamma = \delta _{l0} \delta _{m0}
+\end{equation}
+
+\noindent La media si può relazionare ai coefficienti dello svilupo:
+
+\begin{align}
+    \langle f (\gamma) \rangle &= \frac{1}{4 \pi} \int_\gamma f(\gamma)d\gamma = \frac{1}{4 \pi} \int_\gamma \left( \sum_{lm} f_{lm} \mathcal{Y}_{lm} (\gamma) \right)d\gamma \\ &= \frac{1}{4 \pi} \sum_{lm} f_{lm} \int_\gamma \mathcal{Y}_{lm} (\gamma) d\gamma = \sum_{lm} f_{lm} \langle \mathcal{Y}_{lm} \rangle = \sum_{lm} f_{lm} \delta_{l0} \delta_{m0} \\ &= f_{00} 
+\end{align}
+
+
+Solo $\mathcal{Y}_{00}$ ha media unitaria, le altre hanno media nulla.
+Se $f(\gamma)$ ha media nulla sulla superficie unitaria $\gamma$, allora nel suo sviluppo manca il termine $(l,m) = (0,0)$.
+
+\noindent La varianza di una funzione $f(\gamma)$ sulla sfera unitaria è:
+
+\begin{equation}
+    var(f) \equiv \sigma^2 (f) = \langle f^2 \rangle - \langle f \rangle^2
+\end{equation}
+
+\noindent La \textit{potenza totale} di una funzione reale $f(\gamma)$ è:
+
+\begin{equation}
+    TP = \frac{1}{4 \pi} \int_\gamma f^2 (\gamma) d \gamma \equiv \langle f^2(\gamma) \rangle
+\end{equation}
+
+Sviluppando il calcolo si ottiene:
+
+\begin{align}
+    TP &= \frac{1}{4 \pi} \int_\gamma f(\gamma)f^*(\gamma)d\gamma = \frac{1}{4 \pi} \int_\gamma \left( \sum_{lm} f_{lm} \mathcal{Y}_{lm} (\gamma) \right) \left( \sum_{l'm'} f^*_{l'm'} \mathcal{Y}^*_{l'm'} (\gamma) \right)d\gamma \\ &= \frac{1}{4 \pi} \sum_{lm}  \sum_{l'm'}f_{lm} f^*_{l'm'} \int_\gamma \mathcal{Y}_{lm} (\gamma) \mathcal{Y}^*_{l'm'} (\gamma) d\gamma = \frac{1}{4 \pi} \sum_{lm}  \sum_{l'm'}f_{lm} f^*_{l'm'} \delta_{ll'} \delta_{mm'} = \sum_{lm} f_{lm} f^*_{lm} \\ &= \sum_{l=0}^\infty S_{ff}(l)
+\end{align}
+
+dove si usa la definizione di \textit{spettro armonico}:
+
+\begin{equation}
+    S_{ff} (l) = \sum _{m = - l}^lf_{lm} f^*_{lm}
+\end{equation}
+
+\noindent Si definisce anche la \textit{densità spettrale} di $f(\gamma)$:
+
+\begin{equation}
+    SD = \frac{1}{2l+1} S_{ff}(l)
+\end{equation}
+
+\noindent La \textit{potenza incrociata} di due funzioni reali $f(\gamma)$ e $g(\gamma)$ è:
+
+\begin{equation}
+    CP = \frac{1}{4 \pi} \int_\gamma f(\gamma) g^*(\gamma) d\gamma = \sum_{l=0}^\infty S_{fg}(l)
+\end{equation}
+
+dove si indica lo \textit{spettro di potenza incrociato} delle due funzioni:
+
+\begin{equation}
+    S_{fg} (l) = \sum_{m=-l}^l f_{lm}g^*_{lm}
+\end{equation}
+
+\noindent Grazie alla \textit{correlazione grado per grado} fra due funzioni reali $f(\gamma)$ e $g(\gamma)$ è possibile stabilire quanto i due campi siano correlati fra loro e su quale scala spaziale:
+
+\begin{equation}
+    C_{fg} (l) = \frac{S_{fg} (l)}{\sqrt{S_{ff}(l)} \sqrt{S_{gg}(l)}} \text{ , con } -1 \le C(l) \le 1
+\end{equation}
+
+Se $f = g$ si ha $C_{fg}(l) = 1$, mentre se $f = -g$ si ha $C_{fg}(l) = -1$.
+
+Si osserva che le ondulazioni del geoide fanno sì che la correlazione fra i campi di geoide e topografia sia molto alta per valori di $l \ge 15$: il geoide a piccola scala riflette la topografia, per via di fenomeni come l'isostasia, mentre a grande scala la correlazione è inferiore perché il geoide risponde alle anomalie di densità associate alla dinamica interna della Terra.
+
+Si usa inoltre l'\textit{indice di correlazione lineare di Pearson} $\rho$ per esprimere un'eventuale relazione di linearità fra due variabili statistiche.
+
+\subsection{\textcolor{colore7}{Spettro armonico}}
+
+Lo \textit{spettro armonico} o \textit{power spectral density} permette di determinare quanta energia vi sia in ciascuna oscillazione armonica che compone una funzione.
+Data una funzione:
+
+\begin{equation}
+    f(\gamma) = \sum _{l=o}^{l_{max}} \sum_{m=-l}^l f_{lm} \mathcal{Y}_{lm}(\gamma)
+\end{equation}
+
+\noindent Si definisce lo spettro come:
+
+\begin{equation}
+    PSD(l) = \frac{1}{2l+1} \sum_{m=-l}^l f_{lm} f^*_{lm}
+\end{equation}
+
+\noindent In molti casi lo spettro armonico varia con il grado armonico seguendo una legge di potenza:
+
+\begin{equation}
+    S^2_l(f) = Al^\beta
+\end{equation}
+
+Per cui si distinguono tre casi:
+
+\begin{itemize}
+    \item $\beta = 0$: tutti i gradi armonici hanno la stessa energia e lo spettro è detto \textit{bianco};
+    \item $\beta < 0$: l'energia decade con il grado armonico e lo spettro è detto \textit{rosso};
+    \item $\beta > 0$: l'energia cresce con il grado armonico e lo spettro è detto \textit{blu}.
+\end{itemize}
+
+In particolare, lo spettro del geoide segue la \textit{regola di Kaula}: $S \propto l^{-2.16}$, ma il significato di questa osservazione non è ancora stato compreso.
+
+\noindent \textbf{\textcolor{colore4}{Spettro armonico della $\delta$ di Dirac}}
+
+Sviluppando la $\delta$ di Dirac in funzioni armoniche e applicando il teorema di addizione, si osserva che lo spettro non dipende dal grado, per cui è bianco. 
+
+\subsection{\textcolor{colore4}{Funzione Oceano}}
+
+Un'importante applicazione delle funzioni armoniche è quella dell'analisi spettrale di un campo scalare come quello della \textit{funzione Oceano}, definita come:
+
+\begin{equation}
+    O (\gamma) = \begin{cases}
+        1 & \text{ se $\gamma$ è nel mare} \\ 0 & \text{ se $\gamma$ è sulla terraferma}
+    \end{cases}
+    \label{eq:funzione_oceano}
+\end{equation}
+
+\noindent Tale funzione dipende dal tempo e dal livello del mare, per cui ci si focalizza su un istante fissato e si decompone in funzioni armoniche:
+
+\begin{equation}
+    O (\gamma) = \sum_{lm}^{l_{max}} o_{lm} \mathcal{Y}_{lm} (\gamma)
+\end{equation}
+
+\noindent Risolvere il problema inverso significa determinare i coefficienti:
+
+\begin{equation}
+    o_{lm} = \frac{1}{4\pi} \int_\gamma O (\gamma) \mathcal{Y}^*_{lm} (\gamma) d\gamma \equiv \frac{1}{4\pi} \int_{oceano} \mathcal{Y}^*_{lm} (\gamma) d\gamma
+\end{equation}
+
+\noindent Tale integrale si può valutare solo numericamente, attraverso due approcci:
+
+\noindent \textbf{A: metodo classico}
+
+Si suddivide la superficie terrestre in $N$ quadrilateri, così da spezzare il calcolo di $o_{lm}$ nella somma di $N$ contributi.
+Si verifica che lo spettro della funzione Oceano è rosso e che gli oceani hanno un peso maggiore rispetto ai dettagli più piccoli.
+
+\noindent In particolare il coefficiente $o_{00}$ vale 0.71, che riflette la frazione della superficie terrestre ricoperta da oceani.
+
+\noindent Grazie ai coefficienti armonici dello sviluppo è possibile ricostruire la funzione originale grazie alla combinazione lineare delle armoniche sferiche complesse.
+Si nota che ponendo $l_{max} = 72$ si ottengono delle linee di costa squadrate che riflettono la suddivisione operata in questo approccio.
+
+\noindent \textbf{B: metodo geodetico}
+
+Si suddivide la superficie terrestre in una griglia geodesica in cui ogni cella ha area equivalente, con la geometria basata su quella dell'icosaedro.
+L'idea, già utilizzata in ambito astrofisico per la CMB, fu applicata inizialmente da Max Tegmark.
+
+Il numero di pixel $N_p$ dipende dalla risoluzione $R$ secondo la legge:
+
+\begin{equation}
+    N_p = 40R(R-1)+12
+\end{equation}
+
+\noindent Il vantaggio di questo metodo sta nel fatto che l'area delle celle è equivalente, il che rende il calcolo molto più agevole.
+
+Un metodo simile si basa sulla griglia di Fibonacci regolarizzata ai poli.
+
+\section{\textcolor{colore2}{Geosfera, geodinamica e Sistema Terra}}
+
+All'inizio del XX secolo, il pioniere della ricerca polare Alfred Wegener propose la \textbf{teoria della deriva dei continenti}, su cui si basa l'odierna \textbf{teoria della tettonica delle placche} (dal greco "costruire").
+La teoria, inizialmente screditata, fu accettata solamente a partire dagli anni Cinquanta.
+La tettonica, o geologia strutturale, studia gli spostamenti e le deformazioni della crosta terrestre.
+Si ipotizza che la crosta possa sprofondare fino al mantello e interagire con le inversioni del campo magnetico.
+La convezione del mantello è compatibile con le ondulazioni osservate del geoide (di circa 10 m).
+
+\subsection{\textcolor{colore2}{Deriva dei continenti}}
+
+Wegener non conosceva i fondali oceanici, così basò la sua teoria su una serie di osservazioni condotte sulle superfici dei continenti:
+
+\begin{itemize}
+\item Evidenze paleontologiche: alcuni fossili di organismi simili si trovano a grande distanza, come il caso del mesosauro, ritrovato in Africa ed in Sud America;
+\item Evidenze paleoclimatiche: alcune antiche glaciazioni (come quella del Permiano, 300-250 milioni di anni fa) hanno lasciato delle tracce in continenti adesso separati dagli oceani, come Sud America, Africa, India, Australia e Antartide.
+%non ci sono anche quelle geologiche?
+%non ho visto niente nelle slide e nemmeno nei miei appunti
+\end{itemize}
+
+In precedenza, osservando il profilo delle coste atlantiche di Sud America e Africa, Antonio Snider-Pellegrini teorizzò la possibilità della deriva dei continenti causata dal diluvio universale e Seuss teorizzò che le catene montuose si fossero formate per la contrazione del pianeta, dovuta al suo raffreddamento.
+
+Attualmente si teorizza che circa 250 milioni di anni fa i continenti attuali fossero riuniti in un'unica massa continentale, detta \textit{Pangea}.
+Probabilmente in precedenza si verificarono altri eventi simili.
+
+\textbf{Problemi della teoria della deriva dei continenti}
+
+\begin{enumerate}
+    \item Per la sismologia la Terra è un corpo solido, in cui si propagano le onde elastiche, mentre per la deriva dei continenti questi si muovono su un fluido;
+    \item Non è chiaro quale forza origini la deriva dei continenti.
+\end{enumerate}
+
+Wegener propose una forza detta \textit{Polflucht} (dal tedesco "volo dai poli"), dovuta alla forza centrifuga, che sposterebbe i continenti verso l'Equatore, ma essa sarebbe comunque troppo debole per spiegare questa disgregazione.
+
+\subsection{\textcolor{colore2}{Osservazioni a supporto della teoria della tettonica delle placche}}
+
+\begin{itemize}
+    \item Forma dei fondali oceanici: le osservazioni sono iniziate nella seconda metà del XX secolo, ma l'esistenza di una dorsale medioatlantica fu proposta già a durante il XIX secolo da Matthew Fontaine Maury.
+    Il sistema di rilievi sottomarini si estende per circa 50'000 km in tutto il mondo e raggiunge un'altezza media di circa 4500 m rispetto al fondale circostante.
+    Lo spessore dei sedimenti sui fondali è inoltre decisamente inferiore a quanto ci si potrebbe aspettare considerando un deposito durato centinaia di milioni di anni;
+    \item Esistenza delle anomalie magnetiche: le inversioni del campo magnetico terrestre non seguono una legge chiara (183 inversioni durante 83 milioni di anni).
+    Glatzmaier e Roberts modellarono per primi l'inversione.
+    Le indagini magnetometriche evidenziano la simmetria delle anomalie magnetiche attorno all'asse delle creste oceaniche;
+    \item Ipotesi dell'allargamento dei fondali marini: Harry Hess trovò una spiegazione ipotizzando che la crosta oceanica ridiscenda nel mantello nei pressi delle fosse oceaniche, così che i fondali vengano "riciclati" velocemente, in accordo con l'età media della crosta oceanica, di circa 150 milioni di anni;
+    \item Raffreddamento della litosfera oceanica: il flusso di calore attraverso la superficie è massimo nei pressi delle dorsali oceaniche, in accordo con la minore età della litosfera in queste zone.
+    Le misure sono condotte grazie a delle sonde che sfruttano la legge della conduzione di calore di Fourier:
+
+    \begin{equation}
+        q_s \approx -k \frac{dT}{dy}
+    \end{equation}
+
+    Il flusso di calore decresce con l'età del fondale, secondo la legge $q_s \propto \frac{1}{\sqrt{\text{età}}}$, che funziona molto bene con i dati disponibili.
+    La batimetria aumenta, secondo la legge Batimetria = $A + B\sqrt{\text{età}}$.
+    La litosfera molto recente e quella molto antica tendono a discostarsi leggermente da questa relazione, che però funziona per quella di età compresa tra 50 e 100 milioni di anni.
+    In generale quando la risalita del materiale a causa dell'apertura dei fondali è più veloce, il livello marino è maggiore, mentre quando il processo è più lento il livello marino è minore, per via della conservazione del volume oceanico;
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{seafloor_shape.png}
+    \caption{Cause tettoniche dei cambiamenti del livello marino.}
+    \label{fig:seafloor_shape}
+\end{figure}
+
+    \item Terremoti e vulcani: i terremoti tendono a concentrarsi lungo le linee di faglia interessate dalla tettonica delle placche e a profondità che si dispongono su superfici  prossime alle zone di subduzione, fino a circa 700 km di profondità (dette \textit{zone di Benioff}).
+    Al contrario, nei pressi delle creste oceaniche si osservano terremoti a profondità minime.
+    Il vulcanismo si origina ai confini delle placche litosferiche e in punti interessati da pennacchi di risalita dal mantello, come le isole del Pacifico.
+    Questi punti caldi (\textit{hotspots)} restano per diversi milioni di anni fissi rispetto alle placche, come si può osservare nell'arcipelago delle Hawaii;
+    \item Placche tettoniche: esistono circa 15 placche maggiori, separate fra loro da 3 diversi tipi di margini (divergenti, convergenti e trascorrenti o trasformi).
+    Il moto di ogni placca è una rotazione rigida attorno a un asse \textit{di Eulero}, grazie al quale si può  caratterizzare il campo di velocità delle placche e di conseguenza i tipi di margini.
+    Nota la velocità delle placche, è possibile valutarne la divergenza (che indica creste e fosse oceaniche), e il rotore (da cui la vorticità e la caratterizzazione dei margini trascorrenti).
+    Il movimento complessivo delle placche, che si può tracciare rispetto al sistema di riferimento dei punti caldi, è diretto verso ovest (\textit{westward drift della litosfera}): si ha cioè una rotazione netta delle placche.
+    La placca Pacifica, priva di massa continentale, ha vorticità trascurabile e risulta la più veloce ed energetica.
+    Un controesempio è fornito da Marte, su cui si osservano gli effetti del vulcanismo antico, ma non dello spostamento delle placche sulla superficie.
+    Su Venere invece la convezione è molto più lenta e ostacolata per via della minore presenza di acqua nel mantello.
+    L'attività tettonica è studiata anche sui satelliti di Giove.
+\end{itemize}
+
+\section{\textcolor{colore7}{Campo di Gravità}}
+
+\subsection{\textcolor{colore2}{Distribuzioni di massa}}
+
+Le componenti fluide della Terra e il suo moto di rotazione ne influenzano il campo di gravità.
+Le distribuzioni di massa variano nel tempo per diversi tipi di processi che spaziano dal ciclo dell'acqua alla dinamica interna del pianeta.
+Le ondulazioni del geoide sono influenzate maggiormente da questi ultimi processi, che dipendono dalla distribuzione di massa a grande profondità.
+
+Secondo il \textbf{modello PREM} è possibile descrivere la Terra grazie ad una serie di sfere concentriche caratterizzate da proprietà diverse, mentre nella realtà questa simmetria viene meno, a cause di asimmetrie nelle distribuzioni di massa e dipendenze temporali.
+Le variazioni del campo di gravità sono attualmente misurate dai satelliti GRACE.
+Le proprietà reologiche (che regolano la velocità delle onde sismiche) e la densità (da cui dipende il campo di gravità) dipendono solo dalla distanza dal centro.
+
+\subsection{\textcolor{colore7}{Momenti delle distribuzioni}}
+
+Un continuo è un altro modello molto utilizzato per studiare le distribuzioni di massa senza particolari assunzioni di simmetria.
+Essa è caratterizzata da alcuni momenti, tra cui:
+
+\begin{itemize}
+    \item Massa (momento di ordine 0): è uno scalare (tensore di rango 0) che dipende solo dalla densità locale:
+
+    \begin{equation}
+        M \equiv \int_V \rho (\vec{x}) dV
+    \end{equation}
+    
+    \item Centro di massa (momento di ordine 1): è un vettore (tensore di rango 1) dato da:
+
+    \begin{equation}
+        \vec{x}_{CM} \equiv \frac{\int_V \vec{x}dm}{\int_V dm} = \frac{1}{M} \int_V \vec{x} dm
+    \end{equation}
+
+    \item Momento di inerzia (momento di ordine 2): è un tensore (di rango 2) simmetrico a valori reali con 6 componenti indipendenti.
+    
+    \begin{equation}
+        I_{ij} = \int_V (x_lx_l \delta_{ij} - x_ix_j)dm = \begin{pmatrix}
+            I_{11} & I_{12} & I_{13} \\ I_{21} & I_{22} & I_{23} \\ I_{31} & I_{32} & I_{33}
+        \end{pmatrix}
+        \label{eq:inerzia}
+    \end{equation}
+
+    I tre elementi diagonali sono dati da $I_{ii} = \int_V (x_j^2 + x_k^2) dm$, mentre i \textit{prodotti di inerzia} da $I_{ij} = I_{ji} = - \int_V x_ix_j dm$.
+
+    \textbf{Proprietà del momento di inerzia}:
+
+    Gli autovettori, \textit{assi principali} sono ortogonali fra loro e formano una base;
+
+    Gli autovalori sono reali e vale $I_1 < I_2 < I_3$;
+
+    La traccia è invariante a seguito di un cambio di sistema di riferimento;
+
+    Il determinante è invariante a seguito di un cambio di sistema di riferimento.
+
+    È sempre possibile scegliere un sistema di riferimento in cui esso si annulla, cioè quello che ha l'origine nel centro di massa.
+
+    \end{itemize}
+
+\subsection{\textcolor{colore7}{Legge della gravitazione di Newton}}
+
+Due corpi puntiformi che interagiscono tramite questa legge sono soggetti alle \textbf{leggi di Keplero}:
+
+\begin{enumerate}
+    \item L'orbita di un pianeta è un'ellisse e il Sole è in uno dei due fuochi.
+    \item La congiungente copre aree uguali in tempi uguali.
+    \item Il rapporto tra il quadrato del periodo di rivoluzione e il cubo del semiasse maggiore dell'orbita è costante:
+
+    \begin{equation}
+        \frac{T^2}{R^3} = K
+    \end{equation}
+    
+\end{enumerate}
+
+Nel caso di corpi più complessi, come la Terra, le irregolarità misurate da appositi satelliti permettono di ottenere informazioni sul campo di gravità.
+
+\noindent Si definisce il \textit{campo gravitazionale} in un punto P e si sfrutta il principio di sovrapposizione:
+
+\begin{equation}
+    \vec{g}(P) \equiv \frac{\vec{F}}{m} = \frac{GM}{r^2} \hat{r} \longrightarrow \vec{g}(P) = G \sum_{n} \frac{m_n}{r_n^2} \hat{r}_n
+    \label{eq:campo_gravitazionale}
+\end{equation}
+
+Siccome si tratta di un campo centrale, la circuitazione è nulla e, grazie al teorema di Stokes, si dimostra che è anche irrotazionale.
+Si può allora definire il campo a partire da un \textbf{potenziale gravitazionale} scalare: $\vec{g} = \nabla U$.
+
+\noindent Il flusso del campo gravitazionale attraverso una superficie sferica $S$ di raggio $r$ è dato da:
+
+\begin{equation}
+    \Phi_S (\vec{g}) \equiv \int_S \vec{g} \cdot \hat{n} dS = 4 \pi r^2 \vec{g} \cdot \hat{n} = - 4 \pi r^2 \frac{GM}{r^2} = - 4 \pi GM
+\end{equation}
+
+cioè dipende solamente dalla massa contenuta (legge di Gauss per il campo gravitazionale).
+Dalla definizione di densità e dal teorema della divergenza discende che il potenziale gravitazionale soddisfa l'equazione di Poisson all'interno e l'equazione di Laplace all'esterno del pianeta, per cui è una funzione armonica:
+
+\begin{equation}
+    \text{Poisson: } \nabla^2 U = - 4 \pi G \rho(\vec{x}) \text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{  Laplace: } \nabla^2U=0
+\end{equation}
+
+Si possono definire le \textit{superici equipotenziali} ponendo $U(x,y,z) = cost.$, ortogonali al campo gravitazionale in ogni punto (che non è però costante né in modulo né in direzione).
+Il \textbf{geoide} è una superficie equipotenziale.
+Posto $\vec{g} = - \gamma \hat{n} = \nabla U$, dove $\hat{n}$ è la normale uscente dalla superficie equipotenziale, si può definire:
+
+\begin{equation}
+    \gamma = - \frac{\partial U}{\partial n}
+\end{equation}
+
+Una sfera in cui la densità dipende unicamente dalla distanza dal centro determina un campo gravitazionale esterno pari a quello di un corpo puntiforme di uguale massa: non c'è modo di determinare la distribuzione interna di densità misurando unicamente il campo gravitazionale esterno.
+
+\subsection{\textcolor{colore7}{Campo gravitazionale della Terra}}
+
+A causa della rotazione terrestre, al potenziale gravitazionale si somma un potenziale centrifugo.
+La somma è detta \textbf{gravity potential}:
+
+\begin{equation}
+    W(x,y,z) = W_g + W_c
+\end{equation}
+
+\noindent Così si definisce la \textbf{gravità} come somma dei due contributi:
+
+\begin{equation}
+    \vec{g} = \nabla W = \vec{g}_g + \vec{g}_c
+\end{equation}
+
+Mentre il potenziale gravitazionale di un corpo generico è estremamente complesso da calcolare, quello centrifugo (che non è armonico, infatti $\nabla^2W_c = 2\omega^2$) dipende dalla velocità rotazionale:
+
+\begin{equation}
+    W_c(x,y,z) = \frac{1}{2} \omega^2 (x\hat{x} + y\hat{y}) = W_c(r, \theta, \lambda) = \frac{1}{2} \omega^2 p^2 = \frac{1}{2}r^2\omega^2sin^2\theta \Longrightarrow \vec{g}_c = \omega^2\vec{p}  
+    \end{equation}
+
+\subsection{\textcolor{colore7}{Geoide}}
+
+Gauss propose come \textit{figura matematica della Terra} il \textbf{geoide}, cioè la superficie equipotenziale ideale intercettata dalla superficie degli oceani, di equazione $W=W_0=cost.$, perpendicolare in ogni punto al vettore gravità.
+
+Si definiscono l'\textit{altezza rispetto all'ellissoide di riferimento} o elevazione, $h$, l'\textit{altezza ortometrica} o quota, $H$ (cioè l'altezza rispetto al geoide), e l'\textit{ondulazione del geoide}, $N$ (cioè la distanza tra il geoide e l'ellissoide).
+Vale la relazione $h = H + N$.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{geoide.png}
+    \caption{Geoide e superficie della Terra. $H$ rappresenta l'altezza ortometrica.}
+    \label{fig:geoide}
+\end{figure}
+
+\subsection{\textcolor{colore7}{Espansione armonica del potenziale gravitazionale}}
+
+Si consideri un corpo arbitrario di densità $\rho(\vec{x)}$ di volume $V$ e superficie $S$ che ruota con velocità angolare $\vec{\omega} \parallel z$.
+Si considerino un punto di massa $Q$ e un osservatore $P$ sulla superficie con un angolo $\beta$ fra essi e un sistema di riferimento con origine in $O$.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{source_observer.png}
+    \caption{Geometria del problema con osservatore e punto di massa.}
+    \label{fig:source_observer}
+\end{figure}
+
+\noindent La distanza tra $P$ e $Q$ è ottenuta dal teorema di Carnot:
+
+\begin{equation}
+    \vec{d} = \vec{r} - \vec{r}' \longrightarrow \frac{1}{d} = \frac{1}{r} \sqrt{\frac{1}{1-2zcos\beta+z^2}} \text{ , dove } cos\beta = cos\theta cos\theta' + sin\theta sin\theta ' cos(\lambda - \lambda')
+\end{equation}
+
+\noindent Il potenziale gravitazionale in $P$ dovuto all'elemento di massa $dm$ è:
+
+\begin{equation}
+    dW_g = \frac{Gdm}{d}
+\end{equation}
+
+\noindent Grazie alla funzione generatrice dei polinomi di Legendre, si ottiene:
+
+\begin{equation}
+    dW_g = \frac{Gdm}{r} \sum_{l=0}^\infty \left( \frac{r'}{r} \right)^l P_l(cos\beta)
+\end{equation}
+
+\noindent Da cui, integrando su tutto il volume, si ricava l'\textit{espansione di multipolo} del potenziale gravitazionale esterno:
+
+\begin{equation}
+    W_g (r, \theta, \lambda) = \frac{G}{r} \sum_{l=0}^\infty \int_V \left( \frac{r'}{r} \right)^l P_l(cos\beta) dm
+    \label{eq:gravitational_field_multipole}
+\end{equation}
+
+\noindent In tale espansione ($W_g (\vec{x}) = W_g^{(0)} (\vec{x}) + W_g^{(1)} (\vec{x}) + W_g^{(2)} (\vec{x}) + ...$), il multipolo di grado 0 rappresenta il potenziale di una massa puntiforme:
+
+\begin{equation}
+    W_g^{(0)}(\vec{x}) = W_g^{(0)}(r) = \frac{G}{r} \int_V dm = \frac{GM}{r}
+\end{equation}
+
+I termini successivi rappresentano quindi le discrepanze dal potenziale sferico e decadono con potenze che dipendono dal grado ($\propto r^{-(l+1)}$.
+La lunghezza d'onda spaziale di questi termini segue la regola di Jeans (vedi eq. ~\ref{eq:Jeans}).
+
+\subsection{\textcolor{colore7}{Coefficienti di Stokes}}
+
+Applicando il teorema di addizione (~\ref{eq:addizione}) all'espansione di multipolo del campo gravitazionale nell'espressione ~\ref{eq:gravitational_field_multipole}, si ottiene un'espressione in cui non compaiono i polinomi di Legendre:
+
+\begin{equation}
+    P_l(cos\beta) = \frac{1}{2l+1} \sum_{m=-l}^l \mathcal{Y}^*_{lm} (\theta', \lambda') \mathcal{Y}_{lm}(\theta, \lambda)
+\end{equation}
+
+\noindent Confrontando con l'espansione in armoniche sferiche complesse si ricava:
+
+\begin{equation}
+    W_g (r, \theta, \lambda) = \frac{GM}{r} \sum_{lm} \left( \frac{a}{r} \right) ^l W_{g,lm} \mathcal{Y}_{lm} (\theta, \lambda)
+\end{equation}
+
+dove compaiono i coefficienti complessi:
+
+\begin{equation}
+     W_{g,lm} = \frac{1}{M} \frac{1}{2l+1} \int_V \left( \frac{r'}{a} \right) ^l \mathcal{Y}^*_{lm} (\theta', \lambda') dm \text{ , dove $a$ è il raggio della Terra}
+\end{equation}
+
+Questa espressione complessa si usa raramente, mentre la forma reale trova ampio utilizzo nella geodesia satellitare:
+
+\begin{equation}
+    W_g (r, \theta, \lambda) = \frac{GM}{r} \sum_{lm} \left( \frac{a}{r} \right) ^l (c_{lm} cos m\lambda + s_{lm} sin m\lambda) P_{lm}(cos \theta)
+\end{equation}
+
+dove compaiono i \textbf{coefficienti di Stokes} del campo gravitazionale, che dipendono dalla distribuzione di massa:
+
+\begin{equation}
+    \left\{ \begin{matrix}
+        c_{lm} \\ s_{lm}
+    \end{matrix}\right\} = (2-\delta_{0m}) \frac{(l-m)!}{(l+m)!} \frac{1}{M} \int_V \left( \frac{r'}{a} \right)^l P_{lm} (cos \theta) \left\{ \begin{matrix}
+        cos m\lambda' \\ sin m\lambda'
+    \end{matrix}\right\} dm \text{ , dove l=0,1,2,... e 0 $\le$ m $\le$ l}
+\end{equation}
+
+In base al grado si hanno coefficienti diversi: 
+
+\begin{itemize}
+    \item $l=0$: una costante;
+    \item $l=1$: tre termini associati alla scelta dell'origine del sistema di riferimento;
+    \item $l=2$: cinque termini legati agli elementi del tensore di inerzia.
+\end{itemize}
+
+I coefficienti di grado basso dipendono dalla scelta del sistema di riferimento: se il centro di massa si trova nell'origine, allora i termini di grado 1 scompaiono.
+Grazie ai satelliti, si cerca adesso di misurare la variazione nel tempo dei coefficienti di Stokes.
+
+\indent In un corpo sfericamente simmetrico il momento di inerzia è dato da:
+
+\begin{align}
+    I &= \frac{1}{3}(I_{xx}+I_{yy}+I_{zz})=\frac{2}{3}\int_V(x^2+y^2+z^2)dm=\frac{2}{3}\int_Vr^4\rho(r)drsin\theta d\theta d\lambda \\ &=\frac{8\pi}{3}\int_0^Rr^4\rho(r)dr
+\end{align}
+
+\indent Per cui per una massa omogenea vale:
+
+\begin{equation}
+    I_{hom} = \frac{8\pi}{15}R^5\rho_0
+\end{equation}
+
+\indent Dal confronto con il caso di una massa puntiforme si ricava il momento di inerzia medio normalizzato:
+
+\begin{equation}
+    \frac{I_{hom}}{MR^2} = \frac{2}{5}
+\end{equation}
+
+Nel caso della Terra si osserva che questo rapporto vale invece 0.33, per cui non è omogenea, ma c'è una concentrazione di massa al centro, a causa dell'autocompressione e della differenziazione chimica, che fanno aumentare la densità degli strati più profondi.
+
+\subsection{\textcolor{colore7}{Ondulazioni del geoide}}
+
+La forma della Terra è sferica in prima approssimazione, ma si può considerare anche un'ellissoide per maggiore precisione.
+Gauss credeva di poterla descrivere attraverso un corpo molto regolare.
+Introdusse così il \textbf{geoide}, cioè la superficie equipotenziale che intercetta la superficie degli oceani.
+
+\noindent La \textit{Terra normale}:
+
+\begin{itemize}
+    \item è assisimmetrica;
+    \item ha velocità angolare costante pari a quella terrestre;
+    \item ha massa pari a quella terrestre;
+    \item è un ellissoide a due assi;
+    \item è definita da 4 parametri;
+    \item ha un potenziale di gravità \textit{normale} dato da $U = U_g + U_c$, dove il \textit{geoide normale} ha equazione $U=U_0$.    
+\end{itemize}
+
+dove i parametri sono:
+
+\begin{itemize}
+    \item $a$: semiasse maggiore;
+    \item $f = \frac{a-b}{b}>0$: schiacciamento;
+    \item $M$: massa;
+    \item $\omega$: velocità angolare.
+\end{itemize}
+
+\noindent La differenza tra il campo di gravità del geoide e quello dell'ellissoide normale definisce le \textbf{ondulazioni del geoide}, una piccola perturbazione rispetto al raggio terrestre data dalla \textit{formula di Brun}:
+
+\begin{equation}
+    N = \overline{PQ} = \frac{T_P}{\gamma_Q} \text{ , dove }T = W - U
+    \label{eq:Brun}
+\end{equation}
+
+\noindent Si tratta della formula più importante della geodesia fisica.
+Si ottiene a partire dalla definizione di derivata:
+
+\begin{equation}
+    U_P \simeq U_Q + \left( \frac{\partial U}{\partial n'} \right)_Q N
+\end{equation}
+
+\noindent Ma si ha il potenziale di gravità:
+
+\begin{equation}
+    \gamma_Q = - \left( \frac{\partial U}{\partial n'} \right)_Q
+\end{equation}
+
+\noindent Per cui vale:
+
+\begin{equation}
+    U_P \simeq U_Q - \gamma_Q N
+\end{equation}
+
+\noindent Da cui si ricava:
+
+\begin{equation}
+    \gamma_Q N = U_Q - U_P = (W_P - U_P ) - (W_P - U_Q) = T_P - (W_0 - U_0)
+\end{equation}
+
+\noindent La formula di Brun si ottiene ponendo in particolare $W_0 = U_0$.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{ondulazioni.png}
+    \caption{Geometria della formula di Brun. 
+    $P$ e $Q$ sono punti sulla superficie del geoide e dell'ellissoide, rispettivamente.}
+    \label{fig:ondulazioni}
+\end{figure}
+
+\noindent L'ondulazione $N$ è proporzionale al potenziale di disturbo $T$ in $P$ rispetto al potenziale gravitazionale $\gamma$ in $Q$.
+
+Grazie ai coefficienti di Stokes è possibile rappresentare $W_g$ e $U_g$ espandendoli in serie di armoniche sferiche reali e determinare che il geoide si discosta dall'ellissoide al massimo di un centinaio di metri.
+Non si nota una particolare correlazione tra le ondulazioni e la topografia a piccola scala, perché il geoide riflette la distribuzione interna della massa terrestre.
+
+\section{\textcolor{colore2}{Criosfera}}
+
+Si tratta dell'insieme di tutti i ghiacci presenti sulla Terra, una volta considerati parte dell'idrosfera.
+È una componente estremamente sensibile ai cambiamenti climatici ed evolve molto rapidamente.
+Interagisce fortemente con il clima ed è un'importante fonte di acqua dolce.
+Le masse glaciali esercitano un carico sulla Terra ed un'attrazione gravitazionale con gli oceani.
+La forma degli oceani determina la pressione sui fondali e il potenziale centrifugo.
+
+\subsection{\textcolor{colore2}{Acqua e ghiaccio}}
+
+L'acqua ricopre il 71\% della superficie terrestre.
+
+\begin{itemize}
+    \item Il 96.5\% si trova in mari e oceani;
+    \item l' 1.7\% nelle acque sotterranee;
+    \item l'1.7\% nei ghiacciai;
+    \item lo 0.001\% in atmosfera.
+\end{itemize}
+
+Solo il 2.5\% è dolce e il 98.8\% di essa si trova in ghiaccio e suolo.
+L'origine dell'acqua sulla Terra si spiega solo parzialmente con le comete; forse un ruolo determinante è stato ricoperto dai meteoriti durante l'intenso bombardamento tardivo ($\approx 700$ milioni di anni fa).
+
+Il ciclo dell'acqua coinvolge anche l'interno della Terra e lo spazio esterno.
+Influisce sulla convezione e dunque sulla tettonica delle placche.
+
+\subsection{\textcolor{colore2}{Componenti della criosfera}}
+
+Dalla IPCC del 2007 si distinguono i \textit{ghiacciai}, che permettono di determinare la topografia sottostante, dalle \textit{lenzuola glaciali}, che la nascondono completamente.
+
+Lo spessore della neve è nell'ordine di un metro, mentre il ghiaccio marino generalmente arriva a qualche metro; i ghiacciai alpini hanno uno spessore di alcune decine di metri, le piattaforme glaciali anche 200 metri.
+Lo spessore del ghiaccio nelle lenzuola glaciali si misura spesso in km, tanto da abbassare per via di processi isostatici la crosta terrestre.
+
+In base allo spessore cambia anche la scala temporale di variabilità, da pochi giorni per la neve, agli anni per i ghiacciai, alle centinaia di migliaia di anni per le calotte glaciali.
+
+\subsubsection{\textcolor{colore2}{Neve}}
+
+Si presenta in molte diverse forme e arriva a coprire 50 milioni di $km^2$ durante l'inverno boreale, raggiungendo la massima estensione di tutte le componenti della criosfera.
+
+\subsubsection{\textcolor{colore2}{Ghiaccio marino}}
+
+Si forma per congelamento dell'acqua marina, si caratterizza per età, forma e spessore.
+Circonda Antartide e Groenlandia.
+La sua fusione altera l'albedo e la salinità e, di conseguenza, la circolazione oceanica.
+A partire dal 1978 si è osservata una netta diminuzione ($\approx -13\%$ ogni decennio).
+
+\subsubsection{\textcolor{colore2}{Permafrost}}
+
+Si tratta di terreno ghiacciato (la cui temperatura non supera 0 °C per almeno due anni consecutivi), la cui fusione rilascia in atmosfera ingenti quantità di gas serra (contiene circa 1400 Gt di carbonio).
+Varia su scale temporali molto diverse, dai giorni ai millenni.
+Ricopre un'area di circa 23 milioni di $km^2$ nell'emisfero boreale, oltre a tutto il terreno scoperto dell'Antartide.
+Uno strato superficiale più reattivo varia su base substagionale, mentre la parte più profonda reagisce solo a variazioni di lungo periodo.
+Può trovarsi anche al di sotto di terreno non ghiacciato.
+
+\subsubsection{\textcolor{colore2}{Ghiacciai}}
+
+Sono masse glaciali che permettono di riconoscere la topografia sottostante e variano nell'arco di mesi o anche secoli.
+Sono la più grande riserva di acqua dolce sulla Terra e hanno un livello marino equivalente di circa 0.5 m e hanno contribuito al recente innalzamento più delle lenzuola glaciali.
+Si formano grazie all'accumulo di neve che si fonde ad alta pressione aumentando la densità, in un processo che può richiedere secoli dove le temperature non permettono mai la fusione o le precipitazioni sono molto scarse.
+
+Si categorizzano in base alla morfologia, alle caratteristiche termiche e al comportamento.
+Alcuni raggiungono velocità di alcuni metri al giorno.
+
+\begin{itemize}
+    \item Ghiacciai alpini: ricoprono montagne e valli;
+    \item Calotte glaciali: hanno estensione inferiore a 50'000 $km^2$ e si trovano in regioni montuose;
+    \item Piattaforme glaciali:
+    \item Correnti glaciali: raggiungono la massima velocità.
+\end{itemize}
+
+La perdita di massa dei ghiacciai è detta \textit{ablazione} e si monitora per studiare il bilancio di massa, grazie anche a fotografie storiche.
+Grazie a un ghiacciaio benchmark sul monte Rainier, si è studiata la possibilità di ricoprirli per rallentarne lo scioglimento.
+In generale si osserva un ciclo di circa 90'000 anni nell'estensione dei ghiacciai.
+
+\subsubsection{\textcolor{colore2}{Lenzuola glaciali}}
+
+Si tratta di ghiacciai con un'estensione superficiale superiore a 50'000 $km^2$ che nascondono completamente la topografia sottostante. 
+Si formano in migliaia di anni per accumulo di ghiaccio e dall'ultimo massimo glaciale 3 si sono completamente sciolte (Laurentide, Weichselian e Patagonia).
+In tale periodo esistevano molti ponti di ghiaccio che permisero lo spostamento degli umani attraverso diversi continenti.
+A seguito dello scioglimento si è osservato un rimbalzo post-glaciale del terreno nei pressi del centro delle masse glaciali e un abbassamento verso i bordi (cioè la Terra si comporta come un corpo reologico di Maxwell: prima elastico, poi viscoso).
+
+Quello in Groenlandia ha un livello marino equivalente di circa 7 m, mentre per quello che si trova in Antartide sono circa 58 m.
+Il principale responsabile dell'ablazione in Groenlandia è lo scioglimento superficiale e basale vicino alle coste, mentre in Antartide è il calving.
+Conoscere la lubrificazione e in generale le condizioni della \textit{grounding line}, compresa la presenza di laghi subglaciali, permette di studiare l'evoluzione delle lenzuola glaciali.
+Il bilancio di massa si misura tramite tecniche gravimetriche: $\approx$-286 $\pm$21 Gt all'anno in Groenlandia e $\approx$-127 $\pm$39 Gt all'anno in Antartide.
+
+In Antartide la Catena Transantartica (che si sviluppa tra il Mare di Ross e il Mare di Weddell) separa l'Antartide Orientale dall'Antartide Occidentale, dove si trova la ben studiata Penisola Antartica.
+Al di sotto si trovano almeno 600 laghi subglaciali.
+
+\subsubsection{\textcolor{colore2}{Piattaforme glaciali}}
+
+Sono piattaforme che si propagano nell'oceano a partire dalle lenzuola polari e da esse si staccano gli iceberg grazie al fenomeno del \textit{calving}.
+Hanno estensioni di migliaia di $km^2$ e spessori di centinaia di m.
+Galleggiano sull'acqua dell'oceano, formando una barriera tra quest'ultimo e le lenzuola glaciali.
+Si trovano solamente in Groenlandia, Canada e Antartide.
+Nel primo caso quasi tutto lo spessore si trova sott'acqua.
+L'acqua liquida che scorre al di sotto favorisce lo scorrimento del ghiaccio verso l'oceano e il calving.
+
+\subsection{\textcolor{colore2}{Groenlandia}}
+
+La geofisica moderna nacque a seguito degli studi condotti in Groenlandia dal fisico e meteorologo tedesco Alfred Wegener.
+Circa 130'000 anni fa la Groenlandia non era ricoperta dai ghiacci. 
+Fu scoperta attorno all'anno 1000 (quando la temperatura media globale era maggiore di quella attuale) dal vichingo Erik il Rosso, che esplorò anche la costa occidentale e favorì la nascita di diversi insediamenti.
+
+Il ghiacciaio di Jackobshavn, vicino alla città di Ilulissat, nella Baia di Disko, mostra una ritirata estremamente rapida: il \textit{calving front} avanza di diversi chilometri all'anno verso l'entroterra.
+
+Il centro della Groenlandia è costituito da un cratone molto stabile che si trova sotto il livello del mare, su cui poggiano oltre 3 km di ghiaccio.
+Sono presenti pochi laghi subglaciali, grazie anche alla presenza del canyon più lungo del mondo, che drenando l'acqua potrebbe aver aumentato la stabilità del ghiaccio soprastante.
+
+Attualmente la Groenlandia perde circa 8'500 tonnellate di ghiaccio ogni secondo, ma negli ultimi 20'000 anni si sono alternate diverse fasi di riscaldamento e raffreddamento.
+Durante l'evento del \textit{Younger Dryas}, circa 12'000 anni fa, lo scioglimento del ghiacciaio di Laurentide, in Nord America, comportò il rilascio di un'enorme quantità di acqua fredda, che sconvolse la circolazione oceanica, interrompendo per diverse migliaia di anni il generale processo di riscaldamento che la Terra stava attraversando.
+
+La missione \textit{IceBridge} della NASA monitora il ghiaccio marino e continentale grazie a dei voli condotti sopra la Groenlandia e parte dell'Antartide.
+Grazie a dei radar sono stati misurati gli strati ghiacciati a diverse latitudini e profondità.
+
+\subsubsection{\textcolor{colore2}{Modellazione delle deformazioni elastiche in atto in Groenlandia}}
+
+\textit{ICESat} (Ice, CLoud, and land Elevation Satellite) è un satellite della NASA che dal 2003 monitora il bilancio di massa e la distribuzione topografica dei ghiacci in Groenlandia con una risoluzione di 5 km $\times$ 5 km.
+Si è misurata una diminuzione dell'altezza del ghiaccio di circa 3 m all'anno in alcune zone vicine alla costa e un aumento in zone più centrali (a causa del recente aumento delle nevicate).
+Il bilancio complessivo è fortemente negativo e sta peggiorando in fretta ($-240 \pm 28$ Gt/y, dove 360 Gt di ghiaccio determinano un aumento del livello marino di 1 mm).
+
+Grazie ai dati forniti dal satellite, è possibile modellare la risposta alla fusione del ghiaccio grazie al codice di calcolo $REAR$ (Regional ElAstic Rebound calculator).
+A seguito dell'applicazione di un carico come un Mascon si osservano le seguenti risposte:
+
+\begin{itemize}
+    \item lo spostamento verticale è sempre negativo e raggiunge l'entità massima sotto al carico;
+    \item lo spostamento orizzontale è rivolto verso il centro del disco e raggiunge il massimo nei pressi del bordo;
+    \item l'altezza del geoide aumenta ovunque, ma in maniera più evidente nei pressi del Mascon.
+\end{itemize}
+
+La Groenlandia subisce un sollevamento geodetico di circa 18 mm/y nei pressi delle coste, maggiore dell'innalzamento del livello marino.
+Mentre per alcuni processi di breve durata è possibile utilizzare un modello elastico, per altri, di maggiore durata, è necessario tenere in considerazione la risposta viscoelastica.
+
+\section{\textcolor{colore7}{\textcolor{colore7}{Reologia I}}}
+
+\subsection{\textcolor{colore7}{Movimenti incessanti nel Sistema Terra}}
+
+I movimenti della Terra sono testimoniati dai terremoti, manifestazioni di onde elastiche regolate dall' \textit{equazione d'onda di Newton}, alla base della sismologia:
+
+\begin{equation}
+    \rho \frac{\partial^2 \vec{u}}{\partial t^2} = \left( K + \frac{4}{3} \mu \right) \nabla (\nabla \cdot \vec{u}) - \mu \nabla \times (\nabla \times \vec{u})
+    \label{eq:onda}
+\end{equation}
+
+A causa della complessità dell'interno della Terra, la diffusione delle onde sismiche non è banale.
+Siccome hanno un periodo caratteristico di pochi secondi, permettono di sondare il pianeta ad alta frequenza, alla quale il mantello appare solido.
+Terremoti particolarmente energetici fanno assumere alla Terra vibrazioni in moti sferici, che ne cambiano la forma, e toroidali, che causano torsione, dissipando energia (oscillazioni libere). 
+Il tempo caratteristico di queste oscillazioni è di decine di minuti.
+Furono misurate per la prima volta a seguito del terremoto del Cile del 1960.
+
+I moti mareali hanno periodi semidiurni, diurni e annuali e sono dovuti alla non uniformità dei campi gravitazionali.
+Causano anche le correnti oceaniche.
+La Terra risponde in maniera elastica.
+
+\subsection{\textcolor{colore2}{Reologia e Scienze della Terra}}
+
+La \textbf{reologia} nacque per studiare il fluire delle lave, ma si applica anche a ghiacciai, livello del mare, deformazioni post-sismiche, isostasia glaciale e tettonica delle placche.
+Il termine deriva dal greco e indica lo studio di flussi e deformazioni dei materiali.
+Il concetto di corpo rigido fu introdotto da Archimede, poi Newton introdusse una descrizione formale.
+Hooke descrisse le deformazioni elastiche, poi furono studiati fluidi e materiali viscoelastici, fino all'avvento della reologia nel 1929.
+
+Einstein trovò una formula per descrivere la viscosità di una sospensione diluita di particelle in un fluido di viscosità iniziale $\eta_m$:
+
+\begin{equation}
+    \frac{\eta}{\eta_m} = 1 + \frac{5}{2} c \text{ , dove c $\ll$ 1 è la concentrazione}
+\end{equation}
+
+Il comportamento reologico dipende dalla temperatura, dalla pressione e dal tempo.
+Si hanno due approcci fondamentali allo studio della reologia:
+
+\begin{itemize}
+    \item Meccanica dei continui: ignora la natura corpuscolare per descrivere il comportamento macroscopico;
+    \item Fisica dello stato solido: considera la microfisica, in maniera complementare al primo approccio.
+\end{itemize}
+
+La reologia studia i materiali con caratteristiche sia solide che fluide, mettendo in relazione \textit{stress} e \textit{strain}.
+
+Si può descrivere la struttura interna della Terra sulla base di una stratificazione chimica (crosta, mantello e nucleo) o reologica (litosfera, astenosfera, mesosfera, nucleo esterno e nucleo interno).
+La stratificazione chimica è studiata grazie alla sismologia, mentre quella reologica grazie a processi tettonici e dall'isostasia.
+
+\subsection{\textcolor{colore7}{Equazioni reologiche costitutive}}
+
+Le grandezze cinematiche e dinamiche di base della reologia sono lo strain (o strain rate), che generalizza il concetto di spostamento o deformazione, e lo stress o sforzo, che generalizza il concetto di forza, entrambi tensori cartesiani di rango 2.
+Traslazioni e rotazioni, che non causano deformazioni, non sono investigate dalla reologia.
+Altri parametri o proprietà intrinseche dei materiali comprendono rigidità, comprimibilità e viscosità, \textit{parametri materiali} di natura tensoriale.
+
+La forma generale delle equazioni costitutive relaziona direttamente quantità cinematiche e dinamiche attraverso dei parametri materiali, come si osserva nell'\textit{equazione di stato reologica}:
+
+\begin{equation}
+    R(\varepsilon, \dot{\epsilon}, \ddot{\epsilon}, ...; \sigma, \dot{\sigma}, \ddot{\sigma}, ...; \{M\} ) = 0
+    \label{eq:reologia}
+\end{equation}
+
+dove $\varepsilon$ rappresenta lo strain, $\sigma$ lo stress, $\{M\}$ il vettore di parametri materiali e $R$ la funzione reologica.
+
+Queste relazioni si ottengono da evidenze sperimentali e da principi fisici.
+In base al tipo di equazione, si distinguono diversi comportamenti reologici.
+
+\begin{itemize}
+    \item $F = -kx$: elasticità lineare (legge delle molle);
+    \item $F_{attrito} = \mu N$: attrito (legge di Amonton);
+    \item $\sigma_{ij} = C_{ijkl}\varepsilon_{kl}$, dove $C_{ijkl}$ è il tensore delle costanti elastiche: elasticità (legge di Hooke in 3D);
+    \item $\sigma = C\varepsilon$: caso 1D;
+    \item $\vec{J} = - \boldsymbol{D}\nabla c$: diffusione (legge di Fick);
+    \item $q = - \frac{k}{\mu} \Delta P$: flusso in un mezzo poroso (legge di Darcy);
+    \item $V=RI$: circuiti elettrici (legge di Ohm):
+\end{itemize}
+
+\subsection{\textcolor{colore7}{Esperimenti meccanici ideali}}
+
+Sono esperimenti in cui stress o strain cambiano nel tempo in modo tale da manifestare l'equazione costitutiva che caratterizza il materiale.
+
+\subsubsection{\textcolor{colore7}{Creep test}}
+
+Si applica uno stress costante al tempo $t=0$, descritto tramite la \textit{funzione di Heaviside} e si misura l'aumento di strain, mentre il materiale striscia.
+
+\begin{equation}
+    \sigma(t) = \sigma_0 H(t) \text{ , dove } H(t) \equiv \begin{cases}
+        0 & se \text{  } t \le 0 \\ 1 & se \text{  } t > 0
+    \end{cases}
+\end{equation}
+
+\noindent In un esperimento di creep si osservano tre fasi:
+
+\begin{itemize}
+    \item \textit{creep primario}, transiente, in cui $\dot{\varepsilon}$ varia nel tempo;
+    \item \textit{creep secondario}, stazionario, in cui $\dot{\varepsilon}$ resta costante;
+    \item \textit{creep terziario}, che precede la rottura.
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.25\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{creep_test.png}
+    \caption{Creep test.}
+    \label{fig:creep_test}   
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.65\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{creep_strain.png}
+    \caption{Esempio di \textit{curva di creep}: deformazione sotto stress costante in un creep test.}
+    \label{fig:creep_strain}    
+    \end{minipage}
+\end{figure}
+
+\subsubsection{\textcolor{colore7}{Relaxation test}}
+
+Si applica uno strain costante al tempo $t=0$ e si misura la diminuzione dello stress, mentre il materiale si rilassa.
+
+\begin{equation}
+    \varepsilon(t) = \varepsilon_0 H(t) \text{ , dove } H(t) \equiv \begin{cases}
+        0 & se \text{  } t \le 0 \\ 1 & se \text{  } t > 0
+    \end{cases}
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.25\linewidth]{relaxation_test.png}
+    \caption{Relaxation test.}
+    \label{fig:relaxation_test}
+\end{figure}
+
+Generalmente si osserva un decadimento dello stress, ma non necessariamente questo è esponenziale.
+
+\subsubsection{\textcolor{colore7}{Loading/Unloading test}}
+
+Si applica uno stress costante per un periodo finito $T$ e si misura lo strain variabile durante e dopo.
+
+\begin{equation}
+    \sigma(t) = \sigma_0 (H(t-t_1) - H(t-t_2))
+\end{equation}
+
+\subsubsection{\textcolor{colore7}{Dynamic test}}
+
+Si applica uno stress che oscilla nel tempo secondo una funzione armonica e si misurano la differenza di fase tra stress e strain, associato alla dissipazione di energia.
+
+\begin{equation}
+    \sigma(t) = H(t) sin (\omega t + \varphi) \text{ , dove } \omega = \frac{2\pi}{T} \text{ è la frequenza, } T \text{ è il periodo e } \varphi \textit{ è la fase}
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.25\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{loading_unloading_test.png}
+    \caption{Loading/unloading test.}
+    \label{fig:loading_unloading_test}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.65\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{dynamic_test.png}
+    \caption{Dynamic test.}
+    \label{fig:dynamic_test}
+    \end{minipage}
+\end{figure}
+
+Grazie a un creep test ideale è possibile caratterizzare i materiali secondo la loro natura reologica.
+Un materiale che dopo una deformazione iniziale mantiene la stessa forma è considerato un solido, uno che fluisce indefinitamente invece è considerato un fluido.
+Al contrario, gli altri comportamenti sono rilevanti su scale temporali inferiori: se lo strain aumenta linearmente con lo stress, il materiale è \textit{linearmente elastico}, mentre se è lo strain rate ad aumentare linearmente, il materiale è \textit{viscoso}, secondo la descrizione di Newton. 
+Una combinazione dei due comportamenti caratterizza un corpo viscoelastico.
+
+\subsection{\textcolor{colore7}{Comportamento elastico (corpo di Hooke)}}
+
+L'estensione è proporzionale alla forza: \textit{Ut tensio, sic vis} (legge di Hooke, 1678).
+Si tratta del comportamento mostrato dai materiali cristallini a bassa temperatura e pressione.
+L'\textit{analogo meccanico} è una molla.
+
+\noindent \textbf{Legge di Hooke per i corpi elastici}: 
+\begin{itemize}
+    \item $\sigma = E \varepsilon$ (legge 1D, $E$ è una generica costante elastica);
+    \item $\sigma_{ij} = C_{ijkl}\varepsilon_{kl}$ (legge in forma tensoriale);
+    \item $\sigma_{ij} = 2\mu \varepsilon_{ij} + \lambda \varepsilon_{kk}\delta_{ij}$ (legge per corpi isotropi con costanti di Lamé).
+\end{itemize}
+
+\noindent \textbf{Creep test per un corpo elastico}: $\sigma = \sigma_0 H(t) \Longrightarrow \varepsilon = \frac{\sigma_0}{E}$.
+
+\noindent \textbf{Relaxation test per un corpo elastico}: $\varepsilon = \varepsilon_0 H(t) \Longrightarrow\sigma = E \varepsilon_0 = cost.$
+
+Il comportamento elastico vale fino a che non viene raggiunta una soglia, per cui questa legge non spiega tutta la reologia.
+La "costante" di proporzionalità $E$ (modulo di Young) in realtà aumenta con la pressione e diminuisce con la temperatura.
+Il corpo elastico non subisce rilassamento.
+La Terra assume questo comportamento su scale temporali fino alle ore.
+La sismologia si basa sul comportamento elastico delle onde sismiche.
+A partire dalla sismologia è stato sviluppato il \textbf{modello PREM} (Preliminary Reference Earth Model), che lega la velocità delle onde s e p allo strato del Pianeta.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{elastic_tests.png}
+    \caption{Test meccanici ideali per un corpo elastico.}
+    \label{fig:elastic_tests}
+\end{figure}
+
+\subsection{\textcolor{colore7}{Comportamento fluido (corpo di Newton)}}
+
+Il corpo fluisce in modo costante se sottoposto a stress costante (comportamento opposto a quello elastico).
+Il mantello si comporta come un fluido su scale temporali geologiche.
+L'analogo meccanico è uno stantuffo, che mostra un comportamento viscoso: 
+
+\begin{equation}
+    F = -k_v \frac{dx}{dt} \text{ , dove $k_v$ è la costante di dissipazione}
+\end{equation}
+
+\noindent Lo stress è proporzionale allo strain rate, vale cioè la \textbf{legge di Newton per i corpi fluidi}: $\sigma = \eta \dot{\varepsilon}$.
+
+\noindent \textbf{Creep test per un corpo fluido}: $\sigma = \sigma_0 H(t) \Longrightarrow \varepsilon = \frac{\sigma_0}{\eta} t H(t)$.
+
+\noindent \textbf{Relaxation test per un corpo fluido}: $\varepsilon = \varepsilon_0 H(t) \Longrightarrow\sigma = \eta \varepsilon_0 \delta (t)$.
+
+dove:
+\begin{align}
+    \eta & = \frac{\sigma}{\dot{\varepsilon}} \text{ è la viscosità dinamica} \\
+    & [\frac{\text{stress}}{\text{strain rate}}] = [\text{Pressione} \times \text{tempo}] = [\frac{\text{forza} \times \text{tempo}}{\text{area}}] = [Pa \cdot s] = [kg m^{-1}s^{-1}] = [Pl, Poiseuille] \\
+    \nu & = \frac{\eta}{\rho} \text{ è la viscosità cinematica} \\
+    & [\frac{\text{viscosità}}{\text{densità}}] = [\frac{\text{massa} \times \text{lunghezza}^{-1} \times \text{tempo}^{-1}}{\text{massa} \times \text{volume}^{-1}}] = [m^2s^{-1}]
+\end{align}
+
+e la \textit{fluidità} è il reciproco della viscosità cinematica.
+
+\noindent Grazie a un \textit{viscosimetro a piani paralleli} (flusso di Couvette), è possibile misurare lo shear in un fluido e da esso la viscosità dinamica:
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{couvette.png}
+    \caption{Viscosimetro di Couvette.}
+    \label{fig:couvette}
+\end{figure}
+
+\begin{equation}
+    \eta = \frac{L F}{A V}
+\end{equation}
+
+Spesso la viscosità dinamica decade esponenzialmente con la temperatura.
+Sia $Q$ l'energia di attivazione, $T$ la temperatura, $R$ la costante dei gas e $A$ una costante generica:
+
+\begin{equation}
+    \eta = A \cdot e^{\frac{Q}{RT}}
+\end{equation}
+
+Si distinguono fluidi Newtoniani e non Newtoniani.
+Nei primi la viscosità non dipende dallo stress (gas e molti liquidi), mentre nei secondi non vale la legge di Newton.
+Si hanno perciò fluidi non Newtoniani:
+
+\begin{itemize}
+    \item \textit{shear-thickening}: la viscosità aumenta con lo strain rate;
+    \item \textit{shear-thinning}: la viscosità diminuisce con lo strain rate;
+    \item \textit{plastici di Bingham}: si comportano da solidi fino a un valore critico di stress, poi diventano dei fluidi viscosi: $\sigma = \eta \dot{\varepsilon} + cost.$
+\end{itemize}
+
+Si può generalizzare la legge di Newton a più dimensioni, come nel caso della legge di Hooke:
+
+\begin{itemize}
+    \item $\sigma_{ij} = -p\delta_{ij} + C'_{ijkl} \dot{\varepsilon}_{kl}$ (forma tensoriale, dove $p$ è la pressione termodinamica);
+    \item $\sigma_{ij} = -p\delta_{ij} + \lambda' \dot{\theta} \delta_{ij} + 2\eta \dot{\varepsilon}_{ij}$ (legge per fluidi isotropi, dove $\theta = \dot{\varepsilon}_{kk}$). 
+\end{itemize}
+
+L'isostasia glaciale e la convezione del mantello (che ha viscosità $\approx 10^{25}$ volte maggiore dell'acqua) si possono descrivere grazie a queste equazioni.
+
+\section{\textcolor{colore7}{Reologia II}}
+
+\subsection{\textcolor{colore7}{Effetti temporali}}
+
+In base alle condizioni esterne e alla durata del carico, le stesse rocce possono comportarsi in modi diversi e assumere comportamenti reologici opposti.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{time_effects.png}
+    \caption{Deformazione dipendente dal tempo sotto stress costante.}
+    \label{fig:time_effects}
+\end{figure}
+
+\noindent Tipicamente si distinguono le seguenti fasi:
+
+\begin{enumerate}
+    \item \textbf{deformazione elastica istantanea} $\varepsilon_l$;
+    \item \textbf{creep transiente} $\varepsilon_t$, in cui lo strain aumenta nel tempo con tasso decrescente;
+    \item \textbf{creep stazionario} $\dot{\varepsilon}$, si instaura quando la temperatura supera la metà di quella del solidus nei silicati;
+    \item \textbf{recupero elastico istantaneo}, in cui si recupera lo strain elastico $\varepsilon_l$;
+    \item \textbf{recupero transiente}, un cui su recupera lo strain transiente $\varepsilon_t$;
+    \item \textbf{deformazione permanente} non recuperabile.
+\end{enumerate}
+
+Lo \textbf{strain totale di creep} è dato allora da:
+
+\begin{equation}
+    \varepsilon(t) = \varepsilon_l + \varepsilon_t(t) + \dot{\varepsilon} t
+\end{equation}
+
+dove la dipendenza temporale della funzione di creep transiente è variabile, per cui sono state proposte diverse leggi empiriche:
+
+\begin{itemize}
+    \item \textit{legge esponenziale ritardata}: $\varepsilon_t (t) = A [1-exp(- \frac{t}{\tau})]$;
+    \item \textit{equazione del creep di Andreade}: $\varepsilon_t (t) = At^{1/\alpha}$;
+    \item \textit{legge logaritmica}: $\varepsilon_t (t) = A log(1 + \alpha t)$;
+    \item \textit{legge di Lomnitz modificata}: $\varepsilon_t (t) = \frac{\sigma}{\mu} \left(1 + \frac{q}{\alpha} [(1 + \alpha t)^\alpha -1] \right)$.
+\end{itemize}
+
+\subsection{\textcolor{colore7}{Trasformate di Laplace}}
+
+Sono strumenti matematici usati in ingegneria, che trovano utilizzo anche nella reologia.
+La \textbf{trasformata di Laplace} di una funzione $f(t)$ è data da:
+
+\begin{equation}
+    \mathcal{L_-} \{f(t)\} \equiv \tilde{f}(s) = \int_{0^-}^\infty f(t) e^{-st} dt
+\end{equation}
+
+dove $s = x + iy$ è la \textit{variabile complessa di Laplace}.
+Questa integrazione contiene l'eventuale singolarità in $t=0$.
+Le trasformate di Laplace sono lineari, omogenee e additive.
+La trasformata della derivata prima assume così la forma:
+
+\begin{equation}
+    \mathcal{L_-} \{f'(t)\} = s \tilde{f}(s) - f(0^-)
+\end{equation}
+
+dove $f(0^-)$ è il \textit{valore pre-iniziale} di $f(t)$.
+
+Vale inoltre il \textit{teorema del valore iniziale}:
+
+\begin{equation}
+    \lim_{s \rightarrow{\infty}} s \tilde{f}(s) = f(0^+)
+\end{equation}
+
+Date due funzioni $f(t)$ e $g(t)$, si può operare una \textbf{convoluzione temporale}:
+
+\begin{equation}
+    f(t) * g(t) = \int_{-\infty}^{+ \infty} f(t-t')g(t')dt' \mapsto \tilde{f}(s) \tilde{g}(s) 
+\end{equation}
+
+Le trasformate mandano sistemi di equazioni differenziali in sistemi di equazioni lineari, in particolare, quelle di Laplace sono degli operatori integrali.
+
+\subsection{\textcolor{colore7}{Comportamento viscoelastico (corpo di Maxwell)}}
+
+Sono corpi viscoelastici, che hanno un analogo meccanico composto da un corpo di Hooke e uno di Newton in serie ($M = N - H$ nella notazione di Reiner).
+I due elementi sono soggetti allo stesso stress, ma a strain diversi.
+Per linearità e applicando l'\textit{equazione costitutiva di Maxwell}, vale allora:
+
+\begin{equation}
+    \dot{\varepsilon} = \dot{\varepsilon}_N + \dot{\varepsilon}_H = \frac{\sigma}{\eta} + \frac{\dot{\sigma}}{E}
+\end{equation}
+
+\noindent Dalla regola per le derivate, la trasformata di Laplace dell'equazione di Maxwell è data da:
+
+\begin{equation}
+    s \tilde{\varepsilon} - \varepsilon(0^-) = \frac{\tilde{\sigma}}{\eta} + \frac{1}{E} (s \tilde{\sigma} - \sigma (0^-))
+\end{equation}
+
+\noindent Considerando una condizione iniziale di equilibrio, con $\sigma$ e $\varepsilon$ nulli, si risolve trovando:
+
+\begin{equation}
+    \tilde{\sigma} = \tilde{E}_M \tilde{\varepsilon}
+\end{equation}
+
+dove $\tilde{E}_M = \frac{Es}{s + 1/\tau_M}$ è il \textit{modulo complesso per la reologia di M}, mentre $\tau_M = \eta/E$ è il \textit{tempo di rilassamento di Maxwell}.
+Si noti l'analogia tra $\tilde{\sigma} = \tilde{E}_M \tilde{\varepsilon}$ e la legge di Hooke $\sigma = E \varepsilon$: è un'espressione del \textbf{principio di corrispondenza} della viscoelasticità lineare (\textit{la trasformata di Laplace dell'equazione reologica viscoelastica si ottiene dalle equazioni elastiche, cambiando i moduli elastici (come E) nei rispettivi moduli complessi ($\tilde{E}_M$) e cambiando $\sigma$ e $\eta$ in $\tilde{\sigma}$ e $\tilde{\eta}$}).
+Tale principio risulta evidente applicando le trasformate di Laplace.
+
+\noindent \textbf{Creep test per un corpo viscoelastico}: $\sigma (t) = \sigma_0 H(t) \Longrightarrow \tilde{\sigma} = \sigma_0 / s$.
+Si ricava la \textit{creep compliance}, cioè lo strain per unità di stress in un esperimento di creep, che dipende dalla natura reologica del corpo:
+
+\begin{equation}
+    \frac{\tilde{\varepsilon}}{\sigma_0} = \frac{1}{s \tilde{E}_M} \equiv \tilde{J}_M
+\end{equation}
+
+\noindent Sostituendo, si ricava:
+
+\begin{equation}
+    \tilde{E}_M = \frac{Es}{s + 1/\tau_M} \Longrightarrow \tilde{J}_M = \frac{1}{Es} + \frac{1}{\eta s^2}
+\end{equation}
+
+\noindent Così la creep compliance di Maxwell nel dominio temporale è data dall'antitrasformata:
+
+\begin{equation}
+    J_M (t) = \frac{1}{E} H(t) + \frac{t}{\eta} \text{ , dove } t \ge 0
+\end{equation}
+
+\noindent Il corpo maxwelliano sottoposto a stress costante mostra una risposta elastica iniziale, seguita da un flusso con strain rate costante, senza una fase transiente intermedia.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{viscoelastic_creep.png}
+    \caption{Creep test per un corpo con la reologia di Maxwell.}
+    \label{fig:viscoelastic_creep}
+\end{figure}
+
+\noindent \textbf{Relaxation test per un corpo viscoelastico}: $\varepsilon (t) = \varepsilon_= H(t) \Longrightarrow\tilde{\varepsilon} = \varepsilon_0/s$.
+Si ricava il \textit{modulo di rilassamento}, cioè lo stress per unità di strain in un esperimento di rilassamento, che dipende dalla natura reologica del corpo:
+
+\begin{equation}
+    \frac{\tilde{\sigma}}{\varepsilon_0} = \frac{\tilde{E}_M}{s} \equiv \tilde{G}_M
+\end{equation}
+
+\noindent Sostituendo, si ricava:
+
+\begin{equation}
+    \tilde{E}_M = \frac{Es}{s + 1/\tau_M} \Longrightarrow \tilde{G}_M = \frac{E}{s + 1/\tau_M}
+\end{equation}
+
+\noindent Così il modulo di rilassamento di Maxwell nel dominio temporale è dato da:
+
+\begin{equation}
+    G_M(t) = Ee^{-t/\tau_M} \text{ , dove } t \ge 0
+\end{equation}
+
+\noindent Il corpo maxwelliano sottoposto a strain costante mostra uno stress che decade esponenzialmente nel tempo.
+Non tutti i sistemi viscoelastici si rilassano e non tutti quelli che lo fanno seguono necessariamente una legge esponenziale.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{viscoelastic_relaxation.png}
+    \caption{Relaxation test per un corpo con la reologia di Maxwell.}
+    \label{fig:viscoelastic_relaxation}
+\end{figure}
+
+\subsection{\textcolor{colore7}{Considerazioni sulla reologia di corpi elastici, fluidi e viscoelastici}}
+
+\begin{itemize}
+    \item Corpo di Hooke: $\sigma = E \varepsilon \Longrightarrow \tilde{\sigma} = \tilde{E}_H \tilde{\varepsilon}$, dove $\tilde{E}_H = E$;
+    \item Corpo di Newton: $\sigma = \eta \dot{\varepsilon} \Longrightarrow \tilde{\sigma} = \tilde{E}_N \tilde{\varepsilon}$, dove $\tilde{E}_N = \eta s$
+\end{itemize}
+
+\noindent Si noti che:
+
+\begin{equation}
+    \frac{1}{\tilde{E}_H} + \frac{1}{\tilde{E}_N} = \frac{1}{E} + \frac{1}{\eta s} = \frac{s + E/\eta}{Es} \equiv \frac{1}{\tilde{E}_M}
+\end{equation}
+
+\noindent Cioè in un corpo di Maxwell, il reciproco del modulo complesso è pari alla somma dei reciproci dei moduli complessi del corpo di Hooke e di quello di Newton.
+Dato $\tilde{E}$, si hanno anche direttamente $\tilde{J} = 1/s \tilde{E}$ e $\tilde{G} = \tilde{E}/s$.
+In ogni reologia lineare, vale:
+
+\begin{equation}
+    \tilde{J} \tilde{G} = \frac{1}{s^2}
+\end{equation}
+
+\noindent Dall'antitrasformata di Laplace di questa relazione, si ottiene:
+
+\begin{equation}
+    \int_{-\infty}^{+\infty} J(t - t')G(t')dt' = \int_{-\infty}^{+\infty} J(t')G(t-t')dt' = t
+\end{equation}
+
+\noindent Per cui il problema di ricavare $G$ da $J$, o viceversa, è un problema di deconvoluzione.
+
+Il tempo di rilassamento di Maxwell della Terra è così dato dalla stima della viscosità derivante dagli studi del rimbalzo post-glaciale e dall'elasticità data dal modello PREM:
+
+\begin{equation}
+    \tau_M = \frac{\eta}{E} = \frac{\text{Bulk viscosity}}{\text{Bulk elasticity}} \approx \frac{10^{21 \div 22} Pa \cdot s}{10^{11} Pa} \approx 10^{10 \div 11} s \simeq 300 \div 3000 \text{anni}
+\end{equation}
+
+\noindent Perciò, assumendo che la reologia del mantello sia quella di un corpo di Maxwell, per tempi molto minori di $\tau_M$ la Terra si comporta in maniera elastica, mentre per tempi molto maggiori di $\tau_M$ si comporta in maniera viscoelastica.
+
+Si può così definire il \textbf{numero di Deborah} (dal nome della profetessa dell'Antico Testamento che disse "Dio è talmente grande che anche le montagne fluiscono sotto i suoi occhi"), per caratterizzare quanto un materiale appaia fluido:
+
+\begin{equation}
+    De = \frac{\tau_{rel}}{\tau_{exp}} = \frac{\text{tempo di rilassamento}}{\text{tempo scala dell'esperimento}}
+\end{equation}
+
+\begin{itemize}
+    \item Onde sismiche: $De \sim \infty$ (comportamento elastico);
+    \item Convezione del mantello: $De \sim 0$ (comportamento viscoso);
+    \item Isostasia glaciale: $De \sim 1$ (comportamento viscoelastico).
+\end{itemize}
+
+\subsection{\textcolor{colore7}{Comportamento firmoviscoso (corpo di Kelvin-Voigt)}}
+
+Un sistema formato da un corpo di Hooke e da uno di Newton in parallelo è detto \textbf{corpo di Kelvin-Voigt} e mostra un comportamento viscoelastico diverso da quello maxwelliano.
+Si indica con $K = N|H$.
+I due corpi sono sottoposti allo stesso strain ma a diverso stress.
+Per linearità, lo stress totale è dato dalla somma espressa nell'\textit{equazione costitutiva di un corpo di Kelvin-Voigt}:
+
+\begin{equation}
+    \sigma = \sigma_N + \sigma_H = \eta \dot{\varepsilon} + E\varepsilon
+\end{equation}
+
+\noindent Dalla regola delle derivate delle trasformate di Laplace, si ha:
+
+\begin{equation}
+    \tilde{\sigma} = \eta (s\tilde{\varepsilon} - \varepsilon (0^-)) + E\tilde{\varepsilon} \Longrightarrow \tilde{\sigma}= \tilde{E}_K \tilde{\varepsilon} 
+\end{equation}
+
+dove $\tilde{E}_K = \eta \left( s + \frac{1}{\tau_K}\right)$ è il \textit{modulo complesso della reologia di Kelvin-Voigt}.
+
+\noindent Il \textit{tempo di ritardo} o \textit{tempo di rilassamento di Kelvin} è dato da $\tau_K = \eta/E$.
+Vale il principio di corrispondenza della viscoelasticità lineare, come nel caso del corpo maxwelliano; inoltre, vale la somma dei moduli $\tilde{E}_K = \tilde{E}_N + \tilde{E}_H$.
+
+\noindent \textbf{Creep test per un corpo di Kelvin-Voigt}: $\sigma(t) = \sigma_= H(t) \Longrightarrow \tilde{\sigma} / s$.
+La creep compliance del corpo di Kelvin-Voigt è data da:
+
+\begin{equation}
+    \frac{\tilde{\varepsilon}}{\sigma_0} = \frac{1}{s \tilde{E}_K} = \tilde{J}_K
+\end{equation}
+
+\noindent Sostituendo, si ha:
+
+\begin{equation}
+    \tilde{E}_K = \eta \left( s + \frac{1}{\tau_K} \right) \Longrightarrow \tilde{J}_K = \frac{1}{\eta} \cdot \frac{1}{s} \cdot \left( \frac{1}{s + 1/\tau_K} \right)
+\end{equation}
+
+\noindent Per ottenere la creep compliance nel dominio temporale, è necessario applicare il teorema di convoluzione al prodotto di due trasformate di Laplace.
+
+\begin{equation}
+    J_K(t) = \frac{1}{E} \left( 1 - e^{-t/\tau_K} \right)
+\end{equation}
+
+\noindent Si ottiene un'esponenziale ritardata, in grado di descrivere una reologia transiente: il corpo non ha una risposta elastica iniziale e tiene in considerazione uno strain rate variabile.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{kelvin_creep.png}
+    \caption{Creep test per un corpo di Kelvin-Voigt.}
+    \label{fig:kelvin_creep}
+\end{figure}
+
+\noindent \textbf{Relaxation test per un corpo di Kelvin-Voigt}: $\varepsilon (t) = \varepsilon_0 H(t) \Longrightarrow \tilde{\varepsilon} = \varepsilon_0/s$.
+Si ottiene un modulo di rilassamento, cioè il rapporto tra lo stress e lo strain in un esperimento di rilassamento, dato da:
+
+\begin{equation}
+    \frac{\tilde{\sigma}}{\varepsilon_0} = \frac{\tilde{E}_K}{s} \equiv \tilde{G}_K
+\end{equation}
+
+\noindent Sostituendo, si ha:
+
+\begin{equation}
+    \tilde{E}_K = \eta \left( s + \frac{1}{\tau_K} \right) \text{ , dove } \tilde{G}_K = \eta + \frac{E}{s}
+\end{equation}
+
+\noindent Si ricava così il modulo di rilassamento di un corpo di Kelvin-Voigt nel dominio temporale:
+
+\begin{equation}
+    G_K (t) = \eta \delta (t) + EH(t) \text{ , } t \ge 0
+\end{equation}
+
+\noindent Cioè un corpo di Kelvin-Voigt soggetto a strain costante non mostra rilassamento dello stress nel tempo.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{kelvin_relaxation.png}
+    \caption{Relaxation test per un corpo di Kelvin-Voigt.}
+    \label{fig:kelvin_relaxation}
+\end{figure}
+
+\subsection{\textcolor{colore7}{Proprietà dei modelli di H, N, M e K}}
+
+Si riassumono il modulo effettivo, la creep compliance, il modulo di rilassamento e la viscosità effettiva per i modelli di Hooke, Newton, Maxwell e Kelvin-Voigt.
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{||c|c|c|c|c||}
+    \hline
+    \textbf{Modello} & $\tilde{E}(s)$ & $J(t)$ & $G(t)$ & $\eta_{eff}(t) = 1/\dot{J}$ \\
+    \hline
+    \rowcolor{colore7!40}
+    Hooke & $E$ & $1/E$ & $E$ & $\infty$ \\
+    \hline
+    \rowcolor{colore2!40}
+    Newton & $\eta s$ & $t/\eta$ & $\eta \delta(t)$ & $\eta$ \\
+    \hline
+    \rowcolor{colore4!40}
+    Maxwell & $\frac{Es}{s + E/\eta}$ & $\frac{H(t)}{E} + \frac{t}{\eta}$ & $E e^{-t/\tau_M}$ & $\eta$ \\
+    \hline
+    \rowcolor{colore5!40}
+    Kelvin-Voigt & $\eta s + E$ & $\frac{1}{E} (1 - e^{-t/\tau_K})$ & $\eta \delta (t) + EH (t)$ & $\eta e^{t/\tau_K}$ \\
+    \hline
+\end{tabular}
+\end{table}
+
+\subsection{\textcolor{colore7}{Loading/unloading test per i modelli di H, N, M e K)}}
+
+Si consideri un esperimento di carico e scarico, per cui si applica uno stress dato da $\sigma_{LU} (t) = \sigma_0 [H(t) - H(t-T)]$, dove $T>0$.
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{||c|c||}
+    \hline
+    \textbf{Modello} & \textbf{Strain} \\
+    \hline
+    \rowcolor{colore7!40}
+    Hooke & $\varepsilon_{LU} (t) = \varepsilon_0 [H(t) - H(t-T)]$ \\
+    \hline
+    \rowcolor{colore2!40}
+    Newton & $\varepsilon_{LU} (t) = \frac{\sigma_0}{E} [t - (t-T)H(t-T)]$ \\
+    \hline
+    \rowcolor{colore4!40}
+    Maxwell & $\varepsilon_{LU} (t) = \frac{\sigma_0}{2\eta} [H(t) - H(t-T)] + \frac{\sigma_0}{2\eta} [t - (t-T) H(t-\tau)]$ \\
+    \hline
+    \rowcolor{colore5!40}
+    Kelvin-Voigt & $\varepsilon_{LU} (t) = \frac{\sigma_0}{2\eta} \left[\left(1 - e^{-\mu t/\eta} \right) - \left( 1 - e^{-(- \mu(t-T)t/\eta} \right) H(t-T) \right] $ \\
+    \hline
+\end{tabular}
+\end{table}
+
+Si osserva che il corpo di Hooke non mostra alcuna viscosità e quello di Newton non mostra elasticità.
+Inoltre:
+
+\begin{itemize}
+    \item nel caso del corpo di Hooke si osserva un recupero totale dello strain iniziale;
+    \item nel caso del corpo di Newton nessun recupero, strain permanente e flusso stazionario fino a $t=T$;
+    \item nel caso del corpo di Maxwell recupero dello strain elastico, strain permanente, flusso stazionario fino a $t=T$;
+    \item nel caso del corpo di Kelvin-Voigt si osserva l'elasticità ritardata.
+\end{itemize}
+
+\subsection{\textcolor{colore7}{Dynamic test per i modelli di H, N, M e K)}}
+
+si consideri un esperimento dinamico, per cui si applica uno strain oscillante dato da $\sigma(t) = \sigma_d cos \omega t$, dove $t \ge 0$, $\sigma_d > 0$ e $\omega = 2\pi/P$.
+
+\begin{tabular}{||c|c|c||}
+    \hline
+    \textbf{Modello} & \textbf{Legge costitutiva} & \textbf{Stress} \\
+    \hline
+    \rowcolor{colore7!40}
+    Hooke & $\sigma = E \varepsilon$ & $\frac{\varepsilon(t)}{\sigma_d} = \frac{1}{E} cos \omega t$ \\
+    \hline
+    \rowcolor{colore2!40}
+    Newton & $\dot{\varepsilon} = \frac{\sigma}{\eta}$ & $\frac{\varepsilon(t)}{\sigma_d} = \frac{1}{\eta \omega} sin \omega t$ \\
+    \hline
+    \rowcolor{colore4!40}
+    Maxwell & $\dot{\varepsilon} = \frac{\sigma}{\eta} + \frac{\dot{\sigma}}{E}$ & $\frac{\varepsilon(t)}{\sigma_d} = \frac{1}{E} \cdot cos \omega t + \frac{1}{\eta \omega} \cdot sin \omega t$ \\
+    \hline
+    \rowcolor{colore5!40}
+    Kelvin-Voigt & $\sigma = \eta \dot{\varepsilon} + E \varepsilon$ & $\frac{\varepsilon(t)}{\sigma_d} = c \cdot cos \omega t + s \cdot sin \omega t$\\
+    \hline
+\end{tabular}
+
+\noindent Si osserva che:
+
+\begin{itemize}
+    \item nel corpo di Hooke strain e stress sono in fase;
+    \item nel corpo di Newton lo strain è sfasato di 90 °;
+    \item nel corpo di Maxwell lo strain è sfasato di una fase $\varphi$, dove $tan \varphi = -E/\eta \omega$;
+    \item nel corpo di Kelvin-Voigt lo strain è sfasato di una fase $\varphi$, dove $tan \varphi = -c/s$.
+\end{itemize}
+
+\subsection{\textcolor{colore7}{Modelli di Maxwell generalizzati}}
+
+Ghiaccio e olivina sono due esempi di materiali reologici non lineari.
+Esistono altri modelli ottenuti a partire da quelli fondamentali già affrontati, come per esempio il \textbf{modello generalizzato di Maxwell}, che è costituito da un numero qualunque di modelli di Maxwell collegati fra loro in parallelo e rappresenta la forma più generale possibile di un modello di viscoelasticità.
+Prevede una risposta iniziale elastica, un periodo di transizione ed una fase stazionaria.
+
+Il \textbf{modello di Burgers} ($M - KV$) mostra un comportamento iniziale elastico, seguito da un creep transiente e da uno smorzamento delle vibrazioni su scale temporali ridotte, mentre su quelle più lunghe tende a mostrare un comportamento viscoelastico lineare.
+Si utilizza spesso per modellare la reologia del mantello.
+
+\noindent \textbf{Creep test per il modello di Burgers}: le creep compliance si sommano, così che in totale si ha la somma di tre termini: la risposta elastica della molla $M$, la risposta transiente del corpo $KV$ e lo stato stazionario dello stantuffo $M$.
+
+\begin{equation}
+    J_B (t) = \frac{1}{E_2} H(t) + \frac{1}{E_1} \left( 1 - e^{-t/\tau_K} \right) + \frac{t}{\eta_2}
+\end{equation}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{burgers_creep.png}
+    \caption{Creep test per un corpo di Burgers.}
+    \label{fig:burgers_creep}
+\end{figure}
+
+\noindent \textbf{Relaxation test per il modello di Burgers}: il modulo di rilassamento determina uno spettro discreto di rilassamento, per cui si dice che il modello è \textit{biviscoso}:
+
+\begin{equation}
+    G_B (t) = G_1 e^{- t/ \tau_1} + G_2 e^{- t/ \tau_2}
+\end{equation}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{burgers_relaxation.png}
+    \caption{Relaxation test per il modello di Burgers.}
+    \label{fig:burgers_relaxation}
+\end{figure}
+
+\noindent \textbf{Loading/unloading test per il modello di Burgers}: si ottiene la curva tipica del creep viscoelastico.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{burgers_loading.png}
+    \caption{Loading/unloading test per il modello di Burgers.}
+    \label{fig:burgers_loading}
+\end{figure}
+
+\noindent Si osservano tutte le fasi della deformazione di un corpo viscoelastico sottoposto a stress costante: la risposta elastica iniziale, quella transiente, lo stato stazionario, poi il recupero elastico, quello transiente e infine la deformazione non recuperabile.
+
+La reologia di Burgers ha tutte le proprietà mostrate dai quattro modelli reologici più semplici.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{tabella_reologia.png}
+    \caption{Tabella riassuntiva con le proprietà dei modelli analizzati.}
+    \label{fig:tabella_reologia}
+\end{figure}
+
+\noindent Nel caso della \textit{sequenza sismica}, si osservano tre fasi distinte: intersismica ($10 \div 1000$ anni), cosismica (secondi $\div$ minuti) e post-sismica (giorni $\div$ decenni).
+La reologia di Burgers riesce a modellare bene le deformazioni post-sismiche.
+
+\subsection{\textcolor{colore7}{Modello di Maxwell frazionario}}
+
+Questo modello riesce a descrivere ancora meglio fenomeni quali le deformazioni post-sismiche, utilizzando nel corpo di Maxwell uno \textit{stantuffo frazionario di Scott Blair}.
+
+\noindent \textbf{Creep test per un modello di Maxwell frazionario}: $\sigma(t) = \sigma_0 H(t) \Longrightarrow J(t) = A + B t^\nu$, dove $0<\nu\le1$.
+
+Per il modulo di rilassamento è necessario ricorrere alla \textit{funzioni di Mittag-Leffler}, che generalizza il concetto di funzione $\Gamma$ considerando una derivata di ordine frazionario:
+
+\begin{equation}
+    E_\nu (z) = \sum_{n=0}^\infty \frac{z^n}{\Gamma(\nu n + 1)}
+\end{equation}
+
+dove se $\nu = 1$ si recupera il modello di Maxwell classico.
+
+\noindent \textbf{Relaxation test per un modello di Maxwell frazionario}: $\varepsilon (t) = \varepsilon_0 H(t) \Longrightarrow G(t) = CE_\nu [-(t/\tau)^\nu]$
+
+Si hanno due incognite fondamentali per poter considerare il rimbalzo post-glaciale un creep test naturale della Terra: la storia del carico esercitato dai ghiacciai sulla superficie nel tempo e la reologia della Terra.
+
+\section{\textcolor{colore2}{Idrosfera}}
+
+\subsection{\textcolor{colore2}{Introduzione e motivazione}}
+
+Si studia il tasso di cambiamento del livello del mare per ragioni scientifiche e socioeconomiche, da alcuni decenni grazie anche all'altimetria satellitare, oltre ai mareografi.
+Tra il 1993 e il 2003 si è osservato un innalzamento di $+2.8 \pm 0.4$ mm/anno, da confrontare con valori compresi fra 1 e 2 mm/anno dei decenni precedenti.
+Il contributo principale è dato dall'espansione termica.
+La distribuzione geografica di questo cambiamento non è uniforme a causa di tale effetto.
+L'andamento fino al 1900 è dato da stime geologiche, poi sono arrivate le osservazioni mareografiche e l'altimetria satellitare negli anni Novanta.
+L'andamento futuro è stimato empiricamente sulla base della temperatura o grazie a dei modelli di previsione.
+
+\textbf{Mareografo}
+
+Una barra graduata viene inserita in mare, spesso in un porto, così da misurare il \textit{livello marino relativo}, cioè rispetto alla Terra solida.
+Si hanno perciò diverse contaminazioni dovute a vari fenomeni geologici.
+Grazie ai circa 1500 mareografi presenti nel mondo, è stato possibile ricavare un trend a partire dal 1870 di $+1.8 \pm 0.2$ mm/anno.
+
+\textbf{Altimetro satellitare}
+
+A partire dal 1993 si può studiare l'altezza del geoide con grande precisione, ricavando un trend del \textit{livello marino assoluto} di $+3.2 \pm 0.4$ mm/anno.
+
+\textbf{Variazione del livello marino}
+
+Si indica con $S$ il livello marino relativo, rispetto alla Terra solida, con $N$ quello assoluto, rispetto al centro di massa della Terra e con $U$ lo spostamento verticale.
+Si ottiene una semplice equazione: $S = N - U$.
+L'espansione termica è il termine attualmente dominante per l'innalzamento, poi c'è lo scioglimento di ghiacciai, Groenlandia e Antartide e l'aggiustamento glaceoisostatico.
+
+Dall'ultimo massimo glaciale ($\approx$ 21'000 anni fa) fino a circa 6'000 anni fa, il livello del mare è aumentato di circa 130 m a causa della fusione delle masse glaciali.
+
+I cinque segnali vitali del pianeta, secondo la NASA, sono la concentrazione di $CO_2$, la temperatura globale, il minimo del ghiaccio marino artico, il ghiaccio terrestre e il livello del mare.
+
+\subsection{\textcolor{colore2}{Registri individuali del livello marino}}
+
+\subsubsection{\textcolor{colore2}{Piscine Romane}}
+
+Le ville in riva al mare (come la Villa di Tiberio del II sec.) ospitavano delle piscine per l'itticoltura.
+Grazie a queste si può misurare un aumento del livello marino relativo di $58 \pm 5$ cm, pesantemente influenzato dalla glaceoisostasia.
+
+\subsubsection{\textcolor{colore2}{Terremoto di Messina del 28/12/1908}}
+
+Un terremoto di magnitudo 7 causò un maremoto e circa 70'000 morti.
+L'anomalia mareografica è stata misurata anche nel Tirreno a grande distanza.
+Il mareografo di Messina così ha ricoperto il ruolo di sismografo a bassa frequenza, misurando uno spostamento elastico istantaneo di circa 50 cm e una risposta viscoelastica successiva, che potrebbe indicare un coinvolgimento di parte del mantello superiore.
+
+\subsection{\textcolor{colore2}{Osservazioni strumentali dai registri globali}}
+
+Si osserva un'oscillazione significativa con un periodo di circa 60 anni in quasi tutti i mareografi durante il XX sec., dovuta alle pulsazioni oceanografiche.
+Questo rende impossibile trarre conclusioni su un trend di lungo periodo, permettendo solo stime sulla tendenza nel breve periodo.
+Per questo motivo si richiede un registro di almeno 60 o 70 anni nei dati di un mareografo, il che ne esclude circa il 90\%.
+Un'altra limitazione è data dalla distribuzione non omogenea dei mareografi e dall'incompletezza dei loro dataset.
+
+Il \textit{Permanent Service for Mean Sea Level} (PSMSL) si occupa di standardizzare le misure.
+L'approccio più usato è quello dell' \textit{ordinary least squares}, grazie al quale si ottiene, per esempio, un aumento di $1.5 \pm 0.2$ mm/anno a Trieste.
+
+Il \textit{best fit rate} per un numero $N_{tg}$ di mareografi dal database del PSMSL è così dato da:
+
+\begin{equation}
+    r_k = \frac{N_k^v \sum_j x_j y_j - (\sum_j x_j)(\sum_jy_j)}{N_k^v (\sum_j x_j^2 - \sum_j y_j^2)} \text{ , dove } k = 1,...,N_{tg} \Longrightarrow \rho_k = r_k \pm \sigma_k
+\end{equation}
+
+dove:
+
+\begin{itemize}
+    \item $v_j$ è il livello del mare al tempo $x_j$ , con $j = 1,...,N_k^v$;
+    \item $N_k^v$ è il numero di dati annuali validi nella serie temporale;
+    \item $\sigma_k$ è l'incertezza del trend;
+    \item $\rho_k$ è il tasso di variazione del mareografo.
+\end{itemize}
+
+A causa delle oscillazioni decennali, le serie temporali di durata maggiore di 60 anni tendono a mostrare variazioni molto più contenute e incertezze minori.
+Alcuni mareografi misurano una diminuzione del livello marino a causa del rimbalzo glaceoisostatico.
+
+\subsection{\textcolor{colore2}{Problema della contaminazione glaceoisostatica}}
+
+A causa dello scioglimento dei ghiacciai, dove c'erano delle lenzuola glaciali si misura un rimbalzo post-glaciale.
+Altri fattori che rendono la Terra solida instabile sono terremoti, estrazione di acqua dal suolo, depositi di materiali fluviali e la cementificazione.
+A causa del maggiore carico che grava sugli oceani, anche la crosta oceanica sta subsidendo.
+
+Questi effetti contaminano i dati relativi al livello marino, come descritto dall'equazione del livello marino, che si può risolvere con tecniche di tipo iterativo, partendo da soluzioni ragionevoli e ponendo approssimazioni più volte fino a convergere ad un valore.
+Generalmente si parte considerando per $S$ il valore eustatico.
+
+L'incertezza sulle misure non è sempre disponibile, ma è fondamentale per calcolare la variazione del livello del mare medio globale.
+Questa generalmente si ottiene a partire da una media:
+
+\begin{itemize}
+    \item \begin{equation}
+        \text{media aritmetica: } m=\frac{\sum_kr_k}{N_{tg}} \text{ , la migliore stima;}    
+    \end{equation}
+    \item \begin{equation}
+        \text{valore quadratico medio: } rms = \sqrt{\frac{\sum_k (r_k - m)^2}{N_{tg} - 1}} \text{ , l'incertezza media dei singoli trend;}
+    \end{equation}
+    \item \begin{equation}
+        \text{deviazione standard della media: } sdom=\frac{rms}{\sqrt{N_{tg}}} \text{ , l'incertezza della migliore stima } m
+    \end{equation}
+\end{itemize}
+
+Così l'\textbf{innalzamento medio del livello del mare} è dato da $\mu = m \pm sdom$.
+
+\subsection{\textcolor{colore2}{Aumento del livello marino nell'ultimo secolo}}
+
+Nel 1941 Gutenberg fece una prima stima senza correzioni glaceoisostatiche ($1.1 \pm 0.8$ mm/anno).
+In seguito altre stime non fornirono l'incertezza, fino a Peltier e Tushingham ($2.4 \pm 0.9$ mm/anno).
+Pirazzoli nel 1986 ritenne impossibile calcolarlo per via dei troppi errori e del problema di mediare le incertezze.
+In generale le stime non corrette per la glaceoisostasia restituiscono valori inferiori siccome molte misure sono fatte in zone vicine ai poli.
+
+Nel 1997 Douglas propose dei \textbf{criteri di selezione} per i mareografi:
+
+\begin{enumerate}
+    \item almeno 60 anni di dati;
+    \item lontano dai confini delle placche tettoniche;
+    \item completi almeno all'80\%;
+    \item in accordo con mareografi vicini;
+    \item lontano da aree coperte di ghiacci durante l'ultimo massimo glaciale.
+\end{enumerate}
+
+Così restano solamente 23 mareografi (tutti in accordo, ma non necessariamente accurati), grazie ai quali si ricava un aumento, corretto per la glaceoisostasia, di $1.8 \pm 0.1$ mm/anno.
+Diverse combinazioni di reologia e glaceoisostasia fittano le stesse osservazioni, per cui non si ha una soluzione univoca.
+
+\section{\textcolor{colore7}{Surface loading ed equazione del livello marino I}}
+
+\subsection{\textcolor{colore7}{Distribuzioni superficiali di massa}}
+
+\subsubsection{\textcolor{colore7}{Motivazione}}
+
+La superficie terrestre è sottoposta ai carichi di atmosfera, oceani e continenti, che possono variare nel tempo e causare una risposta elastica o viscoelastica, a seconda del numero di Deborah.
+Terremoti, eruzioni vulcaniche, moti mareali e frane possono variare il carico sulla superficie.
+
+Il \textbf{modello di Boussinesq} prevede una Terra piatta ed elastica, con modulo di shear $\mu$ e rapporto di Poisson $\nu$ costanti, su cui viene esercitato un carico.
+La deformazione avviene sia in orizzontale sia in verticale:
+
+\begin{equation}
+    u_z = \frac{P}{4\pi \mu R} \left[ 2(1-\nu) + \frac{z^2}{R^2} \right] \text{ , } u_r = \frac{P}{4\pi \mu R} \left[ \frac{rz}{R} - \frac{(1-2\nu)r}{R+z} \right]
+\end{equation}
+
+dove $P$ rappresenta il carico e $R = \sqrt{r^2 + z^2}$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{boussinesq.png}
+    \caption{Deformazione orizzontale e verticale dovuta ad un carico nel modello di Boussinesq.}
+    \label{fig:boussinesq}
+\end{figure}
+
+\noindent In questo modello compressibile, la componente verticale è positiva verso il basso.
+La deformazione avviene verso il basso e verso il centro.
+I problemi di Kelvin (carico puntiforme su corpo elastico infinito) e di Cerruti (carico puntiforme orizzontale sulla superficie di una massa semi-infinita) possono essere applicati in geomeccanica per risolvere il problema di Boussinesq.
+I carichi applicabili alla Terra sono di due diversi tipi: superficiale (con contatto) o mareale (che non prevede contatto).
+Lo studio delle maree non si può affrontare con il modello di Boussinesq.
+Kelvin cercò di determinare la rigidità della Terra grazie alle maree, in seguito Darwin applicò un modello sferico per lo studio delle maree su una sfera fluida.
+La soluzione di Kelvin può essere applicata all’isostasia glaciale.
+
+Nel 1972 Farrell introdusse il formalismo delle funzioni di Green per una Terra sferica. 
+Discusse l’approssimazione della Terra piatta per deformazioni locali e calcolò i numeri di Love fino al grado $l=10^4$. 
+Il modello di Boussinesq diventa il limite della Terra sfericamente simmetrica e stratificata a piccola scala.
+Coi modelli di Farrell e di Boussinesq si modella il rimbalzo post-glaciale.
+
+\subsection{\textcolor{colore7}{Distribuzioni superficiali di massa}}
+
+\subsubsection{\textcolor{colore7}{Topografia, livello marino e distribuzione di acqua e ghiaccio}}
+
+Si può caratterizzare una distribuzione superficiale di massa grazie alle \textbf{funzione oceano}, definita a partire dallo spessore del ghiaccio $I$ e dalla topografia $T$:
+
+\begin{equation}
+    \mathcal{O}(\gamma,t) \equiv \begin{cases}
+        1 \text{ } & \text{ se } T + \frac{\rho^i}{\rho^w}I < 0 \\ 0 \text{ } & \text{ se } T + \frac{\rho^i}{\rho^w}I \ge 0 
+    \end{cases}
+\end{equation}
+
+Dove la \textbf{funzione livello del mare} è data da $T (\gamma, t) = - B$ e la \textbf{funzione continente} da $\mathcal{C}(\gamma, t) = 1 - \mathcal{O}$.
+
+Si hanno cinque possibilità per i valori della funzione oceano: 
+
+\begin{itemize}
+    \item ghiaccio galleggiante $\mathcal{O} = 1$ ($I>0$ e $T<0$) vale l'isostasia;
+    \item oceano libero dal ghiaccio $\mathcal{O} = 1$ ($I=0$ e $T<0$);
+    \item ghiaccio che poggia sulla superficie sopra il livello del mare $\mathcal{O} = 0$ ($I>0$ e $T>0$);
+    \item ghiaccio che poggia sulla superficie sotto il livello del mare $\mathcal{O} = 0$ ($I>0$ e $T<0$) non vale l'isostasia;
+    \item terreno libero dal ghiaccio $\mathcal{O} = 0$ ($I=0$ e $T>0$).
+\end{itemize}
+
+Così la funzione oceano determina cosa c'è sotto il ghiaccio.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{tabella_oceano.png}
+    \caption{Valori della funzione oceano in funzione di topografia, spessore del ghiaccio e casi possibili.}
+    \label{fig:tabella_oceano}
+\end{figure}
+
+\noindent Dalla definizione di topografia discende la \textbf{variazione del livello marino}:
+
+\begin{equation}
+    S(\gamma , t) = B - B_0
+\end{equation}
+
+Dove $B_0$ è il livello all'equilibrio in un istante di riferimento.
+Al presente si definisce così $B_N = B(\gamma, t_N)$.
+
+\noindent La \textbf{variazione della topografia} è data da:
+
+\begin{equation}
+    T(\gamma, t) - T(\gamma, t_N) = - (B - B_N) = - [(B - B_0) - (B_N - B_0)]
+\end{equation}
+
+\noindent Si definisce allora l'equazione della \textbf{paleotopografia} di Peltier:
+
+\begin{equation}
+    T(\gamma, t) = T_N - (\mathcal{S} - \mathcal{S}_N)
+\end{equation}
+
+Nota la topografia attuale e l’evoluzione del livello marino nel passato, si può così ricostruire la topografia a un istante arbitrario.
+
+\noindent Aggiungendo il termine dato dal ghiaccio, si ottiene infine la \textbf{paleotopografia vera}:
+
+\begin{equation}
+    PT(\gamma,t) = T + I
+\end{equation}
+
+\noindent Dalla soluzione di questa equazione è stato possibile ricavare i ponti topografici come quello di Doggerland (GBR ed Europa) e Beringia, che hanno favorito gli spostamenti umani.
+
+Queste funzioni dipendono dallo spazio e dal tempo in maniera continua, ma può essere utile considerare una discretizzazione temporale dei campi e un intervallo costante fra gli istanti successivi.
+
+L’asse temporale viene suddiviso in diversi time step e grazie alla funzione di Heaviside si può ricostruire $F(\gamma , t)$ tramite una somma finita:
+
+\begin{equation}
+    F(\gamma, t) = F_0 (\gamma) + \sum_{k=0}^N [F_{k+1}(\gamma) - F_k (\gamma) ] H(t-t_k)
+\end{equation}
+
+Si ottiene una funzione costante a tratti.
+La \textbf{variazione temporale} di $F(\gamma,t)$ è data dalla differenza tra il valore attuale e quello di equilibrio:
+
+\begin{equation}
+    \mathcal{F}(\gamma, t) \equiv F(\gamma, t) - F_0 (\gamma)
+\end{equation}
+
+\subsubsection{\textcolor{colore7}{Funzione di carico superficiale e sue variazioni temporali}}
+
+Il \textbf{carico superficiale} rappresenta la massa per unità di area, dipendente dalla posizione e dal tempo.
+Data la \textbf{massa distribuita sulla superficie terrestre} $M(t)$, il carico superficiale è descritto da $L(\gamma, t)$:
+
+\begin{equation}
+    M(t) = \int_e LdA \equiv a^2 \int_0^{2\pi} \int_0^\pi L(\gamma, t) sin \theta d \theta d \lambda \Longrightarrow L(\gamma, t) = \frac{dM}{dA}
+\end{equation}
+
+dove $a$ è il raggio terrestre.
+Si possono distinguere i contributi: $M(t) = M^i(t) + M^w (t)$.
+Distinguiamo ulteriormente il ghiaccio \textit{grounded} da quello \textit{floating}
+
+\begin{equation}
+    M^i(t) = M^{i,gr}(t) + M^{i,fl}(t)
+\end{equation}
+
+\noindent Integrando su tutta la Terra filtrando con la funzione continente si trova la massa del ghiaccio:
+
+\begin{equation}
+    M^i(t) = \rho^i \int_e ICdA + \rho^i \int_{fl}IdA
+\end{equation}
+
+\noindent In maniera analoga si trova quella dell’acqua anche grazie alle regioni con ghiaccio galleggiante.
+Il water term si può scrivere anche in funzione di $y$, cioè la distanza tra il ghiaccio galleggiante e il fondale marino:
+
+\begin{equation}
+    M^w(t) = M^{w,if} + M^{w,fl} = \rho^w \int_{if}BdA + \rho^i\int_{fl}ydA
+\end{equation}
+
+dove $if$ indica oceani privi di ghiaccio e $fl$ quelli con ghiaccio galleggiante.
+
+\noindent Imponendo l'isostasia si ottiene:
+
+\begin{equation}
+    M^w(t) = \rho^w \int_{if}BdA + \int_{fl} (\rho^wB - \rho^i I)dA
+\end{equation}
+
+\noindent Grazie alle proprietà della funzione oceano si cancellano dei termini che fanno restare:
+\begin{equation}
+    M(t) = \rho^i \int_e ICdA + \rho^i \int_{fl} IdA + \rho^w \int_{if}BdA + \rho^w \int_{fl}BdA - \rho^i \int_{fl} IdA = \int_e (\rho^i IC + \rho^w BO)dA
+\end{equation}
+
+\noindent Si ottiene un'espressione utilissima per il carico superficiale:
+
+\begin{equation}
+    L(\gamma , t) = \rho ^i I C + \rho^ w BO
+\end{equation}
+
+Che è estremamente simmetrica.
+
+
+\noindent Si definisce la \textbf{variazione temporale del carico superficiale}: $\mathcal{L}(\gamma,t) = L - L_0 = \rho^i (IC - I_0C_0) + \rho^w(BO-B_0O_0)$
+Si introduce anche la \textbf{variazione dello spessore del ghiaccio}: $\mathcal{I}(\gamma, t) = I - I_0$ e la \textbf{variazione della funzione oceano}: $\mathcal{O}(\gamma, t) = O - O_0$
+
+\noindent Con le definizioni viste fino a qui si ritrova così un’altra equazione molto simmetrica, per la variazione del carico superficiale:
+
+\begin{equation}
+    \mathcal{L}(\gamma, t) = \rho^i C\mathcal{I} + \rho^w O\mathcal{S} - (\rho^i I_0 + \rho^w T_0)\mathcal{O}
+    \label{eq:variazione_carico}
+\end{equation}
+
+\noindent Inoltre, è possibile suddividere la variazione nei contributi dovuti alla variazione dello spessore del ghiaccio, del livello del mare e della funzione oceano.
+
+\subsubsection{\textcolor{colore7}{Conservazione della massa}}
+
+Si considerano un'istante iniziale $t_0$, in cui si ha equilibrio e la reologia è latente, e uno arbitrario $t$, in cui le funzioni hanno assunto nuovi valori.
+Il vincolo fondamentale dell'equazione del livello marino è il \textbf{principio di conservazione della massa}, che si può applicare in diversi modi.
+Nella forma base, vale $M(t) = M_0$.
+In forma integrale $\mathcal{M}(t) \equiv M - M_0 \equiv \int_e \mathcal{L}dA = 0$, che si può esprimere anche tramite la media della variazione del carico superficiale sulla superficie della Terra: $<\mathcal{L}(\gamma, t) >^e = \equiv \frac{1}{A^e} \int_e \mathcal{L}(\gamma, t) dA$.
+
+Grazie allo sviluppo in funzioni armoniche, inoltre, vale:
+
+\begin{equation}
+    F(\gamma, t) = \sum_{lm} F_{lm} (t) \mathcal{Y}_{lm}(\gamma) \Longrightarrow <F(\gamma, t)> = \frac{1}{4\pi} \int_\gamma F(\gamma, t) dA = F_{00}(t)
+\end{equation}
+
+Perciò la conservazione della massa si può esprimere anche tramite $\mathcal{L}_{00}(t)=0$.
+
+\noindent Un'altra forma si può ottenere a partire dall'espressione all'eq. ~\ref{eq:variazione_carico}:
+
+\begin{equation}
+    \mathcal{M}(t) \equiv \int_e \mathcal{L}dA = \rho^i \int_e (IC - I_0C_0)dA + \rho^w \int_e (BO-B_0O_0)dA=0
+\end{equation}
+
+\noindent Esprimendo ora la \textbf{variazione della massa del ghiaccio grounded} con:
+
+\begin{equation}
+    \mu(t) = \rho^i \int_e (IC-I_0C_0)dA
+\end{equation}
+
+\noindent Si ottiene un'altra forma del principio di conservazione della massa, relativa al solo ghiaccio grounded:
+
+\begin{equation}
+    \mu(t) + \rho^w \int_e (BO-B_0O_0)dA = 0
+\end{equation}
+
+\noindent Riscrivendo la differenza:
+
+\begin{align}
+    BO-B_0O_0 &= (B-B_0+B_0)O-B_0O_0 \\ &= (B-B_0)O + (B_0(O-O_0) \\ &= \mathcal{S}O + B_0 \mathcal{O} \\ &= \mathcal{S}O - T_0\mathcal{O}
+\end{align}
+
+\noindent Così si può riscrivere il principio di conservazione della massa come:
+
+\begin{equation}
+    \mu(t) + \rho^w \int_e (BO - B_0O_0)dA = \mu(t) + \rho^w \int_e \mathcal{S}O dA - \rho^w \int_e T_0 \mathcal{O}dA = 0 
+\end{equation}
+
+\noindent Da cui si ottiene un'altra forma fondamentale:
+
+\begin{equation}
+    \mu(t) + \rho^w A^o <\mathcal{S}>^o - \rho^wA^e <T_0 \mathcal{O}>^e = 0
+    \label{eq:MCP3}
+\end{equation}
+
+dove $<...>^o$ rappresenta la media sull'oceano, che è una superficie variabile nel tempo.
+
+\noindent \textbf{\textcolor{colore7}{Forme del principio di conservazione della massa}}:
+
+\begin{enumerate}
+    \item $M(t) = M_0$ o $\mathcal{M}(t) = 0$;
+    \item $<\mathcal{L}(\gamma, t)>^e = 0$ o $\mathcal{L}_{00} (t) = 0$;
+    \item $\mu(t) + \rho^w \int_e (BO - B_0O_0)dA = 0$ o $\mu(t) + \rho^w A^o <\mathcal{S}>^o - \rho^w A^e<T_0 \mathcal{O}>^e = 0$.
+\end{enumerate}
+
+\subsection{\textcolor{colore7}{Numeri di Love e funzioni di Green}}
+
+\subsubsection{\textcolor{colore7}{Modelli sfericamente simmetrici della Terra}}
+
+Nei sistemi a simmetria sferica, come il modello 1D della Terra, si possono applicare questi strumenti.
+I modelli 1D sono abbastanza realistici se le discrepanze sono poco rilevanti.
+Le assunzioni di base sono:
+
+\begin{enumerate}
+    \item Terra isotropa, autogravitante (il campo gravitazionale non cambia) e incomprimibile;
+    \item nucleo fluido, uniforme e inviscido;
+    \item mantello con reologia viscoelastica di Maxwell;
+    \item litosfera elastica.
+\end{enumerate}
+
+\noindent A partire da tali assunzioni è poi possibile complicare i modelli considerando stratificazioni e comprimibilità, per esempio usando il modello \textit{viscoelastic normal mode theory}.
+
+\subsubsection{\textcolor{colore7}{Funzione diretta di Green (Terra rigida)}}
+
+Si consideri una massa puntiforme sulla superficie di una Terra rigida e sfericamente simmetrica.
+Non si ha deformazione, ma il potenziale gravitazionale della Terra varia.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.3\linewidth]{massa_puntiforme.png}
+    \caption{Sistema sorgente osservatore del problema.}
+    \label{fig:massa_puntiforme}
+\end{figure}
+
+\noindent Si indica la massa effettiva con $\mu(t) = \delta(t) \delta m$, con $\delta m \ll m_e$.
+Il carico superficiale associato è dato da:
+
+\begin{equation}
+    \mathcal{L}^\delta (\alpha, t) = \frac{\mu(t)}{a^2} \frac{\delta (\theta - \theta') \delta(\lambda - \lambda')}{sin \theta}
+\end{equation}
+
+\noindent La variazione del potenziale gravitazionale presso l'osservatore è detta \textit{contributo diretto} al potenziale gravitazionale, l'unico nel caso della Terra rigida.
+
+\begin{equation}
+    \varphi ^r (\alpha,t) = \frac{G \mu(t)}{d(\alpha)}
+\end{equation}
+
+\noindent Dalla trigonometria:
+
+\begin{equation}
+    d(\alpha) = 2a sin\left( \frac{a}{2} \right) \Longrightarrow \varphi ^r (\alpha, t) = \delta(t) \frac{ag\delta m}{2m^e sin (\alpha/2)} \text{ , dove } g = \frac{GM_e}{a^2} 
+\end{equation}
+
+\noindent La \textbf{variazione del potenziale per unità di massa e di tempo} è fornita dalla funzione di Green per il potenziale gravitazionale diretto:
+
+\begin{equation}
+    \Gamma^{\varphi,r} (\alpha, t) \equiv \frac{\varphi^r (\alpha, t)}{\delta m} = \delta (t) \frac{ag}{m^e} \left( \frac{1}{2sin(\alpha/2)} \right)
+\end{equation}
+
+\noindent Siccome la massa è adimensionale, la funzione diverge per $\alpha \longrightarrow 0$, poi decade velocemente con la distanza angolare.
+Una forma più utile si ottiene sfruttando i polinomi di Legendre:
+
+\begin{equation}
+    \frac{1}{2sin(\alpha/2)} \equiv \sum_{l=0}^\infty P_l (cos \alpha)
+\end{equation}
+
+\noindent Si può dare una \textbf{rappresentazione spettrale} della funzione di Green:
+
+\begin{equation}
+    \Gamma^{\varphi,r} (\alpha, t) = \delta (t) \sum_{l=0}^\infty \varphi _l^r P_l (cos \alpha)
+\end{equation}
+
+Dove i coefficienti armonici $\varphi _l^r \equiv \frac{ag}{m^e}$ sono uguali: lo spettro è bianco.
+
+\subsubsection{\textcolor{colore7}{Funzioni di Green incrementali (Terra elastica)}}
+
+Con una Terra deformabile si aggiunge un \textit{contributo indiretto}, per cui la funzione di Green corrispondente si può esprimere tramite la seguente espansione:
+
+\begin{equation}
+    \Gamma^{\varphi,e} (\alpha, t) \equiv \frac{\varphi ^e (\alpha, t)}{\delta m} = \delta (t) \sum_{l=0}^\infty \varphi_l^e P_l (cos \alpha)
+\end{equation}
+
+\noindent Il valore dei coefficienti armonici $\varphi_l^e$ si ricava risolvendo equazioni di equilibrio.
+Il \textbf{principio di Love} sostiene che tra i coefficienti armonici elastici e quelli relativi alla variazione diretta di potenziale gravitazionale vi sia una relazione diretta:
+
+\begin{equation}
+    \varphi_l^e = k_l^{L,e}\varphi_l^r
+\end{equation}
+
+dove $k_l^{L,e} = \varphi_l^e / \varphi_l^r$ è il \textit{Loading Love Number per il potenziale}.
+La "$L$" all'apice indica che si riferisce al carico, mentre per le maree si ha una "$T$".
+Per una Terra rigida $k_l^{L,e} = 0$, mentre nel caso reale il valore è compreso fra 0 e 1.
+
+\noindent La \textbf{funzione di Green per il potenziale totale di una Terra elastica} è:
+
+\begin{equation}
+    \Gamma^\varphi (\alpha, t) \equiv \Gamma^{\varphi,r} + \Gamma^{\varphi,e} = \delta(t) \frac{ag}{m^e} \sum_{l=0}^\infty (1 + k_l^{L,e})P_l(cos\alpha)
+\end{equation}
+
+
+\noindent Applicando la formula di Brun (eq. ~\ref{eq:Brun}), si può ottenere un'espressione per la \textbf{funzione di Green per la variazione dell'altezza del geoide} per unità di massa e di tempo:
+\begin{equation}
+    \Gamma^g (\alpha, t) \equiv \frac{\Gamma^\varphi}{g} = \delta (t) \frac{a}{m^e} \sum_{l=0}^\infty (1 + k_l^{L,e})P_l(cos \alpha)
+\end{equation}
+
+Dove nelle parentesi compaiono il termine $1$ che descrive la variazione diretta e il termine $k_l^{L,e}$ che descrive l'effetto indiretto dovuto all'elasticità della Terra.
+A causa degli effetti elastici, si ha anche uno spostamento verticale, per cui si esprime anche la \textbf{funzione di Green elastica dello spostamento verticale}:
+
+\begin{equation}
+    \Gamma^{u}(\alpha, t) = \delta(t) \frac{a}{m^e} \sum_{l=0}^\infty h_l^{L,e} P_l (cos \alpha)
+\end{equation}
+
+\noindent E analogamente la \textbf{funzione di Green elastica dello spostamento orizzontale}: 
+
+\begin{equation}
+    \vec{\Gamma}^v (\alpha, t) \equiv \delta(t) \frac{a}{m^e} \sum_{l=0}^\infty l _l^{L,e} \partial_\alpha P_l (cos \alpha) \hat{\alpha}
+\end{equation}
+
+dove $_l$ e $l_l$ sono i Loading Love Number verticali e orizzontali.
+
+\noindent Si hanno così tre funzioni di Green: una per l'altezza del geoide, una per lo spostamento verticale e una per quello orizzontale.
+Per una Terra rigida si avrebbe $(h,k,l)_l^{L,e} \equiv 0$, mentre per una elastica i numeri di Love sono del tipo $j_l^L (t) = j_l ^{L,e} \delta (t)$, con $j = h, k ,l$.
+
+\subsubsection{\textcolor{colore7}{Numeri di Love elastici}}
+
+I numeri di Love si usano anche per le maree e per i terremoti. 
+Essi dipendono dalla struttura interna della Terra (geometria, spessore, densità, costanti elastiche, parametri reologici, condizioni al contorno dei vari strati).
+
+\subsubsection{\textcolor{colore7}{Funzioni di Green viscoelastiche}}
+
+Hanno anche un contributo ritardato che decade nel tempo, rispetto a quelli puramente elastici.
+Si applica il formalismo dei modi normali viscoelastici di Peltier, che usa i numeri di Love e le funzioni di Green su una sfera simmetrica con strati con reologia maxwelliana.
+Nei numeri di Love compare una componente elastica e una ulteriore viscoelastica multiesponenziale:
+
+\begin{equation}
+    k_l^L (t) = k_l^{L,e} \delta (t) + H(t) \sum_{i=1} ^M k_{li}^L e^{s_{li}t}
+\end{equation}
+
+dove $M$ rappresenta il numero di modi viscoelastici, che dipende dal numero di strati; $k_{li}^L$ il termine viscoso del $k$-esimo LLN; $s_{li} = - 1/\tau_{li}<0$ la matrice di frequenze complesse che descrive il decadimento grazie al tempo scala caratteristico del modello.
+
+\noindent \textbf{\textcolor{colore7}{Numeri di Love per spostamenti verticali e orizzontali}}
+
+Definiscono il set di modi normali viscoelastici del modello (VNM): $(k,h,l)_l^{L,e}; (k,h,l)_{li}^L; s_{li}$ dove $0 \le l \le \infty$ e $i = 1,..., M$.
+Le funzioni di Green hanno la stessa forma del caso elastico, ma i numeri di Love hanno anche una parte ritardata.
+
+\noindent \textbf{\textcolor{colore7}{Numeri di Love di Heaviside}}
+
+Al posto di una forza impulsiva, si consideri un carico dato da una funzione di Heaviside.
+Il corrispondente numero di Love si determina a partire da quello impulsivo, con il teorema di convoluzione:
+
+\begin{equation}
+    x^H(t) \equiv x_e - \sum_i \frac{x_i}{s_i} (1-e^{s_i t})
+\end{equation}
+
+\begin{itemize}
+    \item limite elastico: per $t\longrightarrow 0$ si ha un equilibrio istantaneo ($x_e$);
+    \item limite fluido: per $t \longrightarrow \infty$ si ha un equilibrio asintotico ($x_f$);
+    \item casi intermedi: si hanno transizioni complesse che vengono considerate per processi come l'isostasia glaciale.
+\end{itemize}
+
+\subsection{\textcolor{colore7}{Calcolo dei numeri di Love}}
+
+\subsubsection{\textcolor{colore7}{Equazioni di equilibrio}}
+
+I numeri di Love si calcolano risolvendo le equazioni di equilibrio con le opportune condizioni di regolarità e al contorno:
+
+\begin{enumerate}
+    \item Conservazione del momento in un continuo: $\nabla \cdot \sigma + \rho \vec{g} = 0$;
+    \item Laplace per il potenziale gravitazionale: $\nabla^2 \varphi = 0$;
+    \item Continuità: $\nabla \cdot \vec{u} = 0$;
+    \item Costitutiva: $\sigma = \sigma (\varepsilon, \dot{\varepsilon}, ..., \vec{p})$.
+\end{enumerate}
+
+Si sfrutta la simmetria del problema per separare la parte angolare da quella radiale, dal quale si ottiene un sistema di equazioni differenziali ordinarie del I ordine, che si risolve nel dominio di Laplace con il metodo dei propagatori.
+
+\subsubsection{\textcolor{colore7}{Modello di Kelvin e altri modelli analitici}}
+
+Si tratta dell'unico caso in cui i numeri di Love hanno una soluzione analitica interessante, considerando una Terra simmetrica viscoelastica ma incompressibile, descritta da raggio, densità e rigidità, ma non viscosità.
+I numeri di Love sono così descritti da una combinazione lineare di gradi armonici e opportune costanti.
+
+Applicando il principio di corrispondenza, sostituendo cioè ai moduli elastici $\mu$ i moduli complessi $\tilde{\mu}(s) = \frac{\mu s}{s + 1/\tau}$ in funzione della frequenza complessa $s$, si ottengono le soluzioni viscoelastiche.
+Nel caso elastico di Kelvin i numeri di Love sono monoesponenziali, mentre nei casi con un maggior numero di strati si ha una dipendenza da esponenziali multipli.
+
+Forme analitiche dei numeri di Love sono disponibili anche per modelli a 2 strati, ma sono complesse e rendono più comodo l'uso di approcci numerici.
+
+\subsubsection{\textcolor{colore7}{Approcci numerici ai numeri di Love}}
+
+Partendo da un semplice modello con una litosfera elastica, un mantello a tre strati e un nucleo fluido omogeneo, si scopre che i numeri di Love trovati da diversi codici numerici differiscono fra loro.
+Le sfere stratificate hanno molti tempi scala caratteristici che dipendono dal grado armonico considerato.
+
+\section{\textcolor{colore7}{Surface loading ed equazione del livello marino II}}
+
+\subsection{\textcolor{colore7}{Risposta a carichi superficiali finiti}}
+
+\subsubsection{\textcolor{colore2}{Motivazione}}
+
+Si passa da carichi puntiformi e impulsivi a problemi di carico distribuito.
+
+\subsubsection{\textcolor{colore2}{Surface response functions (SRF)}}
+
+Si considerano carichi distribuiti che evolvono nel tempo.
+A partire dalle soluzioni delle equazioni di equilibrio per una sfera stratificata si ricavano i numeri di Love.
+Da un'opportuna combinazione lineare di essi si ricavano le funzioni di Green.
+Si accoppiano le funzioni di Green con un carico superficiale grazie a una convoluzione tridimensionale per ottenere le \textbf{Surface response function}.
+In seguito, si fa conduce un'analisi spettrale.
+Si può arrivare alle SRF a partire dalla soluzione dell'equazione del livello marino o da un'assunzione di carico uniforme.
+
+Una SRF rappresenta la risposta della Terra a un carico finito nello spazio e nel tempo.
+Permette di conoscere la variazione dell'altezza del geoide ($\mathcal{G}(\gamma, t)$), lo spostamento orizzontale ($\mathcal{V}_\theta (\gamma,t)$ e $\mathcal{V}_\lambda (\gamma,t)$) e verticale ($\mathcal{U}(\gamma,t)$) e la variazione del livello marino ($\mathcal{R} (\gamma, t) = \mathcal{G} - \mathcal{U}$).
+
+\subsubsection{\textcolor{colore7}{Convoluzione tridimensionale}}
+
+Si hanno due dimensioni spaziali e una temporale.
+La forma generale di una SRF è data dalla convoluzione tra una funzione di Green di carico puntiforme e una funzione di carico superficiale:
+
+\begin{equation}
+    SRF(\gamma,t) = (\Gamma \otimes \mathcal{L} ) (\gamma,t) \equiv \int_{-\infty}^{+\infty} dt' \int_e \Gamma (\alpha, t-t') \mathcal{L}(\gamma', t') dA'
+\end{equation}
+
+Mentre $\Gamma$ dipende dai numeri di Love e dalle proprietà del modello, con gli effetti diretti e indiretti, mentre $\mathcal{L}$ dipende dalla reologia e dall'evoluzione temporale del carico, come per esempio quello di ghiaccio e acqua.
+
+\subsubsection{\textcolor{colore7}{Forma spettrale delle SRF}}
+
+Si espande la funzione di carico superficiale in armoniche sferiche:
+
+\begin{equation}
+    \mathcal{L}(\gamma,t) = \sum_{lm} \mathcal{L}_{lm}(t) \mathcal{Y}_{lm} (\gamma)
+\end{equation}
+
+\noindent Si riscrive la forma generale della funzione di Green:
+
+\begin{equation}
+    \Gamma (\alpha, t) = \frac{a}{m^e} \sum_{l=0}^\infty x_l (t) P_l (cos \alpha)
+\end{equation}
+
+dove $x_l$ rappresenta una combinazione di numeri di Love che dipende dalla SRF:
+
+\begin{equation}
+x_l(t) \equiv 
+\left\{
+\begin{aligned}
+  \delta(t) + k_l^L(t), &\quad \mapsto \Gamma = \Gamma^g &\quad \mapsto SRF = \mathcal{G}; \\
+  h_l^L(t),              &\quad \mapsto \Gamma = \Gamma^u &\quad \mapsto SRF = \mathcal{U}; \\
+  \delta(t) + k_l^L(t) - h_l^L(t), &\quad \mapsto \Gamma = \Gamma^g - \Gamma^u &\quad \mapsto SRF = \mathcal{R};
+\end{aligned}
+\right.
+\end{equation}
+
+\noindent La SRF dipende dai numeri di Love e dai coefficienti spettrali $\mathcal{L}_{lm}$ del carico superficiale complessivo $\mathcal{L}(\gamma,t)$, che dipende da tre termini distinti:
+
+\begin{equation}
+    \mathcal{L}(\gamma,t) = \rho^i C \mathcal{I} + \rho^w O \mathcal{S} - (\rho^i I_0 + \rho^w T_0) \mathcal{O}
+\end{equation}
+
+Cioè la variazione del carico glaciale, del livello marino e della funzione oceano.
+Perciò si può calcolare o ipotizzare l'evoluzione del livello marino.
+In un approccio semplificato al problema, si assume che lo spessore del ghiaccio sia noto, che il livello del mare sia noto e uniforme e che la funzione oceano sia costante.
+
+\subsubsection{\textcolor{colore7}{Approccio semplificato al carico superficiale}}
+
+Si consideri un problema in cui solo il ghiaccio varia, mentre il carico dell'acqua è distribuito uniformemente sulla superficie (ipotesi eustatica) con la funzione oceano che resta costante.
+Tale problema non rispetta l'autogravitazione ma è utile per affrontare il problema più complesso.
+
+Il carico glaciale dato da $\sigma^i (\gamma,t) = \rho^i d^i (\gamma) \chi ^i(\gamma)f^i(t)$ è compensato per conservazione della massa dal carico dell'acqua $\sigma^w(\gamma,t) = \rho^w d^w(t) \chi^w(\gamma)$, dove $d$ indica lo spessore dello strato, $f$ descrive l'evoluzione temporale e $\chi$ è una funzione maschera per i due insiemi, che vale 1 o 0.
+In questo problema $d^w$ non è noto ma è uniforme.
+Si può generalizzare considerando un numero generico di elementi glaciali separati e senza sovrapposizione tra acqua e ghiaccio.
+Il problema ha una soluzione analitica.
+Si considerino carichi superficiali assisimmetrici attorno all'asse z, cioè dei Mascon se $h$ è costante.
+Si possono considerare anche casi più complessi, come uno spessore che varia con l'angolo $d^i = d^i (\theta)$.
+
+\subsubsection{\textcolor{colore7}{Carichi discoidali, carichi di calotte e altri carichi}}
+
+Nel caso di un carico dato da un disco, è possibile utilizzare il modello per descrivere carichi dalla geometria più complessa (anche se con sovrapposizioni e interstizi).
+Siccome la litosfera funge da filtro passa-basso, questo problema non costituisce una limitazione.
+
+Nel caso, più realistico, di ghiacciai con il profilo parabolico, tipico delle lenzuola glaciali, si ottiene un paraboloide sulla superficie di una sfera, che ha una descrizione analitica data dai polinomi di Legendre grazie ai \textit{polinomi di Chebyshev} $T_n(\alpha) = cos (n \alpha)$.
+
+Con dei carichi rettangolari si evita il problema di sovrapposizione e interstizi, ma sono meno realistici.
+In ogni caso si può imporre la conservazione della massa su tutto il globo o solo su aree specifiche.
+
+\subsubsection{\textcolor{colore7}{Esempio di codice basato sul modello di Peltier}}
+
+Con \textbf{TABOO} si può simulare un ghiacciaio che si assottiglia senza ritirarsi, distinguendo tre fasi: equilibrio isostatico iniziale con spessore costante, fase di deglaciazione (assunta lineare), rimbalzo post-glaciale.
+Così si osserva che sotto a un ghiacciaio di circa 2000 metri di spessore si ha una depressione della litosfera di circa 500 metri (in accordo con le densità relative di ghiaccio e mantello); inoltre, si osserva anche un innalzamento laterale al bordo del carico.
+TABOO permette anche di calcolare i numeri di Love, ma non di risolvere l'equazione del livello marino.
+
+\subsection{\textcolor{colore7}{Introduzione all'equazione del livello marino}}
+
+\subsubsection{\textcolor{colore7}{Varie forme dell'equazione del livello marino}}
+
+Si tratta di un'equazione integrale o implicita, per cui esistono diverse forme di complessità crescente.
+Tiene in considerazione la reologia, la variazione dei ghiacci e del livello del mare (definito come la distanza tra la superficie della Terra solida e la superficie del mare).
+
+\noindent \textbf{\textcolor{colore7}{Forma base}}
+
+Si confrontano uno stato di riferimento iniziale e uno a un tempo arbitrario:
+
+\begin{equation}
+    B_0 (\gamma) = r_0^{ss} - r_0^{se}
+\end{equation}
+
+\begin{equation}
+    B(\gamma, t) = r^{ss} - r^{se}
+\end{equation}
+
+dove $ss$ si riferisce alla superficie del mare e $se$ a quella della Terra solida.
+
+\noindent La \textbf{variazione del livello marino relativo} è data dalla differenza:
+
+\begin{equation}
+    \mathcal{S}(\gamma, t) = B(\gamma, t) - B_0 (\gamma) = (r^{ss} - r_0^{ss}) - (r^{se} - r_0^{se})
+\end{equation}
+
+\noindent La \textbf{variazione del livello marino assoluto} è dato da:
+
+\begin{equation}
+    \mathcal{N}(\gamma, t) = r^{ss} - r_0^{ss}
+\end{equation}
+
+\noindent Lo \textbf{spostamento verticale della superficie della Terra solida} è data da:
+
+\begin{equation}
+    \mathcal{U}(\gamma, t) = r^{se} - r_0^{se}
+\end{equation}
+
+\noindent Si ricava così la \textbf{forma base dell'equazione del livello marino}:
+
+\begin{equation}
+    \mathcal{S}(\gamma, t) = \mathcal{N} - \mathcal{U}
+\end{equation}
+
+e fornisce la variazione della superficie del mare rispetto al fondale, come viene misurata da un mareografo.
+
+\noindent $\mathcal{N}$ è legato alla variazione dell'altezza del geoide, ma differisce perché la massa dell'oceano cambia a causa della variazione della massa glaciale.
+La variazione dell'altezza del geoide è fornita dalla formula di Brun:
+
+\begin{equation}
+    \mathcal{G}(\gamma,t) = \frac{\Phi}{g}
+\end{equation}
+
+dove $\Phi$ è la variazione del potenziale di gravità totale del Sistema Terra.
+Si definisce così una costante non trascurabile (varia di circa $0.2 \div 0.3$ mm/anno) $c$ da cui:
+
+\begin{equation}
+    \mathcal{N} = \mathcal{G} + c
+\end{equation}
+
+\noindent Mettendo insieme queste informazioni, si ricava la \textbf{prima forma dell'equazione del livello marino}:
+
+\begin{equation}
+    \mathcal{S}(\gamma, t) = \mathcal{G} - \mathcal{U} + c
+\end{equation}
+
+\noindent Per passare a forme più complesse, si considera la media sull'oceano:
+
+\begin{equation}
+    <\mathcal{S}>^o (t) = <\mathcal{G} - \mathcal{U}>^o + <c>^o \text{ , dove } <F>^o \equiv \frac{1}{A^o} \int_o F(\gamma, t) dA
+\end{equation}
+
+\noindent Siccome $c$ è costante nello spazio, si ricava così:
+
+\begin{equation}
+    c(t) = <\mathcal{S}>^o - <\mathcal{G} - \mathcal{U}>^o
+\end{equation}
+
+\noindent Si ottiene così la \textbf{seconda forma dell'equazione del livello marino}:
+
+\begin{equation}
+    \mathcal{S}(\gamma, t) = (\mathcal{G} - \mathcal{U}) + \mathcal{S}^{ave} - <\mathcal{G} - \mathcal{U}>^o \text{ , dove } \mathcal{S}^{ave} \equiv <\mathcal{S}>^o
+\end{equation}
+
+\noindent Applicando la terza forma del principio di conservazione della massa (eq. ~\ref{eq:MCP3}), si ottiene:
+
+\begin{equation}
+    \mathcal{S}^{ave} (t) = \mathcal{S}^{equ} + \mathcal{S}^{ofu} \equiv - \frac{\mu}{\rho^w A^o} + \frac{A^e}{A^o} <T_0 \mathcal{O}>^e
+\end{equation}
+
+dove $\mathcal{S}^{equ}$ è la variazione del livello marino equivalente (non eustatico) e $\mathcal{S}^{ofu}$ è il termine associato alla variazione della funzione oceano.
+Queste due quantità sono così dinamiche, dipendendo dal tempo e dalla reologia, a differenza del livello eustatico.
+
+La variazione dell'altezza del geoide e lo spostamento verticale dipendono da un carico superficiale e dalla deformazione rotazionale:
+
+\begin{equation}
+    \mathcal{G}(\gamma, t) = \mathcal{G}^{sur} + \mathcal{G}^{rot} \text{ , }  \mathcal{U}(\gamma, t) = \mathcal{U}^{sur} + \mathcal{U}^{rot}
+\end{equation}
+
+\noindent Si introduce la \textbf{funzione di risposta totale del livello marino}:
+
+\begin{equation}
+    \mathcal{R}(\gamma,t) = \mathcal{G} - \mathcal{U} = \mathcal{R}^{sur} + \mathcal{R}^{rot}
+\end{equation}
+
+\noindent Si ottiene così la \textbf{terza forma dell'equazione del livello marino}:
+
+\begin{equation}
+    \mathcal{S}(\gamma,t) = (\mathcal{R}^{sur} - <\mathcal{R}^{sur}>^o ) + \mathcal{S}^{ave} + (\mathcal{R}^{rot} - <\mathcal{R}^{rot}>^o)
+\end{equation}
+
+\subsubsection{\textcolor{colore7}{Forma pseudo-spettrale dell'equazione del livello marino}}
+
+La funzione di risposta totale del livello del mare si ottiene tramite una convoluzione tridimensionale.
+Grazie alla decomposizione della variazione del carico superficiale, si può decomporre così anche $\mathcal{R}$.
+Si definisce la variabile: $\mathcal{Z}(\gamma,t) = O \mathcal{S}$.Così si ottiene la \textbf{forma pseudospettrale dell'equazione del livello marino}:
+
+\begin{equation}
+    \mathcal{Z}(\gamma,t) = \mathcal{K}^a + \mathcal{K}^b (\mathcal{Z}) + \mathcal{K}^c + \mathcal{Z}^{ave} + \mathcal{K}^{rot} (\mathcal{Z})
+\end{equation}
+
+\noindent Si può espandere in serie di armoniche sferiche e usare l'integrazione numerica per trovare una soluzione.
+
+\subsubsection{\textcolor{colore7}{Equazione del livello marino di Farrell e Clark}}
+
+La prima forma dell'equazione del livello marino non considerava gli effetti della rotazione terrestre sul livello marino, assumeva che le coste avessero un profilo verticale e trascurava il ghiaccio marino grounded.
+Era un'equazione implicita ($\mathcal{S}$ compariva sia a destra sia a sinistra).
+
+\noindent \textbf{Equazione del livello marino di Farrell e Clark, 1976}:
+
+\begin{equation}
+    \mathcal{S}(\gamma,t) = \rho^i \Gamma^s \otimes_i \mathcal{I} + \rho^w \Gamma^s \otimes_o \mathcal{S} + \mathcal{S}^{eus} - \rho^i < \Gamma^s \otimes_i \mathcal{I}>^o - \rho^w <\Gamma^s \otimes_o \mathcal{S}>^o
+\end{equation}
+
+Dove compaiono convoluzioni sulle regioni coperte dai ghiacciai e sull'oceano e il termine eustatico $\mathcal{S}^{eus}(t) = - \mu / \rho^w A^{op}$, dove $A^{op}$ è l'area attuale degli oceani e $\mu$ la variazione della massa del ghiaccio.
+
+\subsubsection{\textcolor{colore7}{Natura dell'equazione del livello marino}}
+
+L'incognita $\mathcal{S}$ compare sia a destra che a sinistra, anche all'interno di convoluzioni integrali, per cui si tratta di un' \textit{equazione di Fredholm inomogenea del II tipo}, che ha la forma:
+
+\begin{equation}
+    u(x) = f(x) + \int_a^b K(x,x')u(x') dx'
+\end{equation}
+
+\noindent Si inizia così da una \textit{reasonable guess}, cioè assumendo $u = u^{(0)}(x)$, poi si reitera ottenendo varie approssimazioni fino a una soglia prestabilita.
+
+\subsection{\textcolor{colore7}{Soluzione dell'equazione del livello marino}}
+
+\subsubsection{\textcolor{colore7}{Soluzione eustatica}}
+
+Omettendo nell'equazione FC76 tutti i termini in cui compaiono le funzioni di Green, si ottiene la \textbf{soluzione eustatica}:
+
+\begin{equation}
+    \mathcal{S}(\gamma,t) = \mathcal{S}^{eus}(t) \equiv - \frac{\mu}{\rho^w A^{op}}
+\end{equation}
+
+Che equivale ad assumere che la Terra sia rigida e che la ridistribuzione di massa sulla sua superficie non ne perturbi il potenziale gravitazionale (nessuna reologia né autogravitazione).
+Non c'è differenza, in questo caso, tra livello marino assoluto e relativo.
+La soluzione dipende solo dalla massa dei ghiacciai e dall'area degli oceani.
+la media oceanica della soluzione non eustatica corrisponde alla soluzione eustatica: $<\mathcal{S}(\gamma,t)>^o = \mathcal{S}^{eus}$.
+
+\subsubsection{\textcolor{colore7}{Soluzione di Woodward}}
+
+Assumendo una Terra rigida e un oceano uniforme si considera una piccola massa di acqua che ghiaccia.
+Si osserva che il livello marino aumenta vicino alla massa ghiacciata puntiforme mentre diminuisce a grande distanza angolare.
+Il livello marino corrisponde a quello eustatico solamente a una distanza angolare di circa 20 °.
+
+\subsubsection{\textcolor{colore7}{Forma completa dell'equazione del livello marino}}
+
+\begin{equation}
+    S = \frac{\rho_i}{\gamma} G_s \otimes_iI + \frac{\rho_w}{\gamma} G_s \otimes_o S - \frac{m_i}{\rho_w A_o} - \frac{\rho_i}{\gamma} \overline{G_s \otimes_iI} - \frac{\rho_w}{\gamma} \overline{G_s \otimes_oS}
+\end{equation}
+
+dove:
+
+\begin{itemize}
+    \item $S$ è la variazione del livello del mare;
+    \item $\rho_i, \rho_w$ sono le densità di ghiaccio e acqua;
+    \item $G_s$ è la funzione di Green del livello del mare;
+    \item $I$ è la variazione dello spessore del ghiaccio;
+    \item $m_i$ è la variazione della massa del ghiaccio;
+    \item $A_o$ è l'area degli oceani;
+    \item $\otimes_i, \otimes_o$ sono le convoluzioni;
+    \item $\overline{(...)}$ è la media sull'oceano.
+\end{itemize}
+
+\end{document}

@@ -7,6 +7,7 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{soul}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
@@ -35,7 +36,7 @@
 \definecolor{colore1}{RGB}{173,216,230}  % Azzurro chiaro  
 \definecolor{colore2}{RGB}{43,53,255}    % Blu intenso      
 \definecolor{colore3}{RGB}{0,213,213}    % Turchese        
-\definecolor{colore4}{RGB}{60,255,30}    % Verde brillante  
+\definecolor{colore4}{RGB}{76,175,80}
 \definecolor{colore5}{RGB}{244,244,0}    % Giallo brillante 
 \definecolor{colore6}{RGB}{255,128,64}   % Arancione        
 \definecolor{colore7}{RGB}{255,0,0}      % Rosso                    
@@ -95,8 +96,10 @@ Con \textbf{Earth System Science} (ESS) si fa riferimento ad un campo di studio 
     \item \textit{criosfera}, che può essere vista come una parte dell'idrosfera.
 \end{itemize} 
 
+\noindent
 Nella fisica aristotelica la geosfera indicava le quattro sfere concentriche relative agli elementi.
 
+\noindent
 Alcuni esempi di interazioni nel sistema Terra:
 
 \begin{itemize}
@@ -254,6 +257,13 @@ Sono funzioni armoniche unidimensionali e soluzioni dell'\textit{equazione di Le
     \label{eq:Legendre}
 \end{equation}
 
+\noindent
+Per $l = 0, 1, 2, \dots$
+
+\begin{equation}
+    P_l (x) = \frac{1}{2^l l!} \frac{d^l}{dx^l} (x^2 - 1)^l
+\end{equation}
+
 \noindent Sono polinomi di grado $l$ di parità definita da $l$, che all'aumentare del grado approssimano sempre di più delle funzioni trigonometriche, mostrando una \textit{lunghezza d'onda spaziale} $\lambda_l$ data dalla \textit{regola di Jeans}:
 
 \begin{equation}
@@ -261,6 +271,7 @@ Sono funzioni armoniche unidimensionali e soluzioni dell'\textit{equazione di Le
     \label{eq:Jeans}
 \end{equation}
 
+\noindent
 \textbf{Proprietà dei Polinomi di Legendre}
 
 \begin{enumerate}
@@ -283,16 +294,20 @@ Si consideri una concentrazione di massa, \textbf{MASCON}, come un ghiacciaio, d
 \begin{equation}
     h(\theta) = \begin{cases}
         H & se \text{ } 0 \le \theta \le \alpha \\ 0 & altrimenti
-    \end{cases}}
+    \end{cases}
 \end{equation}
 
+\noindent
 Si ha cioè un disco di spessore uniforme.
 
-\noindent Sfruttando le proprietà dei polinomi di Legendre, si possono trovare le costanti $h_l$ tali che $h(\theta) = \sum_{l=0}^\infty h_l P_l (cos \theta)$, cioè lo \textbf{sviluppo di $h(\theta)$ in serie di polinomi di Legendre}, in cui le costanti $h_l$ sono dette \textbf{coefficienti dello sviluppo}.
+\noindent
+Sfruttando le proprietà dei polinomi di Legendre, si possono trovare le costanti $h_l$ tali che $h(\theta) = \sum_{l=0}^\infty h_l P_l (cos \theta)$, cioè lo \textbf{sviluppo di $h(\theta)$ in serie di polinomi di Legendre}, in cui le costanti $h_l$ sono dette \textbf{coefficienti dello sviluppo}.
 Si tratta di un problema inverso.
 
-Il caso del cratere da impatto di Chicxulub è un esempio di applicazione di questo tipo di problemi.
+\noindent
+Il caso del cratere da impatto di Chicxulub è un esempio di applicazione di questo tipo di problemi.\\
 
+\noindent
 Integrando su tutta la sfera, si ottiene la seguente espressione analitica per i coefficienti dello sviluppo:
 
 \begin{equation}
@@ -309,7 +324,7 @@ La soluzione analitica ha la seguente forma:
 
 \noindent Si può inoltre modificare l'espressione di $h(\theta)$ in modo che la massa della Terra sia conservata.
 Questo caso può trovare un'applicazione nell'ambito dello scioglimento dei ghiacciai, che hanno una massa pari a quella che si ridistribuisce sulla superficie del pianeta.
-I dischi si usano anche per rappresentare la funzione Oceano.
+I dischi si usano anche per rappresentare la funzione Oceano.\\
 
 \noindent \textcolor{colore4}{\textbf{Mascon localizzato}}
 
@@ -341,13 +356,14 @@ Si costruiscono a partire dai polinomi di Legendre:
     \label{eq:polinomi_associati_legendre}
 \end{equation}
 
+\noindent
 dove il fattore $(-1)^m$ è detto \textbf{fase di Condon-Shortley} e in alcuni testi è omesso.
-Polinomi associati di Legendre diversi dello stesso ordine sono mutualmente ortogonali.
+Polinomi associati di Legendre diversi dello stesso ordine sono mutualmente ortogonali.\\
 
 \noindent \textcolor{colore7}{\textbf{Polinomi associati di Legendre normalizzati}}
 
 Sono spesso preferiti in geodesia e geofisica.
-Si ottengono riscalando i $P{lm}$ tramite la seguente relazione:
+Si ottengono riscalando i $P_{lm}$ tramite la seguente relazione:
 
 \begin{equation}
     \overline{P}_{lm} (x) = \sqrt{(2 - \delta _{0m}) (2l + 1) \frac{(l-m)!}{(l+m)!}} P_{lm} (x)
@@ -359,9 +375,20 @@ Note anche come "armoniche sferiche \textit{della meccanica quantistica}", sono 
 Sono definite da:
 
 \begin{equation}
-    \mathcal{Y}_{lm} (\theta , \lambda) = \mu _{lm} P_{lm} (cos \theta) e^{im \lambda} \text{ , dove } m = -l, -l+1, ... , l-1, l \text{ e } \mu_{lm} \equiv \sqrt{(2l+1) \frac{(l-m)!}{(l+m)!}}
+    \mathcal{Y}_{lm} (\theta , \lambda) = \mu _{lm} P_{lm} (cos \theta) e^{im \lambda}
     \label{eq:armoniche_sferiche_complesse}
 \end{equation}
+
+\noindent
+dove
+
+\begin{equation*}
+    l = 0, 1, 2, \dots \,\,\,\,\,\,\,\,\, m = -l, -l+1, \dots , l-1, l
+\end{equation*}
+
+\begin{equation*}
+    \mu_{lm} \equiv \sqrt{(2l+1) \frac{(l-m)!}{(l+m)!}}
+\end{equation*}
 
 \noindent Per gli ordini negativi vale:
 
@@ -369,13 +396,13 @@ Sono definite da:
     \mathcal{Y}_{l-m} (\theta , \lambda) = (-1)^m \mathcal{Y}^*_{lm} (\theta , \lambda) 
 \end{equation}
 
-\noindent La scelta del coefficiente di normalizzazione fa sì che la condizione di ortonormalità sia data da:
+\noindent La scelta del coefficiente di normalizzazione $\mu_{lm}$ fa sì che la condizione di ortonormalità sia data da:
 
 \begin{equation}
     \int_\gamma \mathcal{Y}_{lm} (\gamma) \mathcal{Y}^*_{l'm'} (\gamma) d\gamma = 4 \pi \delta_{ll'} \delta_{mm'} 
 \end{equation}
 
-\noindent Mentre nel caso della meccanica quantistica, le armoniche sferiche sono normalizzate a 1.
+\noindent Quindi sono normalizzate a $4\pi$, mentre nel caso della meccanica quantistica, le armoniche sferiche sono normalizzate a 1.
 
 \noindent Con queste definizioni, si ottengono delle funzioni armoniche \textit{solide} di forma:
 
@@ -384,6 +411,7 @@ Sono definite da:
     \label{eq:armoniche_solide}
 \end{equation}
 
+\noindent
 dove la prima è regolare in $r=0$, mentre la seconda diverge.
 
 \noindent Una soluzione generale dell'equazione di Laplace è data allora dalla combinazione lineare:
@@ -394,6 +422,8 @@ dove la prima è regolare in $r=0$, mentre la seconda diverge.
 \end{equation}
 
 \noindent Questa espressione costituisce lo sviluppo in armoniche sferiche di $F$.
+
+\noindent
 Definendo $(a_{lm} r^l + b/ r^{l+1}) = f_{lm}$ si ottiene invece lo sviluppo in armoniche sferiche di superficie:
 
 \begin{equation}
@@ -429,6 +459,7 @@ Sia $\hat{\alpha}$ l'angolo tra $S$ e $P$.
     \label{eq:addizione}
 \end{equation}
 
+\noindent
 Formule analoghe valgono anche per i gradienti.
 
 \subsection{\textcolor{colore7}{Armoniche sferiche in forma reale}}
@@ -440,12 +471,15 @@ La forma generica è:
     R_{lm} (\theta, \lambda) = (c_{lm} cos m \lambda + s_{lm} sin m \lambda ) P_{lm} (cos \theta)
 \end{equation}
 
+\noindent
+con $c_{lm}$ e $s_{lm}$ coefficienti reali adimensionali e $P_{lm}$ polinomi di Legendre non normalizzati.
+
 \noindent Si hanno tre tipi di armoniche sferiche:
 
 \begin{itemize}
-    \item Zonali (m=0), che si annullano su $l$ paralleli;
-    \item Tesserali (0 < m < l), che si annullano su $l-m$ paralleli e $2m$ meridiani;
-    \item Settoriali (m=l), che si annullano su $2m$ meridiani.
+    \item Zonali $(m=0)$, che si annullano su $l$ paralleli;
+    \item Tesserali $(0 < m < l)$, che si annullano su $l-m$ paralleli e $2m$ meridiani;
+    \item Settoriali $(m=l)$, che si annullano su $2m$ meridiani.
 \end{itemize}
 
 \noindent Le armoniche sferiche di grado 2 hanno un ruolo fondamentale nella descrizione delle maree.
@@ -456,30 +490,35 @@ Le armoniche sferiche permettono di rappresentare ogni funzione che varia sulla 
 
 %Il problema inverso costituito dal calcolo dei coefficienti $f_{lm}$ richiede di conoscere innanzitutto $f(\gamma)$ (spesso molto difficile in campo geofisico), poi di integrare $f(\gamma)$ sulla superficie della sfera, per ogni $(l,m)$.
 
-Si consideri la formula diretta:
+\noindent
+Sia $f(\gamma)$ una funzione reale e a quadrato sommabile, con $\gamma = (\theta, \lambda)$. Si consideri la formula diretta:
 
 \begin{equation}
     f(\gamma) = \sum _{lm} f_{lm} \mathcal{Y}_{lm} (\gamma)
 \end{equation}
 
+\noindent
 Si moltiplica per $\mathcal{Y}^*_{l'm'}(\gamma)$:
 
 \begin{equation}
     f(\gamma) \mathcal{Y}^*_{l'm'}(\gamma) = \sum _{lm} f_{lm} \mathcal{Y}_{lm} (\gamma) \mathcal{Y}^*_{l'm'}(\gamma)
 \end{equation}
 
+\noindent
 Si integra sulla superficie della sfera:
 
 \begin{equation}
     \int_\gamma f(\gamma) \mathcal{Y}^*_{l'm'}(\gamma) d \gamma = \sum _{lm} f_{lm} \int _\gamma \mathcal{Y}_{lm} (\gamma) \mathcal{Y}^*_{l'm'}(\gamma) d \gamma
 \end{equation}
 
+\noindent
 Si sfrutta la normalizzazione:
 
 \begin{equation}
      \int_\gamma f(\gamma) \mathcal{Y}^*_{l'm'}(\gamma) d \gamma = 4 \pi \sum _{lm} f_{lm} \delta_{ll'} \delta_{mm'} = 4 \pi f_{l'm'}
 \end{equation}
 
+\noindent
 Si ricava così la formula inversa:
 
 \begin{equation}
@@ -492,8 +531,9 @@ Lo sviluppo complesso e quello reale sono equivalenti.
 
 \subsection{\textcolor{colore7}{Statistica sulla sfera}}
 
-Le oscillazioni spaziali delle armoniche sferiche non sono equispaziate, ma hanno una lunghezza caratteristica che si può stimare grazie alla \textit{Regola di Jeans} (vedi ~\ref{eq:Jeans}), dove $2\pi a \approx 40'000 km$.
+Le oscillazioni spaziali delle armoniche sferiche non sono equispaziate, ma hanno una lunghezza caratteristica che si può stimare grazie alla \textit{Regola di Jeans} (vedi \ref{eq:Jeans}), dove $2\pi a \approx 40'000 km$.
 
+\noindent
 La media di una funzione $f(\gamma)$ sulla sfera unitaria è:
 
 \begin{equation}
@@ -528,6 +568,7 @@ Se $f(\gamma)$ ha media nulla sulla superficie unitaria $\gamma$, allora nel suo
     TP = \frac{1}{4 \pi} \int_\gamma f^2 (\gamma) d \gamma \equiv \langle f^2(\gamma) \rangle
 \end{equation}
 
+\noindent
 Sviluppando il calcolo si ottiene:
 
 \begin{align}
@@ -599,7 +640,7 @@ Per cui si distinguono tre casi:
     \item $\beta > 0$: l'energia cresce con il grado armonico e lo spettro è detto \textit{blu}.
 \end{itemize}
 
-In particolare, lo spettro del geoide segue la \textit{regola di Kaula}: $S \propto l^{-2.16}$, ma il significato di questa osservazione non è ancora stato compreso.
+In particolare, lo spettro del geoide segue la \textit{regola di Kaula}: $S \propto l^{-2.16}$, ma il significato di questa osservazione non è ancora stato compreso.\\
 
 \noindent \textbf{\textcolor{colore4}{Spettro armonico della $\delta$ di Dirac}}
 
@@ -616,6 +657,12 @@ Un'importante applicazione delle funzioni armoniche è quella dell'analisi spett
     \label{eq:funzione_oceano}
 \end{equation}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\linewidth]{funzione_oceano.png}
+    \caption{Funzione Oceano}
+\end{figure}
+
 \noindent Tale funzione dipende dal tempo e dal livello del mare, per cui ci si focalizza su un istante fissato e si decompone in funzioni armoniche:
 
 \begin{equation}
@@ -628,7 +675,7 @@ Un'importante applicazione delle funzioni armoniche è quella dell'analisi spett
     o_{lm} = \frac{1}{4\pi} \int_\gamma O (\gamma) \mathcal{Y}^*_{lm} (\gamma) d\gamma \equiv \frac{1}{4\pi} \int_{oceano} \mathcal{Y}^*_{lm} (\gamma) d\gamma
 \end{equation}
 
-\noindent Tale integrale si può valutare solo numericamente, attraverso due approcci:
+\noindent Tale integrale si può valutare solo numericamente, attraverso due approcci:\\
 
 \noindent \textbf{A: metodo classico}
 
@@ -638,7 +685,7 @@ Si verifica che lo spettro della funzione Oceano è rosso e che gli oceani hanno
 \noindent In particolare il coefficiente $o_{00}$ vale 0.71, che riflette la frazione della superficie terrestre ricoperta da oceani.
 
 \noindent Grazie ai coefficienti armonici dello sviluppo è possibile ricostruire la funzione originale grazie alla combinazione lineare delle armoniche sferiche complesse.
-Si nota che ponendo $l_{max} = 72$ si ottengono delle linee di costa squadrate che riflettono la suddivisione operata in questo approccio.
+Si nota che ponendo $l_{max} = 72$ si ottengono delle linee di costa squadrate che riflettono la suddivisione operata in questo approccio.\\
 
 \noindent \textbf{B: metodo geodetico}
 
@@ -674,11 +721,12 @@ Wegener non conosceva i fondali oceanici, così basò la sua teoria su una serie
 %non ho visto niente nelle slide e nemmeno nei miei appunti
 \end{itemize}
 
-In precedenza, osservando il profilo delle coste atlantiche di Sud America e Africa, Antonio Snider-Pellegrini teorizzò la possibilità della deriva dei continenti causata dal diluvio universale e Seuss teorizzò che le catene montuose si fossero formate per la contrazione del pianeta, dovuta al suo raffreddamento.
+In precedenza, osservando il profilo delle coste atlantiche di Sud America e Africa, Antonio Snider-Pellegrini (1802-1885) teorizzò la possibilità della deriva dei continenti causata dal diluvio universale e Seuss teorizzò che le catene montuose si fossero formate per la contrazione del pianeta, dovuta al suo raffreddamento.
 
 Attualmente si teorizza che circa 250 milioni di anni fa i continenti attuali fossero riuniti in un'unica massa continentale, detta \textit{Pangea}.
-Probabilmente in precedenza si verificarono altri eventi simili.
+Probabilmente in precedenza si verificarono altri eventi simili.\\
 
+\noindent
 \textbf{Problemi della teoria della deriva dei continenti}
 
 \begin{enumerate}
@@ -694,10 +742,16 @@ Wegener propose una forza detta \textit{Polflucht} (dal tedesco "volo dai poli")
     \item Forma dei fondali oceanici: le osservazioni sono iniziate nella seconda metà del XX secolo, ma l'esistenza di una dorsale medioatlantica fu proposta già a durante il XIX secolo da Matthew Fontaine Maury.
     Il sistema di rilievi sottomarini si estende per circa 50'000 km in tutto il mondo e raggiunge un'altezza media di circa 4500 m rispetto al fondale circostante.
     Lo spessore dei sedimenti sui fondali è inoltre decisamente inferiore a quanto ci si potrebbe aspettare considerando un deposito durato centinaia di milioni di anni;
-    \item Esistenza delle anomalie magnetiche: le inversioni del campo magnetico terrestre non seguono una legge chiara (183 inversioni durante 83 milioni di anni).
+    \item Esistenza delle anomalie magnetiche: le inversioni del campo magnetico terrestre non seguono una legge chiara (183 inversioni negli ultimi 83 milioni di anni).
     Glatzmaier e Roberts modellarono per primi l'inversione.
-    Le indagini magnetometriche evidenziano la simmetria delle anomalie magnetiche attorno all'asse delle creste oceaniche;
-    \item Ipotesi dell'allargamento dei fondali marini: Harry Hess trovò una spiegazione ipotizzando che la crosta oceanica ridiscenda nel mantello nei pressi delle fosse oceaniche, così che i fondali vengano "riciclati" velocemente, in accordo con l'età media della crosta oceanica, di circa 150 milioni di anni;
+    Le indagini magnetometriche evidenziano la simmetria delle anomalie magnetiche attorno all'asse delle creste oceaniche. È possibile determinare l'orientamento del campo magnetico mediante la temperatura di Curie, al di sotto della quale i minerali ferromagnetici si magnetizzano con direzione parallela a quella del campo;
+    \item Ipotesi dell'allargamento dei fondali marini: come può aggiungersi nuova crosta lungo le creste oceaniche senza che la dimensione o la massa della Terra aumentino?
+    Harry Hess trovò una spiegazione ipotizzando che la crosta oceanica ridiscenda nel mantello nei pressi delle fosse oceaniche, così che i fondali vengano "riciclati" velocemente, in accordo con l'età media della crosta oceanica, di circa 150 milioni di anni;
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.7\linewidth]{seafloor_spreading.png}
+        \caption{Seafloor spreading.}
+    \end{figure}
     \item Raffreddamento della litosfera oceanica: il flusso di calore attraverso la superficie è massimo nei pressi delle dorsali oceaniche, in accordo con la minore età della litosfera in queste zone.
     Le misure sono condotte grazie a delle sonde che sfruttano la legge della conduzione di calore di Fourier:
 
@@ -706,24 +760,36 @@ Wegener propose una forza detta \textit{Polflucht} (dal tedesco "volo dai poli")
     \end{equation}
 
     Il flusso di calore decresce con l'età del fondale, secondo la legge $q_s \propto \frac{1}{\sqrt{\text{età}}}$, che funziona molto bene con i dati disponibili.
-    La batimetria aumenta, secondo la legge Batimetria = $A + B\sqrt{\text{età}}$.
-    La litosfera molto recente e quella molto antica tendono a discostarsi leggermente da questa relazione, che però funziona per quella di età compresa tra 50 e 100 milioni di anni.
+    Questa legge tende a sovrastimare il flusso di calore per la litosfera più recente e sovrastimarlo per quella più antica; c'è invece maggiore accordo per la litosfera di età compresa tra 50 e 100 milioni di anni.\\
+    Per il principio di isostasia la profondità dell'oceano aumenta per compensare la contrazione termica della litosfera, da cui la legge Batimetria = $A + B\sqrt{\text{età}}$.
     In generale quando la risalita del materiale a causa dell'apertura dei fondali è più veloce, il livello marino è maggiore, mentre quando il processo è più lento il livello marino è minore, per via della conservazione del volume oceanico;
 
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.7\linewidth]{seafloor_shape.png}
-    \caption{Cause tettoniche dei cambiamenti del livello marino.}
-    \label{fig:seafloor_shape}
-\end{figure}
+    \begin{figure}[htb]
+        \centering
+        \includegraphics[width=0.7\linewidth]{seafloor_shape.png}
+        \caption{Cause tettoniche dei cambiamenti del livello marino.}
+        \label{fig:seafloor_shape}
+    \end{figure}
 
-    \item Terremoti e vulcani: i terremoti tendono a concentrarsi lungo le linee di faglia interessate dalla tettonica delle placche e a profondità che si dispongono su superfici  prossime alle zone di subduzione, fino a circa 700 km di profondità (dette \textit{zone di Benioff}).
+    \item Terremoti e vulcani: i terremoti tendono a concentrarsi lungo le linee di faglia interessate dalla tettonica delle placche, in particolare presso le dorsali oceaniche (a profondità minime) e le fosse oceaniche.
+    In queste ultime, i terremoti seguono le zone di Wadati-Benioff, superfici inclinate di 40-60$^\circ$ che raggiungono i 700 km di profondità.
     Al contrario, nei pressi delle creste oceaniche si osservano terremoti a profondità minime.
-    Il vulcanismo si origina ai confini delle placche litosferiche e in punti interessati da pennacchi di risalita dal mantello, come le isole del Pacifico.
-    Questi punti caldi (\textit{hotspots)} restano per diversi milioni di anni fissi rispetto alle placche, come si può osservare nell'arcipelago delle Hawaii;
+    
+    Il vulcanismo si manifesta prevalentemente lungo i confini delle placche litosferiche: per il 75\% come vulcanismo sottomarino presso le dorsali e in parte come vulcanismo subaereo nelle zone di subduzione e in punti interessati da pennacchi di risalita dal mantello, come le isole del Pacifico.
+    Esistono inoltre dei punti caldi (\textit{hotspots)}, come quelli delle Hawaii o di Yellowstone, alimentati dal mantello sottostante, che presenta una temperatura più elevata rispetto a quella del mantello circostante.
+    La posizione di questi \textit{hotspots} sulla superficie della Terra è indipendente dal movimento delle placche, per cui possono creare delle catene di vulcani che si muovono sopra di esse;
+
     \item Placche tettoniche: esistono circa 15 placche maggiori, separate fra loro da 3 diversi tipi di margini (divergenti, convergenti e trascorrenti o trasformi).
     Il moto di ogni placca è una rotazione rigida attorno a un asse \textit{di Eulero}, grazie al quale si può  caratterizzare il campo di velocità delle placche e di conseguenza i tipi di margini.
-    Nota la velocità delle placche, è possibile valutarne la divergenza (che indica creste e fosse oceaniche), e il rotore (da cui la vorticità e la caratterizzazione dei margini trascorrenti).
+    Nota la velocità delle placche, è possibile valutarne la divergenza (che indica creste e fosse oceaniche) e il rotore (da cui la vorticità e la caratterizzazione dei margini trascorrenti).
+
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[width=0.7\linewidth]{tettonica_placche.png}
+        \caption{Campo di velocità delle placche tettoniche.}
+        \label{fig:seafloor_shape}
+    \end{figure}
+
     Il movimento complessivo delle placche, che si può tracciare rispetto al sistema di riferimento dei punti caldi, è diretto verso ovest (\textit{westward drift della litosfera}): si ha cioè una rotazione netta delle placche.
     La placca Pacifica, priva di massa continentale, ha vorticità trascurabile e risulta la più veloce ed energetica.
     Un controesempio è fornito da Marte, su cui si osservano gli effetti del vulcanismo antico, ma non dello spostamento delle placche sulla superficie.

@@ -815,19 +815,26 @@ Un continuo è un altro modello molto utilizzato per studiare le distribuzioni d
 Essa è caratterizzata da alcuni momenti, tra cui:
 
 \begin{itemize}
-    \item Massa (momento di ordine 0): è uno scalare (tensore di rango 0) che dipende solo dalla densità locale:
+    \item Massa (momento di ordine 0). È uno scalare (tensore di rango 0) che dipende solo dalla densità locale:
 
     \begin{equation}
         M \equiv \int_V \rho (\vec{x}) dV
     \end{equation}
+
+    \noindent
+    dove la densità $\rho$ è definita come $\rho(\vec{x}) = dm/dV$.
+    La densità media è quindi: $\bar{\rho} = M/V$.
     
-    \item Centro di massa (momento di ordine 1): è un vettore (tensore di rango 1) dato da:
+    \item Centro di massa (momento di ordine 1). È un vettore (tensore di rango 1) dato da:
 
     \begin{equation}
         \vec{x}_{CM} \equiv \frac{\int_V \vec{x}dm}{\int_V dm} = \frac{1}{M} \int_V \vec{x} dm
     \end{equation}
 
-    \item Momento di inerzia (momento di ordine 2): è un tensore (di rango 2) simmetrico a valori reali con 6 componenti indipendenti.
+    \noindent rappresenta la media del vettore poszione $\vec{x}$ pesata sulla distribuzione di massa.\\
+    È sempre possibile scegliere un sistema di riferimento in cui il centro di massa si annulla: è il sistema in cui l'origine coincide con il centro di massa.
+
+    \item Momento di inerzia (momento di ordine 2). È un tensore (di rango 2) simmetrico a valori reali con 6 componenti indipendenti.
     
     \begin{equation}
         I_{ij} = \int_V (x_lx_l \delta_{ij} - x_ix_j)dm = \begin{pmatrix}
@@ -836,19 +843,27 @@ Essa è caratterizzata da alcuni momenti, tra cui:
         \label{eq:inerzia}
     \end{equation}
 
-    I tre elementi diagonali sono dati da $I_{ii} = \int_V (x_j^2 + x_k^2) dm$, mentre i \textit{prodotti di inerzia} da $I_{ij} = I_{ji} = - \int_V x_ix_j dm$.
+    I tre elementi diagonali sono dati da
+    
+    \begin{equation}
+        I_{ii} = \int_V (x_j^2 + x_k^2) dm
+    \end{equation}
+    
+    mentre i \textit{prodotti di inerzia} sono dati da
+    
+    \begin{equation}
+        I_{ij} = I_{ji} = - \int_V x_ix_j dm
+    \end{equation}
 
     \textbf{Proprietà del momento di inerzia}:
 
-    Gli autovettori, \textit{assi principali} sono ortogonali fra loro e formano una base;
+    Gli autovettori di $I_{ij}$ (\textit{assi principali}) sono ortogonali fra loro e formano una base;
 
-    Gli autovalori sono reali e vale $I_1 < I_2 < I_3$;
+    Gli autovalori di $I_{ij}$ sono reali e vale $I_1 < I_2 < I_3$;
 
-    La traccia è invariante a seguito di un cambio di sistema di riferimento;
+    La traccia $Tr(I_{ij})$ è invariante a seguito di un cambio di sistema di riferimento;
 
     Il determinante è invariante a seguito di un cambio di sistema di riferimento.
-
-    È sempre possibile scegliere un sistema di riferimento in cui esso si annulla, cioè quello che ha l'origine nel centro di massa.
 
     \end{itemize}
 
@@ -867,17 +882,24 @@ Due corpi puntiformi che interagiscono tramite questa legge sono soggetti alle \
     
 \end{enumerate}
 
-Nel caso di corpi più complessi, come la Terra, le irregolarità misurate da appositi satelliti permettono di ottenere informazioni sul campo di gravità.
+Nel caso di corpi più complessi, come la Terra, le irregolarità misurate da appositi satelliti permettono di ottenere informazioni sul campo di gravità.\\
 
-\noindent Si definisce il \textit{campo gravitazionale} in un punto P e si sfrutta il principio di sovrapposizione:
+\noindent Si definisce il \textit{campo gravitazionale} in un punto P:
 
 \begin{equation}
-    \vec{g}(P) \equiv \frac{\vec{F}}{m} = \frac{GM}{r^2} \hat{r} \longrightarrow \vec{g}(P) = G \sum_{n} \frac{m_n}{r_n^2} \hat{r}_n
+    \vec{g}(P) \equiv \frac{\vec{F}}{m} = \frac{GM}{r^2} \hat{r}
+\end{equation}
+
+\noindent
+Quindi, per una distribuzione di massa si sfrutta il principio di sovrapposizione:
+
+\begin{equation}
+    \vec{g}(P) = G \sum_{n} \frac{m_n}{r_n^2} \hat{r}_n
     \label{eq:campo_gravitazionale}
 \end{equation}
 
 Siccome si tratta di un campo centrale, la circuitazione è nulla e, grazie al teorema di Stokes, si dimostra che è anche irrotazionale.
-Si può allora definire il campo a partire da un \textbf{potenziale gravitazionale} scalare: $\vec{g} = \nabla U$.
+Si può allora definire il campo a partire da un \textbf{potenziale gravitazionale} scalare: $\vec{g} = \nabla U$.\\
 
 \noindent Il flusso del campo gravitazionale attraverso una superficie sferica $S$ di raggio $r$ è dato da:
 
@@ -885,7 +907,9 @@ Si può allora definire il campo a partire da un \textbf{potenziale gravitaziona
     \Phi_S (\vec{g}) \equiv \int_S \vec{g} \cdot \hat{n} dS = 4 \pi r^2 \vec{g} \cdot \hat{n} = - 4 \pi r^2 \frac{GM}{r^2} = - 4 \pi GM
 \end{equation}
 
-cioè dipende solamente dalla massa contenuta (legge di Gauss per il campo gravitazionale).
+cioè dipende solamente dalla massa contenuta nella sfera (legge di Gauss per il campo gravitazionale).\\
+
+
 Dalla definizione di densità e dal teorema della divergenza discende che il potenziale gravitazionale soddisfa l'equazione di Poisson all'interno e l'equazione di Laplace all'esterno del pianeta, per cui è una funzione armonica:
 
 \begin{equation}

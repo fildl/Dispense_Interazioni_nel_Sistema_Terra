@@ -314,3 +314,6 @@ TSWLatexianTemp*
 
 #macos
 .DS_Store
+
+#main file
+main.pdf

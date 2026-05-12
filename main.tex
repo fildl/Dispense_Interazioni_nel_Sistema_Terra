@@ -1063,11 +1063,11 @@ con $cos\beta = cos\theta cos\theta' + sin\theta sin\theta ' cos(\lambda - \lamb
 ovvero il potenziale gravitazionale che osserveremmo in $r$ per una massa puntiforme $M$ o per una distribuzione di massa sferica simmetrica di pari massa.\\
 
 I termini successivi rappresentano quindi le discrepanze dal potenziale sferico e decadono con potenze che dipendono dal grado $l$ ($\propto 1/r^{l+1})$.
-La lunghezza d'onda spaziale di questi termini segue la regola di Jeans (vedi eq. ~\ref{eq:Jeans}).
+La lunghezza d'onda spaziale di questi termini segue la regola di Jeans (vedi eq. \ref{eq:Jeans}).
 
 \subsection{\textcolor{colore7}{Coefficienti di Stokes}}
 
-Applicando il teorema di addizione (~\ref{eq:addizione}) all'espansione di multipolo del campo gravitazionale nell'espressione ~\ref{eq:gravitational_field_multipole}, si ottiene un'espressione in cui non compaiono i polinomi di Legendre:
+Applicando il teorema di addizione (\ref{eq:addizione}) all'espansione di multipolo del campo gravitazionale nell'espressione ~\ref{eq:gravitational_field_multipole}, si ottiene un'espressione in cui non compaiono i polinomi di Legendre:
 
 \begin{equation}
     P_l(cos\beta) = \frac{1}{2l+1} \sum_{m=-l}^l \mathcal{Y}^*_{lm} (\theta', \lambda') \mathcal{Y}_{lm}(\theta, \lambda)
@@ -1079,46 +1079,70 @@ Applicando il teorema di addizione (~\ref{eq:addizione}) all'espansione di multi
     W_g (r, \theta, \lambda) = \frac{GM}{r} \sum_{lm} \left( \frac{a}{r} \right) ^l W_{g,lm} \mathcal{Y}_{lm} (\theta, \lambda)
 \end{equation}
 
+\noindent
 dove compaiono i coefficienti complessi:
 
 \begin{equation}
-     W_{g,lm} = \frac{1}{M} \frac{1}{2l+1} \int_V \left( \frac{r'}{a} \right) ^l \mathcal{Y}^*_{lm} (\theta', \lambda') dm \text{ , dove $a$ è il raggio della Terra}
+     W_{g,lm} = \frac{1}{M} \frac{1}{2l+1} \int_V \left( \frac{r'}{a} \right) ^l \mathcal{Y}^*_{lm} (\theta', \lambda') dm
 \end{equation}
 
+\noindent
+dove $a$ è il raggio della Terra.
 Questa espressione complessa si usa raramente, mentre la forma reale trova ampio utilizzo nella geodesia satellitare:
 
 \begin{equation}
     W_g (r, \theta, \lambda) = \frac{GM}{r} \sum_{lm} \left( \frac{a}{r} \right) ^l (c_{lm} cos m\lambda + s_{lm} sin m\lambda) P_{lm}(cos \theta)
 \end{equation}
 
-dove compaiono i \textbf{coefficienti di Stokes} del campo gravitazionale, che dipendono dalla distribuzione di massa:
+dove compaiono i \textbf{coefficienti di Stokes} $c_{lm}$ e $s_{lm}$ del campo gravitazionale, che dipendono dalla distribuzione di massa:
 
 \begin{equation}
     \left\{ \begin{matrix}
         c_{lm} \\ s_{lm}
     \end{matrix}\right\} = (2-\delta_{0m}) \frac{(l-m)!}{(l+m)!} \frac{1}{M} \int_V \left( \frac{r'}{a} \right)^l P_{lm} (cos \theta) \left\{ \begin{matrix}
         cos m\lambda' \\ sin m\lambda'
-    \end{matrix}\right\} dm \text{ , dove l=0,1,2,... e 0 $\le$ m $\le$ l}
+    \end{matrix}\right\} dm
 \end{equation}
 
-In base al grado si hanno coefficienti diversi: 
+\noindent
+dove $l=0,1,2,\dots$ e $0 \leq m \leq l$. In base al grado si hanno coefficienti diversi: 
 
 \begin{itemize}
-    \item $l=0$: una costante;
-    \item $l=1$: tre termini associati alla scelta dell'origine del sistema di riferimento;
-    \item $l=2$: cinque termini legati agli elementi del tensore di inerzia.
+    \item $l=0$: solo un coefficiente ($c_{00}$), è costante e indipendente dalla distribuzione di massa;
+    \item $l=1$: tre coefficienti ($c_{10}, c_{11}, s_{11}$) associati alla scelta dell'origine del sistema di riferimento;
+    \item $l=2$: cinque coefficienti ($c_{20}, c_{21}, c_{22}, s_{21}, s_{22}$) legati agli elementi del tensore di inerzia della distribuzione di massa.
 \end{itemize}
 
 I coefficienti di grado basso dipendono dalla scelta del sistema di riferimento: se il centro di massa si trova nell'origine, allora i termini di grado 1 scompaiono.
-Grazie ai satelliti, si cerca adesso di misurare la variazione nel tempo dei coefficienti di Stokes.
+Grazie ai satelliti, si cerca adesso di misurare la variazione nel tempo dei coefficienti di Stokes.\\
 
-\indent In un corpo sfericamente simmetrico il momento di inerzia è dato da:
+Si consideri un corpo sfericamente simmetrico (Figura \ref{fig:stokes_a}):
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.4\linewidth]{fig/stokes_a.png}
+    \caption{Distribuzione di massa sfericamente simmetrica.}
+    \label{fig:stokes_a}
+\end{figure}
+
+\noindent
+I coefficienti di Stokes sono: 
+
+\begin{itemize}
+    \item per $l=0$, $c_{00} = 1$, valido per tutti i corpi;
+    \item per $l=1$, $c_{10} = c_{11} = s_{11} = 0$ perché $O=CM$;
+    \item per $l\geq 3$, $c_{lm} = s_{lm} = 0$ perché l'unico termine di multipolo è quello di grado 0.
+\end{itemize}
+
+\noindent
+il momento di inerzia è dato da:
 
 \begin{align}
     I &= \frac{1}{3}(I_{xx}+I_{yy}+I_{zz})=\frac{2}{3}\int_V(x^2+y^2+z^2)dm=\frac{2}{3}\int_Vr^4\rho(r)drsin\theta d\theta d\lambda \\ &=\frac{8\pi}{3}\int_0^Rr^4\rho(r)dr
 \end{align}
 
-\indent Per cui per una massa omogenea vale:
+\noindent
+Per una massa omogenea vale:
 
 \begin{equation}
     I_{hom} = \frac{8\pi}{15}R^5\rho_0

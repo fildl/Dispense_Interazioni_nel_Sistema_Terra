@@ -710,7 +710,9 @@ Un metodo simile si basa sulla griglia di Fibonacci regolarizzata ai poli.
 \section{\textcolor{colore2}{Geosfera, geodinamica e Sistema Terra}}
 
 All'inizio del XX secolo, il pioniere della ricerca polare Alfred Wegener propose la \textbf{teoria della deriva dei continenti}, su cui si basa l'odierna \textbf{teoria della tettonica delle placche} (dal greco "costruire").
-La teoria, inizialmente screditata, fu accettata solamente a partire dagli anni Cinquanta.
+La teoria, secondo la quale le masse continentali si muovoono lentamente separandosi da un unico supercontinente chiamato Pangea, fu inizialmente screditata.
+Solamente a partire dagli anni Cinquanta fu accettata, grazie a nuove scoperte a supporto di questa teoria, come evidenze in paleomagnetismo.\\
+
 La tettonica, o geologia strutturale, studia gli spostamenti e le deformazioni della crosta terrestre.
 Si ipotizza che la crosta possa sprofondare fino al mantello e interagire con le inversioni del campo magnetico.
 La convezione del mantello è compatibile con le ondulazioni osservate del geoide (di circa 10 m).
@@ -753,18 +755,19 @@ Wegener propose una forza detta \textit{Polflucht} (dal tedesco "volo dai poli")
 
     \begin{figure}[h!]
         \centering
-        \includegraphics[width=0.7\linewidth]{fig/magnetic_anomalies.png}
+        \includegraphics[width=0.5\linewidth]{fig/magnetic_anomalies.png}
         \caption{Anomalie magnetiche dei fondali oceanici.}
     \end{figure}
 
-    Le indagini magnetometriche evidenziano la simmetria delle anomalie magnetiche attorno all'asse delle creste oceaniche. È possibile determinare l'orientamento del campo magnetico mediante la temperatura di Curie, al di sotto della quale i minerali ferromagnetici si magnetizzano con direzione parallela a quella del campo;
+    Le indagini magnetometriche evidenziano la simmetria delle anomalie magnetiche attorno all'asse delle creste oceaniche.
+    È possibile determinare l'orientamento del campo magnetico terrestre mediante la magnetizzazione residua acquisita dai minerali ferromagnetici quando, raffreddandosi al di sotto della temepratura di Curie, si magnetizzano parallelamente al campo magnetico pesente in quel momento;
     \item Ipotesi dell'allargamento dei fondali marini: come può aggiungersi nuova crosta lungo le creste oceaniche senza che la dimensione o la massa della Terra aumentino?
     Harry Hess trovò una spiegazione ipotizzando che la crosta oceanica ridiscenda nel mantello nei pressi delle fosse oceaniche, così che i fondali vengano "riciclati" velocemente, in accordo con l'età media della crosta oceanica, di circa 150 milioni di anni.
     Questo spiega perché le rocce oceaniche sono più giovani di quelle continentali;
 
     \begin{figure}[h!]
         \centering
-        \includegraphics[width=0.7\linewidth]{fig/seafloor_spreading.png}
+        \includegraphics[width=0.6\linewidth]{fig/seafloor_spreading.png}
         \caption{Seafloor spreading.}
     \end{figure}
 
@@ -777,7 +780,7 @@ Wegener propose una forza detta \textit{Polflucht} (dal tedesco "volo dai poli")
 
     \begin{figure}[h!]
         \centering
-        \includegraphics[width=0.7\linewidth]{fig/heat_flow.png}
+        \includegraphics[width=0.5\linewidth]{fig/heat_flow.png}
         \caption{Flusso di calore attraverso la litosfera.}
     \end{figure}
 
@@ -788,7 +791,7 @@ Wegener propose una forza detta \textit{Polflucht} (dal tedesco "volo dai poli")
 
     \begin{figure}[htb]
         \centering
-        \includegraphics[width=0.7\linewidth]{fig/seafloor_shape.png}
+        \includegraphics[width=0.5\linewidth]{fig/seafloor_shape.png}
         \caption{Cause tettoniche dei cambiamenti del livello marino.}
         \label{fig:seafloor_shape}
     \end{figure}
@@ -858,6 +861,14 @@ Essa è caratterizzata da alcuni momenti, tra cui:
     \end{equation}
 
     \noindent rappresenta la media del vettore poszione $\vec{x}$ pesata sulla distribuzione di massa.\\
+
+    \noindent
+    Le sue componenti sono:
+
+    \begin{equation}
+        (x_1, x_2, x_3)_{CM} = \frac{1}{M} \left(\int_V x_1 dm , \int_V x_2 dm , \int_V x_3 dm\right)
+    \end{equation}
+
     È sempre possibile scegliere un sistema di riferimento in cui il centro di massa si annulla: è il sistema in cui l'origine coincide con il centro di massa.
 
     \item Momento di inerzia (momento di ordine 2). È un tensore (di rango 2) simmetrico a valori reali con 6 componenti indipendenti.
@@ -869,13 +880,13 @@ Essa è caratterizzata da alcuni momenti, tra cui:
         \label{eq:inerzia}
     \end{equation}
 
-    I tre elementi diagonali sono dati da
+    I tre elementi diagonali sono dati da:
     
     \begin{equation}
         I_{ii} = \int_V (x_j^2 + x_k^2) dm
     \end{equation}
     
-    mentre i \textit{prodotti di inerzia} sono dati da
+    mentre i \textit{prodotti di inerzia} sono dati da:
     
     \begin{equation}
         I_{ij} = I_{ji} = - \int_V x_ix_j dm
@@ -930,13 +941,27 @@ Si può allora definire il campo a partire da un \textbf{potenziale gravitaziona
 \noindent Il flusso del campo gravitazionale attraverso una superficie sferica $S$ di raggio $r$ è dato da:
 
 \begin{equation}
-    \Phi_S (\vec{g}) \equiv \int_S \vec{g} \cdot \hat{n} dS = 4 \pi r^2 \vec{g} \cdot \hat{n} = - 4 \pi r^2 \frac{GM}{r^2} = - 4 \pi GM
+    \Phi_S (\vec{g}) \equiv \int_S \vec{g} \cdot \vec{S} = \int_S \vec{g} \cdot \hat{n} dS = 4 \pi r^2 \vec{g} \cdot \hat{n} = - 4 \pi r^2 \frac{GM}{r^2} = - 4 \pi GM
 \end{equation}
 
 cioè dipende solamente dalla massa contenuta nella sfera (legge di Gauss per il campo gravitazionale).\\
 
+\noindent
+Usando la definizione di densità e il teorema della divergenza:
 
-Dalla definizione di densità e dal teorema della divergenza discende che il potenziale gravitazionale soddisfa l'equazione di Poisson all'interno e l'equazione di Laplace all'esterno del pianeta, per cui è una funzione armonica:
+\begin{equation}
+    \Phi_S (\vec{g}) = -4 \pi G M_{in} = -4 \pi G \int_V \rho (\vec{x}) dV = \int_V \nabla \cdot \vec{g} dV
+\end{equation}
+
+\noindent
+Quindi la divergenza di $\vec{g}$ è:
+
+\begin{equation}
+    \nabla \cdot \vec{g} = - 4 \pi G \int_V \rho (\vec{x})
+\end{equation}
+
+\noindent
+Dato che $\vec{g} = \nabla U$, otteniamo che il potenziale gravitazionale $U$ soddisfa l'equazione di Poisson all'interno e l'equazione di Laplace all'esterno del pianeta, per cui è una funzione armonica:
 
 \begin{equation}
     \text{Poisson: } \nabla^2 U = - 4 \pi G \rho(\vec{x}) \text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{  Laplace: } \nabla^2U=0

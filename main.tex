@@ -1571,7 +1571,7 @@ Mentre per alcuni processi di breve durata è possibile utilizzare un modello el
 
 \subsection{\textcolor{colore7}{Movimenti incessanti nel Sistema Terra}}
 
-I movimenti della Terra sono testimoniati dai terremoti, manifestazioni di onde elastiche regolate dall' \textit{equazione d'onda di Newton}, alla base della sismologia:
+I movimenti della Terra sono testimoniati dai terremoti, manifestazioni di onde elastiche regolate dall'\textit{equazione d'onda di Newton}, alla base della sismologia:
 
 \begin{equation}
     \rho \frac{\partial^2 \vec{u}}{\partial t^2} = \left( K + \frac{4}{3} \mu \right) \nabla (\nabla \cdot \vec{u}) - \mu \nabla \times (\nabla \times \vec{u})
@@ -1591,9 +1591,11 @@ La Terra risponde in maniera elastica.
 \subsection{\textcolor{colore2}{Reologia e Scienze della Terra}}
 
 La \textbf{reologia} nacque per studiare il fluire delle lave, ma si applica anche a ghiacciai, livello del mare, deformazioni post-sismiche, isostasia glaciale e tettonica delle placche.
-Il termine deriva dal greco e indica lo studio di flussi e deformazioni dei materiali.
-Il concetto di corpo rigido fu introdotto da Archimede, poi Newton introdusse una descrizione formale.
-Hooke descrisse le deformazioni elastiche, poi furono studiati fluidi e materiali viscoelastici, fino all'avvento della reologia nel 1929.
+Il termine deriva dal greco e indica lo studio di flussi e deformazioni dei materiali.\\
+
+Il concetto di corpo rigido fu introdotto da Archimede, ma trova la sua formalizzazione matematica con Newton nel 1687.
+Hooke definì le basi dell'elasticità (1678), mentre Bernoulli ed Eulero iniziarono a descrivere i fluidi invisicidi (1800s)
+Le proprietà elastiche dei corpi sono state descritte da Hooke, poi furono studiati fluidi e materiali viscoelastici, fino all'avvento della reologia nel 1929.
 
 Einstein trovò una formula per descrivere la viscosità di una sospensione diluita di particelle in un fluido di viscosità iniziale $\eta_m$:
 
@@ -1601,12 +1603,18 @@ Einstein trovò una formula per descrivere la viscosità di una sospensione dilu
     \frac{\eta}{\eta_m} = 1 + \frac{5}{2} c \text{ , dove c $\ll$ 1 è la concentrazione}
 \end{equation}
 
-Il comportamento reologico dipende dalla temperatura, dalla pressione e dal tempo.
+\noindent
+In reologia la definizione di materiale solido o fluido non è fatta in base alla sua struttura atomica,
+bensì un materiale è definito fluido se fluisce quando sottoposto ad uno stress costante.
+La fluidità quindi non è una proprietà intrinseca del materiale, ma dipende da fattori esterni come la temperatura, la pressione e il tempo di carico.\\
+
+\noindent
 Si hanno due approcci fondamentali allo studio della reologia:
 
 \begin{itemize}
-    \item Meccanica dei continui: ignora la natura corpuscolare per descrivere il comportamento macroscopico;
-    \item Fisica dello stato solido: considera la microfisica, in maniera complementare al primo approccio.
+    \item Meccanica dei continui (macroreologia): le proprietà dei materiali sono descritte in maniera fenomenologica,
+    ignorando la natura corpuscolare e descrivendo il comportamento macroscopico;
+    \item Fisica dello stato solido (microreologia): considera la microfisica, e le proprietà a livello atomico, in maniera complementare al primo approccio.
 \end{itemize}
 
 La reologia studia i materiali con caratteristiche sia solide che fluide, mettendo in relazione \textit{stress} e \textit{strain}.
@@ -1616,31 +1624,54 @@ La stratificazione chimica è studiata grazie alla sismologia, mentre quella reo
 
 \subsection{\textcolor{colore7}{Equazioni reologiche costitutive}}
 
-Le grandezze cinematiche e dinamiche di base della reologia sono lo strain (o strain rate), che generalizza il concetto di spostamento o deformazione, e lo stress o sforzo, che generalizza il concetto di forza, entrambi tensori cartesiani di rango 2.
-Traslazioni e rotazioni, che non causano deformazioni, non sono investigate dalla reologia.
-Altri parametri o proprietà intrinseche dei materiali comprendono rigidità, comprimibilità e viscosità, \textit{parametri materiali} di natura tensoriale.
+Le grandezze cinematiche e dinamiche di base della reologia sono, rispettivamente, lo strain (o \textit{strain rate}), che generalizza il concetto di spostamento o deformazione,
+e lo stress o sforzo, che generalizza il concetto di forza agente sul corpo, entrambi tensori cartesiani di rango 2.
 
-La forma generale delle equazioni costitutive relaziona direttamente quantità cinematiche e dinamiche attraverso dei parametri materiali, come si osserva nell'\textit{equazione di stato reologica}:
+Traslazioni e rotazioni, quindi operazioni che non causano deformazioni, non sono investigate dalla reologia.
+
+Altri parametri o proprietà intrinseche dei materiali comprendono rigidità, comprimibilità e viscosità.
+Questi sono detti \textit{parametri materiali} (di natura tensoriale) e il loro valore dipende dalle condizioni esterne.
+Anche il tipo di comportamento reologico può differire al variare delle condizioni esterne.\\
+
+\noindent
+La forma generale delle equazioni costitutive mette in relazione le quantità cinematiche e dinamiche attraverso dei parametri materiali, come si osserva nell'\textit{equazione di stato reologica}:
 
 \begin{equation}
     R(\varepsilon, \dot{\epsilon}, \ddot{\epsilon}, ...; \sigma, \dot{\sigma}, \ddot{\sigma}, ...; \{M\} ) = 0
     \label{eq:reologia}
 \end{equation}
 
+\noindent
 dove $\varepsilon$ rappresenta lo strain, $\sigma$ lo stress, $\{M\}$ il vettore di parametri materiali e $R$ la funzione reologica.
-
 Queste relazioni si ottengono da evidenze sperimentali e da principi fisici.
-In base al tipo di equazione, si distinguono diversi comportamenti reologici.
+La classificazione di un materiale in classi reologiche (come elstico, plastico o viscoso) riflette il tipo di equazione reologica che lo descrive.
+si distinguono diversi comportamenti reologici.
 
-\begin{itemize}
-    \item $F = -kx$: elasticità lineare (legge delle molle);
-    \item $F_{attrito} = \mu N$: attrito (legge di Amonton);
-    \item $\sigma_{ij} = C_{ijkl}\varepsilon_{kl}$, dove $C_{ijkl}$ è il tensore delle costanti elastiche: elasticità (legge di Hooke in 3D);
-    \item $\sigma = C\varepsilon$: caso 1D;
-    \item $\vec{J} = - \boldsymbol{D}\nabla c$: diffusione (legge di Fick);
-    \item $q = - \frac{k}{\mu} \Delta P$: flusso in un mezzo poroso (legge di Darcy);
-    \item $V=RI$: circuiti elettrici (legge di Ohm):
-\end{itemize}
+\begin{table}[h]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \setlength{\tabcolsep}{12pt}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        $F=-kx$ & Legge delle molle & Elasticità lineare \\ 
+        \hline
+        $F_{attrito}=\mu N$ & Legge di Amonton & Attrito \\ 
+        \hline
+        $\sigma_{ij}=C_{ijkl}\varepsilon_{kl}$ & Legge di Hooke (3D) & Elasticità tridimensionale \\ 
+        \hline
+        $\sigma=C\varepsilon$ & Legge di Hooke (1D) & Elasticità monodimensionale \\ 
+        \hline
+        $\vec{J}=-\boldsymbol{D}\nabla c$ & Legge di Fick & Diffusione \\ 
+        \hline
+        $q=-\frac{k}{\mu}\Delta P$ & Legge di Darcy & Flusso in mezzo poroso \\ 
+        \hline
+        $V=RI$ & Legge di Ohm & Circuiti elettrici \\ 
+        \hline
+    \end{tabular}
+\end{table}
+
+\noindent
+$C_{ijkl}$ è il tensore delle costanti elastiche.
 
 \subsection{\textcolor{colore7}{Esperimenti meccanici ideali}}
 
@@ -1648,13 +1679,17 @@ Sono esperimenti in cui stress o strain cambiano nel tempo in modo tale da manif
 
 \subsubsection{\textcolor{colore7}{Creep test}}
 
-Si applica uno stress costante al tempo $t=0$, descritto tramite la \textit{funzione di Heaviside} e si misura l'aumento di strain, mentre il materiale striscia.
+Si applica uno stress costante $\sigma_0$ al tempo $t=0$.
+Lo stress $\sigma (t)$ è quindi descritto tramite la \textit{funzione di Heaviside}:
 
 \begin{equation}
     \sigma(t) = \sigma_0 H(t) \text{ , dove } H(t) \equiv \begin{cases}
         0 & se \text{  } t \le 0 \\ 1 & se \text{  } t > 0
     \end{cases}
 \end{equation}
+
+\noindent
+In risposta al carico. lo strain aumenta nel tempo, mentre il materiale striscia.
 
 \noindent In un esperimento di creep si osservano tre fasi:
 
@@ -1683,7 +1718,7 @@ Si applica uno stress costante al tempo $t=0$, descritto tramite la \textit{funz
 
 \subsubsection{\textcolor{colore7}{Relaxation test}}
 
-Si applica uno strain costante al tempo $t=0$ e si misura la diminuzione dello stress, mentre il materiale si rilassa.
+Si applica uno strain costante $\varepsilon_0$ al tempo $t=0$ e si misura la diminuzione dello stress, mentre il materiale si rilassa.
 
 \begin{equation}
     \varepsilon(t) = \varepsilon_0 H(t) \text{ , dove } H(t) \equiv \begin{cases}
@@ -1693,20 +1728,27 @@ Si applica uno strain costante al tempo $t=0$ e si misura la diminuzione dello s
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.25\linewidth]{fig/relaxation_test.png}
+    \includegraphics[width=0.5\linewidth]{fig/relaxation_test.png}
     \caption{Relaxation test.}
     \label{fig:relaxation_test}
 \end{figure}
 
+\noindent
 Generalmente si osserva un decadimento dello stress, ma non necessariamente questo è esponenziale.
 
 \subsubsection{\textcolor{colore7}{Loading/Unloading test}}
 
-Si applica uno stress costante per un periodo finito $T$ e si misura lo strain variabile durante e dopo.
+Si applica uno stress costante $\sigma_0$ per un periodo finito $T$ e si misura lo strain variabile durante e dopo.
 
 \begin{equation}
     \sigma(t) = \sigma_0 (H(t-t_1) - H(t-t_2))
 \end{equation}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{fig/LU_test.png}
+    \caption{Loading/Unloading test.}
+\end{figure}
 
 \subsubsection{\textcolor{colore7}{Dynamic test}}
 
@@ -1718,19 +1760,9 @@ Si applica uno stress che oscilla nel tempo secondo una funzione armonica e si m
 
 \begin{figure}[H]
     \centering
-    \begin{minipage}{0.25\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{fig/loading_unloading_test.png}
-    \caption{Loading/unloading test.}
-    \label{fig:loading_unloading_test}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.65\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{fig/dynamic_test.png}
+    \includegraphics[width=0.5\linewidth]{fig/dynamic_test.png}
     \caption{Dynamic test.}
     \label{fig:dynamic_test}
-    \end{minipage}
 \end{figure}
 
 Grazie a un creep test ideale è possibile caratterizzare i materiali secondo la loro natura reologica.

@@ -1765,33 +1765,43 @@ Si applica uno stress che oscilla nel tempo secondo una funzione armonica e si m
     \label{fig:dynamic_test}
 \end{figure}
 
-Grazie a un creep test ideale è possibile caratterizzare i materiali secondo la loro natura reologica.
-Un materiale che dopo una deformazione iniziale mantiene la stessa forma è considerato un solido, uno che fluisce indefinitamente invece è considerato un fluido.
-Al contrario, gli altri comportamenti sono rilevanti su scale temporali inferiori: se lo strain aumenta linearmente con lo stress, il materiale è \textit{linearmente elastico}, mentre se è lo strain rate ad aumentare linearmente, il materiale è \textit{viscoso}, secondo la descrizione di Newton. 
+\noindent
+Grazie a un creep test ideale è possibile caratterizzare i materiali secondo la loro natura reologica.\\
+
+Su tempi scala lunghi posso definire un materiale solido se, dopo una deformazione iniziale, mantiene la stessa forma; uno che fluisce indefinitamente invece è considerato un fluido.\\
+
+Al contrario, a tempi scala più corti definisco altri comportamenti, come quello elastico e viscoelastico:
+se lo strain aumenta linearmente con lo stress, il materiale è \textit{linearmente elastico}, 
+mentre se è lo strain rate ad aumentare linearmente, il materiale è \textit{viscoso}, secondo la descrizione di Newton. 
 Una combinazione dei due comportamenti caratterizza un corpo viscoelastico.
 
 \subsection{\textcolor{colore7}{Comportamento elastico (corpo di Hooke)}}
 
 L'estensione è proporzionale alla forza: \textit{Ut tensio, sic vis} (legge di Hooke, 1678).
-Si tratta del comportamento mostrato dai materiali cristallini a bassa temperatura e pressione.
-L'\textit{analogo meccanico} è una molla.
+Si tratta del comportamento reologico ideale noto come elasticità, tipicamente mostrato dai materiali cristallini a bassa temperatura e pressione.
+Questo comportamento è definito da una deformazione istantanea all'applicazione del carico e da un recupero altrettanto immediato e totale una volta rimosso.
+L'\textit{analogo meccanico} è una molla.\\
 
-\noindent \textbf{Legge di Hooke per i corpi elastici}: 
+\noindent
+\textbf{Legge di Hooke per i corpi elastici}: 
 \begin{itemize}
     \item $\sigma = E \varepsilon$ (legge 1D, $E$ è una generica costante elastica);
     \item $\sigma_{ij} = C_{ijkl}\varepsilon_{kl}$ (legge in forma tensoriale);
-    \item $\sigma_{ij} = 2\mu \varepsilon_{ij} + \lambda \varepsilon_{kk}\delta_{ij}$ (legge per corpi isotropi con costanti di Lamé).
+    \item $\sigma_{ij} = 2\mu \varepsilon_{ij} + \lambda \varepsilon_{kk}\delta_{ij}$ (legge per corpi isotropi con $\mu$ e $\lambda$ costanti di Lamé).
 \end{itemize}
 
 \noindent \textbf{Creep test per un corpo elastico}: $\sigma = \sigma_0 H(t) \Longrightarrow \varepsilon = \frac{\sigma_0}{E}$.
 
-\noindent \textbf{Relaxation test per un corpo elastico}: $\varepsilon = \varepsilon_0 H(t) \Longrightarrow\sigma = E \varepsilon_0 = cost.$
+\noindent \textbf{Relaxation test per un corpo elastico}: $\varepsilon = \varepsilon_0 H(t) \Longrightarrow\sigma = E \varepsilon_0 = cost.$\\
 
-Il comportamento elastico vale fino a che non viene raggiunta una soglia, per cui questa legge non spiega tutta la reologia.
+\noindent
+Il comportamento elastico è valido esclusivamente al di sotto di una sollecitazione di soglia, detta \textit{limite elastico}.
+Superata questa soglia, il materiale devia dalla linearità; per cui questa legge non spiega tutta la reologia.
 La "costante" di proporzionalità $E$ (modulo di Young) in realtà aumenta con la pressione e diminuisce con la temperatura.
-Il corpo elastico non subisce rilassamento.
-La Terra assume questo comportamento su scale temporali fino alle ore.
-La sismologia si basa sul comportamento elastico delle onde sismiche.
+Il corpo elastico non subisce rilassamento.\\
+La litosfera superiore può essere considerata elastica per carichi con durata dell'ordine di milioni di anni.
+Inoltre, tutta la Terra si comporta elasticamente (con imperfezioni) per carichi di breve durata (dai secondi alle ore),
+il che rende la sismologia adatta ad un'analisi di tipo elastico.\\
 A partire dalla sismologia è stato sviluppato il \textbf{modello PREM} (Preliminary Reference Earth Model), che lega la velocità delle onde s e p allo strato del Pianeta.
 
 \begin{figure}[htb]
@@ -1803,31 +1813,62 @@ A partire dalla sismologia è stato sviluppato il \textbf{modello PREM} (Prelimi
 
 \subsection{\textcolor{colore7}{Comportamento fluido (corpo di Newton)}}
 
-Il corpo fluisce in modo costante se sottoposto a stress costante (comportamento opposto a quello elastico).
-Il mantello si comporta come un fluido su scale temporali geologiche.
-L'analogo meccanico è uno stantuffo, che mostra un comportamento viscoso: 
+All'estremo opposto dello spettro reologico rispetto ai solidi elastici si collocano i fluidi,
+ovvero corpi che fluiscono in modo costante (\textit{steady-state flow}) se sottoposti a uno stress costante,
+mostrando una deformazione che cambia continuamente nel tempo sotto qualsiasi carico, per quanto piccolo.\\
+Il loro stato cinematico è descritto dal tensore del tasso di deformazione (\textit{strain rate tensor})
+e il parametro caratteristico del materiale è la viscosità.
+Su scale temporali geologiche, anche il mantello terrestre si comporta come un fluido.\\
+In geodinamica, le due classi di fluidi più importanti sono i corpi newtoniani, in cui il tasso di deformazione è linearmente proporzionale allo stress,
+e i corpi non newtoniani, in cui il tasso di deformazione è proporzionale allo stress elevato a una potenza $n$ (con $n > 1$).\\
+
+\noindent
+L'\textit{analogo meccanico} è uno stantuffo, che mostra un comportamento viscoso in cui la risposta dipende dal tempo:
 
 \begin{equation}
-    F = -k_v \frac{dx}{dt} \text{ , dove $k_v$ è la costante di dissipazione}
+    F = -k_v \frac{dx}{dt}
 \end{equation}
 
-\noindent Lo stress è proporzionale allo strain rate, vale cioè la \textbf{legge di Newton per i corpi fluidi}: $\sigma = \eta \dot{\varepsilon}$.
+\noindent
+dove $k_v$ è la costante di dissipazione. Lo stress è proporzionale allo strain rate, vale cioè la \textbf{legge di Newton per i corpi fluidi}: $\sigma = \eta \dot{\varepsilon}$.\\
 
-\noindent \textbf{Creep test per un corpo fluido}: $\sigma = \sigma_0 H(t) \Longrightarrow \varepsilon = \frac{\sigma_0}{\eta} t H(t)$.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{fig/newton_tests.png}
+    \caption{Test meccanici ideali per un corpo fluido.}
+\end{figure}
 
-\noindent \textbf{Relaxation test per un corpo fluido}: $\varepsilon = \varepsilon_0 H(t) \Longrightarrow\sigma = \eta \varepsilon_0 \delta (t)$.
+\noindent
+\textbf{Creep test per un corpo fluido}: $\sigma = \sigma_0 H(t) \Longrightarrow \varepsilon = \frac{\sigma_0}{\eta} t H(t)$.
 
-dove:
-\begin{align}
-    \eta & = \frac{\sigma}{\dot{\varepsilon}} \text{ è la viscosità dinamica} \\
-    & [\frac{\text{stress}}{\text{strain rate}}] = [\text{Pressione} \times \text{tempo}] = [\frac{\text{forza} \times \text{tempo}}{\text{area}}] = [Pa \cdot s] = [kg m^{-1}s^{-1}] = [Pl, Poiseuille] \\
-    \nu & = \frac{\eta}{\rho} \text{ è la viscosità cinematica} \\
-    & [\frac{\text{viscosità}}{\text{densità}}] = [\frac{\text{massa} \times \text{lunghezza}^{-1} \times \text{tempo}^{-1}}{\text{massa} \times \text{volume}^{-1}}] = [m^2s^{-1}]
-\end{align}
+\noindent
+\textbf{Relaxation test per un corpo fluido}: $\varepsilon = \varepsilon_0 H(t) \Longrightarrow\sigma = \eta \varepsilon_0 \delta (t)$.\\
 
-e la \textit{fluidità} è il reciproco della viscosità cinematica.
+\noindent
+dove $\eta = \sigma / \dot{\varepsilon}$ è la viscosità dinamica. Dimensionalmente:
 
-\noindent Grazie a un \textit{viscosimetro a piani paralleli} (flusso di Couvette), è possibile misurare lo shear in un fluido e da esso la viscosità dinamica:
+\begin{equation}
+    [\eta] = \frac{\text{stress}}{\text{strain rate}} = \text{pressione} \times \text{tempo} = \frac{FT}{L^2} = M L T^{-2} T L^{-2} = M L^{-1} T^{-1}
+\end{equation}
+
+\noindent
+Nel SI $1 Pa \cdot s = 1 Pl$, con $Pl$ il \textit{Poiseuille}.\\
+
+\noindent
+Il \textit{Poise} $P$ è l'unità di misura della viscosità nel sistema cgs: $1 P = 1 g/cm/s = 0.1 Pl$.\\
+
+\noindent
+La viscosità cinematica è $\nu = \eta / \rho$. Dimensionalmente:
+
+\begin{equation}
+    [\nu] = \frac{\text{viscosità}}{\text{densità}} = \frac{M L^{-1} T^{-1}}{M L^{-3}} = \frac{L^2}{T}
+\end{equation}
+
+\noindent
+La \textit{fluidità} è il reciproco della viscosità cinematica: $f = 1/\eta$.\\
+
+\noindent
+Grazie a un \textit{viscosimetro a piani paralleli} (flusso di Couvette), è possibile misurare lo shear in un fluido e da esso la viscosità dinamica:
 
 \begin{figure}[htb]
     \centering
@@ -1840,6 +1881,7 @@ e la \textit{fluidità} è il reciproco della viscosità cinematica.
     \eta = \frac{L F}{A V}
 \end{equation}
 
+\noindent
 Spesso la viscosità dinamica decade esponenzialmente con la temperatura.
 Sia $Q$ l'energia di attivazione, $T$ la temperatura, $R$ la costante dei gas e $A$ una costante generica:
 
@@ -1847,6 +1889,7 @@ Sia $Q$ l'energia di attivazione, $T$ la temperatura, $R$ la costante dei gas e 
     \eta = A \cdot e^{\frac{Q}{RT}}
 \end{equation}
 
+\noindent
 Si distinguono fluidi Newtoniani e non Newtoniani.
 Nei primi la viscosità non dipende dallo stress (gas e molti liquidi), mentre nei secondi non vale la legge di Newton.
 Si hanno perciò fluidi non Newtoniani:
@@ -1857,13 +1900,15 @@ Si hanno perciò fluidi non Newtoniani:
     \item \textit{plastici di Bingham}: si comportano da solidi fino a un valore critico di stress, poi diventano dei fluidi viscosi: $\sigma = \eta \dot{\varepsilon} + cost.$
 \end{itemize}
 
-Si può generalizzare la legge di Newton a più dimensioni, come nel caso della legge di Hooke:
+\noindent
+Si può generalizzare la legge di Newton a più dimensioni:
 
 \begin{itemize}
-    \item $\sigma_{ij} = -p\delta_{ij} + C'_{ijkl} \dot{\varepsilon}_{kl}$ (forma tensoriale, dove $p$ è la pressione termodinamica);
-    \item $\sigma_{ij} = -p\delta_{ij} + \lambda' \dot{\theta} \delta_{ij} + 2\eta \dot{\varepsilon}_{ij}$ (legge per fluidi isotropi, dove $\theta = \dot{\varepsilon}_{kk}$). 
+    \item $\sigma_{ij} = -p\delta_{ij} + C'_{ijkl} \dot{\varepsilon}_{kl}$ (forma tensoriale, dove $p$ è la pressione termodinamica e $C'_{ijkl}$ è il tensore dei parametri viscosi);
+    \item $\sigma_{ij} = -p\delta_{ij} + \lambda' \dot{\theta} \delta_{ij} + 2\eta \dot{\varepsilon}_{ij}$ (legge per fluidi isotropi, dove $\theta = \dot{\varepsilon}_{kk}$ e $\lambda^\prime$ e $\eta$ sono parametri materiali). 
 \end{itemize}
 
+\noindent
 L'isostasia glaciale e la convezione del mantello (che ha viscosità $\approx 10^{25}$ volte maggiore dell'acqua) si possono descrivere grazie a queste equazioni.
 
 \newpage
@@ -1873,6 +1918,14 @@ L'isostasia glaciale e la convezione del mantello (che ha viscosità $\approx 10
 \subsection{\textcolor{colore7}{Effetti temporali}}
 
 In base alle condizioni esterne e alla durata del carico, le stesse rocce possono comportarsi in modi diversi e assumere comportamenti reologici opposti.
+La risposta reologica dipende infatti da parametri sia intrinseci (proprietà del materiale) sia estrinseci (condizioni ambientali).\\
+
+\noindent
+Nella litosfera superiore, a basse temperature e pressioni, il comportamento è prevalentemente elastico, anche se sottoposto a carichi di lunga durata.
+Al contrario, nel guscio della Terra (ad alte temperature e pressioni), la scala temporale del processo diventa rilevante:
+il materiale risponde ancora in modo elastico se il carico è di breve durata, ma si comporta come un fluido (newtoniano o non newtoniano) se sottoposto a carichi di lunga durata.
+
+Tra l'elasticità perfetta e il flusso stazionario si inserisce un comportamento intermedio, in cui la deformazione dipende dal tempo e il tasso di deformazione (\textit{strain rate}) a stress costante è una funzione decrescente con il tempo.
 
 \begin{figure}[H]
     \centering
@@ -1881,31 +1934,47 @@ In base alle condizioni esterne e alla durata del carico, le stesse rocce posson
     \label{fig:time_effects}
 \end{figure}
 
-\noindent Tipicamente si distinguono le seguenti fasi:
+\noindent
+Per un carico applicato al tempo $t = t_1$ tipicamente si distinguono le seguenti fasi:
 
 \begin{enumerate}
     \item \textbf{deformazione elastica istantanea} $\varepsilon_l$;
     \item \textbf{creep transiente} $\varepsilon_t$, in cui lo strain aumenta nel tempo con tasso decrescente;
-    \item \textbf{creep stazionario} $\dot{\varepsilon}$, si instaura quando la temperatura supera la metà di quella del solidus nei silicati;
-    \item \textbf{recupero elastico istantaneo}, in cui si recupera lo strain elastico $\varepsilon_l$;
-    \item \textbf{recupero transiente}, un cui su recupera lo strain transiente $\varepsilon_t$;
-    \item \textbf{deformazione permanente} non recuperabile.
+    \item \textbf{creep stazionario} $\dot{\varepsilon}$, segue il creep transiente se le condizioni lo permettono
+    (ad esempio la temperatura è sufficientemente alta) e se vi è sufficiente tempo; lo strain rate è costante;
+    \item \textbf{recupero elastico istantaneo}, si verifica al tempo $t_2$ in cui il carico è rimosso.
+    Si recupera lo strain elastico $\varepsilon_l$;
+    \item \textbf{recupero transiente}, in cui su recupera lo strain transiente $\varepsilon_t$;
+    \item \textbf{deformazione permanente}, acquisita durante la fase di creep stazionario; è permanente e non recuperabile.
 \end{enumerate}
 
-Lo \textbf{strain totale di creep} è dato allora da:
+Lo \textbf{strain creep totale} è dato da:
 
 \begin{equation}
     \varepsilon(t) = \varepsilon_l + \varepsilon_t(t) + \dot{\varepsilon} t
 \end{equation}
 
-dove la dipendenza temporale della funzione di creep transiente è variabile, per cui sono state proposte diverse leggi empiriche:
+\noindent
+dove la dipendenza temporale della funzione di creep transiente è variabile, per cui sono state proposte diverse leggi empiriche, il cui andamento è mostrato in Figura \ref{fig:transient_creep}:
 
 \begin{itemize}
     \item \textit{legge esponenziale ritardata}: $\varepsilon_t (t) = A [1-exp(- \frac{t}{\tau})]$;
-    \item \textit{equazione del creep di Andreade}: $\varepsilon_t (t) = At^{1/\alpha}$;
+    \item \textit{equazione del creep di Andrade}: $\varepsilon_t (t) = \varepsilon_0 At^{1/\alpha}$;
+    \item \textit{equazione di Scott-Blair}: $\varepsilon_t (t) = \frac{a}{\Gamma(1 + \nu)} * t^{\nu}$
     \item \textit{legge logaritmica}: $\varepsilon_t (t) = A log(1 + \alpha t)$;
     \item \textit{legge di Lomnitz modificata}: $\varepsilon_t (t) = \frac{\sigma}{\mu} \left(1 + \frac{q}{\alpha} [(1 + \alpha t)^\alpha -1] \right)$.
 \end{itemize}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{fig/transient_creep.png}
+    \caption{Funzioni di Creep transiente.}
+    \label{fig:transient_creep}
+\end{figure}
+
+\noindent
+Se la fase di creep stazionario non avviene e $\dot{\varepsilon}_t$ è una funzione decrescente con il tempo $t$, allora il materiale può essere
+considerato essenzialmente elastico. 
 
 \subsection{\textcolor{colore7}{Trasformate di Laplace}}
 
@@ -1916,29 +1985,47 @@ La \textbf{trasformata di Laplace} di una funzione $f(t)$ è data da:
     \mathcal{L_-} \{f(t)\} \equiv \tilde{f}(s) = \int_{0^-}^\infty f(t) e^{-st} dt
 \end{equation}
 
+\noindent
 dove $s = x + iy$ è la \textit{variabile complessa di Laplace}.
-Questa integrazione contiene l'eventuale singolarità in $t=0$.
-Le trasformate di Laplace sono lineari, omogenee e additive.
+Con questa definizione il dominio di integrazione contiene l'eventuale singolarità in $t=0$.
+Le trasformate di Laplace sono lineari:
+
+\begin{equation}
+    \mathcal{L_-} \{c f(t)\} = c\mathcal{L_-} \{f(t)\}
+\end{equation}
+
+\noindent
+Le trasformate di Laplace sono omogenee e additive:
+
+\begin{equation}
+    \mathcal{L_-} \{f(t) + g(t)\} = \mathcal{L_-} \{f(t)\} + \mathcal{L_-} \{g(t)\}
+\end{equation}
+
+\noindent
 La trasformata della derivata prima assume così la forma:
 
 \begin{equation}
     \mathcal{L_-} \{f'(t)\} = s \tilde{f}(s) - f(0^-)
 \end{equation}
 
-dove $f(0^-)$ è il \textit{valore pre-iniziale} di $f(t)$.
+\noindent
+dove $f(0^-)$ è il \textit{valore pre-iniziale} di $f(t)$.\\
 
+\noindent
 Vale inoltre il \textit{teorema del valore iniziale}:
 
 \begin{equation}
     \lim_{s \rightarrow{\infty}} s \tilde{f}(s) = f(0^+)
 \end{equation}
 
+\noindent
 Date due funzioni $f(t)$ e $g(t)$, si può operare una \textbf{convoluzione temporale}:
 
 \begin{equation}
     f(t) * g(t) = \int_{-\infty}^{+ \infty} f(t-t')g(t')dt' \mapsto \tilde{f}(s) \tilde{g}(s) 
 \end{equation}
 
+\noindent
 Le trasformate mandano sistemi di equazioni differenziali in sistemi di equazioni lineari, in particolare, quelle di Laplace sono degli operatori integrali.
 
 \subsection{\textcolor{colore7}{Comportamento viscoelastico (corpo di Maxwell)}}

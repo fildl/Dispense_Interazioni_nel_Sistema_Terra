@@ -450,7 +450,7 @@ Sia $\hat{\alpha}$ l'angolo tra $S$ e $P$.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.5\linewidth]{fig/geometria_sferica.png}
+    \includegraphics[width=0.45\linewidth]{fig/geometria_sferica.png}
     \caption{Geometria utile all'enunciazione dei teoremi di addizione.}
     \label{fig:geometria_sferica}
 \end{figure}
@@ -475,15 +475,23 @@ La forma generica è:
 \end{equation}
 
 \noindent
-con $c_{lm}$ e $s_{lm}$ coefficienti reali adimensionali e $P_{lm}$ polinomi di Legendre non normalizzati.
+con $c_{lm}$ e $s_{lm}$ coefficienti reali adimensionali e $P_{lm}$ polinomi di Legendre non normalizzati.\\
 
-\noindent Si hanno tre tipi di armoniche sferiche:
+\noindent
+Si hanno tre tipi di armoniche sferiche (Figura \ref{fig:spherical_harmonics}):
 
 \begin{itemize}
     \item Zonali $(m=0)$, che si annullano su $l$ paralleli;
     \item Tesserali $(0 < m < l)$, che si annullano su $l-m$ paralleli e $2m$ meridiani;
     \item Settoriali $(m=l)$, che si annullano su $2m$ meridiani.
 \end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{fig/spherical_harmonics.png}
+    \caption{Tre tipi di armoniche sferiche.}
+    \label{fig:spherical_harmonics}
+\end{figure}
 
 \noindent Le armoniche sferiche di grado 2 hanno un ruolo fondamentale nella descrizione delle maree.
 
@@ -1593,10 +1601,12 @@ La Terra risponde in maniera elastica.
 La \textbf{reologia} nacque per studiare il fluire delle lave, ma si applica anche a ghiacciai, livello del mare, deformazioni post-sismiche, isostasia glaciale e tettonica delle placche.
 Il termine deriva dal greco e indica lo studio di flussi e deformazioni dei materiali.\\
 
+\noindent
 Il concetto di corpo rigido fu introdotto da Archimede, ma trova la sua formalizzazione matematica con Newton nel 1687.
 Hooke definì le basi dell'elasticità (1678), mentre Bernoulli ed Eulero iniziarono a descrivere i fluidi invisicidi (1800s)
-Le proprietà elastiche dei corpi sono state descritte da Hooke, poi furono studiati fluidi e materiali viscoelastici, fino all'avvento della reologia nel 1929.
+Successivamente furono studiati fluidi e materiali viscoelastici, fino all'avvento della reologia nel 1929.\\
 
+\noindent
 Einstein trovò una formula per descrivere la viscosità di una sospensione diluita di particelle in un fluido di viscosità iniziale $\eta_m$:
 
 \begin{equation}
@@ -1689,7 +1699,7 @@ Lo stress $\sigma (t)$ è quindi descritto tramite la \textit{funzione di Heavis
 \end{equation}
 
 \noindent
-In risposta al carico. lo strain aumenta nel tempo, mentre il materiale striscia.
+In risposta al carico lo strain aumenta nel tempo, mentre il materiale striscia.
 
 \noindent In un esperimento di creep si osservano tre fasi:
 
@@ -1768,8 +1778,8 @@ Si applica uno stress che oscilla nel tempo secondo una funzione armonica e si m
 \noindent
 Grazie a un creep test ideale è possibile caratterizzare i materiali secondo la loro natura reologica.\\
 
+\noindent
 Su tempi scala lunghi posso definire un materiale solido se, dopo una deformazione iniziale, mantiene la stessa forma; uno che fluisce indefinitamente invece è considerato un fluido.\\
-
 Al contrario, a tempi scala più corti definisco altri comportamenti, come quello elastico e viscoelastico:
 se lo strain aumenta linearmente con lo stress, il materiale è \textit{linearmente elastico}, 
 mentre se è lo strain rate ad aumentare linearmente, il materiale è \textit{viscoso}, secondo la descrizione di Newton. 

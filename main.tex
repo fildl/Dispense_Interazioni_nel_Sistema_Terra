@@ -537,21 +537,33 @@ Si ricava così la formula inversa:
 \end{equation}
 
 Il problema inverso costituito dal calcolo dei coefficienti $f_{lm}$ richiede di conoscere la funzione $f(\gamma)$ su tutta la superficie della sfera, il che risulta spesso impossibile in campo geofisico. 
-Questo limita il calcolo di $f_{lm}$ e il valore di $l_{max}$ a un valore finito, che dipende dalla densità dei punti di griglia.
-Lo sviluppo complesso e quello reale sono equivalenti.
+Questo limita il calcolo di $f_{lm}$ e il valore di $l_{max}$ a un valore finito, che dipende dalla densità dei punti di griglia.\\
+
+\noindent
+Lo sviluppo complesso è equivalente a quello reale:
+
+\begin{equation}
+    f(\gamma) = \sum_{l=0}^\infty \sum_{m=-l}^l f_{lm} \mathcal{Y}_{lm}(\gamma)
+\end{equation}
+
+\noindent
+In geodesia, gli sviluppi reali normalizzati sono convenzionalmente usati per la descrizione del potenziale del campo di gravità.
 
 \subsection{\textcolor{colore7}{Statistica sulla sfera}}
 
-Le oscillazioni spaziali delle armoniche sferiche non sono equispaziate, ma hanno una lunghezza caratteristica che si può stimare grazie alla \textit{Regola di Jeans} (vedi \ref{eq:Jeans}), dove $2\pi a \approx 40'000 km$.
+Le oscillazioni spaziali delle armoniche sferiche non sono equispaziate, ma hanno una lunghezza caratteristica che si può stimare grazie alla \textit{Regola di Jeans} (vedi \ref{eq:Jeans}), dove $2\pi a \approx 40'000 km$.\\
 
 \noindent
-La media di una funzione $f(\gamma)$ sulla sfera unitaria è:
+Possiamo caratterizzare l'andamento di una data funzione $f(\gamma)$ sulla sfera usando definizioni statistiche elementari.
+La media di $f(\gamma)$ sulla sfera unitaria è:
 
 \begin{equation}
-    \langle f (\gamma) \rangle \equiv \frac{1}{4 \pi} \int _\gamma f(\gamma) d\gamma \text{ , dove } d \gamma = sin \theta d \theta d \lambda 
+    \langle f (\gamma) \rangle \equiv \frac{1}{4 \pi} \int _\gamma f(\gamma) d\gamma
 \end{equation}
 
-\noindent La formula deriva dalle proprietà dei polinomi di Legendre, per cui è possibile valutare immediatamente la media:
+\noindent 
+con $d \gamma = sin \theta d \theta d \lambda $ l’elemento di area sulla superficie della sfera unitaria.\\
+La formula deriva dalle proprietà dei polinomi di Legendre, per cui è possibile valutare immediatamente la media:
 
 \begin{equation}
     \langle \mathcal{Y}_{lm} (\gamma) \rangle = \frac{1}{4 \pi} \int_\gamma \mathcal{Y}_{lm} (\gamma) d \gamma = \frac{1}{4 \pi} \int _\gamma \mathcal{Y}_{lm} (\gamma) \mathcal{Y}^*_{00} (\gamma) d \gamma = \delta _{l0} \delta _{m0}
@@ -564,10 +576,11 @@ La media di una funzione $f(\gamma)$ sulla sfera unitaria è:
 \end{align}
 
 
-Solo $\mathcal{Y}_{00}$ ha media unitaria, le altre hanno media nulla.
-Se $f(\gamma)$ ha media nulla sulla superficie unitaria $\gamma$, allora nel suo sviluppo manca il termine $(l,m) = (0,0)$.
+Quindi solo l'armonica di grado e ordine $(l,m) = (0,0)$, ovvero $\mathcal{Y}_{00} = 1$ ha media unitaria, tutte le altre hanno media nulla.
+Se $f(\gamma)$ ha media nulla sulla superficie unitaria $\gamma$, allora nel suo sviluppo manca il termine $(l,m) = (0,0)$.\\
 
-\noindent La varianza di una funzione $f(\gamma)$ sulla sfera unitaria è:
+\noindent
+La varianza di una funzione $f(\gamma)$ sulla sfera unitaria è:
 
 \begin{equation}
     var(f) \equiv \sigma^2 (f) = \langle f^2 \rangle - \langle f \rangle^2
@@ -580,12 +593,14 @@ Se $f(\gamma)$ ha media nulla sulla superficie unitaria $\gamma$, allora nel suo
 \end{equation}
 
 \noindent
+La potenza totale coincide, per funzioni a media nulla, con la varianza $\sigma^2$.
 Sviluppando il calcolo si ottiene:
 
 \begin{align}
     TP &= \frac{1}{4 \pi} \int_\gamma f(\gamma)f^*(\gamma)d\gamma = \frac{1}{4 \pi} \int_\gamma \left( \sum_{lm} f_{lm} \mathcal{Y}_{lm} (\gamma) \right) \left( \sum_{l'm'} f^*_{l'm'} \mathcal{Y}^*_{l'm'} (\gamma) \right)d\gamma \\ &= \frac{1}{4 \pi} \sum_{lm}  \sum_{l'm'}f_{lm} f^*_{l'm'} \int_\gamma \mathcal{Y}_{lm} (\gamma) \mathcal{Y}^*_{l'm'} (\gamma) d\gamma = \frac{1}{4 \pi} \sum_{lm}  \sum_{l'm'}f_{lm} f^*_{l'm'} \delta_{ll'} \delta_{mm'} = \sum_{lm} f_{lm} f^*_{lm} \\ &= \sum_{l=0}^\infty S_{ff}(l)
 \end{align}
 
+\noindent
 dove si usa la definizione di \textit{spettro armonico}:
 
 \begin{equation}
@@ -604,6 +619,7 @@ dove si usa la definizione di \textit{spettro armonico}:
     CP = \frac{1}{4 \pi} \int_\gamma f(\gamma) g^*(\gamma) d\gamma = \sum_{l=0}^\infty S_{fg}(l)
 \end{equation}
 
+\noindent
 dove si indica lo \textit{spettro di potenza incrociato} delle due funzioni:
 
 \begin{equation}
@@ -616,10 +632,13 @@ dove si indica lo \textit{spettro di potenza incrociato} delle due funzioni:
     C_{fg} (l) = \frac{S_{fg} (l)}{\sqrt{S_{ff}(l)} \sqrt{S_{gg}(l)}} \text{ , con } -1 \le C(l) \le 1
 \end{equation}
 
-Se $f = g$ si ha $C_{fg}(l) = 1$, mentre se $f = -g$ si ha $C_{fg}(l) = -1$.
+\noindent
+Se $f = g$ si ha $C_{fg}(l) = 1$, mentre se $f = -g$ si ha $C_{fg}(l) = -1$.\\
 
-Si osserva che le ondulazioni del geoide fanno sì che la correlazione fra i campi di geoide e topografia sia molto alta per valori di $l \ge 15$: il geoide a piccola scala riflette la topografia, per via di fenomeni come l'isostasia, mentre a grande scala la correlazione è inferiore perché il geoide risponde alle anomalie di densità associate alla dinamica interna della Terra.
+\noindent
+Le ondulazioni del geoide fanno sì che la correlazione fra i campi di geoide e topografia (Figura \ref{fig:correlation}) sia molto alta per valori di $l \ge 15$: il geoide a piccola scala riflette la topografia, per via di fenomeni come l'isostasia, mentre a grande scala la correlazione è inferiore perché il geoide risponde alle anomalie di densità associate alla dinamica interna della Terra.\\
 
+\noindent
 Si usa inoltre l'\textit{indice di correlazione lineare di Pearson} $\rho$ per esprimere un'eventuale relazione di linearità fra due variabili statistiche.
 
 \subsection{\textcolor{colore7}{Spettro armonico}}
@@ -643,6 +662,7 @@ Data una funzione:
     S^2_l(f) = Al^\beta
 \end{equation}
 
+\noindent
 Per cui si distinguono tre casi:
 
 \begin{itemize}
@@ -651,6 +671,7 @@ Per cui si distinguono tre casi:
     \item $\beta > 0$: l'energia cresce con il grado armonico e lo spettro è detto \textit{blu}.
 \end{itemize}
 
+\noindent
 In particolare, lo spettro del geoide segue la \textit{regola di Kaula}: $S \propto l^{-2.16}$, ma il significato di questa osservazione non è ancora stato compreso.\\
 
 \noindent \textbf{\textcolor{colore4}{Spettro armonico della $\delta$ di Dirac}}
@@ -690,6 +711,7 @@ Un'importante applicazione delle funzioni armoniche è quella dell'analisi spett
 
 \noindent \textbf{A: metodo classico}
 
+\noindent
 Si suddivide la superficie terrestre in $N$ quadrilateri, così da spezzare il calcolo di $o_{lm}$ nella somma di $N$ contributi.
 Si verifica che lo spettro della funzione Oceano è rosso e che gli oceani hanno un peso maggiore rispetto ai dettagli più piccoli.
 
@@ -700,9 +722,11 @@ Si nota che ponendo $l_{max} = 72$ si ottengono delle linee di costa squadrate c
 
 \noindent \textbf{B: metodo geodetico}
 
+\noindent
 Si suddivide la superficie terrestre in una griglia geodesica in cui ogni cella ha area equivalente, con la geometria basata su quella dell'icosaedro.
-L'idea, già utilizzata in ambito astrofisico per la CMB, fu applicata inizialmente da Max Tegmark.
+L'idea, già utilizzata in ambito astrofisico per la CMB, fu applicata inizialmente da Max Tegmark.\\
 
+\noindent
 Il numero di pixel $N_p$ dipende dalla risoluzione $R$ secondo la legge:
 
 \begin{equation}
@@ -710,7 +734,6 @@ Il numero di pixel $N_p$ dipende dalla risoluzione $R$ secondo la legge:
 \end{equation}
 
 \noindent Il vantaggio di questo metodo sta nel fatto che l'area delle celle è equivalente, il che rende il calcolo molto più agevole.
-
 Un metodo simile si basa sulla griglia di Fibonacci regolarizzata ai poli.
 
 \newpage

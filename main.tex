@@ -2460,14 +2460,39 @@ dove $t \ge 0$, $\sigma_d > 0$ e $\omega = 2\pi/P$. Si osserva che:
 
 \subsection{\textcolor{colore7}{Modelli di Maxwell generalizzati}}
 
-Ghiaccio e olivina sono due esempi di materiali reologici non lineari.
-Esistono altri modelli ottenuti a partire da quelli fondamentali già affrontati, come per esempio il \textbf{modello generalizzato di Maxwell}, che è costituito da un numero qualunque di modelli di Maxwell collegati fra loro in parallelo e rappresenta la forma più generale possibile di un modello di viscoelasticità.
-Prevede una risposta iniziale elastica, un periodo di transizione ed una fase stazionaria.
+Per un generico materiale viscoelastico lineare, lo strain rate è una funzione lineare delle derivate dello stress, quindi:
 
+\begin{equation}
+    \dot{\varepsilon} = \mathcal{F}(\sigma, \dot{\sigma}, \ddot{\sigma}, \dots; p_1, p_2, \dots)
+\end{equation}
+
+\noindent
+con $p_i$ parametri del materiale. Ghiaccio e olivina sono due esempi di materiali reologici non lineari.\\
+
+\noindent
+Esistono altri modelli ottenuti a partire da quelli fondamentali già affrontati.\\
+
+\noindent
+Il \textbf{modello generalizzato di Maxwell} è costituito da un numero qualunque di elementi di Maxwell collegati fra loro in parallelo e rappresenta la forma più generale possibile di un modello di viscoelasticità.
+
+\begin{equation}
+    \text{GM} = \text{M}_1 | \dots | \text{M}_n
+\end{equation}
+
+\noindent
+con $n$ un intero o $n=\infty$.
+Questo modello tiene conto del fatto che il tempo di rilassamento non avviene ad un singolo tempo.
+Prevede una risposta iniziale elastica, un periodo di transizione ed una fase stazionaria.\\
+
+\noindent
 Il \textbf{modello di Burgers} ($M - KV$) mostra un comportamento iniziale elastico, seguito da un creep transiente e da uno smorzamento delle vibrazioni su scale temporali ridotte, mentre su quelle più lunghe tende a mostrare un comportamento viscoelastico lineare.
-Si utilizza spesso per modellare la reologia del mantello.
+Si utilizza spesso per modellare la reologia del mantello.\\
 
-\noindent \textbf{Creep test per il modello di Burgers}: le creep compliance si sommano, così che in totale si ha la somma di tre termini: la risposta elastica della molla $M$, la risposta transiente del corpo $KV$ e lo stato stazionario dello stantuffo $M$.
+\noindent
+\textbf{Creep test per il modello di Burgers}\\
+
+\noindent
+Le creep compliance si sommano, così che in totale si ha la somma di tre termini: la risposta elastica della molla $M$, la risposta transiente del corpo $KV$ e lo stato stazionario dello stantuffo $M$.
 
 \begin{equation}
     J_B (t) = \frac{1}{E_2} H(t) + \frac{1}{E_1} \left( 1 - e^{-t/\tau_K} \right) + \frac{t}{\eta_2}
@@ -2480,20 +2505,32 @@ Si utilizza spesso per modellare la reologia del mantello.
     \label{fig:burgers_creep}
 \end{figure}
 
-\noindent \textbf{Relaxation test per il modello di Burgers}: il modulo di rilassamento determina uno spettro discreto di rilassamento, per cui si dice che il modello è \textit{biviscoso}:
+\noindent
+\textbf{Relaxation test per il modello di Burgers}\\
+
+\noindent
+Il modulo di rilassamento determina uno spettro discreto di rilassamento, per cui si dice che il modello è \textit{biviscoso}.
+Il modulo di rilassamento è dato da:
 
 \begin{equation}
     G_B (t) = G_1 e^{- t/ \tau_1} + G_2 e^{- t/ \tau_2}
 \end{equation}
 
+\noindent
+con $G_1$, $G_2$, $\tau_1$ e $\tau_2$ costanti positive determinate dai parametri del materiale $E_1$, $E_2$, $\eta_1$ e $\eta_2$.\\
+
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.7\linewidth]{fig/burgers_relaxation.png}
+    \includegraphics[width=0.6\linewidth]{fig/burgers_relaxation.png}
     \caption{Relaxation test per il modello di Burgers.}
     \label{fig:burgers_relaxation}
 \end{figure}
 
-\noindent \textbf{Loading/unloading test per il modello di Burgers}: si ottiene la curva tipica del creep viscoelastico.
+\noindent
+\textbf{Loading/unloading test per il modello di Burgers}\\
+
+\noindent
+Si ottiene la curva tipica del creep viscoelastico.
 
 \begin{figure}
     \centering
@@ -2502,18 +2539,20 @@ Si utilizza spesso per modellare la reologia del mantello.
     \label{fig:burgers_loading}
 \end{figure}
 
-\noindent Si osservano tutte le fasi della deformazione di un corpo viscoelastico sottoposto a stress costante: la risposta elastica iniziale, quella transiente, lo stato stazionario, poi il recupero elastico, quello transiente e infine la deformazione non recuperabile.
+\noindent
+Si osservano tutte le fasi della deformazione di un corpo viscoelastico sottoposto a stress costante: la risposta elastica iniziale, quella transiente, lo stato stazionario, poi il recupero elastico, quello transiente e infine la deformazione non recuperabile.\\
 
+\noindent
 La reologia di Burgers ha tutte le proprietà mostrate dai quattro modelli reologici più semplici.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.7\linewidth]{fig/tabella_reologia.png}
+    \includegraphics[width=0.6\linewidth]{fig/tabella_reologia.png}
     \caption{Tabella riassuntiva con le proprietà dei modelli analizzati.}
     \label{fig:tabella_reologia}
 \end{figure}
 
-\noindent Nel caso della \textit{sequenza sismica}, si osservano tre fasi distinte: intersismica ($10 \div 1000$ anni), cosismica (secondi $\div$ minuti) e post-sismica (giorni $\div$ decenni).
+\noindent Nel caso della \textbf{sequenza sismica}, si osservano tre fasi distinte: intersismica ($10 \div 1000$ anni), cosismica (secondi $\div$ minuti) e post-sismica (giorni $\div$ decenni).
 La reologia di Burgers riesce a modellare bene le deformazioni post-sismiche.
 
 \subsection{\textcolor{colore7}{Modello di Maxwell frazionario}}

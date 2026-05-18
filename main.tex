@@ -2376,7 +2376,7 @@ Si riassumono il modulo effettivo, la creep compliance, il modulo di rilassament
 \end{tabular}
 \end{table}
 
-\subsection{\textcolor{colore7}{Loading/unloading test per i modelli di H, N, M e K)}}
+\subsection{\textcolor{colore7}{Loading/unloading test per i modelli di H, N, M e K}}
 
 Si consideri un esperimento di carico e scarico, per cui si applica uno stress dato da
 
@@ -2385,7 +2385,14 @@ Si consideri un esperimento di carico e scarico, per cui si applica uno stress d
 \end{equation}
 
 \noindent
-dove $T>0$.\\
+dove $T>0$. Quindi:
+
+\begin{itemize}
+    \item un corpo di Hooke non mostra alcuna viscosità e c'è un recupero totale dello strain iniziale;
+    \item un corpo di Newton non mostra elaticità, non c'è recupero dello strain iniziale e c'è uno strain permanente e flusso stazionario fino a $t=T$;
+    \item per un corpo di Maxwell c'è recupero dello strain elastico, strain permanente e flusso stazionario fino a $t=T$;
+    \item per un corpo di Kelvin-Voigt si osserva l'elasticità ritardata.
+\end{itemize}
 
 \begin{table}[htb]
 \renewcommand{\arraystretch}{1.3}
@@ -2410,26 +2417,29 @@ dove $T>0$.\\
 \end{tabular}
 \end{table}
 
+\subsection{\textcolor{colore7}{Dynamic test per i modelli di H, N, M e K}}
+
+Si consideri un esperimento dinamico, per cui si applica uno strain oscillante dato da
+
+\begin{equation}
+    \sigma(t) = \sigma_d cos \omega t
+\end{equation}
+
 \noindent
-Un corpo di Hooke non mostra alcuna viscosità e quello di Newton non mostra elasticità.
-Inoltre:
+dove $t \ge 0$, $\sigma_d > 0$ e $\omega = 2\pi/P$. Si osserva che:
 
 \begin{itemize}
-    \item nel caso del corpo di Hooke si osserva un recupero totale dello strain iniziale;
-    \item nel caso del corpo di Newton nessun recupero, strain permanente e flusso stazionario fino a $t=T$;
-    \item nel caso del corpo di Maxwell recupero dello strain elastico, strain permanente, flusso stazionario fino a $t=T$;
-    \item nel caso del corpo di Kelvin-Voigt si osserva l'elasticità ritardata.
+    \item nel corpo di Hooke strain e stress sono in fase;
+    \item nel corpo di Newton lo strain è sfasato di $90^\circ$;
+    \item nel corpo di Maxwell lo strain è sfasato di una fase $\varphi$, dove $tan \varphi = -E/\eta \omega$;
+    \item nel corpo di Kelvin-Voigt lo strain è sfasato di una fase $\varphi$, dove $tan \varphi = -c/s$.
 \end{itemize}
 
-\subsection{\textcolor{colore7}{Dynamic test per i modelli di H, N, M e K)}}
-
-si consideri un esperimento dinamico, per cui si applica uno strain oscillante dato da $\sigma(t) = \sigma_d cos \omega t$, dove $t \ge 0$, $\sigma_d > 0$ e $\omega = 2\pi/P$.
-
-\begin{table}
+\begin{table}[h!]
 \renewcommand{\arraystretch}{1.3}
 \setlength{\tabcolsep}{8pt}
 \centering
-\begin{tabular}{||c|c|c||}
+\begin{tabular}{|c|c|c|}
     \hline
     \textbf{Modello} & \textbf{Legge costitutiva} & \textbf{Stress} \\
     \hline
@@ -2447,15 +2457,6 @@ si consideri un esperimento dinamico, per cui si applica uno strain oscillante d
     \hline
 \end{tabular}
 \end{table}
-
-\noindent Si osserva che:
-
-\begin{itemize}
-    \item nel corpo di Hooke strain e stress sono in fase;
-    \item nel corpo di Newton lo strain è sfasato di 90 °;
-    \item nel corpo di Maxwell lo strain è sfasato di una fase $\varphi$, dove $tan \varphi = -E/\eta \omega$;
-    \item nel corpo di Kelvin-Voigt lo strain è sfasato di una fase $\varphi$, dove $tan \varphi = -c/s$.
-\end{itemize}
 
 \subsection{\textcolor{colore7}{Modelli di Maxwell generalizzati}}
 

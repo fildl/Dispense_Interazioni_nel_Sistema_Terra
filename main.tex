@@ -2558,20 +2558,46 @@ La reologia di Burgers riesce a modellare bene le deformazioni post-sismiche.
 
 \subsection{\textcolor{colore7}{Modello di Maxwell frazionario}}
 
-Questo modello riesce a descrivere ancora meglio fenomeni quali le deformazioni post-sismiche, utilizzando nel corpo di Maxwell uno \textit{stantuffo frazionario di Scott Blair}.
+Questo modello riesce a descrivere ancora meglio fenomeni quali le deformazioni post-sismiche,
+sostituendo lo stantuffo Newtoniano nel corpo di Maxwell con uno \textit{stantuffo frazionario di Scott Blair}.
 
-\noindent \textbf{Creep test per un modello di Maxwell frazionario}: $\sigma(t) = \sigma_0 H(t) \Longrightarrow J(t) = A + B t^\nu$, dove $0<\nu\le1$.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\linewidth]{fig/fractional_maxwell.png}
+    \caption{Confronto tra modello di Maxwell tradizionale e frazionario.}
+\end{figure}
 
-Per il modulo di rilassamento è necessario ricorrere alla \textit{funzioni di Mittag-Leffler}, che generalizza il concetto di funzione $\Gamma$ considerando una derivata di ordine frazionario:
+\noindent
+\textbf{Creep test per un modello di Maxwell frazionario}\\
+
+\noindent
+$\sigma(t) = \sigma_0 H(t)$, quindi la funzione di Creep è:
+
+\begin{equation}
+    J(t) = A + B t^\nu
+\end{equation}
+
+\noindent
+dove $0<\nu\le1$.\\
+
+\noindent
+\textbf{Relaxation test per un modello di Maxwell frazionario}\\
+
+\noindent
+$\varepsilon (t) = \varepsilon_0 H(t)$, in questo caso, per il modulo di rilassamento è necessario ricorrere alla \textit{funzioni di Mittag-Leffler}, che generalizza il concetto di funzione $\Gamma$ considerando una derivata di ordine frazionario:
 
 \begin{equation}
     E_\nu (z) = \sum_{n=0}^\infty \frac{z^n}{\Gamma(\nu n + 1)}
 \end{equation}
 
-dove se $\nu = 1$ si recupera il modello di Maxwell classico.
+\noindent
+dove con $\nu = 1$ si recupera il modello di Maxwell classico. In questo modo il modulo di rilassamento è:
 
-\noindent \textbf{Relaxation test per un modello di Maxwell frazionario}: $\varepsilon (t) = \varepsilon_0 H(t) \Longrightarrow G(t) = CE_\nu [-(t/\tau)^\nu]$
+\begin{equation}
+    G(t) = C E_\nu [-(t/\tau)^\nu]
+\end{equation}
 
+\noindent
 Si hanno due incognite fondamentali per poter considerare il rimbalzo post-glaciale un creep test naturale della Terra: la storia del carico esercitato dai ghiacciai sulla superficie nel tempo e la reologia della Terra.
 
 \newpage
@@ -2582,29 +2608,51 @@ Si hanno due incognite fondamentali per poter considerare il rimbalzo post-glaci
 
 Si studia il tasso di cambiamento del livello del mare per ragioni scientifiche e socioeconomiche, da alcuni decenni grazie anche all'altimetria satellitare, oltre ai mareografi.
 Tra il 1993 e il 2003 si è osservato un innalzamento di $+2.8 \pm 0.4$ mm/anno, da confrontare con valori compresi fra 1 e 2 mm/anno dei decenni precedenti.
-Il contributo principale è dato dall'espansione termica.
-La distribuzione geografica di questo cambiamento non è uniforme a causa di tale effetto.
+Il contributo principale è dato dall'espansione termica,
+tuttavia, le stime sono ancora incerte per escludere i contributi di altre fonti, come lo scioglimento dei ghiacciai e del ghiaccio polare.
+La distribuzione geografica di questo cambiamento non è uniforme a causa di tale effetto.\\
+
 L'andamento fino al 1900 è dato da stime geologiche, poi sono arrivate le osservazioni mareografiche e l'altimetria satellitare negli anni Novanta.
-L'andamento futuro è stimato empiricamente sulla base della temperatura o grazie a dei modelli di previsione.
+L'andamento futuro è stimato empiricamente sulla base della temperatura o grazie a dei modelli di previsione.\\
 
-\textbf{Mareografo}
+\noindent
+\textbf{Mareografo}\\
 
+\noindent
 Una barra graduata viene inserita in mare, spesso in un porto, così da misurare il \textit{livello marino relativo}, cioè rispetto alla Terra solida.
 Si hanno perciò diverse contaminazioni dovute a vari fenomeni geologici.
-Grazie ai circa 1500 mareografi presenti nel mondo, è stato possibile ricavare un trend a partire dal 1870 di $+1.8 \pm 0.2$ mm/anno.
+Grazie ai circa 1500 mareografi presenti nel mondo, è stato possibile ricavare un trend a partire dal 1870 di $+1.8 \pm 0.2$ mm/anno.\\
 
-\textbf{Altimetro satellitare}
+\noindent
+\textbf{Altimetro satellitare}\\
 
-A partire dal 1993 si può studiare l'altezza del geoide con grande precisione, ricavando un trend del \textit{livello marino assoluto} di $+3.2 \pm 0.4$ mm/anno.
+\noindent
+A partire dal 1993 si può studiare l'altezza del geoide con grande precisione, ricavando un trend del \textit{livello marino assoluto} di $+3.2 \pm 0.4$ mm/anno.\\
 
-\textbf{Variazione del livello marino}
+\noindent
+\textbf{Variazione del livello marino}\\
 
+\noindent
 Si indica con $S$ il livello marino relativo, rispetto alla Terra solida, con $N$ quello assoluto, rispetto al centro di massa della Terra e con $U$ lo spostamento verticale.
-Si ottiene una semplice equazione: $S = N - U$.
-L'espansione termica è il termine attualmente dominante per l'innalzamento, poi c'è lo scioglimento di ghiacciai, Groenlandia e Antartide e l'aggiustamento glaceoisostatico.
+Si ottiene una semplice equazione per il livello marino:
+\begin{equation}
+    S = N - U    
+\end{equation}
 
-Dall'ultimo massimo glaciale ($\approx$ 21'000 anni fa) fino a circa 6'000 anni fa, il livello del mare è aumentato di circa 130 m a causa della fusione delle masse glaciali.
+\noindent
+L'espansione termica è il termine attualmente dominante per l'innalzamento, poi c'è lo scioglimento di ghiacciai, Groenlandia e Antartide e l'aggiustamento glaceoisostatico.\\
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.45\linewidth]{fig/sea_level_21.png}
+    \caption{Livello marino degli ultimi 21 mila anni.}
+    \label{fig:sea_level}
+\end{figure}
+
+\noindent
+Dall'ultimo massimo glaciale ($\approx$ 21'000 anni fa) fino a circa 6'000 anni fa, il livello del mare è aumentato di circa 130 m a causa della fusione delle masse glaciali (Figura \ref{fig:sea_level}).\\
+
+\noindent
 I cinque segnali vitali del pianeta, secondo la NASA, sono la concentrazione di $CO_2$, la temperatura globale, il minimo del ghiaccio marino artico, il ghiaccio terrestre e il livello del mare.
 
 \subsection{\textcolor{colore2}{Registri individuali del livello marino}}
@@ -2616,7 +2664,7 @@ Grazie a queste si può misurare un aumento del livello marino relativo di $58 \
 
 \subsubsection{\textcolor{colore2}{Terremoto di Messina del 28/12/1908}}
 
-Un terremoto di magnitudo 7 causò un maremoto e circa 70'000 morti.
+Un terremoto di magnitudo 7 causò un maremoto e circa 75'000 morti.
 L'anomalia mareografica è stata misurata anche nel Tirreno a grande distanza.
 Il mareografo di Messina così ha ricoperto il ruolo di sismografo a bassa frequenza, misurando uno spostamento elastico istantaneo di circa 50 cm e una risposta viscoelastica successiva, che potrebbe indicare un coinvolgimento di parte del mantello superiore.
 
@@ -2624,29 +2672,48 @@ Il mareografo di Messina così ha ricoperto il ruolo di sismografo a bassa frequ
 
 Si osserva un'oscillazione significativa con un periodo di circa 60 anni in quasi tutti i mareografi durante il XX sec., dovuta alle pulsazioni oceanografiche.
 Questo rende impossibile trarre conclusioni su un trend di lungo periodo, permettendo solo stime sulla tendenza nel breve periodo.
-Per questo motivo si richiede un registro di almeno 60 o 70 anni nei dati di un mareografo, il che ne esclude circa il 90\%.
+Per questo motivo si richiede un registro di almeno 60 o 70 anni nei dati di un mareografo, il che ne esclude circa il 90\% (Figura \ref{fig:gauge_distribution}).
 Un'altra limitazione è data dalla distribuzione non omogenea dei mareografi e dall'incompletezza dei loro dataset.
 
-Il \textit{Permanent Service for Mean Sea Level} (PSMSL) si occupa di standardizzare le misure.
-L'approccio più usato è quello dell' \textit{ordinary least squares}, grazie al quale si ottiene, per esempio, un aumento di $1.5 \pm 0.2$ mm/anno a Trieste.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.45\linewidth]{fig/gauge_distribution.png}
+    \caption{Distribuzione dei mareografi in funzione del periodo di attività.}
+    \label{fig:gauge_distribution}
+\end{figure}
 
+\noindent
+Il \textit{Permanent Service for Mean Sea Level} (PSMSL) si occupa di standardizzare le misure.
+L'approccio più usato è quello dell'\textit{ordinary least squares}, grazie al quale si ottiene, per esempio, un aumento di $1.5 \pm 0.2$ mm/anno a Trieste.\\
+
+\noindent
 Il \textit{best fit rate} per un numero $N_{tg}$ di mareografi dal database del PSMSL è così dato da:
 
 \begin{equation}
-    r_k = \frac{N_k^v \sum_j x_j y_j - (\sum_j x_j)(\sum_jy_j)}{N_k^v (\sum_j x_j^2 - \sum_j y_j^2)} \text{ , dove } k = 1,...,N_{tg} \Longrightarrow \rho_k = r_k \pm \sigma_k
+    r_k = \frac{N_k^v \sum_j x_j y_j - \left(\sum_j x_j\right) \left(\sum_jy_j\right)}{N_k^v \left(\sum_j x_j^2 - \sum_j y_j^2 \right)}
 \end{equation}
 
-dove:
+\noindent
+dove $k = 1,...,N_{tg}$ e:
 
 \begin{itemize}
-    \item $v_j$ è il livello del mare al tempo $x_j$ , con $j = 1,...,N_k^v$;
+    \item $y_j$ è il livello del mare al tempo $x_j$ , con $j = 1,...,N_k^v$;
     \item $N_k^v$ è il numero di dati annuali validi nella serie temporale;
-    \item $\sigma_k$ è l'incertezza del trend;
-    \item $\rho_k$ è il tasso di variazione del mareografo.
+    \item $\sigma_k$ è l'incertezza del trend (95\% di confidenza).
 \end{itemize}
 
+\noindent
+Quinidi la variazione misurata dal mareografo è $\rho_k = r_k \pm \sigma_k$.\\
+
+\noindent
 A causa delle oscillazioni decennali, le serie temporali di durata maggiore di 60 anni tendono a mostrare variazioni molto più contenute e incertezze minori.
 Alcuni mareografi misurano una diminuzione del livello marino a causa del rimbalzo glaceoisostatico.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{fig/guage_rates.png}
+    \caption{Tassi di variazione misurati dai mareografi e loro incertezze.}
+\end{figure}
 
 \subsection{\textcolor{colore2}{Problema della contaminazione glaceoisostatica}}
 

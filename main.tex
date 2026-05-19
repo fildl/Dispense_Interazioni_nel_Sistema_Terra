@@ -2691,6 +2691,7 @@ Il \textit{best fit rate} per un numero $N_{tg}$ di mareografi dal database del 
 
 \begin{equation}
     r_k = \frac{N_k^v \sum_j x_j y_j - \left(\sum_j x_j\right) \left(\sum_jy_j\right)}{N_k^v \left(\sum_j x_j^2 - \sum_j y_j^2 \right)}
+    \label{eq:best_fit}
 \end{equation}
 
 \noindent
@@ -2717,48 +2718,97 @@ Alcuni mareografi misurano una diminuzione del livello marino a causa del rimbal
 
 \subsection{\textcolor{colore2}{Problema della contaminazione glaceoisostatica}}
 
-A causa dello scioglimento dei ghiacciai, dove c'erano delle lenzuola glaciali si misura un rimbalzo post-glaciale.
-Altri fattori che rendono la Terra solida instabile sono terremoti, estrazione di acqua dal suolo, depositi di materiali fluviali e la cementificazione.
-A causa del maggiore carico che grava sugli oceani, anche la crosta oceanica sta subsidendo.
+Un ulteriore fattore che impatta anche i record più lunghi è rappresentato dai segnali non oceanici.
+A causa dello scioglimento dei ghiacciai, si misura un rimbalzo post-glaciale in corrispondenza delle regioni in cui erano presenti delle lenzuola glaciali.
+Altri fattori che rendono la Terra solida instabile sono i terremoti, l'estrazione di acqua dal suolo,il depositi di materiali fluviali e la cementificazione.
+A causa del maggiore carico che grava sugli oceani, anche la crosta oceanica sta subsidendo.\\
 
-Questi effetti contaminano i dati relativi al livello marino, come descritto dall'equazione del livello marino, che si può risolvere con tecniche di tipo iterativo, partendo da soluzioni ragionevoli e ponendo approssimazioni più volte fino a convergere ad un valore.
+\noindent
+Questi effetti contaminano i dati relativi al livello marino, come descritto dall'equazione del livello marino $S(\omega, t) = N - U$,
+che si può risolvere con tecniche di tipo iterativo, partendo da soluzioni ragionevoli e ponendo approssimazioni più volte fino a convergere ad un valore.
 Generalmente si parte considerando per $S$ il valore eustatico.
 
-L'incertezza sulle misure non è sempre disponibile, ma è fondamentale per calcolare la variazione del livello del mare medio globale.
-Questa generalmente si ottiene a partire da una media:
+\noindent
+L'equazione del livello marino introdotta da Farrell e Clark nel 1976 ha forma:
+
+\begin{equation}
+    S = \frac{\rho_i}{\gamma} G_s \otimes_i I +
+        \frac{\rho_w}{\gamma} G_s \otimes_o S -
+        \frac{m_i}{\rho_w A_o} -
+        \frac{\rho_i}{\gamma} \overline{G_s \otimes_i I} +
+        \frac{\rho_w}{\gamma} \overline{G_s \otimes_o S}
+\end{equation}
+
+\noindent
+con:
 
 \begin{itemize}
-    \item \begin{equation}
-        \text{media aritmetica: } m=\frac{\sum_kr_k}{N_{tg}} \text{ , la migliore stima;}    
-    \end{equation}
-    \item \begin{equation}
-        \text{valore quadratico medio: } rms = \sqrt{\frac{\sum_k (r_k - m)^2}{N_{tg} - 1}} \text{ , l'incertezza media dei singoli trend;}
-    \end{equation}
-    \item \begin{equation}
-        \text{deviazione standard della media: } sdom=\frac{rms}{\sqrt{N_{tg}}} \text{ , l'incertezza della migliore stima } m
-    \end{equation}
+    \item $S$, variazione del livello del mare;
+    \item $\rho_i$ e $\rho_w$, densità del ghiaccio e dell'acqua;
+    \item $G_s$, funzione di Green per il livello del mare;
+    \item $I$, variazione dello spessore del ghiaccio;
+    \item $m_i$, variazione della massa del ghiaccio;
+    \item $A_o$, area degli oceani;
+    \item $\otimes_i$ e $\otimes_o$, convoluzioni 3D;
+    \item $\overline{(\dots)}$, media dell'oceano.
 \end{itemize}
-
-Così l'\textbf{innalzamento medio del livello del mare} è dato da $\mu = m \pm sdom$.
 
 \subsection{\textcolor{colore2}{Aumento del livello marino nell'ultimo secolo}}
 
+Si riprende il \textit{best fit rate} (Equazione \ref{eq:best_fit}).
+In letteratura, l'aumento globale del livello del mare si ottiene generalmente calcolando la media dei trend misurati dai mareografi:
+
+\begin{equation}
+    m=\frac{\sum_kr_k}{N_{tg}}
+\end{equation}
+
+\noindent
+Questa media aritmetica è la miglior stima dell'\textbf{aumento medio globale del livello del mare} (GMSLR).
+
+L'incertezza sulle misure non è sempre disponibile, ma è fondamentale per calcolare la variazione del livello del mare medio globale.
+La \textit{root mean square}:
+
+\begin{equation}
+    rms = \sqrt{\frac{\sum_k (r_k - m)^2}{N_{tg} - 1}}
+\end{equation}
+
+\noindent
+rappresenta l'incertezza media dei singoli trend.
+La \textit{standard deviation} della media:
+
+\begin{equation}
+    sdom=\frac{rms}{\sqrt{N_{tg}}}
+\end{equation}
+
+\noindent
+rappresenta l'incertezza della stima $m$.\\
+
+\noindent
+Quindi, la GMSLR è data da:
+
+\begin{equation}
+    \mu = m \pm sdom
+\end{equation}
+
+\noindent
 Nel 1941 Gutenberg fece una prima stima senza correzioni glaceoisostatiche ($1.1 \pm 0.8$ mm/anno).
 In seguito altre stime non fornirono l'incertezza, fino a Peltier e Tushingham ($2.4 \pm 0.9$ mm/anno).
 Pirazzoli nel 1986 ritenne impossibile calcolarlo per via dei troppi errori e del problema di mediare le incertezze.
-In generale le stime non corrette per la glaceoisostasia restituiscono valori inferiori siccome molte misure sono fatte in zone vicine ai poli.
+In generale le stime non corrette per la glaceoisostasia restituiscono valori inferiori siccome molte misure sono fatte in zone vicine ai poli.\\
 
+\noindent
 Nel 1997 Douglas propose dei \textbf{criteri di selezione} per i mareografi:
 
 \begin{enumerate}
     \item almeno 60 anni di dati;
     \item lontano dai confini delle placche tettoniche;
     \item completi almeno all'80\%;
-    \item in accordo con mareografi vicini;
+    \item in accordo ragionevole (a basse frequenze) con i mareografi vicini;
     \item lontano da aree coperte di ghiacci durante l'ultimo massimo glaciale.
 \end{enumerate}
 
-Così restano solamente 23 mareografi (tutti in accordo, ma non necessariamente accurati), grazie ai quali si ricava un aumento, corretto per la glaceoisostasia, di $1.8 \pm 0.1$ mm/anno.
+\noindent
+In questo modo restano solamente 23 mareografi (tutti in accordo, ma non necessariamente accurati), grazie ai quali si ricava un aumento, corretto per la glaceoisostasia, di $1.8 \pm 0.1$ mm/anno.
 Diverse combinazioni di reologia e glaceoisostasia fittano le stesse osservazioni, per cui non si ha una soluzione univoca.
 
 \newpage

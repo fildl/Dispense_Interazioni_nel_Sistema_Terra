@@ -2827,14 +2827,14 @@ Il \textbf{modello di Boussinesq} prevede una Terra piatta ed elastica, con modu
 La deformazione avviene sia in orizzontalmente in direzione radiale:
 
 \begin{equation}
-    u_z = \frac{P}{4\pi \mu R} \left[ 2(1-\nu) + \frac{z^2}{R^2} \right]
+    u_r = \frac{P}{4\pi \mu R} \left[ \frac{rz}{R} - \frac{(1-2\nu)r}{R+z} \right]
 \end{equation}
 
 \noindent
 che in verticalmente:
 
 \begin{equation}
-    u_r = \frac{P}{4\pi \mu R} \left[ \frac{rz}{R} - \frac{(1-2\nu)r}{R+z} \right]
+    u_z = \frac{P}{4\pi \mu R} \left[ 2(1-\nu) + \frac{z^2}{R^2} \right]
 \end{equation}
 
 \noindent
@@ -2872,7 +2872,8 @@ Coi modelli di Farrell e di Boussinesq si modella il rimbalzo post-glaciale.
 
 \subsubsection{\textcolor{colore7}{Topografia, livello marino e distribuzione di acqua e ghiaccio}}
 
-Si può caratterizzare una distribuzione superficiale di massa grazie alle \textbf{funzione oceano}, definita a partire dallo spessore del ghiaccio $I$ e dalla topografia $T$:
+Si può caratterizzare una distribuzione superficiale di massa grazie alle \textbf{funzione oceano},
+definita a partire dallo spessore del ghiaccio $I(\gamma, t)$ e dalla topografia $T(\gamma, t)$:
 
 \begin{equation}
     \mathcal{O}(\gamma,t) \equiv \begin{cases}
@@ -2880,18 +2881,69 @@ Si può caratterizzare una distribuzione superficiale di massa grazie alle \text
     \end{cases}
 \end{equation}
 
-Dove la \textbf{funzione livello del mare} è data da $T (\gamma, t) = - B$ e la \textbf{funzione continente} da $\mathcal{C}(\gamma, t) = 1 - \mathcal{O}$.
+\noindent
+con $\gamma = (\theta, \lambda)$, $\theta$ e $\lambda$ sono colatitudine e latitudine, rispettivamente.
+$\rho^i$ e $\rho^w$ sono le densità costanti di acqua e ghiaccio, rispettivamente.\\
 
-Si hanno cinque possibilità per i valori della funzione oceano: 
+\noindent
+Data la topografia $T$, si definiscono la \textbf{funzione livello del mare} $B(\gamma, t)$ come:
 
-\begin{itemize}
-    \item ghiaccio galleggiante $\mathcal{O} = 1$ ($I>0$ e $T<0$) vale l'isostasia;
-    \item oceano libero dal ghiaccio $\mathcal{O} = 1$ ($I=0$ e $T<0$);
-    \item ghiaccio che poggia sulla superficie sopra il livello del mare $\mathcal{O} = 0$ ($I>0$ e $T>0$);
-    \item ghiaccio che poggia sulla superficie sotto il livello del mare $\mathcal{O} = 0$ ($I>0$ e $T<0$) non vale l'isostasia;
-    \item terreno libero dal ghiaccio $\mathcal{O} = 0$ ($I=0$ e $T>0$).
-\end{itemize}
+\begin{equation}
+    B(\gamma, t) = - T
+\end{equation}
 
+\noindent
+e la \textbf{funzione continente}:
+
+\begin{equation}
+    \mathcal{C}(\gamma, t) = 1 - \mathcal{O}
+\end{equation}
+
+\noindent
+Si hanno cinque possibilità per i valori della funzione oceano, illustrati nella Figura \ref{fig:ocean_function}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{fig/ocean_function.png}
+    \caption{Possibili valori della funzione oceano.}
+    \label{fig:ocean_function}
+\end{figure}
+
+\noindent
+\textbf{Ghiaccio galleggiante} $\mathcal{O} = 1$ ($I>0$ e $T<0$)
+
+Per principio di isostasia tutte le colonne devono avere la stessa massa: $\rho^w B(\gamma, t) = \rho^i I + \rho^w y$ (Figura \ref{fig:floating_ice}.)
+Segue che $T(\gamma, t) + \frac{\rho^i}{\rho^w} I(\gamma, t) < 0$, quindi il ghiaccio è più leggero della colonna d'acqua: $\mathcal{O} = 1$ e $\mathcal{C} = 0$.\\
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{fig/floating_ice.png}
+    \caption{Ghiaccio galleggiante.}
+    \label{fig:floating_ice}
+\end{figure}
+
+\noindent
+\textbf{Ghiaccio che poggia sulla superficie sopra il livello del mare} $\mathcal{O} = 0$ e $\mathcal{C} = 1$ ($I>0$ e $T>0$)\\
+
+\noindent
+\textbf{Oceano libero dal ghiaccio} $\mathcal{O} = 1$ ($I=0$ e $T<0$)\\
+
+\noindent
+\textbf{Ghiaccio che poggia sulla superficie sotto il livello del mare} $\mathcal{O} = 0$ ($I>0$ e $T<0$)
+
+Il sistema non è in equilibrio isostatico e le colonne di ghiaccio sono più pesanti delle colonne d'acqua, quindi $T(\gamma, t) + \frac{\rho^i}{\rho^w} I(\gamma, t) \geq 0$.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{fig/ice_grounded.png}
+    \caption{Ghiaccio che poggia sulla superficie sotto il livello del mare.}
+    \label{fig:ice_grounded}
+\end{figure}
+
+\noindent
+\textbf{Terreno libero dal ghiaccio} $\mathcal{O} = 0$ e $\mathcal{C} = 1$ ($I=0$ e $T>0$)
+
+\noindent
 Così la funzione oceano determina cosa c'è sotto il ghiaccio.
 
 \begin{figure}[htb]
@@ -2901,16 +2953,19 @@ Così la funzione oceano determina cosa c'è sotto il ghiaccio.
     \label{fig:tabella_oceano}
 \end{figure}
 
-\noindent Dalla definizione di topografia discende la \textbf{variazione del livello marino}:
+\noindent
+Dalla definizione di topografia discende la definizione della \textbf{variazione del livello marino}:
 
 \begin{equation}
     S(\gamma , t) = B - B_0
 \end{equation}
 
-Dove $B_0$ è il livello all'equilibrio in un istante di riferimento.
-Al presente si definisce così $B_N = B(\gamma, t_N)$.
+\noindent
+Dove $B_0 = B(\gamma, t_0)$ è il livello del mare in uno stato di equilibrio di riferimento.
+Al tempo presente $t = t_N$ si definisce così $B_N = B(\gamma, t_N)$.
 
-\noindent La \textbf{variazione della topografia} è data da:
+\noindent
+La \textbf{variazione della topografia} è data da:
 
 \begin{equation}
     T(\gamma, t) - T(\gamma, t_N) = - (B - B_N) = - [(B - B_0) - (B_N - B_0)]
@@ -2922,16 +2977,19 @@ Al presente si definisce così $B_N = B(\gamma, t_N)$.
     T(\gamma, t) = T_N - (\mathcal{S} - \mathcal{S}_N)
 \end{equation}
 
+\noindent
 Nota la topografia attuale e l’evoluzione del livello marino nel passato, si può così ricostruire la topografia a un istante arbitrario.
 
-\noindent Aggiungendo il termine dato dal ghiaccio, si ottiene infine la \textbf{paleotopografia vera}:
+Aggiungendo il termine dato dal ghiaccio, si ottiene infine la \textbf{paleotopografia vera}:
 
 \begin{equation}
     PT(\gamma,t) = T + I
 \end{equation}
 
-\noindent Dalla soluzione di questa equazione è stato possibile ricavare i ponti topografici come quello di Doggerland (GBR ed Europa) e Beringia, che hanno favorito gli spostamenti umani.
+\noindent
+Dalla soluzione di questa equazione è stato possibile ricavare i ponti topografici come quello di Doggerland (GBR ed Europa) e Beringia, che hanno favorito gli spostamenti umani.\\
 
+\noindent
 Queste funzioni dipendono dallo spazio e dal tempo in maniera continua, ma può essere utile considerare una discretizzazione temporale dei campi e un intervallo costante fra gli istanti successivi.
 
 L’asse temporale viene suddiviso in diversi time step e grazie alla funzione di Heaviside si può ricostruire $F(\gamma , t)$ tramite una somma finita:
@@ -2940,6 +2998,7 @@ L’asse temporale viene suddiviso in diversi time step e grazie alla funzione d
     F(\gamma, t) = F_0 (\gamma) + \sum_{k=0}^N [F_{k+1}(\gamma) - F_k (\gamma) ] H(t-t_k)
 \end{equation}
 
+\noindent
 Si ottiene una funzione costante a tratti.
 La \textbf{variazione temporale} di $F(\gamma,t)$ è data dalla differenza tra il valore attuale e quello di equilibrio:
 
@@ -2947,24 +3006,35 @@ La \textbf{variazione temporale} di $F(\gamma,t)$ è data dalla differenza tra i
     \mathcal{F}(\gamma, t) \equiv F(\gamma, t) - F_0 (\gamma)
 \end{equation}
 
+\noindent
+Anche questa può essere discrettizzata:
+
+\begin{equation}
+    \mathcal{F}(\gamma, t) = sum_{k=0}^N [\mathcal{F}_{k+1}(\gamma) - \mathcal{F}_k (\gamma)] H(t-t_k)
+\end{equation}
+
 \subsubsection{\textcolor{colore7}{Funzione di carico superficiale e sue variazioni temporali}}
 
 Il \textbf{carico superficiale} rappresenta la massa per unità di area, dipendente dalla posizione e dal tempo.
-Data la \textbf{massa distribuita sulla superficie terrestre} $M(t)$, il carico superficiale è descritto da $L(\gamma, t)$:
+Data la \textbf{massa distribuita sulla superficie terrestre} $M(t)$, la \textbf{funzione il carico superficiale} è descritta da $L(\gamma, t)$:
 
 \begin{equation}
     M(t) = \int_e LdA \equiv a^2 \int_0^{2\pi} \int_0^\pi L(\gamma, t) sin \theta d \theta d \lambda \Longrightarrow L(\gamma, t) = \frac{dM}{dA}
 \end{equation}
 
-dove $a$ è il raggio terrestre.
-Si possono distinguere i contributi: $M(t) = M^i(t) + M^w (t)$.
+\noindent
+dove $a$ è il raggio terrestre. L'integrazione avviene sulla superficie della Terra coperta da acqua o ghiaccio.\\
+
+\noindent
+Ad un dato tempo $t$, si possono distinguere i contributi: $M(t) = M^i(t) + M^w (t)$, con $M^i$ e $M^w$ la massa di ghiaccio e d'acqua, rispettivamente.
 Distinguiamo ulteriormente il ghiaccio \textit{grounded} da quello \textit{floating}
 
 \begin{equation}
     M^i(t) = M^{i,gr}(t) + M^{i,fl}(t)
 \end{equation}
 
-\noindent Integrando su tutta la Terra filtrando con la funzione continente si trova la massa del ghiaccio:
+\noindent
+Integrando su tutta la Terra filtrando con la funzione continente si trova la massa del ghiaccio:
 
 \begin{equation}
     M^i(t) = \rho^i \int_e ICdA + \rho^i \int_{fl}IdA
@@ -2977,9 +3047,11 @@ Il water term si può scrivere anche in funzione di $y$, cioè la distanza tra i
     M^w(t) = M^{w,if} + M^{w,fl} = \rho^w \int_{if}BdA + \rho^i\int_{fl}ydA
 \end{equation}
 
-dove $if$ indica oceani privi di ghiaccio e $fl$ quelli con ghiaccio galleggiante.
+\noindent
+dove $if$ indica oceani privi di ghiaccio (\textit{ice-free}) e $fl$ quelli con ghiaccio galleggiante (\textit{floating ice}).
 
-\noindent Imponendo l'isostasia si ottiene:
+\noindent
+Imponendo la condizione di isostasia sulla variabile $y$ per il ghiaccio galleggiante si ottiene:
 
 \begin{equation}
     M^w(t) = \rho^w \int_{if}BdA + \int_{fl} (\rho^wB - \rho^i I)dA
@@ -2996,37 +3068,90 @@ dove $if$ indica oceani privi di ghiaccio e $fl$ quelli con ghiaccio galleggiant
     L(\gamma , t) = \rho ^i I C + \rho^ w BO
 \end{equation}
 
-Che è estremamente simmetrica.
+\noindent
+che è estremamente simmetrica.\\
 
+\noindent
+Si definisce la \textbf{variazione temporale del carico superficiale}
 
-\noindent Si definisce la \textbf{variazione temporale del carico superficiale}: $\mathcal{L}(\gamma,t) = L - L_0 = \rho^i (IC - I_0C_0) + \rho^w(BO-B_0O_0)$
-Si introduce anche la \textbf{variazione dello spessore del ghiaccio}: $\mathcal{I}(\gamma, t) = I - I_0$ e la \textbf{variazione della funzione oceano}: $\mathcal{O}(\gamma, t) = O - O_0$
+\begin{equation}
+    \mathcal{L}(\gamma,t) = L - L_0 = \rho^i (IC - I_0C_0) + \rho^w(BO-B_0O_0)
+\end{equation}
 
-\noindent Con le definizioni viste fino a qui si ritrova così un’altra equazione molto simmetrica, per la variazione del carico superficiale:
+\noindent
+Si introducono anche la \textbf{variazione dello spessore del ghiaccio}
+
+\begin{equation}
+    \mathcal{I}(\gamma, t) = I - I_0
+\end{equation}
+
+\noindent
+e la \textbf{variazione della funzione oceano}:
+
+\begin{equation}
+    \mathcal{O}(\gamma, t) = O - O_0
+\end{equation}
+
+\noindent
+Con le definizioni viste fino a qui si ritrova così un’altra equazione molto simmetrica, per la variazione del carico superficiale:
 
 \begin{equation}
     \mathcal{L}(\gamma, t) = \rho^i C\mathcal{I} + \rho^w O\mathcal{S} - (\rho^i I_0 + \rho^w T_0)\mathcal{O}
     \label{eq:variazione_carico}
 \end{equation}
 
-\noindent Inoltre, è possibile suddividere la variazione nei contributi dovuti alla variazione dello spessore del ghiaccio, del livello del mare e della funzione oceano.
+\noindent
+Inoltre, è possibile suddividere la variazione nei contributi dovuti alla variazione dello spessore del ghiaccio, del livello del mare e della funzione oceano:
+
+\begin{equation}
+    \mathcal{L}(\gamma, t) = \mathcal{L}^a + \mathcal{L}^b + \mathcal{L}^c
+\end{equation}
+
+\noindent
+dove $\mathcal{L}^a (\gamma, t) \equiv \rho^i \mathcal{W}$,
+$\mathcal{L}^b (\gamma, t) \equiv \rho^w \mathcal{Z}$,
+$\mathcal{L}^c (\gamma, t) \equiv \rho^r \mathcal{X}$.
+
+Con $\mathcal{W} (\gamma, t) \equiv \mathcal{C} \mathcal{I}$,
+$\mathcal{Z} (\gamma, t) \equiv \mathcal{O} \mathcal{S}$,
+$\mathcal{X} (\gamma, t) \equiv \mathcal{Q} \mathcal{O}$,
+associati alle variazioni dello spessore del ghiaccio, del livello del mare e della funione oceano, rispettivamente.
 
 \subsubsection{\textcolor{colore7}{Conservazione della massa}}
 
 Si considerano un'istante iniziale $t_0$, in cui si ha equilibrio e la reologia è latente, e uno arbitrario $t$, in cui le funzioni hanno assunto nuovi valori.
 Il vincolo fondamentale dell'equazione del livello marino è il \textbf{principio di conservazione della massa}, che si può applicare in diversi modi.
 Nella forma base, vale $M(t) = M_0$.
-In forma integrale $\mathcal{M}(t) \equiv M - M_0 \equiv \int_e \mathcal{L}dA = 0$, che si può esprimere anche tramite la media della variazione del carico superficiale sulla superficie della Terra: $<\mathcal{L}(\gamma, t) >^e = \equiv \frac{1}{A^e} \int_e \mathcal{L}(\gamma, t) dA$.
+In forma integrale 
 
+\begin{equation}
+    \mathcal{M}(t) \equiv M - M_0 \equiv \int_e \mathcal{L}dA = 0
+\end{equation}
+
+\noindent
+che si può esprimere anche tramite la media della variazione del carico superficiale sulla superficie della Terra:
+
+\begin{equation}
+    <\mathcal{L}(\gamma, t) >^e = \equiv \frac{1}{A^e} \int_e \mathcal{L}(\gamma, t) dA
+\end{equation}
+
+\noindent
 Grazie allo sviluppo in funzioni armoniche, inoltre, vale:
 
 \begin{equation}
     F(\gamma, t) = \sum_{lm} F_{lm} (t) \mathcal{Y}_{lm}(\gamma) \Longrightarrow <F(\gamma, t)> = \frac{1}{4\pi} \int_\gamma F(\gamma, t) dA = F_{00}(t)
 \end{equation}
 
-Perciò la conservazione della massa si può esprimere anche tramite $\mathcal{L}_{00}(t)=0$.
+\noindent
+Con $F_{00}(t)$ è il grado zero armonico nell'espansione in armoniche sferiche in forma complessa.
+Perciò la conservazione della massa si può esprimere anche tramite:
 
-\noindent Un'altra forma si può ottenere a partire dall'espressione all'eq. ~\ref{eq:variazione_carico}:
+\begin{equation}
+    \mathcal{L}_{00}(t)=0
+\end{equation}
+
+\noindent
+Un'altra forma si può ottenere a partire dall'espressione all'eq. \ref{eq:variazione_carico}:
 
 \begin{equation}
     \mathcal{M}(t) \equiv \int_e \mathcal{L}dA = \rho^i \int_e (IC - I_0C_0)dA + \rho^w \int_e (BO-B_0O_0)dA=0
@@ -3063,7 +3188,11 @@ Perciò la conservazione della massa si può esprimere anche tramite $\mathcal{L
     \label{eq:MCP3}
 \end{equation}
 
-dove $<...>^o$ rappresenta la media sull'oceano, che è una superficie variabile nel tempo.
+\noindent
+dove $<...>^o$ rappresenta la media sull'oceano, che è una superficie variabile nel tempo.\\
+
+\noindent
+Per il principio di conservazione della massa, tutta la massa del sistema (acqua + ghaiccio) resta costante.\\
 
 \noindent \textbf{\textcolor{colore7}{Forme del principio di conservazione della massa}}:
 
@@ -3088,7 +3217,12 @@ Le assunzioni di base sono:
     \item litosfera elastica.
 \end{enumerate}
 
-\noindent A partire da tali assunzioni è poi possibile complicare i modelli considerando stratificazioni e comprimibilità, per esempio usando il modello \textit{viscoelastic normal mode theory}.
+\noindent
+Questi modelli sono detti 1D perché, data la simmetria sferica, i parametri reologici dipendono solo dal raggio $r$.
+Tuttavia, dato che il carico superficiale è distribuito in maniera non uniforme, la risposta dei modelli 1D deve essere tridimensionale e dipendente dal tempo.
+
+Il vantaggio di questi modelli è l'esistenza di soluzioni analitiche ben note.
+A partire da tali assunzioni è poi possibile complicare i modelli considerando stratificazioni e comprimibilità, per esempio usando il modello \textit{viscoelastic normal mode theory}.
 
 \subsubsection{\textcolor{colore7}{Funzione diretta di Green (Terra rigida)}}
 

@@ -2819,16 +2819,25 @@ Diverse combinazioni di reologia e glaceoisostasia fittano le stesse osservazion
 
 \subsubsection{\textcolor{colore7}{Motivazione}}
 
-La superficie terrestre è sottoposta ai carichi di atmosfera, oceani e continenti, che possono variare nel tempo e causare una risposta elastica o viscoelastica, a seconda del numero di Deborah.
-Terremoti, eruzioni vulcaniche, moti mareali e frane possono variare il carico sulla superficie.
+La superficie terrestre è sottoposta al carico della massa dell'atmosfera, degli oceani e dei continenti; questi possono variare nel tempo e causare una risposta elastica o viscoelastica, a seconda del numero di Deborah.
+Terremoti, eruzioni vulcaniche, moti mareali e frane possono variare il carico sulla superficie.\\
 
+\noindent
 Il \textbf{modello di Boussinesq} prevede una Terra piatta ed elastica, con modulo di shear $\mu$ e rapporto di Poisson $\nu$ costanti, su cui viene esercitato un carico.
-La deformazione avviene sia in orizzontale sia in verticale:
+La deformazione avviene sia in orizzontalmente in direzione radiale:
 
 \begin{equation}
-    u_z = \frac{P}{4\pi \mu R} \left[ 2(1-\nu) + \frac{z^2}{R^2} \right] \text{ , } u_r = \frac{P}{4\pi \mu R} \left[ \frac{rz}{R} - \frac{(1-2\nu)r}{R+z} \right]
+    u_z = \frac{P}{4\pi \mu R} \left[ 2(1-\nu) + \frac{z^2}{R^2} \right]
 \end{equation}
 
+\noindent
+che in verticalmente:
+
+\begin{equation}
+    u_r = \frac{P}{4\pi \mu R} \left[ \frac{rz}{R} - \frac{(1-2\nu)r}{R+z} \right]
+\end{equation}
+
+\noindent
 dove $P$ rappresenta il carico e $R = \sqrt{r^2 + z^2}$.
 
 \begin{figure}[H]
@@ -2838,9 +2847,17 @@ dove $P$ rappresenta il carico e $R = \sqrt{r^2 + z^2}$.
     \label{fig:boussinesq}
 \end{figure}
 
-\noindent In questo modello compressibile, la componente verticale è positiva verso il basso.
-La deformazione avviene verso il basso e verso il centro.
-I problemi di Kelvin (carico puntiforme su corpo elastico infinito) e di Cerruti (carico puntiforme orizzontale sulla superficie di una massa semi-infinita) possono essere applicati in geomeccanica per risolvere il problema di Boussinesq.
+\noindent
+In questo modello compressibile, la componente verticale è sempre positiva,
+quindi, con un sistema di riferimento con asse $z$ come quello in Figura \ref{fig:boussinesq}, la componente verticale è diretta verso il basso.
+La deformazione in direzione radiale è negativa, quindi avviene verso il centro.\\
+
+\noindent
+Il problema di Kelvin coinvolege un carico puntiforme su corpo elastico infinito;
+il problema di Cerruti riguarda invece un carico puntiforme orizzontale sulla superficie di una massa semi-infinita.
+Questi due problemi possono essere applicati in geomeccanica per risolvere il problema di Boussinesq.\\
+
+\noindent
 I carichi applicabili alla Terra sono di due diversi tipi: superficiale (con contatto) o mareale (che non prevede contatto).
 Lo studio delle maree non si può affrontare con il modello di Boussinesq.
 Kelvin cercò di determinare la rigidità della Terra grazie alle maree, in seguito Darwin applicò un modello sferico per lo studio delle maree su una sfera fluida.

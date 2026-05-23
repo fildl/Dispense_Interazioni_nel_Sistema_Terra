@@ -16,7 +16,6 @@
 \usepackage{siunitx}
 \usepackage{wrapfig}
 \usepackage{subfigure}
-%\usepackage{subfig}
 \usepackage{subcaption}
 \usepackage{ragged2e} 
 \usepackage[export]{adjustbox}
@@ -865,8 +864,17 @@ Wegener propose una forza detta \textit{Polflucht} (dal tedesco "volo dai poli")
 
 \subsection{\textcolor{colore2}{Distribuzioni di massa}}
 
+Lo studio di come la massa è distribuita all'interno di un corpo è fondamentale per comprenderne il comportamento dinamico.
+Nel caso del nostro pianeta, il campo di gravità e la forma stessa della Terra sono la manifestazione diretta della sua distribuzione interna di massa.
+Di conseguenza, analizzare queste distribuzioni risulta essenziale per la geodesia e la geofisica.\\
+
 Le componenti fluide della Terra e il suo moto di rotazione ne influenzano il campo di gravità.
-Le distribuzioni di massa variano nel tempo per diversi tipi di processi che spaziano dal ciclo dell'acqua alla dinamica interna del pianeta.
+Per un corpo deformabile come la Terra, infatti, la distribuzione della massa è fortemente influenzata dalla rotazione stessa; viceversa, qualsiasi variazione temporale nella distribuzione delle masse va a modificare i parametri di rotazione terrestre.
+
+Le distribuzioni di massa variano nel tempo a causa di una vasta gamma di processi che spaziano su diverse scale temporali:
+processi climatici come variazioni a breve e lungo termine legati al ciclo dell'acqua, allo scioglimento dei ghiacci e alle dinamiche atmosferiche e oceaniche;
+processi geologici, quindi dinamiche interne profonde che operano su scale temporali molto più lunghe.
+
 Le ondulazioni del geoide sono influenzate maggiormente da questi ultimi processi, che dipendono dalla distribuzione di massa a grande profondità.\\
 
 \noindent
@@ -994,7 +1002,7 @@ Usando la definizione di densità e il teorema della divergenza:
 Quindi la divergenza di $\vec{g}$ è:
 
 \begin{equation}
-    \nabla \cdot \vec{g} = - 4 \pi G \int_V \rho (\vec{x})
+    \nabla \cdot \vec{g} = - 4 \pi G \rho (\vec{x})
 \end{equation}
 
 \noindent
@@ -1085,7 +1093,7 @@ Dato che il potenziale gravitazionale è armonico fuori dalla Terra
 Si consideri un corpo di densità arbitraria $\rho(\vec{x)}$, volume $V$ e superficie $S$ che ruota con velocità angolare $\vec{\omega} \parallel z$.
 Il centro di massa \textit{CM} non coincide necessariamente con l'origine del sistema di riferimento \textit{O}.
 Si considerino sulla superficie una massa puntiforme $dm = \rho(\vec{x})$ (sorgente) in $Q(r^\prime, \theta^\prime, \lambda^\prime)$, individuata dal vettore $\vec{r^\prime}$ e
-una massa puntiforme (osservatore) $P(r, \theta, \lambda)$ individuata da $\vec{r}$. L'angolo tra le due è $\beta$.
+una massa puntiforme (osservatore) $P(r, \theta, \lambda)$ individuata da $\vec{r}$. L'angolo tra le due è $\beta$.\\
 
 \noindent
 Vogliamo determinare il potenziale gravitazionale in \textit{P} dovuto a tutta la distribuzione di massa.\\
@@ -1159,6 +1167,7 @@ Questa espressione complessa si usa raramente, mentre la forma reale trova ampio
     W_g (r, \theta, \lambda) = \frac{GM}{r} \sum_{lm} \left( \frac{a}{r} \right) ^l (c_{lm} cos m\lambda + s_{lm} sin m\lambda) P_{lm}(cos \theta)
 \end{equation}
 
+\noindent
 dove compaiono i \textbf{coefficienti di Stokes} $c_{lm}$ e $s_{lm}$ del campo gravitazionale, che dipendono dalla distribuzione di massa:
 
 \begin{equation}
@@ -1178,9 +1187,11 @@ dove $l=0,1,2,\dots$ e $0 \leq m \leq l$. In base al grado si hanno coefficienti
     \item $l=2$: cinque coefficienti ($c_{20}, c_{21}, c_{22}, s_{21}, s_{22}$) legati agli elementi del tensore di inerzia della distribuzione di massa.
 \end{itemize}
 
+\noindent
 I coefficienti di grado basso dipendono dalla scelta del sistema di riferimento: se il centro di massa si trova nell'origine, allora i termini di grado 1 scompaiono.
 Grazie ai satelliti, si cerca adesso di misurare la variazione nel tempo dei coefficienti di Stokes.\\
 
+\noindent
 Si consideri un corpo sfericamente simmetrico (Figura \ref{fig:stokes_a}):
 
 \begin{figure}[!h]
@@ -1189,6 +1200,11 @@ Si consideri un corpo sfericamente simmetrico (Figura \ref{fig:stokes_a}):
     \caption{Distribuzione di massa sfericamente simmetrica.}
     \label{fig:stokes_a}
 \end{figure}
+
+\noindent
+con densità $   rho(\vec x) = \rho(r)$ per $0 \leq r \leq R$.
+Per questo corpo conosciamo la massa $M= 4\pi \int_0^R \rho(r) r^2 dr$, l'accelerazione di gravità
+$\vec g (r) = - \frac{GM}{r^2} \hat{r}$ e il potenziale gravitazionale $W_g(r) = \frac{GM}{r}$.\\
 
 \noindent
 I coefficienti di Stokes sono: 
@@ -1213,7 +1229,8 @@ Per una massa omogenea vale:
     I_{hom} = \frac{8\pi}{15}R^5\rho_0
 \end{equation}
 
-\indent Dal confronto con il caso di una massa puntiforme si ricava il momento di inerzia medio normalizzato:
+\noindent
+Dal confronto con il caso di una massa puntiforme si ricava il momento di inerzia medio normalizzato:
 
 \begin{equation}
     \frac{I_{hom}}{MR^2} = \frac{2}{5}
@@ -1468,10 +1485,12 @@ La perdita di massa per fusione o distacco dei ghiacciai è detta \textit{ablazi
 Se l'accumulo di massa supera l'ablazione, il ghiacciaio avanza; in caso contrario, si osserva un ritiro.\\
 
 \noindent
-Sebbene i ghiacciai rappresentino solo lo 0,5\% del ghiaccio terrestre totale, il loro scioglimento ha contribuito all'innalzamento del livello del mare nel secolo scorso in misura maggiore rispetto alle lenzuola glaciali.
+Sebbene i ghiacciai rappresentino solo lo 0,5\% del ghiaccio terrestre totale, il loro scioglimento ha contribuito all'innalzamento del livello del mare nel secolo scorso in misura maggiore rispetto alle lenzuola glaciali.\\
 
-Questi sistemi sono monitorati costantemente, anche attraverso ghiacciai "benchmark" come quello sul Monte Rainier, poiché fungono da indicatori delle variazioni climatiche globali.
+\noindent
+Questi sistemi sono monitorati costantemente, anche attraverso ghiacciai "benchmark" come quello sul Monte Rainier, poiché fungono da indicatori delle variazioni climatiche globali.\\
 
+\noindent
 L'estensione dei ghiacciai segue cicli di lungo periodo, stimati in circa 90 mila anni, legati alle variazioni dell'orbita terrestre e dell'irradiazione solare.\\
 
 \noindent
@@ -1522,7 +1541,7 @@ La Groenlandia e l'Antartide presentano dinamiche di perdita di massa (ablazione
     Le tecniche gravimetriche indicano una perdita di massa di circa $286 \pm 21$ Gt all'anno.
     \item Antartide: ha un livello marino equivalente di 58 metri.
     La perdita di massa avviene principalmente tramite \textit{calving} (distacco di iceberg).
-    La perdita di massa stimata è di circa $127 \pm 39$ all'anno.
+    La perdita di massa stimata è di circa $127 \pm 39$ Gt all'anno.
 \end{itemize}
 
 In Antartide la Catena Transantartica (che si sviluppa tra il Mare di Ross e il Mare di Weddell) separa l'Antartide Orientale dall'Antartide Occidentale, dove si trova la ben studiata Penisola Antartica.
@@ -3227,7 +3246,8 @@ A partire da tali assunzioni è poi possibile complicare i modelli considerando 
 \subsubsection{\textcolor{colore7}{Funzione diretta di Green (Terra rigida)}}
 
 Si consideri una massa puntiforme sulla superficie di una Terra rigida e sfericamente simmetrica.
-Non si ha deformazione, ma il potenziale gravitazionale della Terra varia.
+Per effetto della rigidià, lo stress di superficie esercitato dalla massa dovuto al suo stesso peso non causa deformazione.
+Il carico, tuttavia, induce una variazione del potenziale gravitazionale della Terra.
 
 \begin{figure}[htb]
     \centering
@@ -3236,14 +3256,22 @@ Non si ha deformazione, ma il potenziale gravitazionale della Terra varia.
     \label{fig:massa_puntiforme}
 \end{figure}
 
-\noindent Si indica la massa effettiva con $\mu(t) = \delta(t) \delta m$, con $\delta m \ll m_e$.
+\noindent
+La massa puntuale è indicata con una massa effettiva $\mu(t) = \delta(t) \delta m$, dove $\delta m$ è piccolo rispetto alla massa della Terra: $\delta m \ll m_e$.
 Il carico superficiale associato è dato da:
 
 \begin{equation}
     \mathcal{L}^\delta (\alpha, t) = \frac{\mu(t)}{a^2} \frac{\delta (\theta - \theta') \delta(\lambda - \lambda')}{sin \theta}
 \end{equation}
 
-\noindent La variazione del potenziale gravitazionale presso l'osservatore è detta \textit{contributo diretto} al potenziale gravitazionale, l'unico nel caso della Terra rigida.
+\noindent
+con:
+
+\begin{equation}
+    \mathcal{L}^\delta (\alpha, t) dA = \mu(t)
+\end{equation}
+
+\noindent La variazione del potenziale gravitazionale presso l'osservatore $O \equiv (\theta, \lambda)$ è detta \textit{contributo diretto} al potenziale gravitazionale, l'unico nel caso della Terra rigida.
 
 \begin{equation}
     \varphi ^r (\alpha,t) = \frac{G \mu(t)}{d(\alpha)}
@@ -3252,7 +3280,14 @@ Il carico superficiale associato è dato da:
 \noindent Dalla trigonometria:
 
 \begin{equation}
-    d(\alpha) = 2a sin\left( \frac{a}{2} \right) \Longrightarrow \varphi ^r (\alpha, t) = \delta(t) \frac{ag\delta m}{2m^e sin (\alpha/2)} \text{ , dove } g = \frac{GM_e}{a^2} 
+    d(\alpha) = 2a sin\left( \frac{a}{2} \right) \Longrightarrow \varphi ^r (\alpha, t) = \delta(t) \frac{ag\delta m}{2m^e sin (\alpha/2)}
+\end{equation}
+
+\noindent
+dove
+
+\begin{equation}
+    g = \frac{GM_e}{a^2}
 \end{equation}
 
 \noindent La \textbf{variazione del potenziale per unità di massa e di tempo} è fornita dalla funzione di Green per il potenziale gravitazionale diretto:
@@ -3274,6 +3309,7 @@ Una forma più utile si ottiene sfruttando i polinomi di Legendre:
     \Gamma^{\varphi,r} (\alpha, t) = \delta (t) \sum_{l=0}^\infty \varphi _l^r P_l (cos \alpha)
 \end{equation}
 
+\noindent
 Dove i coefficienti armonici $\varphi _l^r \equiv \frac{ag}{m^e}$ sono uguali: lo spettro è bianco.
 
 \subsubsection{\textcolor{colore7}{Funzioni di Green incrementali (Terra elastica)}}
@@ -3291,9 +3327,10 @@ Il \textbf{principio di Love} sostiene che tra i coefficienti armonici elastici 
     \varphi_l^e = k_l^{L,e}\varphi_l^r
 \end{equation}
 
-dove $k_l^{L,e} = \varphi_l^e / \varphi_l^r$ è il \textit{Loading Love Number per il potenziale}.
+\noindent
+dove il coefficiente adimensionale $k_l^{L,e} = \varphi_l^e / \varphi_l^r$ è il \textit{Numero di carico elastico di Love per il potenziale}.
 La "$L$" all'apice indica che si riferisce al carico, mentre per le maree si ha una "$T$".
-Per una Terra rigida $k_l^{L,e} = 0$, mentre nel caso reale il valore è compreso fra 0 e 1.
+Per una Terra rigida $k_l^{L,e} = 0$, mentre nel caso reale il valore è compreso fra 0 e 1.\\
 
 \noindent La \textbf{funzione di Green per il potenziale totale di una Terra elastica} è:
 
@@ -3302,11 +3339,12 @@ Per una Terra rigida $k_l^{L,e} = 0$, mentre nel caso reale il valore è compres
 \end{equation}
 
 
-\noindent Applicando la formula di Brun (eq. ~\ref{eq:Brun}), si può ottenere un'espressione per la \textbf{funzione di Green per la variazione dell'altezza del geoide} per unità di massa e di tempo:
+\noindent Applicando la formula di Brun (eq. \ref{eq:Brun}), si può ottenere un'espressione per la \textbf{funzione di Green per la variazione dell'altezza del geoide} per unità di massa e di tempo:
 \begin{equation}
     \Gamma^g (\alpha, t) \equiv \frac{\Gamma^\varphi}{g} = \delta (t) \frac{a}{m^e} \sum_{l=0}^\infty (1 + k_l^{L,e})P_l(cos \alpha)
 \end{equation}
 
+\noindent
 Dove nelle parentesi compaiono il termine $1$ che descrive la variazione diretta e il termine $k_l^{L,e}$ che descrive l'effetto indiretto dovuto all'elasticità della Terra.
 A causa degli effetti elastici, si ha anche uno spostamento verticale, per cui si esprime anche la \textbf{funzione di Green elastica dello spostamento verticale}:
 
@@ -3320,47 +3358,116 @@ A causa degli effetti elastici, si ha anche uno spostamento verticale, per cui s
     \vec{\Gamma}^v (\alpha, t) \equiv \delta(t) \frac{a}{m^e} \sum_{l=0}^\infty l _l^{L,e} \partial_\alpha P_l (cos \alpha) \hat{\alpha}
 \end{equation}
 
-dove $_l$ e $l_l$ sono i Loading Love Number verticali e orizzontali.
+\noindent
+dove $_l$ e $l_l$ sono i Loading Love Number verticali e orizzontali.\\
 
 \noindent Si hanno così tre funzioni di Green: una per l'altezza del geoide, una per lo spostamento verticale e una per quello orizzontale.
 Per una Terra rigida si avrebbe $(h,k,l)_l^{L,e} \equiv 0$, mentre per una elastica i numeri di Love sono del tipo $j_l^L (t) = j_l ^{L,e} \delta (t)$, con $j = h, k ,l$.
 
 \subsubsection{\textcolor{colore7}{Numeri di Love elastici}}
 
-I numeri di Love si usano anche per le maree e per i terremoti. 
-Essi dipendono dalla struttura interna della Terra (geometria, spessore, densità, costanti elastiche, parametri reologici, condizioni al contorno dei vari strati).
+I numeri di Love $(h, k, l)$ sono parametri adimensionali che misurano la suscettibilità della forma di un corpo planetario a un potenziale perturbativo.
+Introdotti originariamente da Love (1909) per la risposta elastica globale alle maree, il termine può indicare:
+
+\begin{itemize}
+    \item Tidal Love numbers: per le deformazioni indotte dalle maree;
+    \item Loading Love numbers (LLN): utilizzati per calcolare le funzioni di Green, quindi la risposta della Terra a carichi superficiali;
+    \item Dislocation Love numbers: dove la sorgente è interna e impulsiva, come nel caso dei terremoti.
+\end{itemize}
+
+\noindent
+I numeri di Love dipendono dalle proprietà fisiche della Terra: la geometria del modello sferico, lo spessore, la densità e le costanti elastiche dei vari strati,
+dalle condizioni al contorno e dalla lunghezza d'onda del carico.\\
+
+\noindent
+A causa di questa complessità, non esiste un'espressione analitica chiusa generale, ma si ricorre a modelli numerici.
+Nel lavoro di Farrell (1972), i numeri di Love elastici da carico sono stati calcolati in funzione del grado armonico $n$.\\
 
 \subsubsection{\textcolor{colore7}{Funzioni di Green viscoelastiche}}
 
-Hanno anche un contributo ritardato che decade nel tempo, rispetto a quelli puramente elastici.
-Si applica il formalismo dei modi normali viscoelastici di Peltier, che usa i numeri di Love e le funzioni di Green su una sfera simmetrica con strati con reologia maxwelliana.
-Nei numeri di Love compare una componente elastica e una ulteriore viscoelastica multiesponenziale:
+Nello studio dei modi normali viscoelastici introdotto da Paltier (1974) si dimostra che la risposta della Terra a un carico impulsivo non è istantanea,
+ma presenta un contributo ritardato nel tempo dovuto al riassestamento viscoso del mezzo.
+
+Per un modello di Terra 1D a simmetria sferica con reologia lineare i numeri di Love da carico sono funzioni causali (nulle per $t < 0$) e caratterizzate da due componenti fisicamente distinte:
+
+\begin{itemize}
+    \item Componente elastica: in fase con il carico impulsivo ($\delta$ di Dirac), dipendente esclusivamente dalle costanti elastiche e dalla densità degli strati.
+    \item Componente viscosa: ritardata rispetto al carico, sensibile al profilo reologico oltre che ai parametri elastici.
+\end{itemize}
+
+\noindent
+La componente viscosa assume una forma multiesponenziale determinata dallo spettro dei modi normali viscoelastici.
+
+\noindent
+Quindi, l'espressione per i numeri di Love da carico in funzione del tempo e del grado armonico $l$ è:
 
 \begin{equation}
     k_l^L (t) = k_l^{L,e} \delta (t) + H(t) \sum_{i=1} ^M k_{li}^L e^{s_{li}t}
 \end{equation}
 
-dove $M$ rappresenta il numero di modi viscoelastici, che dipende dal numero di strati; $k_{li}^L$ il termine viscoso del $k$-esimo LLN; $s_{li} = - 1/\tau_{li}<0$ la matrice di frequenze complesse che descrive il decadimento grazie al tempo scala caratteristico del modello.
+\noindent
+dove 
+\begin{itemize}
+    \item $H(t)$ è la funzione gradino di Heaviside che garantisce la causalità della risposta;
+    \item $M$ rappresenta il numero di modi viscoelastici, che dipende dal numero di strati;
+    \item $k_{li}^L$ è l'ampiezza del termine viscoso associato al $k$-esimo LLN;
+    \item $s_{li} = - 1/\tau_{li}<0$ è la matrice di frequenze complesse che descrive il decadimento tramite i tempi scala caratteristici del modello $\tau_{ii}$.\\
+\end{itemize}
+
+\noindent
+I valori dei numeri di Love al grado $l=1$ dipendono dalla scelta del sistema di riferimento;
+per convenzione, essi vengono espressi nel sistema centrato al centro di massa (CM) del sistema Terra + Carico.\\
 
 \noindent \textbf{\textcolor{colore7}{Numeri di Love per spostamenti verticali e orizzontali}}
 
-Definiscono il set di modi normali viscoelastici del modello (VNM): $(k,h,l)_l^{L,e}; (k,h,l)_{li}^L; s_{li}$ dove $0 \le l \le \infty$ e $i = 1,..., M$.
-Le funzioni di Green hanno la stessa forma del caso elastico, ma i numeri di Love hanno anche una parte ritardata.
+\noindent
+Nel formalismo dei modi normali viscoelastici (VNM), indicando con $x(t)$ un generico numero di Love da carico (LLN) associato a una forzante impulsiva $\delta$,
+la scomposizione spettrale per un modello di Terra 1D assume la forma generale:
+
+\begin{equation}
+    x_l (t) = x_l^{e} \delta (t) + H(t) \sum_{i=1} ^M x_{li}^L e^{s_{li}t}
+\end{equation}
+
+Per i rispettivi LLN di spostamento verticale ($h_l^L$) e orizzontale ($\ell_l^L$), le espressioni nel dominio del tempo sono:
+
+\begin{equation}
+    h_l^L (t) = h_l^{L,e} \delta (t) + H(t) \sum_{i=1} ^M h_{li}^L e^{s_{li}t}
+\end{equation}
+
+\begin{equation}
+    l_l^L (t) = l_l^{L,e} \delta (t) + H(t) \sum_{i=1} ^M l_{li}^L e^{s_{li}t}
+\end{equation}
+
+\noindent
+dove $0 \le l \le \infty$ e $i = 1,..., M$.
+Le funzioni di Green hanno la stessa forma del caso elastico, ma i numeri di Love hanno anche una parte ritardata.\\
 
 \noindent \textbf{\textcolor{colore7}{Numeri di Love di Heaviside}}
 
-Al posto di una forza impulsiva, si consideri un carico dato da una funzione di Heaviside.
-Il corrispondente numero di Love si determina a partire da quello impulsivo, con il teorema di convoluzione:
+\noindent
+Se il sistema è soggetto ad un carico costante nel tempo applicato istantaneamente a $t=0$, la sorgente viene modellata tramite la funzione di Heaviside $H(t)$.
+Il corrispondente numero di Love di Heaviside $x^H(t)$ si ricava per convoluzione dal coefficiente impulsivo:
 
 \begin{equation}
-    x^H(t) \equiv x_e - \sum_i \frac{x_i}{s_i} (1-e^{s_i t})
+    x^H(t) \equiv x(t) * H(t) \equiv x_e - \sum_i \frac{x_i}{s_i} (1-e^{s_i t})
 \end{equation}
 
-\begin{itemize}
-    \item limite elastico: per $t\longrightarrow 0$ si ha un equilibrio istantaneo ($x_e$);
-    \item limite fluido: per $t \longrightarrow \infty$ si ha un equilibrio asintotico ($x_f$);
-    \item casi intermedi: si hanno transizioni complesse che vengono considerate per processi come l'isostasia glaciale.
-\end{itemize}
+\noindent
+Il \textbf{limite elastico} $(t\longrightarrow 0)$ descrive la risposta elastica istantanea del mezzo al momento dell'applicazione del carico:
+
+\begin{equation}
+    \lim_{t \longrightarrow 0} x^H(t) = x_e
+\end{equation}
+
+\noindent
+Il \textbf{limite fluido} $(t\longrightarrow \infty)$ descrive lo stato asintotico a lungo periodo in cui le tensioni viscose si sono completamente rilassate e il mezzo raggiunge l'equilibrio:
+
+\begin{equation}
+    \lim_{t \longrightarrow \infty} x^H(t) = x_f = x_e - \sum_i \frac{x_i}{s_i}
+\end{equation}
+
+\noindent
+Nei casi intermedi si hanno transizioni complesse che vengono considerate per processi come l'isostasia glaciale.\\
 
 \subsection{\textcolor{colore7}{Calcolo dei numeri di Love}}
 

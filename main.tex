@@ -1685,8 +1685,8 @@ La stratificazione chimica è studiata grazie alla sismologia, mentre quella reo
 
 \subsection{\textcolor{colore7}{Equazioni reologiche costitutive}}
 
-Le grandezze cinematiche e dinamiche di base della reologia sono, rispettivamente, lo strain (o \textit{strain rate}), che generalizza il concetto di spostamento o deformazione,
-e lo stress o sforzo, che generalizza il concetto di forza agente sul corpo, entrambi tensori cartesiani di rango 2.
+Le grandezze cinematiche e dinamiche di base della reologia sono, rispettivamente, lo strain (o \textit{strain rate}) $\varepsilon$, che generalizza il concetto di spostamento o deformazione,
+e lo stress, o sforzo, $\sigma$, che generalizza il concetto di forza agente sul corpo, entrambi tensori cartesiani di rango 2.
 
 Traslazioni e rotazioni, quindi operazioni che non causano deformazioni, non sono investigate dalla reologia.
 
@@ -1698,12 +1698,12 @@ Anche il tipo di comportamento reologico può differire al variare delle condizi
 La forma generale delle equazioni costitutive mette in relazione le quantità cinematiche e dinamiche attraverso dei parametri materiali, come si osserva nell'\textit{equazione di stato reologica}:
 
 \begin{equation}
-    R(\varepsilon, \dot{\epsilon}, \ddot{\epsilon}, ...; \sigma, \dot{\sigma}, \ddot{\sigma}, ...; \{M\} ) = 0
+    R(\varepsilon, \dot{\varepsilon}, \ddot{\varepsilon}, ...; \sigma, \dot{\sigma}, \ddot{\sigma}, ...; \{M\} ) = 0
     \label{eq:reologia}
 \end{equation}
 
 \noindent
-dove $\varepsilon$ rappresenta lo strain, $\sigma$ lo stress, $\{M\}$ il vettore di parametri materiali e $R$ la funzione reologica.
+dove $R$ rappresenta la funzione reologica, $\varepsilon$ lo strain, $\sigma$ lo stress ed $\{M\}$ il vettore di parametri materiali.
 Queste relazioni si ottengono da evidenze sperimentali e da principi fisici.
 La classificazione di un materiale in classi reologiche (come elstico, plastico o viscoso) riflette il tipo di equazione reologica che lo descrive.
 si distinguono diversi comportamenti reologici.
@@ -1860,8 +1860,8 @@ Il comportamento elastico è valido esclusivamente al di sotto di una sollecitaz
 Superata questa soglia, il materiale devia dalla linearità; per cui questa legge non spiega tutta la reologia.
 La "costante" di proporzionalità $E$ (modulo di Young) in realtà aumenta con la pressione e diminuisce con la temperatura.
 Il corpo elastico non subisce rilassamento.\\
-La litosfera superiore può essere considerata elastica per carichi con durata dell'ordine di milioni di anni.
-Inoltre, tutta la Terra si comporta elasticamente (con imperfezioni) per carichi di breve durata (dai secondi alle ore),
+La litosfera superiore può essere modellata come un corpo elastico per carichi superficiali con durata dell'ordine di milioni di anni, sebbene la sua risposta reale sia viscoelastica.
+Al contrario, tutta la Terra si comporta elasticamente (con imperfezioni) per carichi di breve durata (dai secondi alle ore),
 il che rende la sismologia adatta ad un'analisi di tipo elastico.\\
 A partire dalla sismologia è stato sviluppato il \textbf{modello PREM} (Preliminary Reference Earth Model), che lega la velocità delle onde s e p allo strato del Pianeta.
 
@@ -2009,6 +2009,7 @@ Per un carico applicato al tempo $t = t_1$ tipicamente si distinguono le seguent
     \item \textbf{deformazione permanente}, acquisita durante la fase di creep stazionario; è permanente e non recuperabile.
 \end{enumerate}
 
+\noindent
 Lo \textbf{strain creep totale} è dato da:
 
 \begin{equation}
@@ -2039,7 +2040,7 @@ considerato essenzialmente elastico.
 
 \subsection{\textcolor{colore7}{Trasformate di Laplace}}
 
-Sono strumenti matematici usati in ingegneria, che trovano utilizzo anche nella reologia.
+Sono strumenti matematici usati in ingegneria, che trovano utilizzo anche nella reologia.\\
 La \textbf{trasformata di Laplace} di una funzione $f(t)$ è data da:
 
 \begin{equation}
@@ -2111,7 +2112,7 @@ Per linearità, applicando l'\textit{equazione costitutiva di Maxwell} vale allo
 \noindent Dalla regola per le derivate, la trasformata di Laplace dell'equazione di Maxwell è data da:
 
 \begin{equation}
-    s \tilde{\varepsilon} - \varepsilon(0^-) = \frac{\tilde{\sigma}}{\eta} + \frac{1}{E} (s \tilde{\sigma} - \sigma (0^-))
+    \mathcal{L}_- \{\dot \varepsilon(t) \} =  s \tilde{\varepsilon} - \varepsilon(0^-) = \mathcal{L}_- \{\dot \varepsilon_N(t) + \dot \varepsilon_H(t) \} = \frac{\tilde{\sigma}}{\eta} + \frac{1}{E} (s \tilde{\sigma} - \sigma (0^-))
 \end{equation}
 
 \noindent Considerando una condizione iniziale di equilibrio con $\sigma(0^-) = \varepsilon (0^-) = 0$, si risolve trovando:
@@ -2651,6 +2652,12 @@ A partire dal 1993 si può studiare l'altezza del geoide con grande precisione, 
 \noindent
 \textbf{Variazione del livello marino}\\
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{fig/sea_level_eq.png}
+    \caption{Equazione del livello marino.}
+\end{figure}
+
 \noindent
 Si indica con $S$ il livello marino relativo, rispetto alla Terra solida, con $N$ quello assoluto, rispetto al centro di massa della Terra e con $U$ lo spostamento verticale.
 Si ottiene una semplice equazione per il livello marino:
@@ -2663,7 +2670,7 @@ L'espansione termica è il termine attualmente dominante per l'innalzamento, poi
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.45\linewidth]{fig/sea_level_21.png}
+    \includegraphics[width=0.5\linewidth]{fig/sea_level_21.png}
     \caption{Livello marino degli ultimi 21 mila anni.}
     \label{fig:sea_level}
 \end{figure}
@@ -2691,14 +2698,23 @@ Il mareografo di Messina così ha ricoperto il ruolo di sismografo a bassa frequ
 
 Si osserva un'oscillazione significativa con un periodo di circa 60 anni in quasi tutti i mareografi durante il XX sec., dovuta alle pulsazioni oceanografiche.
 Questo rende impossibile trarre conclusioni su un trend di lungo periodo, permettendo solo stime sulla tendenza nel breve periodo.
-Per questo motivo si richiede un registro di almeno 60 o 70 anni nei dati di un mareografo, il che ne esclude circa il 90\% (Figura \ref{fig:gauge_distribution}).
-Un'altra limitazione è data dalla distribuzione non omogenea dei mareografi e dall'incompletezza dei loro dataset.
+Per questo motivo si richiede un registro di almeno 60 o 70 anni nei dati di un mareografo, il che ne esclude circa il 90\% (Figura \ref{fig:gauge_distribution}).\\
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.45\linewidth]{fig/gauge_distribution.png}
+    \includegraphics[width=0.5\linewidth]{fig/gauge_distribution.png}
     \caption{Distribuzione dei mareografi in funzione del periodo di attività.}
     \label{fig:gauge_distribution}
+\end{figure}
+
+\noindent
+Un'altra limitazione è data dalla distribuzione non omogenea dei mareografi (Figura \ref{fig:gauge_spatial}) e dall'incompletezza dei loro dataset.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.55\linewidth]{fig/gauge_spatial.png}
+    \caption{Distribuzione spaziale dei mareografi.}
+    \label{fig:gauge_spatial}
 \end{figure}
 
 \noindent
@@ -2739,13 +2755,13 @@ Alcuni mareografi misurano una diminuzione del livello marino a causa del rimbal
 
 Un ulteriore fattore che impatta anche i record più lunghi è rappresentato dai segnali non oceanici.
 A causa dello scioglimento dei ghiacciai, si misura un rimbalzo post-glaciale in corrispondenza delle regioni in cui erano presenti delle lenzuola glaciali.
-Altri fattori che rendono la Terra solida instabile sono i terremoti, l'estrazione di acqua dal suolo,il depositi di materiali fluviali e la cementificazione.
+Altri fattori che rendono la Terra solida instabile sono i terremoti, l'estrazione di acqua dal suolo, il deposito di materiali fluviali e la cementificazione.
 A causa del maggiore carico che grava sugli oceani, anche la crosta oceanica sta subsidendo.\\
 
 \noindent
 Questi effetti contaminano i dati relativi al livello marino, come descritto dall'equazione del livello marino $S(\omega, t) = N - U$,
 che si può risolvere con tecniche di tipo iterativo, partendo da soluzioni ragionevoli e ponendo approssimazioni più volte fino a convergere ad un valore.
-Generalmente si parte considerando per $S$ il valore eustatico.
+Generalmente si parte considerando per $S$ il valore eustatico.\\
 
 \noindent
 L'equazione del livello marino introdotta da Farrell e Clark nel 1976 ha forma:
@@ -2782,8 +2798,9 @@ In letteratura, l'aumento globale del livello del mare si ottiene generalmente c
 \end{equation}
 
 \noindent
-Questa media aritmetica è la miglior stima dell'\textbf{aumento medio globale del livello del mare} (GMSLR).
+Questa media aritmetica è la miglior stima dell'\textbf{aumento medio globale del livello del mare} (GMSLR).\\
 
+\noindent
 L'incertezza sulle misure non è sempre disponibile, ma è fondamentale per calcolare la variazione del livello del mare medio globale.
 La \textit{root mean square}:
 
@@ -2832,11 +2849,9 @@ Diverse combinazioni di reologia e glaceoisostasia fittano le stesse osservazion
 
 \newpage
 
-\section{\textcolor{colore7}{Surface loading ed equazione del livello marino I}}
+\section{\textcolor{colore7}{Distribuzioni superficiali di massa}}
 
-\subsection{\textcolor{colore7}{Distribuzioni superficiali di massa}}
-
-\subsubsection{\textcolor{colore7}{Motivazione}}
+\subsection{\textcolor{colore7}{Motivazione}}
 
 La superficie terrestre è sottoposta al carico della massa dell'atmosfera, degli oceani e dei continenti; questi possono variare nel tempo e causare una risposta elastica o viscoelastica, a seconda del numero di Deborah.
 Terremoti, eruzioni vulcaniche, moti mareali e frane possono variare il carico sulla superficie.\\
@@ -2872,7 +2887,7 @@ quindi, con un sistema di riferimento con asse $z$ come quello in Figura \ref{fi
 La deformazione in direzione radiale è negativa, quindi avviene verso il centro.\\
 
 \noindent
-Il problema di Kelvin coinvolege un carico puntiforme su corpo elastico infinito;
+Il problema di Kelvin coinvolge un carico puntiforme su corpo elastico infinito;
 il problema di Cerruti riguarda invece un carico puntiforme orizzontale sulla superficie di una massa semi-infinita.
 Questi due problemi possono essere applicati in geomeccanica per risolvere il problema di Boussinesq.\\
 
@@ -2887,9 +2902,7 @@ Discusse l’approssimazione della Terra piatta per deformazioni locali e calcol
 Il modello di Boussinesq diventa il limite della Terra sfericamente simmetrica e stratificata a piccola scala.
 Coi modelli di Farrell e di Boussinesq si modella il rimbalzo post-glaciale.
 
-\subsection{\textcolor{colore7}{Distribuzioni superficiali di massa}}
-
-\subsubsection{\textcolor{colore7}{Topografia, livello marino e distribuzione di acqua e ghiaccio}}
+\subsection{\textcolor{colore7}{Topografia, livello marino e distribuzione di acqua e ghiaccio}}
 
 Si può caratterizzare una distribuzione superficiale di massa grazie alle \textbf{funzione oceano},
 definita a partire dallo spessore del ghiaccio $I(\gamma, t)$ e dalla topografia $T(\gamma, t)$:
@@ -2908,14 +2921,14 @@ $\rho^i$ e $\rho^w$ sono le densità costanti di acqua e ghiaccio, rispettivamen
 Data la topografia $T$, si definiscono la \textbf{funzione livello del mare} $B(\gamma, t)$ come:
 
 \begin{equation}
-    B(\gamma, t) = - T
+    B(\gamma, t) = - T(\gamma, t)
 \end{equation}
 
 \noindent
 e la \textbf{funzione continente}:
 
 \begin{equation}
-    \mathcal{C}(\gamma, t) = 1 - \mathcal{O}
+    \mathcal{C}(\gamma, t) = 1 - \mathcal{O}(\gamma, t)
 \end{equation}
 
 \noindent
@@ -2929,8 +2942,9 @@ Si hanno cinque possibilità per i valori della funzione oceano, illustrati nell
 \end{figure}
 
 \noindent
-\textbf{Ghiaccio galleggiante} $\mathcal{O} = 1$ ($I>0$ e $T<0$)
+\textbf{Ghiaccio galleggiante} $\mathcal{O} = 1$ ($I>0$ e $T<0$)\\
 
+\noindent
 Per principio di isostasia tutte le colonne devono avere la stessa massa: $\rho^w B(\gamma, t) = \rho^i I + \rho^w y$ (Figura \ref{fig:floating_ice}.)
 Segue che $T(\gamma, t) + \frac{\rho^i}{\rho^w} I(\gamma, t) < 0$, quindi il ghiaccio è più leggero della colonna d'acqua: $\mathcal{O} = 1$ e $\mathcal{C} = 0$.\\
 
@@ -2948,8 +2962,9 @@ Segue che $T(\gamma, t) + \frac{\rho^i}{\rho^w} I(\gamma, t) < 0$, quindi il ghi
 \textbf{Oceano libero dal ghiaccio} $\mathcal{O} = 1$ ($I=0$ e $T<0$)\\
 
 \noindent
-\textbf{Ghiaccio che poggia sulla superficie sotto il livello del mare} $\mathcal{O} = 0$ ($I>0$ e $T<0$)
+\textbf{Ghiaccio che poggia sulla superficie sotto il livello del mare} $\mathcal{O} = 0$ ($I>0$ e $T<0$)\\
 
+\noindent
 Il sistema non è in equilibrio isostatico e le colonne di ghiaccio sono più pesanti delle colonne d'acqua, quindi $T(\gamma, t) + \frac{\rho^i}{\rho^w} I(\gamma, t) \geq 0$.
 
 \begin{figure}[h!]
@@ -2960,7 +2975,7 @@ Il sistema non è in equilibrio isostatico e le colonne di ghiaccio sono più pe
 \end{figure}
 
 \noindent
-\textbf{Terreno libero dal ghiaccio} $\mathcal{O} = 0$ e $\mathcal{C} = 1$ ($I=0$ e $T>0$)
+\textbf{Terreno libero dal ghiaccio} $\mathcal{O} = 0$ e $\mathcal{C} = 1$ ($I=0$ e $T>0$)\\
 
 \noindent
 Così la funzione oceano determina cosa c'è sotto il ghiaccio.
@@ -3029,10 +3044,10 @@ La \textbf{variazione temporale} di $F(\gamma,t)$ è data dalla differenza tra i
 Anche questa può essere discrettizzata:
 
 \begin{equation}
-    \mathcal{F}(\gamma, t) = sum_{k=0}^N [\mathcal{F}_{k+1}(\gamma) - \mathcal{F}_k (\gamma)] H(t-t_k)
+    \mathcal{F}(\gamma, t) = \sum_{k=0}^N [\mathcal{F}_{k+1}(\gamma) - \mathcal{F}_k (\gamma)] H(t-t_k)
 \end{equation}
 
-\subsubsection{\textcolor{colore7}{Funzione di carico superficiale e sue variazioni temporali}}
+\subsection{\textcolor{colore7}{Funzione di carico superficiale e sue variazioni temporali}}
 
 Il \textbf{carico superficiale} rappresenta la massa per unità di area, dipendente dalla posizione e dal tempo.
 Data la \textbf{massa distribuita sulla superficie terrestre} $M(t)$, la \textbf{funzione il carico superficiale} è descritta da $L(\gamma, t)$:
@@ -3046,7 +3061,7 @@ dove $a$ è il raggio terrestre. L'integrazione avviene sulla superficie della T
 
 \noindent
 Ad un dato tempo $t$, si possono distinguere i contributi: $M(t) = M^i(t) + M^w (t)$, con $M^i$ e $M^w$ la massa di ghiaccio e d'acqua, rispettivamente.
-Distinguiamo ulteriormente il ghiaccio \textit{grounded} da quello \textit{floating}
+Distinguiamo ulteriormente il ghiaccio \textit{grounded} (sia sopra che sotto il livello del mare) da quello \textit{floating}:
 
 \begin{equation}
     M^i(t) = M^{i,gr}(t) + M^{i,fl}(t)
@@ -3068,8 +3083,6 @@ Il water term si può scrivere anche in funzione di $y$, cioè la distanza tra i
 
 \noindent
 dove $if$ indica oceani privi di ghiaccio (\textit{ice-free}) e $fl$ quelli con ghiaccio galleggiante (\textit{floating ice}).
-
-\noindent
 Imponendo la condizione di isostasia sulla variabile $y$ per il ghiaccio galleggiante si ottiene:
 
 \begin{equation}
@@ -3136,9 +3149,15 @@ $\mathcal{Z} (\gamma, t) \equiv \mathcal{O} \mathcal{S}$,
 $\mathcal{X} (\gamma, t) \equiv \mathcal{Q} \mathcal{O}$,
 associati alle variazioni dello spessore del ghiaccio, del livello del mare e della funione oceano, rispettivamente.
 
-\subsubsection{\textcolor{colore7}{Conservazione della massa}}
+\subsection{\textcolor{colore7}{Conservazione della massa}}
 
-Si considerano un'istante iniziale $t_0$, in cui si ha equilibrio e la reologia è latente, e uno arbitrario $t$, in cui le funzioni hanno assunto nuovi valori.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{fig/mass_conservation.png}
+    \caption{Conservazione della massa.}
+\end{figure}
+
+Si considerano un istante iniziale $t_0$, in cui si ha equilibrio e la reologia è latente, e uno arbitrario $t$, in cui le funzioni hanno assunto nuovi valori.
 Il vincolo fondamentale dell'equazione del livello marino è il \textbf{principio di conservazione della massa}, che si può applicare in diversi modi.
 Nella forma base, vale $M(t) = M_0$.
 In forma integrale 
@@ -3238,8 +3257,9 @@ Le assunzioni di base sono:
 
 \noindent
 Questi modelli sono detti 1D perché, data la simmetria sferica, i parametri reologici dipendono solo dal raggio $r$.
-Tuttavia, dato che il carico superficiale è distribuito in maniera non uniforme, la risposta dei modelli 1D deve essere tridimensionale e dipendente dal tempo.
+Tuttavia, dato che il carico superficiale è distribuito in maniera non uniforme, la risposta dei modelli 1D deve essere tridimensionale e dipendente dal tempo.\\
 
+\noindent
 Il vantaggio di questi modelli è l'esistenza di soluzioni analitiche ben note.
 A partire da tali assunzioni è poi possibile complicare i modelli considerando stratificazioni e comprimibilità, per esempio usando il modello \textit{viscoelastic normal mode theory}.
 
@@ -3411,7 +3431,7 @@ dove
     \item $H(t)$ è la funzione gradino di Heaviside che garantisce la causalità della risposta;
     \item $M$ rappresenta il numero di modi viscoelastici, che dipende dal numero di strati;
     \item $k_{li}^L$ è l'ampiezza del termine viscoso associato al $k$-esimo LLN;
-    \item $s_{li} = - 1/\tau_{li}<0$ è la matrice di frequenze complesse che descrive il decadimento tramite i tempi scala caratteristici del modello $\tau_{ii}$.\\
+    \item $s_{li} = - 1/\tau_{li}<0$ è la matrice di frequenze complesse che descrive il decadimento tramite i tempi scala caratteristici del modello $\tau_{li}$.\\
 \end{itemize}
 
 \noindent
@@ -3428,6 +3448,7 @@ la scomposizione spettrale per un modello di Terra 1D assume la forma generale:
     x_l (t) = x_l^{e} \delta (t) + H(t) \sum_{i=1} ^M x_{li}^L e^{s_{li}t}
 \end{equation}
 
+\noindent
 Per i rispettivi LLN di spostamento verticale ($h_l^L$) e orizzontale ($\ell_l^L$), le espressioni nel dominio del tempo sono:
 
 \begin{equation}
@@ -3473,23 +3494,58 @@ Nei casi intermedi si hanno transizioni complesse che vengono considerate per pr
 
 \subsubsection{\textcolor{colore7}{Equazioni di equilibrio}}
 
-I numeri di Love si calcolano risolvendo le equazioni di equilibrio con le opportune condizioni di regolarità e al contorno:
+Il calcolo dei numeri di Love richiede una stima degli spostamenti e delle variazioni del potenziale gravitazionale di una Terra 1-dimensionale,
+soggetta ad un carico superficiale unitario.
+Le equazioni di equilibrio con le opportune condizioni di regolarità e al contorno da risolvere sono:
 
 \begin{enumerate}
     \item Conservazione del momento in un continuo: $\nabla \cdot \sigma + \rho \vec{g} = 0$;
-    \item Laplace per il potenziale gravitazionale: $\nabla^2 \varphi = 0$;
-    \item Continuità: $\nabla \cdot \vec{u} = 0$;
-    \item Costitutiva: $\sigma = \sigma (\varepsilon, \dot{\varepsilon}, ..., \vec{p})$.
+    \item Equazione di Laplace per il potenziale gravitazionale: $\nabla^2 \varphi = 0$;
+    \item Conservazione della massa tramite equazione di continuità: $\nabla \cdot \vec{u} = 0$;
+    \item Equazione costitutiva, data dalla legge di Hooke: $\sigma = \sigma (\varepsilon, \dot{\varepsilon}, ..., \vec{p})$.
 \end{enumerate}
 
+\noindent
 Si sfrutta la simmetria del problema per separare la parte angolare da quella radiale, dal quale si ottiene un sistema di equazioni differenziali ordinarie del I ordine, che si risolve nel dominio di Laplace con il metodo dei propagatori.
 
 \subsubsection{\textcolor{colore7}{Modello di Kelvin e altri modelli analitici}}
 
-Si tratta dell'unico caso in cui i numeri di Love hanno una soluzione analitica interessante, considerando una Terra simmetrica viscoelastica ma incompressibile, descritta da raggio, densità e rigidità, ma non viscosità.
-I numeri di Love sono così descritti da una combinazione lineare di gradi armonici e opportune costanti.
+Il modello di Kelvin (KM) rappresenta un caso di fondamentale importanza nella geodinamica globale grazie alla sua semplicità analitica e un sufficiente grado di realismo:
+viene infatti considerato un "modello di Terra medio".
+Esso consiste in una sfera omogenea, elastica (o viscoelastica) e incompressibile, definita univocamente da tre soli parametri indipendenti:
+il raggio $a$, la densità $\rho$ e la rigidità $\mu$.
+L'accelerazione di gravità alla superficie per questo modello è espressa da $g = \frac{4}{3}\pi G \rho a$.
+Nel caso viscoelastico (VE KM), il modello viene caratterizzato aggiungendo un opportuno numero di parametri reologici (es. viscosità).\\
 
-Applicando il principio di corrispondenza, sostituendo cioè ai moduli elastici $\mu$ i moduli complessi $\tilde{\mu}(s) = \frac{\mu s}{s + 1/\tau}$ in funzione della frequenza complessa $s$, si ottengono le soluzioni viscoelastiche.
+\noindent
+Per il modello di Kelvin puramente elastico, è possibile ricavare le espressioni analitiche esplicite per i numeri di Love di carico per ogni grado armonico $l \ge 2$:
+
+\begin{equation}
+    k_l^{L,e} = -\frac{1}{1 + \lambda_l \xi}, \quad h_l^{L,e} = -\frac{(2l + 1)/3}{1 + \lambda_l \xi}, \quad \ell_l^{L,e} = -\frac{1/l}{1 + \lambda_l \xi}
+\end{equation}
+
+\noindent
+dove $\lambda_l = \frac{2l^2 + 4l + 3}{l}$ è una costante geometrico-armonica e $\xi = \frac{\mu}{\rho g a}$ rappresenta un parametro adimensionale che pesa il rapporto tra le forze elastiche (rigidità) e quelle gravitazionali.
+Per i gradi elastici più bassi, il caso $l=0$ assume LLN nulli per motivi di conservazione della massa del carico superficiale, mentre il caso $l=1$ dipende strettamente dalla scelta del sistema di riferimento.\\
+
+\noindent
+Applicando il "Principio di Corrispondenza" della viscoelasticità lineare, è possibile determinare la risposta viscoelastica sostituendo formalmente il modulo di rigidità elastico $\mu$ con il modulo complesso $\tilde{\mu}(s)$.
+Ad esempio, adottando una reologia Maxwelliana, la sostituzione assume la forma:
+
+\begin{equation}
+    \mu \longmapsto \tilde{\mu}(s) = \frac{\mu s}{s + 1/\tau}
+\end{equation}
+
+\noindent
+dove $\tau$ è il tempo di rilassamento di Maxwell.
+Sostituendo $\tilde{\mu}(s)$ nelle espressioni dei numeri di Love si ottiene la risposta nel dominio delle frequenze, la quale, per frequenze che tendono a zero ($s \to 0$) o per rigidità che svanisce ($\tilde{\mu} \to 0$),
+converge ai cosiddetti \textit{fluid limits}:
+
+\begin{equation}
+    k_n^{L,f} = -1, \quad h_n^{L,f} = -\frac{2n+1}{3}, \quad \ell_n^{L,f} = -\frac{1}{n}
+\end{equation}
+
+\noindent
 Nel caso elastico di Kelvin i numeri di Love sono monoesponenziali, mentre nei casi con un maggior numero di strati si ha una dipendenza da esponenziali multipli.
 
 Forme analitiche dei numeri di Love sono disponibili anche per modelli a 2 strati, ma sono complesse e rendono più comodo l'uso di approcci numerici.
@@ -3507,30 +3563,55 @@ Le sfere stratificate hanno molti tempi scala caratteristici che dipendono dal g
 
 \subsubsection{\textcolor{colore2}{Motivazione}}
 
-Si passa da carichi puntiformi e impulsivi a problemi di carico distribuito.
+Si passa dalla schematizzazione ideale di carichi puntiformi e impulsivi allo studio di problemi di carico reali,
+caratterizzati da distribuzioni di massa estese e variabili sia nello spazio che nel tempo.
+
+I carichi reali non sono statici né localizzati in un singolo punto; essi comprendono tutte le masse instabili presenti al di sopra della superficie terrestre, tra cui l'atmosfera, l'idrosfera, la criosfera e le strutture vulcaniche.
 
 \subsubsection{\textcolor{colore2}{Surface response functions (SRF)}}
 
-Si considerano carichi distribuiti che evolvono nel tempo.
+Si considerano carichi distribuiti nello spazio che evolvono nel tempo.
 A partire dalle soluzioni delle equazioni di equilibrio per una sfera stratificata si ricavano i numeri di Love.
 Da un'opportuna combinazione lineare di essi si ricavano le funzioni di Green.
-Si accoppiano le funzioni di Green con un carico superficiale grazie a una convoluzione tridimensionale per ottenere le \textbf{Surface response function}.
+Si accoppiano le funzioni di Green con un carico superficiale grazie a una convoluzione tridimensionale per ottenere le \textbf{Surface response function} (\textbf{SRF}).
 In seguito, si fa conduce un'analisi spettrale.
 Si può arrivare alle SRF a partire dalla soluzione dell'equazione del livello marino o da un'assunzione di carico uniforme.
 
-Una SRF rappresenta la risposta della Terra a un carico finito nello spazio e nel tempo.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{fig/SRF.png}
+    \caption{Flusso per determianre le SRF.}
+\end{figure}
+
+\noindent
+Una SRF rappresenta la risposta della Terra ad una variazione di un carico finito nello spazio e nel tempo:
+
+\begin{equation}
+    \mathcal{L} = \mathcal{L}(\gamma, t)
+\end{equation}
+
+\noindent
 Permette di conoscere la variazione dell'altezza del geoide ($\mathcal{G}(\gamma, t)$), lo spostamento orizzontale ($\mathcal{V}_\theta (\gamma,t)$ e $\mathcal{V}_\lambda (\gamma,t)$) e verticale ($\mathcal{U}(\gamma,t)$) e la variazione del livello marino ($\mathcal{R} (\gamma, t) = \mathcal{G} - \mathcal{U}$).
 
 \subsubsection{\textcolor{colore7}{Convoluzione tridimensionale}}
 
-Si hanno due dimensioni spaziali e una temporale.
-La forma generale di una SRF è data dalla convoluzione tra una funzione di Green di carico puntiforme e una funzione di carico superficiale:
+Le SRF hanno forma generale:
+
+\begin{equation}
+    SRF(\gamma,t) = (\Gamma \otimes \mathcal{L} )
+\end{equation}
+
+\noindent
+dove $\Gamma = \Gamma (\gamma, t)$ è una funzione di Green e $\mathcal{L} = \mathcal{L}(\gamma, t)$ è una funzione di carico.
+La convoluzione tridimensionale (data da due dimensioni spaziali e una temporale) è quindi:
 
 \begin{equation}
     SRF(\gamma,t) = (\Gamma \otimes \mathcal{L} ) (\gamma,t) \equiv \int_{-\infty}^{+\infty} dt' \int_e \Gamma (\alpha, t-t') \mathcal{L}(\gamma', t') dA'
 \end{equation}
 
-Mentre $\Gamma$ dipende dai numeri di Love e dalle proprietà del modello, con gli effetti diretti e indiretti, mentre $\mathcal{L}$ dipende dalla reologia e dall'evoluzione temporale del carico, come per esempio quello di ghiaccio e acqua.
+\noindent
+$\Gamma (\gamma,t)$ dipende solo dai numeri di Love e dalle proprietà del modello, con gli effetti diretti e indiretti,
+mentre $\mathcal{L} (\gamma,t)$ dipende dalla geometria e dall'evoluzione spaziale e temporale del carico, come per esempio quello di ghiaccio e acqua.
 
 \subsubsection{\textcolor{colore7}{Forma spettrale delle SRF}}
 
@@ -3540,12 +3621,21 @@ Si espande la funzione di carico superficiale in armoniche sferiche:
     \mathcal{L}(\gamma,t) = \sum_{lm} \mathcal{L}_{lm}(t) \mathcal{Y}_{lm} (\gamma)
 \end{equation}
 
-\noindent Si riscrive la forma generale della funzione di Green:
+\noindent
+con coefficienti:
+
+\begin{equation}
+   \mathcal{L}_{lm}(t) = \frac{1}{4\pi} \int_\gamma \mathcal{L}(\gamma,t) \mathcal{Y}_{lm}^* (\gamma) d\gamma
+\end{equation}
+
+\noindent
+Si riscrive la forma generale della funzione di Green:
 
 \begin{equation}
     \Gamma (\alpha, t) = \frac{a}{m^e} \sum_{l=0}^\infty x_l (t) P_l (cos \alpha)
 \end{equation}
 
+\noindent
 dove $x_l$ rappresenta una combinazione di numeri di Love che dipende dalla SRF:
 
 \begin{equation}
@@ -3565,9 +3655,27 @@ x_l(t) \equiv
     \mathcal{L}(\gamma,t) = \rho^i C \mathcal{I} + \rho^w O \mathcal{S} - (\rho^i I_0 + \rho^w T_0) \mathcal{O}
 \end{equation}
 
-Cioè la variazione del carico glaciale, del livello marino e della funzione oceano.
-Perciò si può calcolare o ipotizzare l'evoluzione del livello marino.
-In un approccio semplificato al problema, si assume che lo spessore del ghiaccio sia noto, che il livello del mare sia noto e uniforme e che la funzione oceano sia costante.
+\noindent
+dove:
+\begin{itemize}
+    \item $\mathcal{I}$: variazioni del carico di ghiaccio;
+    \item $\mathcal{S}$: variazioni del livello del mare;
+    \item $\mathcal{O}$: variazioni della funzione oceano.
+\end{itemize}
+
+\noindent
+Mentre il carico glaciale può essere assunto come "noto" (input del modello),
+le variazioni del livello del mare e della funzione oceano sono incognite interdipendenti.
+Esse non possono essere conosciute a priori senza prima aver risolto la \textbf{Sea Level Equation (SLE)}, ovvero l'equazione fondamentale del GIA.\\
+
+\noindent
+Di conseguenza, come primo passo, si adotta un \textbf{approccio semplificato al problema del carico superficiale}, introducendo tre assunzioni:
+
+\begin{itemize}
+    \item il ghiaccio è "dato" (noto);
+    \item la variazione del livello del mare è nota e uniforme;
+    \item la funzione oceano ($\mathcal{O}$) è costante.
+\end{itemize}
 
 \subsubsection{\textcolor{colore7}{Approccio semplificato al carico superficiale}}
 

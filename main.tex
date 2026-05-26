@@ -2739,7 +2739,7 @@ dove $k = 1,...,N_{tg}$ e:
 \end{itemize}
 
 \noindent
-Quinidi la variazione misurata dal mareografo è $\rho_k = r_k \pm \sigma_k$.\\
+Quindi la variazione misurata dal mareografo è $\rho_k = r_k \pm \sigma_k$.\\
 
 \noindent
 A causa delle oscillazioni decennali, le serie temporali di durata maggiore di 60 anni tendono a mostrare variazioni molto più contenute e incertezze minori.
@@ -3053,7 +3053,7 @@ Il \textbf{carico superficiale} rappresenta la massa per unità di area, dipende
 Data la \textbf{massa distribuita sulla superficie terrestre} $M(t)$, la \textbf{funzione il carico superficiale} è descritta da $L(\gamma, t)$:
 
 \begin{equation}
-    M(t) = \int_e LdA \equiv a^2 \int_0^{2\pi} \int_0^\pi L(\gamma, t) sin \theta d \theta d \lambda \Longrightarrow L(\gamma, t) = \frac{dM}{dA}
+    M(t) = \int_e L (\gamma, t) dA \equiv a^2 \int_0^{2\pi} \int_0^\pi L(\gamma, t) sin \theta d \theta d \lambda \Longrightarrow L(\gamma, t) = \frac{dM}{dA}
 \end{equation}
 
 \noindent
@@ -3153,10 +3153,11 @@ associati alle variazioni dello spessore del ghiaccio, del livello del mare e de
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.5\linewidth]{fig/mass_conservation.png}
+    \includegraphics[width=0.5\linewidth]{fig/mass_conservation_01.png}
     \caption{Conservazione della massa.}
 \end{figure}
 
+\noindent
 Si considerano un istante iniziale $t_0$, in cui si ha equilibrio e la reologia è latente, e uno arbitrario $t$, in cui le funzioni hanno assunto nuovi valori.
 Il vincolo fondamentale dell'equazione del livello marino è il \textbf{principio di conservazione della massa}, che si può applicare in diversi modi.
 Nella forma base, vale $M(t) = M_0$.
@@ -3174,6 +3175,7 @@ che si può esprimere anche tramite la media della variazione del carico superfi
 \end{equation}
 
 \noindent
+Con $A^e = \int_e dA = 4\pi a^2$ l'area della superficie terrestre. 
 Grazie allo sviluppo in funzioni armoniche, inoltre, vale:
 
 \begin{equation}
@@ -3291,7 +3293,7 @@ con:
     \mathcal{L}^\delta (\alpha, t) dA = \mu(t)
 \end{equation}
 
-\noindent La variazione del potenziale gravitazionale presso l'osservatore $O \equiv (\theta, \lambda)$ è detta \textit{contributo diretto} al potenziale gravitazionale, l'unico nel caso della Terra rigida.
+\noindent La variazione del potenziale gravitazionale presso l'osservatore $O \equiv (\theta, \lambda)$ è detta \textbf{contributo diretto} al potenziale gravitazionale, l'unico nel caso della Terra rigida.
 
 \begin{equation}
     \varphi ^r (\alpha,t) = \frac{G \mu(t)}{d(\alpha)}
@@ -3307,7 +3309,7 @@ con:
 dove
 
 \begin{equation}
-    g = \frac{GM_e}{a^2}
+    g = \frac{G m^e}{a^2}
 \end{equation}
 
 \noindent La \textbf{variazione del potenziale per unità di massa e di tempo} è fornita dalla funzione di Green per il potenziale gravitazionale diretto:
@@ -3334,13 +3336,14 @@ Dove i coefficienti armonici $\varphi _l^r \equiv \frac{ag}{m^e}$ sono uguali: l
 
 \subsubsection{\textcolor{colore7}{Funzioni di Green incrementali (Terra elastica)}}
 
-Con una Terra deformabile si aggiunge un \textit{contributo indiretto}, per cui la funzione di Green corrispondente si può esprimere tramite la seguente espansione:
+Se la Terra è deformabile, la variazione della distribuzione di massa aggiunge un \textit{contributo indiretto} alla variazione del potenziale gravitazionale,
+per cui la funzione di Green corrispondente si può esprimere tramite la seguente espansione:
 
 \begin{equation}
     \Gamma^{\varphi,e} (\alpha, t) \equiv \frac{\varphi ^e (\alpha, t)}{\delta m} = \delta (t) \sum_{l=0}^\infty \varphi_l^e P_l (cos \alpha)
 \end{equation}
 
-\noindent Il valore dei coefficienti armonici $\varphi_l^e$ si ricava risolvendo equazioni di equilibrio.
+\noindent Il valore dei coefficienti armonici $\varphi_l^e$ si ricava risolvendo equazioni di equilibrio (mi aspetto che $\varphi_l^e \neq \varphi_l^r$).
 Il \textbf{principio di Love} sostiene che tra i coefficienti armonici elastici e quelli relativi alla variazione diretta di potenziale gravitazionale vi sia una relazione diretta:
 
 \begin{equation}
@@ -3348,7 +3351,7 @@ Il \textbf{principio di Love} sostiene che tra i coefficienti armonici elastici 
 \end{equation}
 
 \noindent
-dove il coefficiente adimensionale $k_l^{L,e} = \varphi_l^e / \varphi_l^r$ è il \textit{Numero di carico elastico di Love per il potenziale}.
+dove il coefficiente adimensionale $k_l^{L,e} = \varphi_l^e / \varphi_l^r$ è il \textbf{Numero di carico elastico di Love per il potenziale}.
 La "$L$" all'apice indica che si riferisce al carico, mentre per le maree si ha una "$T$".
 Per una Terra rigida $k_l^{L,e} = 0$, mentre nel caso reale il valore è compreso fra 0 e 1.\\
 
@@ -3406,8 +3409,9 @@ Nel lavoro di Farrell (1972), i numeri di Love elastici da carico sono stati cal
 \subsubsection{\textcolor{colore7}{Funzioni di Green viscoelastiche}}
 
 Nello studio dei modi normali viscoelastici introdotto da Paltier (1974) si dimostra che la risposta della Terra a un carico impulsivo non è istantanea,
-ma presenta un contributo ritardato nel tempo dovuto al riassestamento viscoso del mezzo.
+ma presenta un contributo ritardato nel tempo dovuto al riassestamento viscoso del mezzo.\\
 
+\noindent
 Per un modello di Terra 1D a simmetria sferica con reologia lineare i numeri di Love da carico sono funzioni causali (nulle per $t < 0$) e caratterizzate da due componenti fisicamente distinte:
 
 \begin{itemize}
@@ -3417,8 +3421,6 @@ Per un modello di Terra 1D a simmetria sferica con reologia lineare i numeri di 
 
 \noindent
 La componente viscosa assume una forma multiesponenziale determinata dallo spettro dei modi normali viscoelastici.
-
-\noindent
 Quindi, l'espressione per i numeri di Love da carico in funzione del tempo e del grado armonico $l$ è:
 
 \begin{equation}
@@ -3679,15 +3681,54 @@ Di conseguenza, come primo passo, si adotta un \textbf{approccio semplificato al
 
 \subsubsection{\textcolor{colore7}{Approccio semplificato al carico superficiale}}
 
-Si consideri un problema in cui solo il ghiaccio varia, mentre il carico dell'acqua è distribuito uniformemente sulla superficie (ipotesi eustatica) con la funzione oceano che resta costante.
-Tale problema non rispetta l'autogravitazione ma è utile per affrontare il problema più complesso.
+Mentre la Sea Level Equation (SLE) rappresenta l'equazione fondamentale per l'Aggiustamento Isostatico Glaciale (GIA), il suo utilizzo richiede un approccio gravitazionalmente coerente risolvibile solo per via numerica e iterativa. Per tale motivo, risulta utile introdurre un \textbf{problema di carico semplificato} che ammette una \textbf{soluzione analitica in forma chiusa} senza necessità di iterazioni. 
+Sebbene questo approccio trascuri l'autogravitazione e presenti limitazioni, esso consente di determinare l'ordine di grandezza delle variabili coinvolte nel GIA, di modellare in modo molto realistico il Rimbalzo Post-Glaciale (PGR).\\
 
-Il carico glaciale dato da $\sigma^i (\gamma,t) = \rho^i d^i (\gamma) \chi ^i(\gamma)f^i(t)$ è compensato per conservazione della massa dal carico dell'acqua $\sigma^w(\gamma,t) = \rho^w d^w(t) \chi^w(\gamma)$, dove $d$ indica lo spessore dello strato, $f$ descrive l'evoluzione temporale e $\chi$ è una funzione maschera per i due insiemi, che vale 1 o 0.
-In questo problema $d^w$ non è noto ma è uniforme.
-Si può generalizzare considerando un numero generico di elementi glaciali separati e senza sovrapposizione tra acqua e ghiaccio.
-Il problema ha una soluzione analitica.
-Si considerino carichi superficiali assisimmetrici attorno all'asse z, cioè dei Mascon se $h$ è costante.
-Si possono considerare anche casi più complessi, come uno spessore che varia con l'angolo $d^i = d^i (\theta)$.
+\noindent
+Nel modello si assume che la distribuzione di massa superficiale $\sigma^{iw}(\gamma,t)$ sia una combinazione lineare del carico del ghiaccio ($\sigma^i$) e del carico dell'acqua di fusione ($\sigma^w$):
+
+\begin{equation}
+    \sigma^{iw}(\gamma,t) = \sigma^i (\gamma,t) + \sigma^w (\gamma,t) = \rho^i d^i(\gamma) \chi^i(\gamma) f^i(t) + \rho^w d^w(t) \chi^w(\gamma)
+\end{equation}
+
+\noindent
+Dove:
+\begin{itemize}
+    \item $\rho^i, \rho^w$ sono le densità di ghiaccio e acqua;
+    \item $d^i(\gamma)$ è lo spessore (noto) del ghiaccio nella posizione $\gamma$, mentre $f^i(t)$ ne modula la storia temporale;
+    \item $\chi^i(\gamma)$ e $\chi^w(\gamma)$ sono le funzioni maschera (0 o 1) definite su domini spaziali disgiunti (ipotesi di assenza di ghiaccio marino e shorelines fisse);
+    \item $d^w(t)$ è lo spessore dello strato di meltwater, assunto \textbf{spazialmente uniforme} sulla superficie oceanica (ipotesi eustatica).
+\end{itemize}
+
+\noindent
+L'andamento temporale dello spessore del livello del mare $d^w(t)$, inizialmente incognito, viene ricavato imponendo il \textbf{Principio di Conservazione della Massa} (MCP), il quale richiede che la media globale del carico sulla superficie terrestre sia nulla:
+
+\begin{equation}
+    \langle \sigma^{iw}(\gamma,t) \rangle^e = 0
+\end{equation}
+
+\noindent
+Da questa condizione si ottiene analiticamente lo spessore del livello del mare:
+
+\begin{equation}
+    d^w(t) = -\frac{\rho^i}{\rho^w} \frac{\langle d^i(\gamma)\chi^i(\gamma) \rangle^e}{\langle \chi^w(\gamma) \rangle^e} f^i(t)
+\end{equation}
+
+\noindent
+dove il segno meno indica che un aumento dello spessore glaciale è compensato da un abbassamento uniforme del livello del mare (e viceversa).\\
+
+\noindent
+Generalizzazione ad \textbf{elementi multipli}:
+Il problema si generalizza  al caso di $n^i$ elementi glaciali disgiunti e non sovrapposti all'oceano:
+
+\begin{equation}
+    \sigma^{iw}(\gamma,t) = \rho^i \sum_{n=1}^{n^i} \left( d^{i,n}(\gamma) \chi^{i,n}(\gamma) f^{i,n}(t) \right) + \rho^w d^w(t) \chi^w(\gamma)
+\end{equation}
+
+\noindent
+Generalizzazione ad \textbf{geometrie specifiche}:
+Il problema è risolvibile analiticamente per carichi superficiali assialsimmetrici attorno all'asse $z$.
+In particolare, se lo spessore $h$ è costante si parla di \textit{Mascon}, ma si possono considerare anche casi in cui lo spessore varia con l'angolo colatitudinale, ovvero $d^i = d^i(\theta)$.\\
 
 \subsubsection{\textcolor{colore7}{Carichi discoidali, carichi di calotte e altri carichi}}
 
@@ -3707,14 +3748,23 @@ TABOO permette anche di calcolare i numeri di Love, ma non di risolvere l'equazi
 
 \subsection{\textcolor{colore7}{Introduzione all'equazione del livello marino}}
 
-\subsubsection{\textcolor{colore7}{Varie forme dell'equazione del livello marino}}
-
 Si tratta di un'equazione integrale o implicita, per cui esistono diverse forme di complessità crescente.
-Tiene in considerazione la reologia, la variazione dei ghiacci e del livello del mare (definito come la distanza tra la superficie della Terra solida e la superficie del mare).
+Tiene in considerazione la reologia, la variazione dei ghiacci e del livello del mare (definito come la distanza tra la superficie della Terra solida e la superficie del mare).\\
 
-\noindent \textbf{\textcolor{colore7}{Forma base}}
+\noindent
+\textbf{\textcolor{colore7}{Forma base}}\\
 
-Si confrontano uno stato di riferimento iniziale e uno a un tempo arbitrario:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{fig/mass_conservation_02.png}
+    \caption{Conservazione della massa.}
+    \label{fig:mass_cons}
+\end{figure}
+
+\noindent
+Al tempo $t$ e in $\gamma$, il livello del mare può essere definito come l'offset tra la superficie del mare e la superficie solida della Terra.
+Di conseguenza, per stabilire una forma base per la SLE, confrontiamo i due stati del sistema (Terra Solida + Criosfera + Oceani) mostrati in Figura \ref{fig:mass_cons}, quindi
+uno stato di riferimento iniziale ed uno a un tempo arbitrario:
 
 \begin{equation}
     B_0 (\gamma) = r_0^{ss} - r_0^{se}
@@ -3724,41 +3774,49 @@ Si confrontano uno stato di riferimento iniziale e uno a un tempo arbitrario:
     B(\gamma, t) = r^{ss} - r^{se}
 \end{equation}
 
-dove $ss$ si riferisce alla superficie del mare e $se$ a quella della Terra solida.
+\noindent
+dove $ss$ si riferisce alla superficie del mare e $se$ a quella della Terra solida.\\
 
-\noindent La \textbf{variazione del livello marino relativo} è data dalla differenza:
+\noindent
+La \textbf{variazione del livello marino relativo} è data dalla differenza:
 
 \begin{equation}
     \mathcal{S}(\gamma, t) = B(\gamma, t) - B_0 (\gamma) = (r^{ss} - r_0^{ss}) - (r^{se} - r_0^{se})
 \end{equation}
 
-\noindent La \textbf{variazione del livello marino assoluto} è dato da:
+\noindent
+La \textbf{variazione del livello marino assoluto} è dato da:
 
 \begin{equation}
     \mathcal{N}(\gamma, t) = r^{ss} - r_0^{ss}
 \end{equation}
 
-\noindent Lo \textbf{spostamento verticale della superficie della Terra solida} è data da:
+\noindent
+Lo \textbf{spostamento verticale della superficie della Terra solida} è data da:
 
 \begin{equation}
     \mathcal{U}(\gamma, t) = r^{se} - r_0^{se}
 \end{equation}
 
-\noindent Si ricava così la \textbf{forma base dell'equazione del livello marino}:
+\noindent
+Si ricava così la \textbf{forma base dell'equazione del livello marino}:
 
 \begin{equation}
     \mathcal{S}(\gamma, t) = \mathcal{N} - \mathcal{U}
 \end{equation}
 
-e fornisce la variazione della superficie del mare rispetto al fondale, come viene misurata da un mareografo.
+\noindent
+che fornisce la variazione della superficie del mare rispetto al fondale, come viene misurata da un mareografo.\\
 
-\noindent $\mathcal{N}$ è legato alla variazione dell'altezza del geoide, ma differisce perché la massa dell'oceano cambia a causa della variazione della massa glaciale.
+\noindent
+$\mathcal{N}$ è legato alla variazione dell'altezza del geoide, ma differisce perché la massa dell'oceano cambia a causa della variazione della massa glaciale.
 La variazione dell'altezza del geoide è fornita dalla formula di Brun:
 
 \begin{equation}
     \mathcal{G}(\gamma,t) = \frac{\Phi}{g}
 \end{equation}
 
+\noindent
 dove $\Phi$ è la variazione del potenziale di gravità totale del Sistema Terra.
 Si definisce così una costante non trascurabile (varia di circa $0.2 \div 0.3$ mm/anno) $c$ da cui:
 
@@ -3775,8 +3833,11 @@ Si definisce così una costante non trascurabile (varia di circa $0.2 \div 0.3$ 
 \noindent Per passare a forme più complesse, si considera la media sull'oceano:
 
 \begin{equation}
-    <\mathcal{S}>^o (t) = <\mathcal{G} - \mathcal{U}>^o + <c>^o \text{ , dove } <F>^o \equiv \frac{1}{A^o} \int_o F(\gamma, t) dA
+    <\mathcal{S}>^o (t) = <\mathcal{G} - \mathcal{U}>^o + <c>^o
 \end{equation}
+
+\noindent
+dove $<F>^o \equiv \frac{1}{A^o} \int_o F(\gamma, t) dA$.\\
 
 \noindent Siccome $c$ è costante nello spazio, si ricava così:
 
@@ -3787,22 +3848,28 @@ Si definisce così una costante non trascurabile (varia di circa $0.2 \div 0.3$ 
 \noindent Si ottiene così la \textbf{seconda forma dell'equazione del livello marino}:
 
 \begin{equation}
-    \mathcal{S}(\gamma, t) = (\mathcal{G} - \mathcal{U}) + \mathcal{S}^{ave} - <\mathcal{G} - \mathcal{U}>^o \text{ , dove } \mathcal{S}^{ave} \equiv <\mathcal{S}>^o
+    \mathcal{S}(\gamma, t) = (\mathcal{G} - \mathcal{U}) + \mathcal{S}^{ave} - <\mathcal{G} - \mathcal{U}>^o
 \end{equation}
 
-\noindent Applicando la terza forma del principio di conservazione della massa (eq. ~\ref{eq:MCP3}), si ottiene:
+\noindent
+dove $\mathcal{S}^{ave} \equiv <\mathcal{S}>^o$.\\
+
+\noindent
+Applicando la terza forma del principio di conservazione della massa (eq. \ref{eq:MCP3}), si ottiene:
 
 \begin{equation}
     \mathcal{S}^{ave} (t) = \mathcal{S}^{equ} + \mathcal{S}^{ofu} \equiv - \frac{\mu}{\rho^w A^o} + \frac{A^e}{A^o} <T_0 \mathcal{O}>^e
 \end{equation}
 
+\noindent
 dove $\mathcal{S}^{equ}$ è la variazione del livello marino equivalente (non eustatico) e $\mathcal{S}^{ofu}$ è il termine associato alla variazione della funzione oceano.
-Queste due quantità sono così dinamiche, dipendendo dal tempo e dalla reologia, a differenza del livello eustatico.
+Queste due quantità sono così dinamiche, dipendendo dal tempo e dalla reologia, a differenza del livello eustatico.\\
 
-La variazione dell'altezza del geoide e lo spostamento verticale dipendono da un carico superficiale e dalla deformazione rotazionale:
+\noindent
+La variazione dell'altezza del geoide $\mathcal{G}(\gamma, t)$ e lo spostamento verticale $\mathcal{U}(\gamma, t)$ dipendono da un carico superficiale (\textit{sur}) e dalla deformazione rotazionale (\textit{rot}):
 
 \begin{equation}
-    \mathcal{G}(\gamma, t) = \mathcal{G}^{sur} + \mathcal{G}^{rot} \text{ , }  \mathcal{U}(\gamma, t) = \mathcal{U}^{sur} + \mathcal{U}^{rot}
+    \mathcal{G}(\gamma, t) = \mathcal{G}^{sur} + \mathcal{G}^{rot} , \quad \mathcal{U}(\gamma, t) = \mathcal{U}^{sur} + \mathcal{U}^{rot}
 \end{equation}
 
 \noindent Si introduce la \textbf{funzione di risposta totale del livello marino}:
@@ -3811,23 +3878,39 @@ La variazione dell'altezza del geoide e lo spostamento verticale dipendono da un
     \mathcal{R}(\gamma,t) = \mathcal{G} - \mathcal{U} = \mathcal{R}^{sur} + \mathcal{R}^{rot}
 \end{equation}
 
+\noindent
+con $\mathcal{R}^{sur} (\gamma, t) = \mathcal{G}^{sur} - \mathcal{U}^{sur}$ e con $\mathcal{R}^{rot} (\gamma, t) = \mathcal{G}^{rot} - \mathcal{U}^{rot}$.\\
+
 \noindent Si ottiene così la \textbf{terza forma dell'equazione del livello marino}:
 
 \begin{equation}
-    \mathcal{S}(\gamma,t) = (\mathcal{R}^{sur} - <\mathcal{R}^{sur}>^o ) + \mathcal{S}^{ave} + (\mathcal{R}^{rot} - <\mathcal{R}^{rot}>^o)
+    \mathcal{S}(\gamma,t) = \mathcal{R} + \mathcal{S}^{ave} - \langle R \rangle^0 = (\mathcal{R}^{sur} - \langle \mathcal{R}^{sur} \rangle^o ) + \mathcal{S}^{ave} + (\mathcal{R}^{rot} - \langle\mathcal{R}^{rot} \rangle^o)
 \end{equation}
 
 \subsubsection{\textcolor{colore7}{Forma pseudo-spettrale dell'equazione del livello marino}}
 
-La funzione di risposta totale del livello del mare si ottiene tramite una convoluzione tridimensionale.
-Grazie alla decomposizione della variazione del carico superficiale, si può decomporre così anche $\mathcal{R}$.
-Si definisce la variabile: $\mathcal{Z}(\gamma,t) = O \mathcal{S}$.Così si ottiene la \textbf{forma pseudospettrale dell'equazione del livello marino}:
+L'equazione del livello marino può essere scritta in forma pseudo-spettrale,
+particolarmente adatta per la discretizzazione spaziale e temporale e per soluzioni numeriche.
+
+La funzione di risposta totale del livello del mare si ottiene tramite una convoluzione tridimensionale:
+
+\begin{equation}
+    \mathcal{R}^{sur}(\gamma,t) = \Gamma^{s} \otimes \mathcal{L}
+\end{equation}
+
+\noindent
+quindi, tramite decomposizione della variazione del carico superficiale $\mathcal{L} (\gamma, t) = \mathcal{L}^a + \mathcal{L}^b + \mathcal{L}^c$,
+si decompone anche $\mathcal{R}^{sur} (\gamma, t) = \mathcal{R}^a + \mathcal{R}^b + \mathcal{R}^c$.\\
+
+\noindent
+Si definisce la variabile: $\mathcal{Z}(\gamma,t) = O \mathcal{S}$, si ottiene così la \textbf{forma pseudospettrale dell'equazione del livello marino}:
 
 \begin{equation}
     \mathcal{Z}(\gamma,t) = \mathcal{K}^a + \mathcal{K}^b (\mathcal{Z}) + \mathcal{K}^c + \mathcal{Z}^{ave} + \mathcal{K}^{rot} (\mathcal{Z})
 \end{equation}
 
-\noindent Si può espandere in serie di armoniche sferiche e usare l'integrazione numerica per trovare una soluzione.
+\noindent L'equazione del livello marino può essere espansa in serie di armoniche sferiche,
+tuttavia, dato che la sua soluzione si ottiene numericamente su una griglia sferica, l'approccio pseudo-spettrale è più appropriato di quello spettrale.
 
 \subsubsection{\textcolor{colore7}{Equazione del livello marino di Farrell e Clark}}
 

@@ -214,8 +214,9 @@ Il \textit{Laplaciano} è un operatore differenziale del secondo ordine, definit
 \end{equation}
 
 \noindent Le soluzioni dell'equazione di Laplace sono dette \textbf{funzioni armoniche}.
-Un esempio è il potenziale gravitazionale all'esterno del pianeta.
+Un esempio è il potenziale gravitazionale all'esterno del pianeta.\\
 
+\noindent
 In coordinate sferiche, l'equazione di Laplace assume la forma:
 
 \begin{equation}
@@ -223,17 +224,18 @@ In coordinate sferiche, l'equazione di Laplace assume la forma:
     \label{eq:Laplace_sf}
 \end{equation}
 
+\noindent
 dove $f$ è una funzione del raggio $r$ (diretto verso l'esterno), della colatitudine $\theta$ (diretta verso sud) e della longitudine $\lambda$ (diretta verso est).
-
-\noindent Invece di separare le variabili, si può costruire la soluzione in maniera induttiva, partendo da funzioni semplici.
+Invece di separare le variabili, si può costruire la soluzione in maniera induttiva, partendo da funzioni semplici.
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.7\linewidth]{fig/coordinate_sferiche.png}
+    \includegraphics[width=0.6\linewidth]{fig/coordinate_sferiche.png}
     \caption{Legame tra coordinate cartesiane e sferiche.}
     \label{fig:coordinate_sferiche}
 \end{figure}
 
+\noindent
 Si consideri un vettore nella forma sferica: $\boldsymbol{u} = u_r \hat{\boldsymbol{r}} + u_\theta \hat{\boldsymbol{\theta}} + u_\lambda \hat{\boldsymbol{\lambda}}$.
 Le componenti cartesiane sono date da una trasformazione ortogonale.
 
@@ -354,16 +356,17 @@ Sono polinomi se $m$ è pari.
 Si costruiscono a partire dai polinomi di Legendre:
 
 \begin{equation}
-    P_{lm} (x) = (-1)^m (1 - x^2)^{m/2} \frac{d^m}{dx^m} P_l (x) \text{ , dove } x = cos \theta
+    P_{lm} (x) = (-1)^m (1 - x^2)^{m/2} \frac{d^m}{dx^m} P_l (x)
     \label{eq:polinomi_associati_legendre}
 \end{equation}
 
 \noindent
-dove il fattore $(-1)^m$ è detto \textbf{fase di Condon-Shortley} e in alcuni testi è omesso.
+con $x = cos \theta$; il fattore $(-1)^m$ è detto \textbf{fase di Condon-Shortley} e in alcuni testi è omesso.
 Polinomi associati di Legendre diversi dello stesso ordine sono mutualmente ortogonali.\\
 
-\noindent \textcolor{colore7}{\textbf{Polinomi associati di Legendre normalizzati}}
+\noindent \textcolor{colore7}{\textbf{Polinomi associati di Legendre normalizzati}}\\
 
+\noindent
 Sono spesso preferiti in geodesia e geofisica.
 Si ottengono riscalando i $P_{lm}$ tramite la seguente relazione:
 
@@ -398,13 +401,13 @@ dove
     \mathcal{Y}_{l-m} (\theta , \lambda) = (-1)^m \mathcal{Y}^*_{lm} (\theta , \lambda) 
 \end{equation}
 
-\noindent La scelta del coefficiente di normalizzazione $\mu_{lm}$ fa sì che la condizione di ortonormalità sia data da:
+\noindent La scelta del coefficiente di normalizzazione $\mu_{lm}$ fa sì che l'ortonormalità sia data da:
 
 \begin{equation}
     \int_\gamma \mathcal{Y}_{lm} (\gamma) \mathcal{Y}^*_{l'm'} (\gamma) d\gamma = 4 \pi \delta_{ll'} \delta_{mm'} 
 \end{equation}
 
-\noindent Quindi sono normalizzate a $4\pi$, mentre nel caso della meccanica quantistica, le armoniche sferiche sono normalizzate a 1.
+\noindent Quindi sono normalizzate a $4\pi$, mentre nel caso della meccanica quantistica, le armoniche sferiche sono normalizzate a 1.\\
 
 \noindent Con queste definizioni, si ottengono delle funzioni armoniche \textit{solide} di forma:
 
@@ -432,12 +435,14 @@ Definendo $(a_{lm} r^l + b/ r^{l+1}) = f_{lm}$ si ottiene invece lo sviluppo in 
     F(\theta, \lambda) = \sum_{l=0}^\infty \sum_{m = -l}^l f_{lm} \mathcal{Y}_{lm} (\theta, \lambda)
 \end{equation}
 
+\noindent
 Si osserva un'importante analogia con lo spazio cartesiano: le armoniche sferiche sono la base ortonormale di uno spazio di dimensione infinita:
 
 \begin{equation}
     \vec{v} = \sum_{i = 1}^3 v_i \hat{x}_i \longrightarrow f(\omega) = \sum_{lm} a_{lm} Y_{lm} (\omega)
 \end{equation}
 
+\noindent
 Le armoniche sferiche di grado 0 sono dette \textit{termini di monopolo}, quelle di grado 1 \textit{termini di dipolo} e quelle di grado 2 \textit{termini di quadrupolo}.
 
 Spesso si indicano le funzioni armoniche normalizzate a 1 con $Y_{lm}$ e quelle normalizzate a $4\pi$ con $\mathcal{Y}_{lm}$.
@@ -498,8 +503,6 @@ Si hanno tre tipi di armoniche sferiche (Figura \ref{fig:spherical_harmonics}):
 
 Le armoniche sferiche permettono di rappresentare ogni funzione che varia sulla superficie di una sfera tramite una combinazione lineare, in maniera analoga a come le serie di Fourier permettono di fare con le funzioni che variano nel tempo.
 
-%Il problema inverso costituito dal calcolo dei coefficienti $f_{lm}$ richiede di conoscere innanzitutto $f(\gamma)$ (spesso molto difficile in campo geofisico), poi di integrare $f(\gamma)$ sulla superficie della sfera, per ogni $(l,m)$.
-
 \noindent
 Sia $f(\gamma)$ una funzione reale e a quadrato sommabile, con $\gamma = (\theta, \lambda)$. Si consideri la formula diretta:
 
@@ -535,6 +538,7 @@ Si ricava così la formula inversa:
     f_{lm} = \frac{1}{4\pi} \int_\gamma f(\gamma) \mathcal{Y}^*_{lm} (\gamma) d\gamma
 \end{equation}
 
+\noindent
 Il problema inverso costituito dal calcolo dei coefficienti $f_{lm}$ richiede di conoscere la funzione $f(\gamma)$ su tutta la superficie della sfera, il che risulta spesso impossibile in campo geofisico. 
 Questo limita il calcolo di $f_{lm}$ e il valore di $l_{max}$ a un valore finito, che dipende dalla densità dei punti di griglia.\\
 
@@ -574,7 +578,7 @@ La formula deriva dalle proprietà dei polinomi di Legendre, per cui è possibil
     \langle f (\gamma) \rangle &= \frac{1}{4 \pi} \int_\gamma f(\gamma)d\gamma = \frac{1}{4 \pi} \int_\gamma \left( \sum_{lm} f_{lm} \mathcal{Y}_{lm} (\gamma) \right)d\gamma \\ &= \frac{1}{4 \pi} \sum_{lm} f_{lm} \int_\gamma \mathcal{Y}_{lm} (\gamma) d\gamma = \sum_{lm} f_{lm} \langle \mathcal{Y}_{lm} \rangle = \sum_{lm} f_{lm} \delta_{l0} \delta_{m0} \\ &= f_{00} 
 \end{align}
 
-
+\noindent
 Quindi solo l'armonica di grado e ordine $(l,m) = (0,0)$, ovvero $\mathcal{Y}_{00} = 1$ ha media unitaria, tutte le altre hanno media nulla.
 Se $f(\gamma)$ ha media nulla sulla superficie unitaria $\gamma$, allora nel suo sviluppo manca il termine $(l,m) = (0,0)$.\\
 
@@ -673,8 +677,9 @@ Per cui si distinguono tre casi:
 \noindent
 In particolare, lo spettro del geoide segue la \textit{regola di Kaula}: $S \propto l^{-2.16}$, ma il significato di questa osservazione non è ancora stato compreso.\\
 
-\noindent \textbf{\textcolor{colore4}{Spettro armonico della $\delta$ di Dirac}}
+\noindent \textbf{\textcolor{colore4}{Spettro armonico della $\delta$ di Dirac}}\\
 
+\noindent
 Sviluppando la $\delta$ di Dirac in funzioni armoniche e applicando il teorema di addizione, si osserva che lo spettro non dipende dal grado, per cui è bianco. 
 
 \subsection{\textcolor{colore4}{Funzione Oceano}}
@@ -708,7 +713,7 @@ Un'importante applicazione delle funzioni armoniche è quella dell'analisi spett
 
 \noindent Tale integrale si può valutare solo numericamente, attraverso due approcci:\\
 
-\noindent \textbf{A: metodo classico}
+\noindent \textbf{A: metodo classico}\\
 
 \noindent
 Si suddivide la superficie terrestre in $N$ quadrilateri, così da spezzare il calcolo di $o_{lm}$ nella somma di $N$ contributi.
@@ -719,7 +724,7 @@ Si verifica che lo spettro della funzione Oceano è rosso e che gli oceani hanno
 \noindent Grazie ai coefficienti armonici dello sviluppo è possibile ricostruire la funzione originale grazie alla combinazione lineare delle armoniche sferiche complesse.
 Si nota che ponendo $l_{max} = 72$ si ottengono delle linee di costa squadrate che riflettono la suddivisione operata in questo approccio.\\
 
-\noindent \textbf{B: metodo geodetico}
+\noindent \textbf{B: metodo geodetico}\\
 
 \noindent
 Si suddivide la superficie terrestre in una griglia geodesica in cui ogni cella ha area equivalente, con la geometria basata su quella dell'icosaedro.
@@ -740,7 +745,7 @@ Un metodo simile si basa sulla griglia di Fibonacci regolarizzata ai poli.
 \section{\textcolor{colore2}{Geosfera, geodinamica e Sistema Terra}}
 
 All'inizio del XX secolo, il pioniere della ricerca polare Alfred Wegener propose la \textbf{teoria della deriva dei continenti}, su cui si basa l'odierna \textbf{teoria della tettonica delle placche} (dal greco "costruire").
-La teoria, secondo la quale le masse continentali si muovoono lentamente separandosi da un unico supercontinente chiamato Pangea, fu inizialmente screditata.
+La teoria, secondo la quale le masse continentali si muovono lentamente separandosi da un unico supercontinente chiamato Pangea, fu inizialmente screditata.
 Solamente a partire dagli anni Cinquanta fu accettata, grazie a nuove scoperte a supporto di questa teoria, come evidenze nel campo del paleomagnetismo.\\
 
 \noindent
@@ -3891,7 +3896,6 @@ con $\mathcal{R}^{sur} (\gamma, t) = \mathcal{G}^{sur} - \mathcal{U}^{sur}$ e co
 
 L'equazione del livello marino può essere scritta in forma pseudo-spettrale,
 particolarmente adatta per la discretizzazione spaziale e temporale e per soluzioni numeriche.
-
 La funzione di risposta totale del livello del mare si ottiene tramite una convoluzione tridimensionale:
 
 \begin{equation}

@@ -778,6 +778,7 @@ Probabilmente in precedenza si verificarono altri eventi simili.\\
     \item Non è chiaro quale forza origini la deriva dei continenti.
 \end{enumerate}
 
+\noindent
 Wegener propose una forza detta \textit{Polflucht} (dal tedesco "volo dai poli"), dovuta alla forza centrifuga, che sposterebbe i continenti verso l'Equatore, ma essa sarebbe comunque troppo debole per spiegare questa disgregazione.
 
 \subsection{\textcolor{colore2}{Osservazioni a supporto della teoria della tettonica delle placche}}
@@ -873,8 +874,10 @@ Lo studio di come la massa è distribuita all'interno di un corpo è fondamental
 Nel caso del nostro pianeta, il campo di gravità e la forma stessa della Terra sono la manifestazione diretta della sua distribuzione interna di massa.
 Di conseguenza, analizzare queste distribuzioni risulta essenziale per la geodesia e la geofisica.\\
 
+\noindent
 Le componenti fluide della Terra e il suo moto di rotazione ne influenzano il campo di gravità.
 Per un corpo deformabile come la Terra, infatti, la distribuzione della massa è fortemente influenzata dalla rotazione stessa; viceversa, qualsiasi variazione temporale nella distribuzione delle masse va a modificare i parametri di rotazione terrestre.
+
 
 Le distribuzioni di massa variano nel tempo a causa di una vasta gamma di processi che spaziano su diverse scale temporali:
 processi climatici come variazioni a breve e lungo termine legati al ciclo dell'acqua, allo scioglimento dei ghiacci e alle dinamiche atmosferiche e oceaniche;
@@ -985,15 +988,18 @@ Quindi, per una distribuzione di massa si sfrutta il principio di sovrapposizion
     \label{eq:campo_gravitazionale}
 \end{equation}
 
+\noindent
 Siccome si tratta di un campo centrale, la circuitazione è nulla e, grazie al teorema di Stokes, si dimostra che è anche irrotazionale.
 Si può allora definire il campo a partire da un \textbf{potenziale gravitazionale} scalare: $\vec{g} = \nabla U$.\\
 
-\noindent Il flusso del campo gravitazionale attraverso una superficie sferica $S$ di raggio $r$ è dato da:
+\noindent
+Il flusso del campo gravitazionale attraverso una superficie sferica $S$ di raggio $r$ è dato da:
 
 \begin{equation}
     \Phi_S (\vec{g}) \equiv \int_S \vec{g} \cdot \vec{S} = \int_S \vec{g} \cdot \hat{n} dS = 4 \pi r^2 \vec{g} \cdot \hat{n} = - 4 \pi r^2 \frac{GM}{r^2} = - 4 \pi GM
 \end{equation}
 
+\noindent
 cioè dipende solamente dalla massa contenuta nella sfera (legge di Gauss per il campo gravitazionale).\\
 
 \noindent
@@ -3918,20 +3924,41 @@ tuttavia, dato che la sua soluzione si ottiene numericamente su una griglia sfer
 
 \subsubsection{\textcolor{colore7}{Equazione del livello marino di Farrell e Clark}}
 
-La prima forma dell'equazione del livello marino non considerava gli effetti della rotazione terrestre sul livello marino, assumeva che le coste avessero un profilo verticale e trascurava il ghiaccio marino grounded.
-Era un'equazione implicita ($\mathcal{S}$ compariva sia a destra sia a sinistra).
+L'equazione del livello marino (SLE, \textit{Sea Level Equation}) nella sua formulazione classica è stata introdotta nel lavoro fondamentale di Farrell e Clark (1976 - FC76).\\
 
-\noindent \textbf{Equazione del livello marino di Farrell e Clark, 1976}:
+\noindent
+Nella teoria classica di FC76 vengono fatte tre assunzioni semplificative, rimosse successivamente nella teoria generale della SLE:
+
+\begin{enumerate}
+    \item Si trascurano gli effetti della \textbf{rotazione terrestre} sul livello marino.
+    \item Si assume che le coste abbiano un \textbf{profilo verticale} (tipo scogliera) coincidente con i confini attuali tra oceani e masse continentali. Come descritto dagli stessi autori, la topografia e la batimetria irregolare vengono ignorate, a meno di non voler considerare la variazione del dominio di integrazione introducendo una funzione oceanica ($OF$) variabile nel tempo.
+    \item Si trascura il ghiaccio marino \textbf{grounded}.
+\end{enumerate}
+
+L'equazione proposta da FC76 è un'equazione implicita ($\mathcal{S}$ compare sia a destra sia a sinistra del segno di uguale):
 
 \begin{equation}
     \mathcal{S}(\gamma,t) = \rho^i \Gamma^s \otimes_i \mathcal{I} + \rho^w \Gamma^s \otimes_o \mathcal{S} + \mathcal{S}^{eus} - \rho^i < \Gamma^s \otimes_i \mathcal{I}>^o - \rho^w <\Gamma^s \otimes_o \mathcal{S}>^o
 \end{equation}
 
-Dove compaiono convoluzioni sulle regioni coperte dai ghiacciai e sull'oceano e il termine eustatico $\mathcal{S}^{eus}(t) = - \mu / \rho^w A^{op}$, dove $A^{op}$ è l'area attuale degli oceani e $\mu$ la variazione della massa del ghiaccio.
+\noindent
+Dove:
+\begin{itemize}
+    \item $\otimes_i$ e $\otimes_o$ rappresentano le convoluzioni spazio-temporali eseguite, rispettivamente, sulle regioni coperte dai ghiacciai e sull'oceano;
+    \item $\Gamma^s$ è la Green's function per il carico superficiale;
+    \item $\mathcal{I}$ è la variazione dello spessore del ghiaccio e $\mathcal{S}$ è la variazione del livello marino;
+    \item $\langle \dots \rangle^o$ indica l'operatore di media spaziale sulla superficie degli oceani;
+    \item $\mathcal{S}^{eus}(t)$ è il \textbf{termine eustatico}, definito come:
+    \begin{equation}
+        \mathcal{S}^{eus}(t) = - \frac{\mu(t)}{\rho^w A^{op}}
+    \end{equation}
+    dove $A^{op}$ è l'area attuale (costante) degli oceani e $\mu$ è la variazione della massa del ghiaccio.
+\end{itemize}
 
 \subsubsection{\textcolor{colore7}{Natura dell'equazione del livello marino}}
 
-L'incognita $\mathcal{S}$ compare sia a destra che a sinistra, anche all'interno di convoluzioni integrali, per cui si tratta di un' \textit{equazione di Fredholm inomogenea del II tipo}, che ha la forma:
+L'incognita $\mathcal{S}$ compare sia a destra che a sinistra, anche all'interno di convoluzioni integrali,
+per cui si tratta di un'\textit{equazione di Fredholm inomogenea del II tipo}, che ha la forma:
 
 \begin{equation}
     u(x) = f(x) + \int_a^b K(x,x')u(x') dx'
@@ -3949,16 +3976,44 @@ Omettendo nell'equazione FC76 tutti i termini in cui compaiono le funzioni di Gr
     \mathcal{S}(\gamma,t) = \mathcal{S}^{eus}(t) \equiv - \frac{\mu}{\rho^w A^{op}}
 \end{equation}
 
-Che equivale ad assumere che la Terra sia rigida e che la ridistribuzione di massa sulla sua superficie non ne perturbi il potenziale gravitazionale (nessuna reologia né autogravitazione).
-Non c'è differenza, in questo caso, tra livello marino assoluto e relativo.
-La soluzione dipende solo dalla massa dei ghiacciai e dall'area degli oceani.
-la media oceanica della soluzione non eustatica corrisponde alla soluzione eustatica: $<\mathcal{S}(\gamma,t)>^o = \mathcal{S}^{eus}$.
+\noindent
+Una condizione sufficiente affinché si verifichi questa soluzione è che le funzioni di spostamento verticale ($\mathcal{U}$) e di perturbazione del potenziale gravitazionale ($\mathcal{G}$) siano nulle ($\mathcal{U}=0$, $\mathcal{G}=0$).
+Ciò equivale ad assumere:
+\begin{enumerate}
+    \item Una \textbf{Terra perfettamente rigida} (trascurando la reologia terrestre).
+    \item Una \textbf{Terra non gravitante} (assumendo la costante di Newton $G=0$), per cui la ridistribuzione di massa sulla superficie non ne perturba il potenziale gravitazionale.
+\end{enumerate}
+
+\noindent
+Sotto queste ipotesi, poiché la superficie della Terra non si deforma ($\mathcal{U}=0$), il livello marino relativo ($\mathcal{S}$) coincide esattamente con la variazione assoluta della superficie marina ($\mathcal{N}$), ovvero $\mathcal{S} = \mathcal{N}$. Non vi è quindi alcuna differenza tra variazione del livello marino assoluto e relativo.\\
+
+\noindent
+Sebbene la soluzione eustatica sia una pessima approssimazione della realtà, esiste una relazione formale tra quest'ultima e la soluzione effettiva della SLE.
+Calcolando la media oceanica $\langle \dots \rangle^o$ di entrambi i membri della SLE di FC76 si ottiene:
+
+\begin{equation}
+    \langle \mathcal{S}(\gamma,t) \rangle^o = \mathcal{S}^{eus}(t)
+\end{equation}
+
+\noindent
+Fisicamente, questo significa che \textbf{la media oceanica della soluzione non eustatica (dinamica) corrisponde esattamente alla soluzione eustatica}.
+Questa uguaglianza è una diretta conseguenza della conservazione della massa ed è pertanto indipendente dalla cronologia dei ghiacciai, dalla reologia del mantello, dalla geometria delle coste e dagli effetti rotazionali.
 
 \subsubsection{\textcolor{colore7}{Soluzione di Woodward}}
 
-Assumendo una Terra rigida e un oceano uniforme si considera una piccola massa di acqua che ghiaccia.
-Si osserva che il livello marino aumenta vicino alla massa ghiacciata puntiforme mentre diminuisce a grande distanza angolare.
-Il livello marino corrisponde a quello eustatico solamente a una distanza angolare di circa 20 °.
+Per comprendere l'effetto dell'autogravitazione terrestre senza le complicazioni della reologia,
+si fa riferimento al modello idealizzato di Woodward.\\
+
+\noindent
+Assumendo una \textbf{Terra rigida ed elastica, coperta da un oceano uniforme}, si studia l'effetto dell'istantaneo scioglimento o accumulo di una massa di ghiaccio puntiforme.
+A causa dell'attrazione gravitazionale tra la massa d'acqua oceanica e la massa glaciale concentrata:
+\begin{itemize}
+    \item Il livello del mare \textbf{aumenta} nelle vicinanze della massa glaciale, poiché l'attrazione gravitazionale del ghiaccio "attira" l'acqua verso di sé;
+    \item Il livello del mare \textbf{diminuisce} a grande distanza angolare dalla massa di ghiaccio.
+\end{itemize}
+
+\noindent
+Il livello marino reale corrisponde al valore eustatico medio \textbf{solamente a una distanza angolare critica di circa $20^\circ$} dalla massa perturbatrice. A distanze inferiori l'effetto gravitazionale locale sovrasta il valore medio eustatico, mentre a distanze superiori il livello scende al di sotto di esso.
 
 \subsubsection{\textcolor{colore7}{Forma completa dell'equazione del livello marino}}
 
@@ -3966,6 +4021,7 @@ Il livello marino corrisponde a quello eustatico solamente a una distanza angola
     S = \frac{\rho_i}{\gamma} G_s \otimes_iI + \frac{\rho_w}{\gamma} G_s \otimes_o S - \frac{m_i}{\rho_w A_o} - \frac{\rho_i}{\gamma} \overline{G_s \otimes_iI} - \frac{\rho_w}{\gamma} \overline{G_s \otimes_oS}
 \end{equation}
 
+\noindent
 dove:
 
 \begin{itemize}

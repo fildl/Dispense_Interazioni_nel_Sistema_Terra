@@ -1667,7 +1667,7 @@ Il termine deriva dal greco e indica lo studio di flussi e deformazioni dei mate
 
 \noindent
 Il concetto di corpo rigido fu introdotto da Archimede, ma trova la sua formalizzazione matematica con Newton nel 1687.
-Hooke definì le basi dell'elasticità (1678), mentre Bernoulli ed Eulero iniziarono a descrivere i fluidi invisicidi (1800s)
+Hooke definì le basi dell'elasticità (1678), mentre Bernoulli ed Eulero iniziarono a descrivere i fluidi invisicidi (1800s).
 Successivamente furono studiati fluidi e materiali viscoelastici, fino all'avvento della reologia nel 1929.\\
 
 \noindent
@@ -1719,7 +1719,7 @@ La forma generale delle equazioni costitutive mette in relazione le quantità ci
 dove $R$ rappresenta la funzione reologica, $\varepsilon$ lo strain, $\sigma$ lo stress ed $\{M\}$ il vettore di parametri materiali.
 Queste relazioni si ottengono da evidenze sperimentali e da principi fisici.
 La classificazione di un materiale in classi reologiche (come elstico, plastico o viscoso) riflette il tipo di equazione reologica che lo descrive.
-si distinguono diversi comportamenti reologici.
+Si distinguono diversi comportamenti reologici.
 
 \begin{table}[h]
     \centering
@@ -1873,6 +1873,8 @@ Il comportamento elastico è valido esclusivamente al di sotto di una sollecitaz
 Superata questa soglia, il materiale devia dalla linearità; per cui questa legge non spiega tutta la reologia.
 La "costante" di proporzionalità $E$ (modulo di Young) in realtà aumenta con la pressione e diminuisce con la temperatura.
 Il corpo elastico non subisce rilassamento.\\
+
+\noindent
 La litosfera superiore può essere modellata come un corpo elastico per carichi superficiali con durata dell'ordine di milioni di anni, sebbene la sua risposta reale sia viscoelastica.
 Al contrario, tutta la Terra si comporta elasticamente (con imperfezioni) per carichi di breve durata (dai secondi alle ore),
 il che rende la sismologia adatta ad un'analisi di tipo elastico.\\
@@ -2160,7 +2162,7 @@ Tale principio risulta evidente applicando le trasformate di Laplace.\\
 
 \noindent
 $\sigma (t) = \sigma_0 H(t) \Longrightarrow \tilde{\sigma} = \sigma_0 / s$.
-Si ricava la \textit{creep compliance}, cioè lo strain per unità di stress in un esperimento di creep, che dipende dalla natura reologica del corpo:
+Si ricava la \textbf{creep compliance} $\tilde J_M$, cioè lo strain per unità di stress in un esperimento di creep, che dipende dalla natura reologica del corpo:
 
 \begin{equation}
     \frac{\tilde{\varepsilon}}{\sigma_0} = \frac{1}{s \tilde{E}_M} \equiv \tilde{J}_M
@@ -2260,6 +2262,8 @@ Dall'antitrasformata di Laplace di questa relazione, si ottiene:
 
 \noindent
 \textbf{Tempo di rilassamento di Maxwell della Terra}\\
+
+\noindent
 Il tempo di rilassamento di Maxwell della Terra è così dato dalla stima della viscosità derivante dagli studi del rimbalzo post-glaciale e dall'elasticità data dal modello PREM:
 
 \begin{equation}
@@ -2274,6 +2278,7 @@ Si può così definire il \textbf{numero di Deborah} (dal nome della profetessa 
 
 \begin{equation}
     De = \frac{\tau_{rel}}{\tau_{exp}} = \frac{\text{tempo di rilassamento}}{\text{tempo scala dell'esperimento}}
+    \label{eq:deborah}
 \end{equation}
 
 \noindent
@@ -2320,7 +2325,7 @@ Vale il principio di corrispondenza della viscoelasticità lineare, come nel cas
 \textbf{Creep test per un corpo di Kelvin-Voigt}\\
 
 \noindent
-$\sigma(t) = \sigma_0 H(t) \Longrightarrow \tilde{\sigma} / s$.
+$\sigma(t) = \sigma_0 H(t) \Longrightarrow \tilde{\sigma} = \sigma_0 / s$.
 La creep compliance del corpo di Kelvin-Voigt è data da:
 
 \begin{equation}
@@ -2330,7 +2335,7 @@ La creep compliance del corpo di Kelvin-Voigt è data da:
 \noindent Sostituendo, si ha:
 
 \begin{equation}
-    \tilde{E}_K = \eta \left( s + \frac{1}{\tau_K} \right) \Longrightarrow \tilde{J}_K = \frac{1}{\eta} \cdot \frac{1}{s} \cdot \left( \frac{1}{s + 1/\tau_K} \right)
+    \tilde{E}_K = \eta \left( s + \frac{1}{\tau_K} \right) \Longrightarrow \tilde{J}_K = \frac{1}{\eta s} \left( \frac{1}{s + 1/\tau_K} \right)
 \end{equation}
 
 \noindent Per ottenere la creep compliance nel dominio temporale, è necessario applicare il teorema di convoluzione al prodotto di due trasformate di Laplace.
@@ -2517,9 +2522,16 @@ con $n$ un intero o $n=\infty$.
 Questo modello tiene conto del fatto che il tempo di rilassamento non avviene ad un singolo tempo.
 Prevede una risposta iniziale elastica, un periodo di transizione ed una fase stazionaria.\\
 
-\noindent
+\subsection{\textcolor{colore7}{Modello di Burgers}}
+
 Il \textbf{modello di Burgers} ($M - KV$) mostra un comportamento iniziale elastico, seguito da un creep transiente e da uno smorzamento delle vibrazioni su scale temporali ridotte, mentre su quelle più lunghe tende a mostrare un comportamento viscoelastico lineare.
-Si utilizza spesso per modellare la reologia del mantello.\\
+Si utilizza spesso per modellare la reologia del mantello.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{fig/burgers_body.png}
+    \caption{Analogo meccanico del modello di Burgers.}
+\end{figure}
 
 \noindent
 \textbf{Creep test per il modello di Burgers}\\
@@ -2559,7 +2571,6 @@ con $G_1$, $G_2$, $\tau_1$ e $\tau_2$ costanti positive determinate dai parametr
     \label{fig:burgers_relaxation}
 \end{figure}
 
-\newpage
 \noindent
 \textbf{Loading/unloading test per il modello di Burgers}\\
 
@@ -2866,7 +2877,7 @@ Diverse combinazioni di reologia e glaceoisostasia fittano le stesse osservazion
 
 \subsection{\textcolor{colore7}{Motivazione}}
 
-La superficie terrestre è sottoposta al carico della massa dell'atmosfera, degli oceani e dei continenti; questi possono variare nel tempo e causare una risposta elastica o viscoelastica, a seconda del numero di Deborah.
+La superficie terrestre è sottoposta al carico della massa dell'atmosfera, degli oceani e dei continenti; questi possono variare nel tempo e causare una risposta elastica o viscoelastica, a seconda del numero di Deborah (Eq. \ref{eq:deborah}).
 Terremoti, eruzioni vulcaniche, moti mareali e frane possono variare il carico sulla superficie.\\
 
 \noindent
@@ -2895,9 +2906,10 @@ dove $P$ rappresenta il carico e $R = \sqrt{r^2 + z^2}$.
 \end{figure}
 
 \noindent
-In questo modello compressibile, la componente verticale è sempre positiva,
-quindi, con un sistema di riferimento con asse $z$ come quello in Figura \ref{fig:boussinesq}, la componente verticale è diretta verso il basso.
-La deformazione in direzione radiale è negativa, quindi avviene verso il centro.\\
+Si calcolano le deformazioni sulla superficie $(z = 0)$ in questo modello compressibile (Figura \ref{fig:boussinesq}).
+La componente verticale $u_z$ è sempre positiva, quindi diretta verso il basso: non c'è nessun \textit{forebulge}, ovvero una deformazione verso l'alto.
+La deformazione in direzione radiale $u_r$ è negativa, quindi avviene verso il centro.
+Per $x \rightarrow 0$ c'è una singolarità.\\
 
 \noindent
 Il problema di Kelvin coinvolge un carico puntiforme su corpo elastico infinito;
@@ -2918,7 +2930,7 @@ Coi modelli di Farrell e di Boussinesq si modella il rimbalzo post-glaciale.
 \subsection{\textcolor{colore7}{Topografia, livello marino e distribuzione di acqua e ghiaccio}}
 
 Si può caratterizzare una distribuzione superficiale di massa grazie alle \textbf{funzione oceano},
-definita a partire dallo spessore del ghiaccio $I(\gamma, t)$ e dalla topografia $T(\gamma, t)$:
+definita a partire dallo \textbf{spessore del ghiaccio} $I(\gamma, t)$ e dalla \textbf{topografia} $T(\gamma, t)$:
 
 \begin{equation}
     \mathcal{O}(\gamma,t) \equiv \begin{cases}
@@ -2958,8 +2970,9 @@ Si hanno cinque possibilità per i valori della funzione oceano, illustrati nell
 \textbf{Ghiaccio galleggiante} $\mathcal{O} = 1$ ($I>0$ e $T<0$)\\
 
 \noindent
-Per principio di isostasia tutte le colonne devono avere la stessa massa: $\rho^w B(\gamma, t) = \rho^i I + \rho^w y$ (Figura \ref{fig:floating_ice}.)
-Segue che $T(\gamma, t) + \frac{\rho^i}{\rho^w} I(\gamma, t) < 0$, quindi il ghiaccio è più leggero della colonna d'acqua: $\mathcal{O} = 1$ e $\mathcal{C} = 0$.\\
+Per principio di isostasia tutte le colonne devono avere la stessa massa: $\rho^w B(\gamma, t) = \rho^i I + \rho^w y$ (Figura \ref{fig:floating_ice}),
+con $y$ lo spessore dello strato d'acqua sotto la colonna di ghiaccio.
+Dato che $y > 0$, segue che $T(\gamma, t) + \frac{\rho^i}{\rho^w} I(\gamma, t) < 0$, quindi il ghiaccio è più leggero della colonna d'acqua: $\mathcal{O} = 1$ e $\mathcal{C} = 0$.\\
 
 \begin{figure}[h!]
     \centering
@@ -3166,7 +3179,7 @@ associati alle variazioni dello spessore del ghiaccio, del livello del mare e de
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.5\linewidth]{fig/mass_conservation_01.png}
+    \includegraphics[width=0.6\linewidth]{fig/mass_conservation_01.png}
     \caption{Conservazione della massa.}
 \end{figure}
 
@@ -3184,7 +3197,7 @@ In forma integrale
 che si può esprimere anche tramite la media della variazione del carico superficiale sulla superficie della Terra:
 
 \begin{equation}
-    <\mathcal{L}(\gamma, t) >^e = \equiv \frac{1}{A^e} \int_e \mathcal{L}(\gamma, t) dA
+    \langle \mathcal{L}(\gamma, t) \rangle^e \equiv \frac{1}{A^e} \int_e \mathcal{L}(\gamma, t) dA
 \end{equation}
 
 \noindent
@@ -3192,7 +3205,7 @@ Con $A^e = \int_e dA = 4\pi a^2$ l'area della superficie terrestre.
 Grazie allo sviluppo in funzioni armoniche, inoltre, vale:
 
 \begin{equation}
-    F(\gamma, t) = \sum_{lm} F_{lm} (t) \mathcal{Y}_{lm}(\gamma) \Longrightarrow <F(\gamma, t)> = \frac{1}{4\pi} \int_\gamma F(\gamma, t) dA = F_{00}(t)
+    F(\gamma, t) = \sum_{lm} F_{lm} (t) \mathcal{Y}_{lm}(\gamma) \quad \Longrightarrow \quad \langle F(\gamma, t)\rangle = \frac{1}{4\pi} \int_\gamma F(\gamma, t) dA = F_{00}(t)
 \end{equation}
 
 \noindent
@@ -3264,19 +3277,22 @@ I modelli 1D sono abbastanza realistici se le discrepanze sono poco rilevanti.
 Le assunzioni di base sono:
 
 \begin{enumerate}
-    \item Terra isotropa, autogravitante (il campo gravitazionale non cambia) e incomprimibile;
+    \item Terra isotropa, autogravitante (il campo gravitazionale non cambia) e incomprimibile, quindi si assume che il volume non cambia;
     \item nucleo fluido, uniforme e inviscido;
-    \item mantello con reologia viscoelastica di Maxwell;
-    \item litosfera elastica.
+    \item mantello stratificato sfericamente e con reologia viscoelastica di Maxwell;
+    \item litosfera elastica e di spessore uniforme.
 \end{enumerate}
 
 \noindent
-Questi modelli sono detti 1D perché, data la simmetria sferica, i parametri reologici dipendono solo dal raggio $r$.
+Questi modelli sono detti 1D perché, data la simmetria sferica, i parametri reologici $\eta$, le costanti di Lame $\lambda$ e $\mu$ e la densità $\rho$ dipendono solo dal raggio $r$.
 Tuttavia, dato che il carico superficiale è distribuito in maniera non uniforme, la risposta dei modelli 1D deve essere tridimensionale e dipendente dal tempo.\\
 
 \noindent
 Il vantaggio di questi modelli è l'esistenza di soluzioni analitiche ben note.
-A partire da tali assunzioni è poi possibile complicare i modelli considerando stratificazioni e comprimibilità, per esempio usando il modello \textit{viscoelastic normal mode theory}.
+Ad esempio, per i modelli 1D GIA (Aggiustamento Isostatico Glaciale), la risposta della Terra è ben descritta dai numeri di Love,
+per i quali sono disponibili soluzioni a forma chiusa.
+A partire da tali assunzioni è poi possibile complicare i modelli includendo la stratificazione e la comprimibilità ed escludendo l'autogravitazione,
+usando ad esempio la teoria dei \textit{modi normali viscoelastici}.
 
 \subsubsection{\textcolor{colore7}{Funzione diretta di Green (Terra rigida)}}
 
@@ -3349,7 +3365,7 @@ Dove i coefficienti armonici $\varphi _l^r \equiv \frac{ag}{m^e}$ sono uguali: l
 
 \subsubsection{\textcolor{colore7}{Funzioni di Green incrementali (Terra elastica)}}
 
-Se la Terra è deformabile, la variazione della distribuzione di massa aggiunge un \textit{contributo indiretto} alla variazione del potenziale gravitazionale,
+Se la Terra è deformabile, la variazione della distribuzione di massa aggiunge un \textbf{contributo indiretto} alla variazione del potenziale gravitazionale,
 per cui la funzione di Green corrispondente si può esprimere tramite la seguente espansione:
 
 \begin{equation}
@@ -3402,7 +3418,7 @@ Per una Terra rigida si avrebbe $(h,k,l)_l^{L,e} \equiv 0$, mentre per una elast
 
 \subsubsection{\textcolor{colore7}{Numeri di Love elastici}}
 
-I numeri di Love $(h, k, l)$ sono parametri adimensionali che misurano la suscettibilità della forma di un corpo planetario a un potenziale perturbativo.
+I numeri di Love $(h, k, l)$ sono parametri adimensionali che misurano la suscettibilità della forma di un corpo planetario a un potenziale perturbativo (originariamente mareale).
 Introdotti originariamente da Love (1909) per la risposta elastica globale alle maree, il termine può indicare:
 
 \begin{itemize}

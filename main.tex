@@ -2881,7 +2881,8 @@ La superficie terrestre è sottoposta al carico della massa dell'atmosfera, degl
 Terremoti, eruzioni vulcaniche, moti mareali e frane possono variare il carico sulla superficie.\\
 
 \noindent
-Il \textbf{modello di Boussinesq} prevede una Terra piatta ed elastica, con modulo di shear $\mu$ e rapporto di Poisson $\nu$ costanti, su cui viene esercitato un carico.
+Il \textbf{modello di Boussinesq} prevede una Terra piatta ed elastica, con modulo di shear $\mu$ e rapporto di Poisson $\nu$ costanti,
+su cui viene esercitato un carico localizzato $P$.
 La deformazione avviene sia in orizzontalmente in direzione radiale:
 
 \begin{equation}
@@ -2897,6 +2898,7 @@ che in verticalmente:
 
 \noindent
 dove $P$ rappresenta il carico e $R = \sqrt{r^2 + z^2}$.
+In direzione azimutale non c'è deformazione: $u_\theta = 0$.
 
 \begin{figure}[H]
     \centering
@@ -2906,7 +2908,7 @@ dove $P$ rappresenta il carico e $R = \sqrt{r^2 + z^2}$.
 \end{figure}
 
 \noindent
-Si calcolano le deformazioni sulla superficie $(z = 0)$ in questo modello compressibile (Figura \ref{fig:boussinesq}).
+Si calcolano le deformazioni sulla superficie $(z = 0)$ in questo modello compressibile (Figura \ref{fig:boussinesq}) con rapporto di Poisson $\nu = 0.25$.
 La componente verticale $u_z$ è sempre positiva, quindi diretta verso il basso: non c'è nessun \textit{forebulge}, ovvero una deformazione verso l'alto.
 La deformazione in direzione radiale $u_r$ è negativa, quindi avviene verso il centro.
 Per $x \rightarrow 0$ c'è una singolarità.\\
@@ -3397,21 +3399,46 @@ Per una Terra rigida $k_l^{L,e} = 0$, mentre nel caso reale il valore è compres
 \end{equation}
 
 \noindent
-Dove nelle parentesi compaiono il termine $1$ che descrive la variazione diretta e il termine $k_l^{L,e}$ che descrive l'effetto indiretto dovuto all'elasticità della Terra.
-A causa degli effetti elastici, si ha anche uno spostamento verticale, per cui si esprime anche la \textbf{funzione di Green elastica dello spostamento verticale}:
+Da questa espressione si deduce che la variazione dell'altezza del geoide è dovuta al carico esercitato dalla massa puntuale:
+il termine $1$ descrive la variazione diretta e il termine $k_l^{L,e}$ che descrive l'effetto indiretto dovuto all'elasticità della Terra.\\
+
+\noindent
+A causa degli effetti elastici, si ha anche uno spostamento verticale,
+per cui la \textbf{funzione di Green elastica associata allo spostamento verticale del campo} è:
+
+\begin{equation}
+    \Gamma^{u}(\alpha, t) = \delta(t) \sum_{l=0}^\infty u_l^{e} P_l (cos \alpha)
+\end{equation}
+
+\noindent
+con coefficienti $u_l^e$.
+Dato che non c'è contributo rigido, la funzione di Green per lo spostamento verticale totale
+coincide con quella elastica: $\Gamma^u (\alpha, t) = \Gamma^{u,e}$.\\
+
+\noindent
+Si definiscono i \textbf{numeri di Love per un carico verticale} $h_l^{L,e}$; quindi:
 
 \begin{equation}
     \Gamma^{u}(\alpha, t) = \delta(t) \frac{a}{m^e} \sum_{l=0}^\infty h_l^{L,e} P_l (cos \alpha)
 \end{equation}
 
-\noindent E analogamente la \textbf{funzione di Green elastica dello spostamento orizzontale}: 
+\noindent Analogamente, si definisce la \textbf{funzione di Green elastica associata allo spostamento orizzontale}: 
 
 \begin{equation}
-    \vec{\Gamma}^v (\alpha, t) \equiv \delta(t) \frac{a}{m^e} \sum_{l=0}^\infty l _l^{L,e} \partial_\alpha P_l (cos \alpha) \hat{\alpha}
+    \vec{\Gamma}^v (\alpha, t) \equiv \delta(t) \sum_{l=0}^\infty v_l^{e} \partial_\alpha P_l (cos \alpha) \hat{\alpha}
 \end{equation}
 
 \noindent
-dove $_l$ e $l_l$ sono i Loading Love Number verticali e orizzontali.\\
+con coefficienti $v_l^e$.
+Di nuovo, dato che non c'è contributo rigido, la funzione di Green per lo spostamento orizzontale totale è:
+$\vec \Gamma^v (\alpha, t) = \vec \Gamma^{v,e}$.\\
+
+\noindent
+Si definiscono i \textbf{numeri di Love per un carico orizzontale} $l_l^{L,e}$; quindi:
+
+\begin{equation}
+    \vec{\Gamma}^v (\alpha, t) \equiv \delta(t) \frac{a}{m^e} \sum_{l=0}^\infty l_l^{L,e} \partial_\alpha P_l (cos \alpha) \hat{\alpha}
+\end{equation}
 
 \noindent Si hanno così tre funzioni di Green: una per l'altezza del geoide, una per lo spostamento verticale e una per quello orizzontale.
 Per una Terra rigida si avrebbe $(h,k,l)_l^{L,e} \equiv 0$, mentre per una elastica i numeri di Love sono del tipo $j_l^L (t) = j_l ^{L,e} \delta (t)$, con $j = h, k ,l$.
@@ -3444,8 +3471,8 @@ ma presenta un contributo ritardato nel tempo dovuto al riassestamento viscoso d
 Per un modello di Terra 1D a simmetria sferica con reologia lineare i numeri di Love da carico sono funzioni causali (nulle per $t < 0$) e caratterizzate da due componenti fisicamente distinte:
 
 \begin{itemize}
-    \item Componente elastica: in fase con il carico impulsivo ($\delta$ di Dirac), dipendente esclusivamente dalle costanti elastiche e dalla densità degli strati.
-    \item Componente viscosa: ritardata rispetto al carico, sensibile al profilo reologico oltre che ai parametri elastici.
+    \item Componente elastica $k_l^{L,e} \delta (t)$: in fase con il carico impulsivo ($\delta$ di Dirac), dipendente esclusivamente dalle costanti elastiche e dalla densità degli strati.
+    \item Componente viscosa $H(t) \sum_{i=1} ^M k_{li}^L e^{s_{li}t}$: ritardata rispetto al carico, sensibile al profilo reologico oltre che ai parametri elastici.
 \end{itemize}
 
 \noindent
@@ -3469,7 +3496,7 @@ dove
 I valori dei numeri di Love al grado $l=1$ dipendono dalla scelta del sistema di riferimento;
 per convenzione, essi vengono espressi nel sistema centrato al centro di massa (CM) del sistema Terra + Carico.\\
 
-\noindent \textbf{\textcolor{colore7}{Numeri di Love per spostamenti verticali e orizzontali}}
+\noindent \textbf{\textcolor{colore7}{Numeri di Love per spostamenti verticali e orizzontali}}\\
 
 \noindent
 Nel formalismo dei modi normali viscoelastici (VNM), indicando con $x(t)$ un generico numero di Love da carico (LLN) associato a una forzante impulsiva $\delta$,
@@ -3494,7 +3521,7 @@ Per i rispettivi LLN di spostamento verticale ($h_l^L$) e orizzontale ($\ell_l^L
 dove $0 \le l \le \infty$ e $i = 1,..., M$.
 Le funzioni di Green hanno la stessa forma del caso elastico, ma i numeri di Love hanno anche una parte ritardata.\\
 
-\noindent \textbf{\textcolor{colore7}{Numeri di Love di Heaviside}}
+\noindent \textbf{\textcolor{colore7}{Numeri di Love di Heaviside}}\\
 
 \noindent
 Se il sistema è soggetto ad un carico costante nel tempo applicato istantaneamente a $t=0$, la sorgente viene modellata tramite la funzione di Heaviside $H(t)$.
@@ -3537,7 +3564,16 @@ Le equazioni di equilibrio con le opportune condizioni di regolarità e al conto
 \end{enumerate}
 
 \noindent
-Si sfrutta la simmetria del problema per separare la parte angolare da quella radiale, dal quale si ottiene un sistema di equazioni differenziali ordinarie del I ordine, che si risolve nel dominio di Laplace con il metodo dei propagatori.
+Si sfrutta la simmetria del problema per separare la parte angolare da quella radiale:
+
+\begin{equation}
+    F(r, \theta, \lambda) = f(r) \mathcal{Y} (\theta, \lambda)
+\end{equation}
+
+\noindent
+con $\mathcal{Y} (\theta, \lambda) $ una funzione armonica sferica e $f(r)$ una funzione radiale da determinare.
+Da questa si ottiene un sistema di equazioni differenziali ordinarie del I ordine,
+che si risolve nel dominio di Laplace con il metodo dei propagatori.
 
 \subsubsection{\textcolor{colore7}{Modello di Kelvin e altri modelli analitici}}
 
@@ -3599,7 +3635,7 @@ caratterizzati da distribuzioni di massa estese e variabili sia nello spazio che
 
 I carichi reali non sono statici né localizzati in un singolo punto; essi comprendono tutte le masse instabili presenti al di sopra della superficie terrestre, tra cui l'atmosfera, l'idrosfera, la criosfera e le strutture vulcaniche.
 
-\subsubsection{\textcolor{colore2}{Surface response functions (SRF)}}
+\subsubsection{\textcolor{colore2}{Surface response functions} (SRF)}
 
 Si considerano carichi distribuiti nello spazio che evolvono nel tempo.
 A partire dalle soluzioni delle equazioni di equilibrio per una sfera stratificata si ricavano i numeri di Love.

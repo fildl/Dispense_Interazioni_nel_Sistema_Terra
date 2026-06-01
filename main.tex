@@ -1,36 +1,42 @@
 \documentclass[a4paper,12pt]{book}
 
-\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[italian, british]{babel}
-\usepackage[letterpaper,top=1.9cm,bottom=2cm,left=2.2cm,right=2.2cm,marginparwidth=1.7cm]{geometry}
-\usepackage[dvipsnames]{xcolor}
+
+\usepackage[a4paper, top=1.9cm, bottom=2cm, left=2.2cm, right=2.2cm, marginparwidth=1.7cm]{geometry}
+
+\usepackage[dvipsnames, table]{xcolor}
+
 \usepackage{soul}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage{fancyhdr}
 \usepackage{sidecap}
 \usepackage{siunitx}
 \usepackage{wrapfig}
-\usepackage{subfigure}
-\usepackage{subcaption}
 \usepackage{ragged2e} 
 \usepackage[export]{adjustbox}
 \usepackage{multirow}
 \usepackage{wallpaper}
-\usepackage[table]{xcolor}
-\usepackage[font=scriptsize]{caption}
-\hypersetup{colorlinks=true, linkcolor=black}
+
+\usepackage{subcaption}
+\usepackage[font=small]{caption}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,     % Collegamenti interni (es. Indice)
+    citecolor=black,     % Citazioni bibliografiche
+    urlcolor=blue,       % Link web esterni
+    allcolors=blue       % Fallback per gli altri link
+}
 
 \pagestyle{fancy}
 \fancyhead{}
-\fancyhead[LE,RO]{\leftmark} % mostra il nome del capitolo in alto
-\fancyfoot[C]{\thepage} % numero di pagina in basso al centro
-
-%\setlength{\abovecaptionskip}{2pt}
+\fancyhead[LE,RO]{\leftmark} 
+\fancyfoot[C]{\thepage} 
 
 \definecolor{colore1}{RGB}{173,216,230}  % Azzurro chiaro  
 \definecolor{colore2}{RGB}{43,53,255}    % Blu intenso      
@@ -140,6 +146,7 @@ Grazie ai mareografi sono disponibili misure dell'andamento glaceoisostatico deg
     \label{fig:sea_level_variability}
 \end{figure}
 
+\noindent
 Un \textit{modello di aggiustamento isostatico} si basa sulla conoscenza della storia dei carichi di ghiacci e oceani, un modello reologico della Terra e un'equazione del livello marino.
 
 \begin{figure}[htb]
@@ -290,9 +297,10 @@ Per $l = 0, 1, 2, \dots$
     \item Somma di Legendre: $\frac{1}{2 sin \left(\frac{\alpha}{2} \right)} \equiv \sum_{l=0}^\infty P_l (cos \alpha)$
 \end{enumerate}
 
-\noindent \textcolor{colore4}{\textbf{Distribuzione di massa sulla superficie di una sfera}}
+\noindent \textcolor{colore4}{\textbf{Distribuzione di massa sulla superficie di una sfera}}\\
 
-Si consideri una concentrazione di massa, \textbf{MASCON}, come un ghiacciaio, distribuita sulla superficie della sfera secondo la legge:
+\noindent
+Si consideri una concentrazione di massa (\textbf{MASCON}) come un ghiacciaio, distribuita sulla superficie della sfera secondo la legge:
 
 \begin{equation}
     h(\theta) = \begin{cases}
@@ -330,16 +338,18 @@ La soluzione analitica ha la seguente forma:
 Questo caso può trovare un'applicazione nell'ambito dello scioglimento dei ghiacciai, che hanno una massa pari a quella che si ridistribuisce sulla superficie del pianeta.
 I dischi si usano anche per rappresentare la funzione Oceano.\\
 
-\noindent \textcolor{colore4}{\textbf{Mascon localizzato}}
+\noindent \textcolor{colore4}{\textbf{Mascon localizzato}}\\
 
+\noindent
 Si consideri una massa puntiforme localizzata sulla superficie della sfera tramite una funzione $\delta$ di Dirac:
 
 \begin{equation}
     h(\theta) = H \delta (1 - cos \theta) = H \sum_{l=0}^\infty h_l P_l (cos \theta) = H \sum_{l=0}^\infty \frac{2l+1}{2} P_l (cos \theta)
 \end{equation}
 
-\noindent \textcolor{colore4}{\textbf{Valore medio dei polinomi di Legendre}}
+\noindent \textcolor{colore4}{\textbf{Valore medio dei polinomi di Legendre}}\\
 
+\noindent
 Si scopre che $P_0$ ha valore medio unitario, mentre tutti gli altri polinomi di Legendre hanno media nulla.
 
 \begin{equation}
@@ -823,7 +833,7 @@ Wegener propose una forza detta \textit{Polflucht} (dal tedesco "volo dai poli")
     \end{figure}
 
     Il flusso di calore decresce con l'età del fondale, secondo la legge $q_s \propto \frac{1}{\sqrt{\text{età}}}$, che funziona molto bene con i dati disponibili.
-    Questa legge tende però a sovrastimare il flusso di calore per la litosfera più recente e sovrastimarlo per quella più antica; c'è invece maggiore accordo per la litosfera di età compresa tra 50 e 100 milioni di anni.\\
+    Questa legge tende però a sovrastimare il flusso di calore per la litosfera più recente e sottostimarlo per quella più antica; c'è invece maggiore accordo per la litosfera di età compresa tra 50 e 100 milioni di anni.\\
     
     \noindent
     Per il principio di isostasia la profondità dell'oceano aumenta per compensare la contrazione termica della litosfera, da cui la legge Batimetria = $A + B\sqrt{\text{età}}$.
@@ -905,6 +915,7 @@ Essa è caratterizzata da alcuni momenti, tra cui:
     \noindent
     dove la densità $\rho$ è definita come $\rho(\vec{x}) = dm/dV$.
     La densità media è quindi: $\bar{\rho} = M/V$.
+    La massa è invariante per trasformazioni ortogonali.
     
     \item Centro di massa (momento di ordine 1). È un vettore (tensore di rango 1) dato da:
 
@@ -921,7 +932,8 @@ Essa è caratterizzata da alcuni momenti, tra cui:
         (x_1, x_2, x_3)_{CM} = \frac{1}{M} \left(\int_V x_1 dm , \int_V x_2 dm , \int_V x_3 dm\right)
     \end{equation}
 
-    È sempre possibile scegliere un sistema di riferimento in cui il centro di massa si annulla: è il sistema in cui l'origine coincide con il centro di massa.
+    È sempre possibile scegliere un sistema di riferimento in cui il centro di massa si annulla:
+    è il sistema in cui l'origine coincide con il centro di massa.
 
     \item Momento di inerzia (momento di ordine 2). È un tensore (di rango 2) simmetrico a valori reali con 6 componenti indipendenti.
     
@@ -938,7 +950,8 @@ Essa è caratterizzata da alcuni momenti, tra cui:
         I_{ii} = \int_V (x_j^2 + x_k^2) dm
     \end{equation}
     
-    mentre i \textit{prodotti di inerzia} sono dati da:
+    Quindi, ad esempio, $I_{11} = \int_V (x_2^2 + x_3^2) dm$.
+    Mentre i \textit{prodotti di inerzia} sono dati da:
     
     \begin{equation}
         I_{ij} = I_{ji} = - \int_V x_ix_j dm
@@ -974,7 +987,7 @@ Dalla legge della gravitazione di Newton segue che il moto di due corpi puntifor
 \noindent
 Nel caso di corpi più complessi, come la Terra, le irregolarità misurate da appositi satelliti permettono di ottenere informazioni sul campo di gravità.\\
 
-\noindent Si definisce il \textit{campo gravitazionale} in un punto P:
+\noindent Si definisce il \textit{campo gravitazionale} in un punto $P$:
 
 \begin{equation}
     \vec{g}(P) \equiv \frac{\vec{F}}{m} = \frac{GM}{r^2} \hat{r}
@@ -1151,7 +1164,7 @@ La lunghezza d'onda spaziale di questi termini segue la regola di Jeans (vedi eq
 
 \subsection{\textcolor{colore7}{Coefficienti di Stokes}}
 
-Applicando il teorema di addizione (\ref{eq:addizione}) all'espansione di multipolo del campo gravitazionale nell'espressione ~\ref{eq:gravitational_field_multipole}, si ottiene un'espressione in cui non compaiono i polinomi di Legendre:
+Applicando il teorema di addizione (\ref{eq:addizione}) all'espansione di multipolo del campo gravitazionale nell'espressione \ref{eq:gravitational_field_multipole}, si ottiene un'espressione in cui non compaiono i polinomi di Legendre:
 
 \begin{equation}
     P_l(cos\beta) = \frac{1}{2l+1} \sum_{m=-l}^l \mathcal{Y}^*_{lm} (\theta', \lambda') \mathcal{Y}_{lm}(\theta, \lambda)
@@ -1213,7 +1226,8 @@ Si consideri un corpo sfericamente simmetrico (Figura \ref{fig:stokes_a}):
 \end{figure}
 
 \noindent
-con densità $   rho(\vec x) = \rho(r)$ per $0 \leq r \leq R$.
+con densità $\rho(\vec x) = \rho(r)$ per $0 \leq r \leq R$.
+
 Per questo corpo conosciamo la massa $M= 4\pi \int_0^R \rho(r) r^2 dr$, l'accelerazione di gravità
 $\vec g (r) = - \frac{GM}{r^2} \hat{r}$ e il potenziale gravitazionale $W_g(r) = \frac{GM}{r}$.\\
 
@@ -1347,6 +1361,7 @@ Questa approssimazione è detta \textit{approssimazione sferica}, segue che:
     N = \frac{T_P}{\gamma_0 + \epsilon} = \frac{T_P}{\gamma_0 (1 + \epsilon/\gamma_0)} \simeq \frac{T_P}{\gamma_0}(1 - \epsilon/\gamma_0)
 \end{equation}
 
+\noindent
 Dato che $T_P$ è una piccola perturbazione si ottiene di nuovo la formula di Brun (eq \ref{eq:Brun}).\\
 
 \noindent
@@ -3118,9 +3133,13 @@ Imponendo la condizione di isostasia sulla variabile $y$ per il ghiaccio gallegg
 \end{equation}
 
 \noindent Grazie alle proprietà della funzione oceano si cancellano dei termini che fanno restare:
-\begin{equation}
-    M(t) = \rho^i \int_e ICdA + \rho^i \int_{fl} IdA + \rho^w \int_{if}BdA + \rho^w \int_{fl}BdA - \rho^i \int_{fl} IdA = \int_e (\rho^i IC + \rho^w BO)dA
-\end{equation}
+
+\begin{align}
+M(t) &= \rho^i \int_e IC \,dA + \rho^i \int_{fl} I \,dA + \rho^w \int_{if} B \,dA + \rho^w \int_{fl} B \,dA - \rho^i \int_{fl} I \,dA \\[1ex]
+     &= \rho^i \int_e IC \,dA + \rho^w \int_{if} B \,dA + \rho^w \int_{fl} B \,dA \\[1ex]
+     &= \rho^i \int_e IC \,dA + \rho^w \int_e BO \,dA \\[1ex]
+     &= \int_e (\rho^i IC + \rho^w BO) \,dA
+\end{align}
 
 \noindent Si ottiene un'espressione utilissima per il carico superficiale:
 
@@ -3310,7 +3329,8 @@ Il carico, tuttavia, induce una variazione del potenziale gravitazionale della T
 \end{figure}
 
 \noindent
-La massa puntuale è indicata con una massa effettiva $\mu(t) = \delta(t) \delta m$, dove $\delta m$ è piccolo rispetto alla massa della Terra: $\delta m \ll m_e$.
+La massa puntuale è indicata con una massa effettiva $\mu(t) = \delta(t) \delta m$,
+dove $\delta m$ è piccolo rispetto alla massa della Terra: $\delta m \ll m^e$.
 Il carico superficiale associato è dato da:
 
 \begin{equation}
@@ -3333,7 +3353,7 @@ con:
 \noindent Dalla trigonometria:
 
 \begin{equation}
-    d(\alpha) = 2a sin\left( \frac{a}{2} \right) \Longrightarrow \varphi ^r (\alpha, t) = \delta(t) \frac{ag\delta m}{2m^e sin (\alpha/2)}
+    d(\alpha) = 2a sin\left( \frac{\alpha}{2} \right) \Longrightarrow \varphi ^r (\alpha, t) = \delta(t) \frac{ag\delta m}{2m^e sin (\alpha/2)}
 \end{equation}
 
 \noindent
@@ -3445,7 +3465,7 @@ Per una Terra rigida si avrebbe $(h,k,l)_l^{L,e} \equiv 0$, mentre per una elast
 
 \subsubsection{\textcolor{colore7}{Numeri di Love elastici}}
 
-I numeri di Love $(h, k, l)$ sono parametri adimensionali che misurano la suscettibilità della forma di un corpo planetario a un potenziale perturbativo (originariamente mareale).
+I numeri di Love $(h, k, l)$ sono \textbf{parametri adimensionali che misurano la suscettibilità della forma di un corpo planetario a un potenziale perturbativo} (originariamente mareale).
 Introdotti originariamente da Love (1909) per la risposta elastica globale alle maree, il termine può indicare:
 
 \begin{itemize}
@@ -3628,19 +3648,19 @@ Le sfere stratificate hanno molti tempi scala caratteristici che dipendono dal g
 
 \subsection{\textcolor{colore7}{Risposta a carichi superficiali finiti}}
 
-\subsubsection{\textcolor{colore2}{Motivazione}}
+\subsubsection{Motivazione}
 
 Si passa dalla schematizzazione ideale di carichi puntiformi e impulsivi allo studio di problemi di carico reali,
 caratterizzati da distribuzioni di massa estese e variabili sia nello spazio che nel tempo.
 
 I carichi reali non sono statici né localizzati in un singolo punto; essi comprendono tutte le masse instabili presenti al di sopra della superficie terrestre, tra cui l'atmosfera, l'idrosfera, la criosfera e le strutture vulcaniche.
 
-\subsubsection{\textcolor{colore2}{Surface response functions} (SRF)}
+\subsubsection{Surface response functions (SRF)}
 
 Si considerano carichi distribuiti nello spazio che evolvono nel tempo.
 A partire dalle soluzioni delle equazioni di equilibrio per una sfera stratificata si ricavano i numeri di Love.
 Da un'opportuna combinazione lineare di essi si ricavano le funzioni di Green.
-Si accoppiano le funzioni di Green con un carico superficiale grazie a una convoluzione tridimensionale per ottenere le \textbf{Surface response function} (\textbf{SRF}).
+Si accoppiano le funzioni di Green con un carico superficiale $\mathcal{L}$ grazie a una convoluzione tridimensionale per ottenere le \textbf{Surface response function} (\textbf{SRF}).
 In seguito, si fa conduce un'analisi spettrale.
 Si può arrivare alle SRF a partire dalla soluzione dell'equazione del livello marino o da un'assunzione di carico uniforme.
 
@@ -3677,6 +3697,8 @@ La convoluzione tridimensionale (data da due dimensioni spaziali e una temporale
 \end{equation}
 
 \noindent
+dove $dA = a^2 d\gamma = a^2 \sin\theta d\theta d\lambda$
+e $\cos\alpha = \cos\theta\cos\theta^\prime + \sin\theta\sin\theta^\prime \cos(\lambda - \lambda^\prime)$.\\
 $\Gamma (\gamma,t)$ dipende solo dai numeri di Love e dalle proprietà del modello, con gli effetti diretti e indiretti,
 mentre $\mathcal{L} (\gamma,t)$ dipende dalla geometria e dall'evoluzione spaziale e temporale del carico, come per esempio quello di ghiaccio e acqua.
 
@@ -3747,7 +3769,7 @@ Di conseguenza, come primo passo, si adotta un \textbf{approccio semplificato al
 \subsubsection{\textcolor{colore7}{Approccio semplificato al carico superficiale}}
 
 Mentre la Sea Level Equation (SLE) rappresenta l'equazione fondamentale per l'Aggiustamento Isostatico Glaciale (GIA), il suo utilizzo richiede un approccio gravitazionalmente coerente risolvibile solo per via numerica e iterativa. Per tale motivo, risulta utile introdurre un \textbf{problema di carico semplificato} che ammette una \textbf{soluzione analitica in forma chiusa} senza necessità di iterazioni. 
-Sebbene questo approccio trascuri l'autogravitazione e presenti limitazioni, esso consente di determinare l'ordine di grandezza delle variabili coinvolte nel GIA, di modellare in modo molto realistico il Rimbalzo Post-Glaciale (PGR).\\
+Sebbene questo approccio trascuri l'autogravitazione e presenti limitazioni, esso consente di determinare l'ordine di grandezza delle variabili coinvolte nel GIA e di modellare in modo molto realistico il Rimbalzo Post-Glaciale (PGR).\\
 
 \noindent
 Nel modello si assume che la distribuzione di massa superficiale $\sigma^{iw}(\gamma,t)$ sia una combinazione lineare del carico del ghiaccio ($\sigma^i$) e del carico dell'acqua di fusione ($\sigma^w$):
@@ -3790,6 +3812,15 @@ Il problema si generalizza  al caso di $n^i$ elementi glaciali disgiunti e non s
     \sigma^{iw}(\gamma,t) = \rho^i \sum_{n=1}^{n^i} \left( d^{i,n}(\gamma) \chi^{i,n}(\gamma) f^{i,n}(t) \right) + \rho^w d^w(t) \chi^w(\gamma)
 \end{equation}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\linewidth]{fig/simplified_SL.png}
+    \caption{Geometria del sistema composto da: 
+    $(a)$, un carico di ghiaccio $i$ ed un oceano $w$ (tra i due non c'è overlap);
+    $(b)$, molteplici carichi di ghiaccio $i_j$.
+    Le linee di costa (fisse) sono tratteggiate in rosso.}
+\end{figure}
+
 \noindent
 Generalizzazione ad \textbf{geometrie specifiche}:
 Il problema è risolvibile analiticamente per carichi superficiali assialsimmetrici attorno all'asse $z$.
@@ -3797,9 +3828,47 @@ In particolare, se lo spessore $h$ è costante si parla di \textit{Mascon}, ma s
 
 \subsubsection{\textcolor{colore7}{Carichi discoidali, carichi di calotte e altri carichi}}
 
-Nel caso di un carico dato da un disco, è possibile utilizzare il modello per descrivere carichi dalla geometria più complessa (anche se con sovrapposizioni e interstizi).
-Siccome la litosfera funge da filtro passa-basso, questo problema non costituisce una limitazione.
+Consideriamo il caso di un carico superficiale assi-simmetrico $\chi^i(\theta)$, costituito quindi da un disco:
 
+\begin{equation}
+    \chi^i(\theta) =
+    \begin{cases}
+        1 & se \quad 0 \leq \theta \leq \alpha \\
+        0 & se \quad \alpha \leq \theta \leq \pi
+    \end{cases}
+\end{equation}
+
+\noindent
+con $\alpha$ fissato.
+La funzione oceano $\chi^w(\theta)$ è complementare a $\chi^i(\theta)$:
+
+\begin{equation}
+    \chi^w(\theta) =
+    \begin{cases}
+        0 & se \quad 0 \leq \theta \leq \alpha \\
+        1 & se \quad \alpha \leq \theta \leq \pi
+    \end{cases}
+\end{equation}
+
+\noindent
+quindi i bordi della massa di ghiaccio sono a $\theta = \alpha$.
+Consideriamo lo spessore del ghiaccio $d^i(\theta)$ una funzione arbitraria (non costante) della colatitudine $\theta$.\\
+
+\noindent
+Si ottiene il valore dei coefficienti $d^{iw}_{lm}$:
+
+\begin{equation}
+    d^{iw}_{lm} = \frac{\mu_{lm} \delta_{m0}}{2l+1} \left (d_l^i - \frac{d_0^i}{\chi_0^w}\chi_l^w \right)
+\end{equation}
+
+\noindent
+Quindi per una massa con profilo a disco, tutti i coefficienti sono nulli, tranne quelli con simmetria zonale.\\
+
+\noindent
+È possibile utilizzare il modello per descrivere carichi dalla geometria più complessa (anche se con sovrapposizioni e interstizi).
+Siccome la litosfera funge da filtro passa-basso, questo problema non costituisce una limitazione.\\
+
+\noindent
 Nel caso, più realistico, di ghiacciai con il profilo parabolico, tipico delle lenzuola glaciali, si ottiene un paraboloide sulla superficie di una sfera, che ha una descrizione analitica data dai polinomi di Legendre grazie ai \textit{polinomi di Chebyshev} $T_n(\alpha) = cos (n \alpha)$.
 
 Con dei carichi rettangolari si evita il problema di sovrapposizione e interstizi, ma sono meno realistici.
@@ -3821,7 +3890,7 @@ Tiene in considerazione la reologia, la variazione dei ghiacci e del livello del
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.5\linewidth]{fig/mass_conservation_02.png}
+    \includegraphics[width=0.4\linewidth]{fig/mass_conservation_02.png}
     \caption{Conservazione della massa.}
     \label{fig:mass_cons}
 \end{figure}
@@ -3829,18 +3898,21 @@ Tiene in considerazione la reologia, la variazione dei ghiacci e del livello del
 \noindent
 Al tempo $t$ e in $\gamma$, il livello del mare può essere definito come l'offset tra la superficie del mare e la superficie solida della Terra.
 Di conseguenza, per stabilire una forma base per la SLE, confrontiamo i due stati del sistema (Terra Solida + Criosfera + Oceani) mostrati in Figura \ref{fig:mass_cons}, quindi
-uno stato di riferimento iniziale ed uno a un tempo arbitrario:
+uno stato di riferimento iniziale $(t \le 0)$:
 
 \begin{equation}
     B_0 (\gamma) = r_0^{ss} - r_0^{se}
 \end{equation}
+
+\noindent
+ed uno a un tempo arbitrario:
 
 \begin{equation}
     B(\gamma, t) = r^{ss} - r^{se}
 \end{equation}
 
 \noindent
-dove $ss$ si riferisce alla superficie del mare e $se$ a quella della Terra solida.\\
+con $r^{ss}$ il raggio della superficie del mare e $r^{se}$ quello della superficie della Terra solida.\\
 
 \noindent
 La \textbf{variazione del livello marino relativo} è data dalla differenza:
@@ -3898,37 +3970,38 @@ Si definisce così una costante non trascurabile (varia di circa $0.2 \div 0.3$ 
 \noindent Per passare a forme più complesse, si considera la media sull'oceano:
 
 \begin{equation}
-    <\mathcal{S}>^o (t) = <\mathcal{G} - \mathcal{U}>^o + <c>^o
+    \langle \mathcal{S} \rangle ^o (t) = \langle \mathcal{G} - \mathcal{U} \rangle^o + \langle c \rangle^o
 \end{equation}
 
 \noindent
-dove $<F>^o \equiv \frac{1}{A^o} \int_o F(\gamma, t) dA$.\\
+dove $\langle F\rangle^o \equiv \frac{1}{A^o} \int_o F(\gamma, t) dA$.\\
 
 \noindent Siccome $c$ è costante nello spazio, si ricava così:
 
 \begin{equation}
-    c(t) = <\mathcal{S}>^o - <\mathcal{G} - \mathcal{U}>^o
+    \langle c \rangle^o = c = \langle \mathcal{S} \rangle^o - \langle \mathcal{G} - \mathcal{U} \rangle^o
 \end{equation}
 
 \noindent Si ottiene così la \textbf{seconda forma dell'equazione del livello marino}:
 
 \begin{equation}
-    \mathcal{S}(\gamma, t) = (\mathcal{G} - \mathcal{U}) + \mathcal{S}^{ave} - <\mathcal{G} - \mathcal{U}>^o
+    \mathcal{S}(\gamma, t) = (\mathcal{G} - \mathcal{U}) + \mathcal{S}^{ave} - \langle\mathcal{G} - \mathcal{U}\rangle^o
 \end{equation}
 
 \noindent
-dove $\mathcal{S}^{ave} \equiv <\mathcal{S}>^o$.\\
+dove $\mathcal{S}^{ave} \equiv \langle \mathcal{S} \rangle^o$.\\
 
 \noindent
 Applicando la terza forma del principio di conservazione della massa (eq. \ref{eq:MCP3}), si ottiene:
 
 \begin{equation}
-    \mathcal{S}^{ave} (t) = \mathcal{S}^{equ} + \mathcal{S}^{ofu} \equiv - \frac{\mu}{\rho^w A^o} + \frac{A^e}{A^o} <T_0 \mathcal{O}>^e
+    \mathcal{S}^{ave} (t) = \mathcal{S}^{equ} + \mathcal{S}^{ofu} \equiv - \frac{\mu}{\rho^w A^o} + \frac{A^e}{A^o} \langle T_0 \mathcal{O}\rangle^e
 \end{equation}
 
 \noindent
 dove $\mathcal{S}^{equ}$ è la variazione del livello marino equivalente (non eustatico) e $\mathcal{S}^{ofu}$ è il termine associato alla variazione della funzione oceano.
-Queste due quantità sono così dinamiche, dipendendo dal tempo e dalla reologia, a differenza del livello eustatico.\\
+Dal momento in cui $A^o(t)$ e $\mathcal{O}(t)$ dipendono dall'altezza del livello del mare,
+queste due quantità sono dinamiche e dipendono quindi dal tempo e dalla reologia, a differenza del livello eustatico.\\
 
 \noindent
 La variazione dell'altezza del geoide $\mathcal{G}(\gamma, t)$ e lo spostamento verticale $\mathcal{U}(\gamma, t)$ dipendono da un carico superficiale (\textit{sur}) e dalla deformazione rotazionale (\textit{rot}):
@@ -3967,7 +4040,7 @@ quindi, tramite decomposizione della variazione del carico superficiale $\mathca
 si decompone anche $\mathcal{R}^{sur} (\gamma, t) = \mathcal{R}^a + \mathcal{R}^b + \mathcal{R}^c$.\\
 
 \noindent
-Si definisce la variabile: $\mathcal{Z}(\gamma,t) = O \mathcal{S}$, si ottiene così la \textbf{forma pseudospettrale dell'equazione del livello marino}:
+Si definisce la variabile $\mathcal{Z}(\gamma,t) = O \mathcal{S}$, si ottiene così la \textbf{forma pseudospettrale dell'equazione del livello marino}:
 
 \begin{equation}
     \mathcal{Z}(\gamma,t) = \mathcal{K}^a + \mathcal{K}^b (\mathcal{Z}) + \mathcal{K}^c + \mathcal{Z}^{ave} + \mathcal{K}^{rot} (\mathcal{Z})
@@ -3985,14 +4058,18 @@ Nella teoria classica di FC76 vengono fatte tre assunzioni semplificative, rimos
 
 \begin{enumerate}
     \item Si trascurano gli effetti della \textbf{rotazione terrestre} sul livello marino.
-    \item Si assume che le coste abbiano un \textbf{profilo verticale} (tipo scogliera) coincidente con i confini attuali tra oceani e masse continentali. Come descritto dagli stessi autori, la topografia e la batimetria irregolare vengono ignorate, a meno di non voler considerare la variazione del dominio di integrazione introducendo una funzione oceanica ($OF$) variabile nel tempo.
+    \item Si assume che le coste abbiano un \textbf{profilo verticale} (tipo scogliera) coincidente con i confini attuali tra oceani e masse continentali.
+    Come descritto dagli stessi autori, la topografia e la batimetria irregolare non influenzano il livello marino,
+    quindi vengono ignorate, a meno di non voler considerare la variazione del dominio di integrazione introducendo una funzione oceanica ($OF$) variabile nel tempo.
     \item Si trascura il ghiaccio marino \textbf{grounded}.
 \end{enumerate}
 
+\noindent
 L'equazione proposta da FC76 è un'equazione implicita ($\mathcal{S}$ compare sia a destra sia a sinistra del segno di uguale):
 
 \begin{equation}
-    \mathcal{S}(\gamma,t) = \rho^i \Gamma^s \otimes_i \mathcal{I} + \rho^w \Gamma^s \otimes_o \mathcal{S} + \mathcal{S}^{eus} - \rho^i < \Gamma^s \otimes_i \mathcal{I}>^o - \rho^w <\Gamma^s \otimes_o \mathcal{S}>^o
+    \mathcal{S}(\gamma,t) = \rho^i \Gamma^s \otimes_i \mathcal{I} + \rho^w \Gamma^s \otimes_o \mathcal{S} + \mathcal{S}^{eus} - \rho^i \langle \Gamma^s \otimes_i \mathcal{I}\rangle^o - \rho^w \langle\Gamma^s \otimes_o \mathcal{S}\rangle^o
+    \label{eq:SLE_FC76}
 \end{equation}
 
 \noindent
@@ -4006,19 +4083,39 @@ Dove:
     \begin{equation}
         \mathcal{S}^{eus}(t) = - \frac{\mu(t)}{\rho^w A^{op}}
     \end{equation}
-    dove $A^{op}$ è l'area attuale (costante) degli oceani e $\mu$ è la variazione della massa del ghiaccio.
+    con $A^{op}$ è l'area attuale (costante) degli oceani e $\mu$ è la variazione della massa del ghiaccio.
 \end{itemize}
 
 \subsubsection{\textcolor{colore7}{Natura dell'equazione del livello marino}}
 
-L'incognita $\mathcal{S}$ compare sia a destra che a sinistra, anche all'interno di convoluzioni integrali,
-per cui si tratta di un'\textit{equazione di Fredholm inomogenea del II tipo}, che ha la forma:
+Nell'equazione \ref{eq:SLE_FC76}, l'incognita $\mathcal{S}$ compare sia a destra che a sinistra, e anche all'interno di convoluzioni integrali,
+quindi è un'equazione implicita ed ha la forma 
+di un'\textit{equazione di Fredholm inomogenea del II tipo}, ovvero un'equazione implicita 1D:
 
 \begin{equation}
     u(x) = f(x) + \int_a^b K(x,x')u(x') dx'
 \end{equation}
 
-\noindent Si inizia così da una \textit{reasonable guess}, cioè assumendo $u = u^{(0)}(x)$, poi si reitera ottenendo varie approssimazioni fino a una soglia prestabilita.
+\noindent
+La funzione $u(x)$ nella SLE è l'incognita $\mathcal{S}$,
+la funzione $f(x)$ rappresenta tutti i termini RHS indipendenti da $\mathcal{S}$ dell'equazione \ref{eq:SLE_FC76},
+il kernel $K(x, x^\prime)$ rappresenta la funzione di Green per il livello del mare $\Gamma^s$.\\
+
+\noindent Si inizia così da una \textit{reasonable guess}, cioè assumendo $u = u^{(0)}(x)$:
+
+\begin{equation}
+    u^{(1)}(x) = f(x) + \int_a^b K(x,x')u^{(0)}(x') dx'
+\end{equation}
+
+\noindent
+poi si reitera ottenendo varie approssimazioni:
+
+\begin{equation}
+    u^{(n)}(x) = f(x) + \int_a^b K(x,x')u^{(n-1)}(x') dx'
+\end{equation}
+
+\noindent
+fino a una soglia prestabilita.
 
 \subsection{\textcolor{colore7}{Soluzione dell'equazione del livello marino}}
 
@@ -4034,7 +4131,7 @@ Omettendo nell'equazione FC76 tutti i termini in cui compaiono le funzioni di Gr
 Una condizione sufficiente affinché si verifichi questa soluzione è che le funzioni di spostamento verticale ($\mathcal{U}$) e di perturbazione del potenziale gravitazionale ($\mathcal{G}$) siano nulle ($\mathcal{U}=0$, $\mathcal{G}=0$).
 Ciò equivale ad assumere:
 \begin{enumerate}
-    \item Una \textbf{Terra perfettamente rigida} (trascurando la reologia terrestre).
+    \item Una \textbf{Terra perfettamente rigida} (trascurando la reologia terrestre);
     \item Una \textbf{Terra non gravitante} (assumendo la costante di Newton $G=0$), per cui la ridistribuzione di massa sulla superficie non ne perturba il potenziale gravitazionale.
 \end{enumerate}
 

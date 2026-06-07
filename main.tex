@@ -47,9 +47,7 @@
 \definecolor{colore7}{RGB}{255,0,0}      % Rosso                    
 \definecolor{colore8}{RGB}{128,0,0}      % Bordeaux              
 \definecolor{colore9}{RGB}{255,0,255}    % Magenta               
-\definecolor{colore0}{RGB}{255,255,245}  % panna                      
-
-%\pagecolor{colore0} 
+\definecolor{colore0}{RGB}{255,255,245}  % panna                       
 
 \begin{document}
 
@@ -62,8 +60,6 @@
 \clearpage
 
 \chapter{Informazioni Generali sul Corso}
-
-\noindent------------------------------------------------------------------------------------------------------------------------------
 
 \section{Sito del Corso}
 
@@ -297,7 +293,20 @@ Per $l = 0, 1, 2, \dots$
     \item Somma di Legendre: $\frac{1}{2 sin \left(\frac{\alpha}{2} \right)} \equiv \sum_{l=0}^\infty P_l (cos \alpha)$
 \end{enumerate}
 
-\noindent \textcolor{colore4}{\textbf{Distribuzione di massa sulla superficie di una sfera}}\\
+\noindent
+\textbf{Valore medio dei polinomi di Legendre}\\
+
+\noindent
+Si scopre che $P_0$ ha valore medio unitario, mentre tutti gli altri polinomi di Legendre hanno media nulla:
+
+\begin{equation}
+    \langle P_l (x) \rangle \equiv \frac{1}{2} \int _{-1} ^1 P_l (x) dx = \begin{cases}
+        1 & \text{ se } l = 0 \\ 0 & \text{ altrimenti}
+    \end{cases}
+\end{equation}
+
+\noindent
+\textcolor{colore4}{\textbf{Distribuzione di massa sulla superficie di una sfera}}\\
 
 \noindent
 Si consideri una concentrazione di massa (\textbf{MASCON}) come un ghiacciaio, distribuita sulla superficie della sfera secondo la legge:
@@ -312,7 +321,14 @@ Si consideri una concentrazione di massa (\textbf{MASCON}) come un ghiacciaio, d
 Si ha cioè un disco di spessore uniforme.
 
 \noindent
-Sfruttando le proprietà dei polinomi di Legendre, si possono trovare le costanti $h_l$ tali che $h(\theta) = \sum_{l=0}^\infty h_l P_l (cos \theta)$, cioè lo \textbf{sviluppo di $h(\theta)$ in serie di polinomi di Legendre}, in cui le costanti $h_l$ sono dette \textbf{coefficienti dello sviluppo}.
+Sfruttando le proprietà dei polinomi di Legendre, si possono trovare le costanti $h_l$ tali che
+
+\begin{equation}
+    h(\theta) = \sum_{l=0}^\infty h_l P_l (cos \theta)
+\end{equation}
+
+\noindent
+cioè lo \textbf{sviluppo di $h(\theta)$ in serie di polinomi di Legendre}, in cui le costanti $h_l$ sono dette \textbf{coefficienti dello sviluppo}.
 Si tratta di un problema inverso.
 
 \noindent
@@ -338,24 +354,14 @@ La soluzione analitica ha la seguente forma:
 Questo caso può trovare un'applicazione nell'ambito dello scioglimento dei ghiacciai, che hanno una massa pari a quella che si ridistribuisce sulla superficie del pianeta.
 I dischi si usano anche per rappresentare la funzione Oceano.\\
 
-\noindent \textcolor{colore4}{\textbf{Mascon localizzato}}\\
+\noindent
+\textcolor{colore4}{\textbf{Mascon localizzato}}\\
 
 \noindent
 Si consideri una massa puntiforme localizzata sulla superficie della sfera tramite una funzione $\delta$ di Dirac:
 
 \begin{equation}
     h(\theta) = H \delta (1 - cos \theta) = H \sum_{l=0}^\infty h_l P_l (cos \theta) = H \sum_{l=0}^\infty \frac{2l+1}{2} P_l (cos \theta)
-\end{equation}
-
-\noindent \textcolor{colore4}{\textbf{Valore medio dei polinomi di Legendre}}\\
-
-\noindent
-Si scopre che $P_0$ ha valore medio unitario, mentre tutti gli altri polinomi di Legendre hanno media nulla.
-
-\begin{equation}
-    \langle P_l (x) \rangle \equiv \frac{1}{2} \int _{-1} ^1 P_l (x) dx = \begin{cases}
-        1 & \text{ se } l = 0 \\ 0 & \text{ altrimenti}
-    \end{cases}
 \end{equation}
 
 \subsection{\textcolor{colore7}{Polinomi associati di Legendre}}
@@ -386,7 +392,9 @@ Si ottengono riscalando i $P_{lm}$ tramite la seguente relazione:
  
 \subsection{\textcolor{colore7}{Armoniche sferiche (di superficie) in forma complessa}}
 
-Note anche come "armoniche sferiche \textit{della meccanica quantistica}", sono state utilizzate poco in geodesia per via della grande potenza di calcolo richiesta, ma permettono una trattazione agevole dei calcoli teorici.
+Note anche come \textit{armoniche sferiche della meccanica quantistica}.
+Storicamente sono state poco utilizzate in geodesia per via della potenza di calcolo richiesta,
+ma permettono una trattazione agevole dei calcoli teorici.
 Sono definite da:
 
 \begin{equation}
@@ -419,7 +427,7 @@ dove
 
 \noindent Quindi sono normalizzate a $4\pi$, mentre nel caso della meccanica quantistica, le armoniche sferiche sono normalizzate a 1.\\
 
-\noindent Con queste definizioni, si ottengono delle funzioni armoniche \textit{solide} di forma:
+\noindent Con queste definizioni, si ottengono delle \textbf{funzioni armoniche solide} di forma:
 
 \begin{equation}
     f (r, \theta , \lambda) = r^l \mathcal{Y}_{lm} (\theta, \lambda) \text{ e } f (r, \theta , \lambda) = \frac{1}{r^{l+1}} \mathcal{Y}_{lm} (\theta, \lambda)
@@ -427,16 +435,18 @@ dove
 \end{equation}
 
 \noindent
-dove la prima è regolare in $r=0$, mentre la seconda diverge.
+dove la prima è regolare in $r=0$, mentre la seconda diverge.\\
 
-\noindent Una soluzione generale dell'equazione di Laplace è data allora dalla combinazione lineare:
+\noindent
+Una soluzione generale dell'equazione di Laplace è data allora dalla combinazione lineare:
 
 \begin{equation}
     F(r, \theta, \lambda) = \sum_{l=0}^\infty \sum_{m = -l}^l \left(a_{lm} r^l + \frac{b_{lm}}{r^{l+1}} \right) \mathcal{Y}_{lm} (\theta, \lambda)
     \label{eq:soluzione_laplace}
 \end{equation}
 
-\noindent Questa espressione costituisce lo sviluppo in armoniche sferiche di $F$.
+\noindent
+Questa espressione costituisce lo sviluppo in armoniche sferiche di $F$.\\
 
 \noindent
 Definendo $(a_{lm} r^l + b/ r^{l+1}) = f_{lm}$ si ottiene invece lo sviluppo in armoniche sferiche di superficie:
@@ -453,8 +463,9 @@ Si osserva un'importante analogia con lo spazio cartesiano: le armoniche sferich
 \end{equation}
 
 \noindent
-Le armoniche sferiche di grado 0 sono dette \textit{termini di monopolo}, quelle di grado 1 \textit{termini di dipolo} e quelle di grado 2 \textit{termini di quadrupolo}.
+Le armoniche sferiche di grado 0 sono dette \textit{termini di monopolo}, quelle di grado 1 \textit{termini di dipolo} e quelle di grado 2 \textit{termini di quadrupolo}.\\
 
+\noindent
 Spesso si indicano le funzioni armoniche normalizzate a 1 con $Y_{lm}$ e quelle normalizzate a $4\pi$ con $\mathcal{Y}_{lm}$.
 
 \subsection{\textcolor{colore7}{Teorema di addizione}}
@@ -502,7 +513,7 @@ Si hanno tre tipi di armoniche sferiche (Figura \ref{fig:spherical_harmonics}):
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\linewidth]{fig/spherical_harmonics.png}
+    \includegraphics[width=0.6\linewidth]{fig/spherical_harmonics.png}
     \caption{Tre tipi di armoniche sferiche.}
     \label{fig:spherical_harmonics}
 \end{figure}
@@ -712,7 +723,7 @@ Un'importante applicazione delle funzioni armoniche è quella dell'analisi spett
 \noindent Tale funzione dipende dal tempo e dal livello del mare, per cui ci si focalizza su un istante fissato e si decompone in funzioni armoniche:
 
 \begin{equation}
-    O (\gamma) = \sum_{lm}^{l_{max}} o_{lm} \mathcal{Y}_{lm} (\gamma)
+    O (\gamma) = \sum_{l=0}^{l_{max}} \sum_{m=-l}^{l} o_{lm} \mathcal{Y}_{lm} (\gamma)
 \end{equation}
 
 \noindent Risolvere il problema inverso significa determinare i coefficienti:
@@ -1216,7 +1227,7 @@ I coefficienti di grado basso dipendono dalla scelta del sistema di riferimento:
 Grazie ai satelliti, si cerca adesso di misurare la variazione nel tempo dei coefficienti di Stokes.\\
 
 \noindent
-Si consideri un corpo sfericamente simmetrico (Figura \ref{fig:stokes_a}):
+Si consideri un corpo sfericamente simmetrico (Figura \ref{fig:stokes_a}) con densità $\rho(\vec x) = \rho(r)$ per $0 \leq r \leq R$.\\
 
 \begin{figure}[!h]
     \centering
@@ -1226,10 +1237,25 @@ Si consideri un corpo sfericamente simmetrico (Figura \ref{fig:stokes_a}):
 \end{figure}
 
 \noindent
-con densità $\rho(\vec x) = \rho(r)$ per $0 \leq r \leq R$.
+Per questo corpo conosciamo la massa:
 
-Per questo corpo conosciamo la massa $M= 4\pi \int_0^R \rho(r) r^2 dr$, l'accelerazione di gravità
-$\vec g (r) = - \frac{GM}{r^2} \hat{r}$ e il potenziale gravitazionale $W_g(r) = \frac{GM}{r}$.\\
+\begin{equation}
+    M= 4\pi \int_0^R \rho(r) r^2 dr
+\end{equation}
+
+\noindent
+l'accelerazione di gravità:
+
+\begin{equation}
+    \vec g (r) = - \frac{GM}{r^2} \hat{r}
+\end{equation}
+
+\noindent
+e il potenziale gravitazionale:
+
+\begin{equation}
+    W_g(r) = \frac{GM}{r}
+\end{equation}
 
 \noindent
 I coefficienti di Stokes sono: 
@@ -1261,6 +1287,7 @@ Dal confronto con il caso di una massa puntiforme si ricava il momento di inerzi
     \frac{I_{hom}}{MR^2} = \frac{2}{5}
 \end{equation}
 
+\noindent
 Nel caso della Terra si osserva che questo rapporto vale invece 0.33, per cui non è omogenea, ma c'è una concentrazione di massa al centro, a causa dell'autocompressione e della differenziazione chimica, che fanno aumentare la densità degli strati più profondi.
 
 \subsection{\textcolor{colore7}{Ondulazioni del geoide}}
@@ -1277,27 +1304,23 @@ Per misurare le irregolarità del geoide si considera un modello di Terra ideale
     \item ruota con velocità angolare costante pari alla velocità angolare media terrestre;
     \item ha massa pari a quella terrestre;
     \item è un ellissoide a due assi;
-    \item è definita da 4 parametri geometrici;
-    \item ha un potenziale di gravità \textit{normale} dato da $U = U_g + U_c$, mentre il \textit{geoide normale} ha equazione $U=U_0$.    
-\end{itemize}
-
-\noindent
-I 4 parametri geometrici sono $a, f, M, \omega$:
-
-\begin{itemize}
-    \item $a$: semiasse maggiore;
-    \item $b$: semiasse minore;
-    \item $f = \frac{a-b}{b}>0$: schiacciamento;
-    \item $e^2 = \frac{a^2 - b^2}{a^2}$: eccentricità,
-    \item $M$: massa;
-    \item $\omega$: velocità angolare.
+    \item ha un potenziale di gravità \textit{normale} dato da $U = U_g + U_c$, mentre il \textit{geoide normale} ha equazione $U=U_0$;
+    \item è definita da 4 parametri geometrici $a, f, M, \omega$:
+    \begin{itemize}
+        \item $a$: semiasse maggiore;
+        \item $b$: semiasse minore;
+        \item $f = \frac{a-b}{b}>0$: schiacciamento;
+        \item $e^2 = \frac{a^2 - b^2}{a^2}$: eccentricità,
+        \item $M$: massa;
+        \item $\omega$: velocità angolare.
+    \end{itemize}
 \end{itemize}
 
 \noindent La differenza tra il campo di gravità del geoide e quello dell'ellissoide normale definisce le \textbf{ondulazioni del geoide}.
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.5\linewidth]{fig/ondulazioni.png}
+    \includegraphics[width=0.4\linewidth]{fig/ondulazioni.png}
     \caption{Geometria della formula di Brun. 
     $P$ e $Q$ sono punti sulla superficie del geoide e dell'ellissoide, rispettivamente.}
     \label{fig:ondulazioni}
@@ -1436,7 +1459,7 @@ Dato il suo alto albedo, la neve riflette la maggior parte della radiazione sola
 Al contempo, la sua bassa conducibilità termica funge da isolante per il terreno, proteggendo il suolo dalle rigide temperature invernali.
 
 Infine, la capacità della neve di uniformare le irregolarità del terreno riduce la resistenza al vento e modifica gli scambi energetici con l'atmosfera.
-Queste interazioni locali e regionali influenzano pesantemente il budget energetico della terra alla superficie, con efetti che si propagano influenzando la circolazione atmosferica globale.
+Queste interazioni locali e regionali influenzano pesantemente il budget energetico della terra alla superficie, con effetti che si propagano influenzando la circolazione atmosferica globale.
 
 \subsubsection{\textcolor{colore2}{Ghiaccio marino}}
 
@@ -1468,7 +1491,8 @@ Le osservazioni satellitari effettuate a partire dal 1979 mostrano che l'estensi
 Il permafrost è definito come terreno la cui temperatura rimane pari o inferiore a 0 °C per almeno due anni consecutivi.
 La sua identificazione si basa esclusivamente su criteri termici: l'acqua ghiacciata può essere presente, ma non è una condizione necessaria per la sua classificazione.
 Questa componente della criosfera è ampiamente diffusa nelle regioni artiche e subartiche, nelle zone montuose d'alta quota e le regioni prive di ghiaccio dell'Antartide.
-Nell'emisfero nord, il permafrost interessa circa 23 milioni di $km^2$, un'area superiore a due volte la superficie degli Stati Uniti continentali.\\
+Nell'emisfero nord, il permafrost interessa circa 23 milioni di $km^2$, un'area superiore a due volte la superficie degli Stati Uniti continentali.
+Circa l'80\% dell'Alaska e la totalità del terreno dell'Antartide sono coperti da permafrost.\\
 
 \noindent
 Dal punto di vista strutturale, il permafrost può essere continuo, discontinuo, sporadico e isolato.
@@ -1481,7 +1505,8 @@ Come evidenziato dai profili termici, si distinguono diverse zone:
 \end{itemize}
 
 \noindent
-La sua importanza per il sistema Terra è cruciale a causa del carbonio intrappolato al suo interno: si stima che contenga circa 1400 Gt di carbonio, quasi il doppio di quanto sia attualmente presente nell'intera atmosfera terrestre.
+La sua importanza per il sistema Terra è cruciale a causa delle tonnellate di anidride carbonica, metano e altri gas serra intrappolati al suo interno:
+si stima che contenga circa 1400 Gt di carbonio, quasi il doppio di quanto sia attualmente presente nell'intera atmosfera terrestre.
 Lo Yedoma è un tipo di permafrost risalente al Pleistocene ricco di carbonio, situato in Russia e Siberia. Si stima che un aumento della temperatura globale di $1.5^\circ$C rispetto ai livelli attuali sarebbe sufficiente per innescarne il disgelo.
 
 \subsubsection{\textcolor{colore2}{Ghiacciai}}
@@ -1492,23 +1517,21 @@ Costituiscono la più grande riserva di acqua dolce del pianeta, e sono secondi 
 \noindent
 I ghiacciai si formano a partire da precipitazioni nevose persistenti a temperature inferiori al punto di congelamento per gran parte dell'anno.
 Attraverso un processo di \textit{pressure sintering}, i cristalli di neve accumulati si fondono nei punti di contatto, espellendo l'aria e aumentando progressivamente la densità.
-Nelle regioni più fredde, come l'Antartide centrale, dove le precipitazioni sono scarse e la fusione quasi assente, questa trasformazione in ghiaccio glaciale può richiedere da secoli a millenni.\\
+Nelle regioni più fredde, come l'Antartide centrale, dove le precipitazioni sono scarse e la fusione quasi assente,
+l'accumulo di neve può essere di pochi $cm$ l'anno, quindi questa trasformazione in ghiaccio glaciale può richiedere secoli o millenni.\\
 
 \noindent
 Si categorizzano in base alla morfologia, alle caratteristiche termiche e al comportamento.
 Alcuni raggiungono velocità di alcuni metri al giorno.
 
 \begin{itemize}
-    \item Ghiacciai alpini: ricoprono montagne e valli;
+    \item Ghiacciai alpini: si formano sulle creste e sui pendii delle montagne;
     \item Calotte glaciali (\textit{ice caps}): hanno estensione inferiore a 50'000 $km^2$ e si trovano in regioni montuose;
-    \item Lenzuola glaciali (\textit{ice sheets}): hanno estensione superiore a 50'000 $km^2$. I soli due esempi esistenti sono quelli che coprono Antartide e Groenlandia.
+    \item Lenzuola glaciali (\textit{ice sheets}): hanno estensione superiore a 50'000 $km^2$.
+    Hanno uno spessore di diversi $km$, oscurando la topografia sottostante. I soli due esempi esistenti sono quelli che coprono Antartide e Groenlandia.
     \item Piattaforme glaciali (\textit{ice shelves}): porzioni di ghiaccio che galleggiano sull'acqua;
     \item Correnti glaciali (\textit{ice streams}): sezioni delle lenzuola glaciali che raggiungono la massima velocità.
 \end{itemize}
-
-\noindent
-La perdita di massa per fusione o distacco dei ghiacciai è detta \textit{ablazione} e si monitora per studiare il bilancio di massa, grazie anche a fotografie storiche.
-Se l'accumulo di massa supera l'ablazione, il ghiacciaio avanza; in caso contrario, si osserva un ritiro.\\
 
 \noindent
 Sebbene i ghiacciai rappresentino solo lo 0,5\% del ghiaccio terrestre totale, il loro scioglimento ha contribuito all'innalzamento del livello del mare nel secolo scorso in misura maggiore rispetto alle lenzuola glaciali.\\
@@ -1518,6 +1541,10 @@ Questi sistemi sono monitorati costantemente, anche attraverso ghiacciai "benchm
 
 \noindent
 L'estensione dei ghiacciai segue cicli di lungo periodo, stimati in circa 90 mila anni, legati alle variazioni dell'orbita terrestre e dell'irradiazione solare.\\
+
+\noindent
+La perdita di massa per fusione o distacco dei ghiacciai è detta \textit{ablazione} e si monitora per studiare il bilancio di massa, grazie anche a fotografie storiche.
+Se l'accumulo di massa supera l'ablazione, il ghiacciaio avanza; in caso contrario, si osserva un ritiro.\\
 
 \noindent
 I ghiacciai sono corpi mobili dotati di una propria dinamica interna.
@@ -1545,7 +1572,7 @@ In tale periodo esistevano molti ponti di ghiaccio che permisero lo spostamento 
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.4\linewidth]{fig/rimbalzo.png}
+    \includegraphics[width=0.5\linewidth]{fig/rimbalzo.png}
     \caption{Le due fasi del rimbalzo post-glaciale.}
     \label{fig:rimbalzo}
 \end{figure}
@@ -1600,11 +1627,11 @@ Il processo di perdita di massa naturale è il calving, ovvero il distacco di ic
 L'equilibrio della piattaforma è però estremamente sensibile alle variazioni termiche:
 in condizioni di stabilità, la spinta idrostatica sostiene la piattaforma e questa limita il flusso del ghiacciaio per gravità;
 l'aumento delle temperature provoca la percolazione dell'acqua nelle fratture del ghiacciaio, accelerando la disintegrazione della piattaforma.
-Quando una piattaforma si ritira oltre la \textit{grounding line}, il supporto idrostatico diminuisce. Il ghiacciaio continentale subisce una rapida accelerazione e un assottigliamento, riversando masse di ghiaccio nell'oceano.
+Quando una piattaforma si ritira oltre la \textit{grounding line}, il supporto idrostatico diminuisce. Il ghiacciaio continentale subisce una rapida accelerazione e un assottigliamento, riversando masse di ghiaccio nell'oceano.\\
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.5\linewidth]{fig/ice_shelves.png}
+    \includegraphics[width=0.6\linewidth]{fig/ice_shelves.png}
     \caption{Processo di \textit{calving} di una piattaforma glaciale.}
     \label{fig:ice_shelf}
 \end{figure}
@@ -1844,8 +1871,17 @@ Si applica uno stress costante $\sigma_0$ per un periodo finito $T$ e si misura 
 Si applica uno stress che oscilla nel tempo secondo una funzione armonica e si misurano la differenza di fase tra stress e strain, associato alla dissipazione di energia.
 
 \begin{equation}
-    \sigma(t) = H(t) sin (\omega t + \varphi) \text{ , dove } \omega = \frac{2\pi}{T} \text{ è la frequenza, } T \text{ è il periodo e } \varphi \textit{ è la fase}
+    \sigma(t) = H(t) sin (\omega t + \varphi)
 \end{equation}
+
+\noindent
+dove:
+
+\begin{itemize}
+    \item $\omega = \frac{2\pi}{T}$ è la frequenza;
+    \item $T$ è il periodo;
+    \item $\varphi$ è la fase.
+\end{itemize}
 
 \begin{figure}[H]
     \centering
@@ -1907,11 +1943,15 @@ A partire dalla sismologia è stato sviluppato il \textbf{modello PREM} (Prelimi
 All'estremo opposto dello spettro reologico rispetto ai solidi elastici si collocano i fluidi,
 ovvero corpi che fluiscono in modo costante (\textit{steady-state flow}) se sottoposti a uno stress costante,
 mostrando una deformazione che cambia continuamente nel tempo sotto qualsiasi carico, per quanto piccolo.\\
+
+\noindent
 Il loro stato cinematico è descritto dal tensore del tasso di deformazione (\textit{strain rate tensor})
 e il parametro caratteristico del materiale è la viscosità.
 Su scale temporali geologiche, anche il mantello terrestre si comporta come un fluido.\\
-In geodinamica, le due classi di fluidi più importanti sono i corpi newtoniani, in cui il tasso di deformazione è linearmente proporzionale allo stress,
-e i corpi non newtoniani, in cui il tasso di deformazione è proporzionale allo stress elevato a una potenza $n$ (con $n > 1$).\\
+
+\noindent
+In geodinamica, le due classi di fluidi più importanti sono i \textbf{corpi newtoniani}, in cui il tasso di deformazione è linearmente proporzionale allo stress,
+e i \textbf{corpi non newtoniani}, in cui il tasso di deformazione è proporzionale allo stress elevato a una potenza $n$ (con $n > 1$).\\
 
 \noindent
 L'\textit{analogo meccanico} è uno stantuffo, che mostra un comportamento viscoso in cui la risposta dipende dal tempo:
@@ -1923,6 +1963,12 @@ L'\textit{analogo meccanico} è uno stantuffo, che mostra un comportamento visco
 \noindent
 dove $k_v$ è la costante di dissipazione. Lo stress è proporzionale allo strain rate, vale cioè la \textbf{legge di Newton per i corpi fluidi}: $\sigma = \eta \dot{\varepsilon}$.\\
 
+\noindent
+\textbf{Creep test per un corpo fluido}: $\sigma = \sigma_0 H(t) \Longrightarrow \varepsilon = \frac{\sigma_0}{\eta} t H(t)$.
+
+\noindent
+\textbf{Relaxation test per un corpo fluido}: $\varepsilon = \varepsilon_0 H(t) \Longrightarrow\sigma = \eta \varepsilon_0 \delta (t)$.\\
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\linewidth]{fig/newton_tests.png}
@@ -1930,13 +1976,7 @@ dove $k_v$ è la costante di dissipazione. Lo stress è proporzionale allo strai
 \end{figure}
 
 \noindent
-\textbf{Creep test per un corpo fluido}: $\sigma = \sigma_0 H(t) \Longrightarrow \varepsilon = \frac{\sigma_0}{\eta} t H(t)$.
-
-\noindent
-\textbf{Relaxation test per un corpo fluido}: $\varepsilon = \varepsilon_0 H(t) \Longrightarrow\sigma = \eta \varepsilon_0 \delta (t)$.\\
-
-\noindent
-dove $\eta = \sigma / \dot{\varepsilon}$ è la viscosità dinamica. Dimensionalmente:
+La viscosità dinamica è $\eta = \sigma / \dot{\varepsilon}$. Dimensionalmente:
 
 \begin{equation}
     [\eta] = \frac{\text{stress}}{\text{strain rate}} = \text{pressione} \times \text{tempo} = \frac{FT}{L^2} = M L T^{-2} T L^{-2} = M L^{-1} T^{-1}
@@ -2364,13 +2404,20 @@ il corpo non ha una risposta elastica istantanea, il flusso quindi avviene con u
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{fig/kelvin_creep.png}
+    \includegraphics[width=0.5\linewidth]{fig/kelvin_creep.png}
     \caption{Creep test per un corpo di Kelvin-Voigt.}
     \label{fig:kelvin_creep}
 \end{figure}
 
 \noindent
-\textbf{Relaxation test per un corpo di Kelvin-Voigt}\\
+\textbf{Relaxation test per un corpo di Kelvin-Voigt}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{fig/kelvin_relaxation.png}
+    \caption{Relaxation test per un corpo di Kelvin-Voigt.}
+    \label{fig:kelvin_relaxation}
+\end{figure}
 
 \noindent
 $\varepsilon (t) = \varepsilon_0 H(t) \Longrightarrow \tilde{\varepsilon} = \varepsilon_0/s$.
@@ -2394,13 +2441,6 @@ Si ottiene un modulo di rilassamento, cioè il rapporto tra lo stress e lo strai
 
 \noindent
 Cioè, per un corpo di Kelvin-Voigt soggetto a strain costante lo stress non decade nel tempo.
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.5\linewidth]{fig/kelvin_relaxation.png}
-    \caption{Relaxation test per un corpo di Kelvin-Voigt.}
-    \label{fig:kelvin_relaxation}
-\end{figure}
 
 \subsection{\textcolor{colore7}{Proprietà dei modelli di H, N, M e K}}
 
@@ -2539,14 +2579,14 @@ Prevede una risposta iniziale elastica, un periodo di transizione ed una fase st
 
 \subsection{\textcolor{colore7}{Modello di Burgers}}
 
-Il \textbf{modello di Burgers} ($M - KV$) mostra un comportamento iniziale elastico, seguito da un creep transiente e da uno smorzamento delle vibrazioni su scale temporali ridotte, mentre su quelle più lunghe tende a mostrare un comportamento viscoelastico lineare.
-Si utilizza spesso per modellare la reologia del mantello.
-
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.5\linewidth]{fig/burgers_body.png}
     \caption{Analogo meccanico del modello di Burgers.}
 \end{figure}
+
+Il \textbf{modello di Burgers} ($M - KV$) mostra un comportamento iniziale elastico, seguito da un creep transiente e da uno smorzamento delle vibrazioni su scale temporali ridotte, mentre su quelle più lunghe tende a mostrare un comportamento viscoelastico lineare.
+Si utilizza spesso per modellare la reologia del mantello.\\
 
 \noindent
 \textbf{Creep test per il modello di Burgers}\\
@@ -2760,6 +2800,12 @@ Un'altra limitazione è data dalla distribuzione non omogenea dei mareografi (Fi
 Il \textit{Permanent Service for Mean Sea Level} (PSMSL) si occupa di standardizzare le misure.
 L'approccio più usato è quello dell'\textit{ordinary least squares}, grazie al quale si ottiene, per esempio, un aumento di $1.5 \pm 0.2$ mm/anno a Trieste.\\
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{fig/guage_rates.png}
+    \caption{Tassi di variazione misurati dai mareografi e loro incertezze.}
+\end{figure}
+
 \noindent
 Il \textit{best fit rate} per un numero $N_{tg}$ di mareografi dal database del PSMSL è così dato da:
 
@@ -2784,16 +2830,19 @@ Quindi la variazione misurata dal mareografo è $\rho_k = r_k \pm \sigma_k$.\\
 A causa delle oscillazioni decennali, le serie temporali di durata maggiore di 60 anni tendono a mostrare variazioni molto più contenute e incertezze minori.
 Alcuni mareografi misurano una diminuzione del livello marino a causa del rimbalzo glaceoisostatico.
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=1.0\linewidth]{fig/guage_rates.png}
-    \caption{Tassi di variazione misurati dai mareografi e loro incertezze.}
-\end{figure}
-
 \subsection{\textcolor{colore2}{Problema della contaminazione glaceoisostatica}}
 
 Un ulteriore fattore che impatta anche i record più lunghi è rappresentato dai segnali non oceanici.
 A causa dello scioglimento dei ghiacciai, si misura un rimbalzo post-glaciale in corrispondenza delle regioni in cui erano presenti delle lenzuola glaciali.
+La maggior parte, se non la totalità, dei mareografi si trova in queste zone, per cui è necessario correggere i dati per la glaceoisostasia.\\
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{fig/GIA.png}
+    \caption{Distribuzione dei mareografi (pallini neri), e mareografi con almeno 60 anni di dati (pallini verdi).}
+\end{figure}
+
+\noindent
 Altri fattori che rendono la Terra solida instabile sono i terremoti, l'estrazione di acqua dal suolo, il deposito di materiali fluviali e la cementificazione.
 A causa del maggiore carico che grava sugli oceani, anche la crosta oceanica sta subsidendo.\\
 
@@ -2881,6 +2930,12 @@ Nel 1997 Douglas propose dei \textbf{criteri di selezione} per i mareografi:
     \item in accordo ragionevole (a basse frequenze) con i mareografi vicini;
     \item lontano da aree coperte di ghiacci durante l'ultimo massimo glaciale.
 \end{enumerate}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\linewidth]{fig/D97.png}
+    \caption{Distribuzione di tutti i mareografi (sopra) e dei mareografi con criteri di selezione D97 (sotto).}
+\end{figure}
 
 \noindent
 In questo modo restano solamente 23 mareografi (tutti in accordo, ma non necessariamente accurati), grazie ai quali si ricava un aumento, corretto per la glaceoisostasia, di $1.8 \pm 0.1$ mm/anno.
@@ -3118,10 +3173,10 @@ Integrando su tutta la Terra filtrando con la funzione continente si trova la ma
 \end{equation}
 
 \noindent In maniera analoga si trova quella dell’acqua anche grazie alle regioni con ghiaccio galleggiante.
-Il water term si può scrivere anche in funzione di $y$, cioè la distanza tra il ghiaccio galleggiante e il fondale marino:
+Il \textit{water term} $M^w(t)$ si può scrivere anche in funzione di $y$, cioè la distanza tra il ghiaccio galleggiante e il fondale marino:
 
 \begin{equation}
-    M^w(t) = M^{w,if} + M^{w,fl} = \rho^w \int_{if}BdA + \rho^i\int_{fl}ydA
+    M^w(t) = M^{w,if} + M^{w,fl} = \rho^w \int_{if}BdA + \rho^w\int_{fl}ydA
 \end{equation}
 
 \noindent
@@ -3271,12 +3326,12 @@ Un'altra forma si può ottenere a partire dall'espressione all'eq. \ref{eq:varia
 \noindent Da cui si ottiene un'altra forma fondamentale:
 
 \begin{equation}
-    \mu(t) + \rho^w A^o <\mathcal{S}>^o - \rho^wA^e <T_0 \mathcal{O}>^e = 0
+    \mu(t) + \rho^w A^o \langle\mathcal{S}\rangle^o - \rho^wA^e \langle T_0 \mathcal{O}\rangle^e = 0
     \label{eq:MCP3}
 \end{equation}
 
 \noindent
-dove $<...>^o$ rappresenta la media sull'oceano, che è una superficie variabile nel tempo.\\
+dove $\langle...\rangle^o$ rappresenta la media sull'oceano, che è una superficie variabile nel tempo.\\
 
 \noindent
 Per il principio di conservazione della massa, tutta la massa del sistema (acqua + ghaiccio) resta costante.\\
@@ -3284,9 +3339,9 @@ Per il principio di conservazione della massa, tutta la massa del sistema (acqua
 \noindent \textbf{\textcolor{colore7}{Forme del principio di conservazione della massa}}:
 
 \begin{enumerate}
-    \item $M(t) = M_0$ o $\mathcal{M}(t) = 0$;
-    \item $<\mathcal{L}(\gamma, t)>^e = 0$ o $\mathcal{L}_{00} (t) = 0$;
-    \item $\mu(t) + \rho^w \int_e (BO - B_0O_0)dA = 0$ o $\mu(t) + \rho^w A^o <\mathcal{S}>^o - \rho^w A^e<T_0 \mathcal{O}>^e = 0$.
+    \item $M(t) = M_0$ o $\mathcal{M}(t) = 0$
+    \item $\langle\mathcal{L}(\gamma, t)\rangle^e = 0$ o $\mathcal{L}_{00} (t) = 0$
+    \item $\mu(t) + \rho^w \int_e (BO - B_0O_0)dA = 0$ o $\mu(t) + \rho^w A^o \langle\mathcal{S}\rangle^o - \rho^w A^e\langle T_0 \mathcal{O}\rangle^e = 0$
 \end{enumerate}
 
 \subsection{\textcolor{colore7}{Numeri di Love e funzioni di Green}}
@@ -3946,7 +4001,8 @@ Si ricava così la \textbf{forma base dell'equazione del livello marino}:
 che fornisce la variazione della superficie del mare rispetto al fondale, come viene misurata da un mareografo.\\
 
 \noindent
-$\mathcal{N}$ è legato alla variazione dell'altezza del geoide, ma differisce perché la massa dell'oceano cambia a causa della variazione della massa glaciale.
+$\mathcal{N}$ è legato alla variazione dell'altezza del geoide, ma differisce da esso perché nello stato arbitrario $B(\gamma, t)$
+il volume dell'oceano è variato rispetto allo stato di riferimento $B_0(\gamma, t)$ a causa della variazione della distribuzione dei ghiacci.
 La variazione dell'altezza del geoide è fornita dalla formula di Brun:
 
 \begin{equation}
@@ -4086,6 +4142,11 @@ Dove:
     con $A^{op}$ è l'area attuale (costante) degli oceani e $\mu$ è la variazione della massa del ghiaccio.
 \end{itemize}
 
+\noindent
+Si noti che il termine eustatico $\mathcal{S}^{eus}(t)$ non appare nella formulazione generale della SLE,
+quindi questa quantità ha senso fisico solo nel contesto della teoria classica di FC76, nella quale
+assumiamo che gli oceani sono limitati da pareti verticali.
+
 \subsubsection{\textcolor{colore7}{Natura dell'equazione del livello marino}}
 
 Nell'equazione \ref{eq:SLE_FC76}, l'incognita $\mathcal{S}$ compare sia a destra che a sinistra, e anche all'interno di convoluzioni integrali,
@@ -4124,19 +4185,32 @@ fino a una soglia prestabilita.
 Omettendo nell'equazione FC76 tutti i termini in cui compaiono le funzioni di Green, si ottiene la \textbf{soluzione eustatica}:
 
 \begin{equation}
-    \mathcal{S}(\gamma,t) = \mathcal{S}^{eus}(t) \equiv - \frac{\mu}{\rho^w A^{op}}
+    \mathcal{S}(\gamma,t) = \mathcal{S}^{eus}(t) \equiv - \frac{\mu (t)}{\rho^w A^{op}}
 \end{equation}
 
 \noindent
-Una condizione sufficiente affinché si verifichi questa soluzione è che le funzioni di spostamento verticale ($\mathcal{U}$) e di perturbazione del potenziale gravitazionale ($\mathcal{G}$) siano nulle ($\mathcal{U}=0$, $\mathcal{G}=0$).
+Una condizione sufficiente affinché si verifichi questa soluzione $(\Gamma^s = 0)$
+è che le funzioni di spostamento verticale ($\mathcal{U}$) e di perturbazione del potenziale gravitazionale ($\mathcal{G}$) siano nulle ($\mathcal{U}=0$, $\mathcal{G}=0$).
 Ciò equivale ad assumere:
 \begin{enumerate}
-    \item Una \textbf{Terra perfettamente rigida} (trascurando la reologia terrestre);
-    \item Una \textbf{Terra non gravitante} (assumendo la costante di Newton $G=0$), per cui la ridistribuzione di massa sulla superficie non ne perturba il potenziale gravitazionale.
+    \item Una \textbf{Terra perfettamente rigida}, trascurando la reologia terrestre $(\Gamma^u = 0)$;
+    \item Una \textbf{Terra non gravitante}, assumendo la costante di Newton $G=0$ $(\Gamma^u = 0)$, per cui la ridistribuzione di massa sulla superficie non ne perturba il potenziale gravitazionale.
 \end{enumerate}
 
 \noindent
-Sotto queste ipotesi, poiché la superficie della Terra non si deforma ($\mathcal{U}=0$), il livello marino relativo ($\mathcal{S}$) coincide esattamente con la variazione assoluta della superficie marina ($\mathcal{N}$), ovvero $\mathcal{S} = \mathcal{N}$. Non vi è quindi alcuna differenza tra variazione del livello marino assoluto e relativo.\\
+Sotto queste ipotesi, poiché la superficie della Terra non si deforma ($\mathcal{U}=0$),
+il livello marino relativo $\mathcal{S}$ coincide esattamente con la variazione assoluta della superficie marina ($\mathcal{N}$),
+ovvero $\mathcal{S} = \mathcal{N}$. Non vi è quindi alcuna differenza tra variazione del livello marino assoluto e relativo.\\
+
+\noindent
+Quindi, la variazione del livello marino eustatica è:
+
+\begin{equation}
+    d^w(t) = -\frac{m^i(t)}{\rho^w A^w}
+\end{equation}
+
+\noindent
+ovvero, la soluzione è univocamente determinata dalla variazione di massa del ghiaccio e dall'area degli oceani.\\
 
 \noindent
 Sebbene la soluzione eustatica sia una pessima approssimazione della realtà, esiste una relazione formale tra quest'ultima e la soluzione effettiva della SLE.
